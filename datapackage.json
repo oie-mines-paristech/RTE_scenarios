@@ -1,0 +1,223 @@
+{
+    "profile": "data-package",
+    "name": "energy-perspective-2050-switzerland",
+    "title": "Energy Perspective 2050 + scenario implementation",
+    "description": "Implementation of BAU and ZERO Basis scenarios from Energy Perspective 2050 +",
+    "version": "0.0.4",
+    "contributors":[{
+    "title": "Romain Sacchi",
+    "email": "r_s@me.com"
+    }],
+    "dependencies": {
+        "premise": ">=1.2.5"
+    },
+    "ecoinvent": {
+        "version": "3.8",
+        "system model": "cut-off"
+    },
+    "scenarios": {
+        "Business As Usual": [
+            {
+                "model": "image",
+                "pathway": "SSP2-Base"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-Base"
+            }
+        ],
+        "ZERO Basis": [
+            {
+                "model": "image",
+                "pathway": "SSP2-RCP26"
+            },
+            {
+                "model": "image",
+                "pathway": "SSP2-RCP19"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg1150"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg500"
+            }
+        ]
+    },
+    "licenses": [{
+    "id": "CC0-1.0",
+    "title": "CC0 1.0",
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }],
+    "resources": [
+        {
+            "path": "scenario_data/scenario_data.csv",
+            "profile": "tabular-data-resource",
+            "name": "scenario_data",
+            "format": "csv",
+            "mediatype": "text/csv",
+            "encoding": "utf-8-sig",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "model",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "pathway",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "scenario",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "region",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "variables",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "unit",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "2020",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "2025",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "2030",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "2035",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "2040",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "2045",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "2050",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "2060",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "2070",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "2080",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "2090",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "2100",
+                        "type": "number",
+                        "format": "default"
+                    }
+                ],
+                "missingValues": [
+                    ""
+                ]
+            }
+        },
+        {
+            "path": "inventories/lci-EP2050.csv",
+            "profile": "data-resource",
+            "name": "inventories",
+            "format": "csv",
+            "mediatype": "text/csv",
+            "encoding": "utf-8",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "amount",
+                        "type": "number",
+                        "format": "default"
+                    },
+                    {
+                        "name": "database",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "location",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "categories",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "unit",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "type",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "reference product",
+                        "type": "string",
+                        "format": "default"
+                    }
+                ],
+                "missingValues": [
+                    ""
+                ]
+            }
+        },
+        {
+            "path": "configuration_file/config.yaml",
+            "profile": "data-resource",
+            "name": "config",
+            "format": "yaml",
+            "mediatype": "text/yaml",
+            "encoding": "utf-8"
+        }
+    ]
+}

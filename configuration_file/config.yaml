@@ -1,0 +1,747 @@
+# Configuration file for custom scenarios for `premise`
+# Energy Perspective Scenario 2050+
+# https://www.bfe.admin.ch/bfe/en/home/policy/energy-perspectives-2050-plus.html/
+
+---
+
+production pathways:
+  hydro_run_of_river:
+    production volume:
+      variable: Production|Electricity|Run-of-river hydro
+    ecoinvent alias:
+      name: electricity production, hydro, run-of-river
+      reference product: electricity, high voltage
+      exists in original database: True
+ 
+  hydro_reservoir:
+    production volume:
+      variable: Production|Electricity|Reservoir
+    ecoinvent alias:
+      name: electricity production, hydro, reservoir, alpine region
+      reference product: electricity, high voltage
+      exists in original database: True
+
+  nuclear_boiling_water:
+    production volume:
+      variable: Production|Electricity|Nuclear|Boiling water reactor
+    ecoinvent alias:
+      name: electricity production, nuclear, boiling water reactor
+      reference product: electricity, high voltage
+      exists in original database: True
+
+  nuclear_pressure_water:
+    production volume:
+      variable: Production|Electricity|Nuclear|Pressure water reactor
+    ecoinvent alias:
+      name: electricity production, nuclear, pressure water reactor
+      reference product: electricity, high voltage
+      exists in original database: True
+
+  conventional_waste:
+    production volume:
+      variable: Production|Electricity|Conventional|Waste-to-Energy
+    ecoinvent alias:
+      name: treatment of municipal solid waste, incineration
+      reference product: electricity, for reuse in municipal waste incineration only
+      exists in original database: True
+
+  conventional_other:
+    production volume:
+      variable: Production|Electricity|Conventional|Other
+    ecoinvent alias:
+      name: electricity production, natural gas, combined cycle power plant
+      reference product: electricity, high voltage
+      exists in original database: True
+
+  pv:
+    production volume:
+      variable: Production|Electricity|Renewable|Photovoltaic
+    ecoinvent alias:
+      name: electricity production, photovoltaic
+      reference product: electricity, low voltage
+      exists in original database: True
+
+  wind:
+    production volume:
+      variable: Production|Electricity|Renewable|Wind turbines|Onshore
+    ecoinvent alias:
+      name: electricity production, wind, 1-3MW turbine, onshore
+      reference product: electricity, high voltage
+      exists in original database: True
+
+  geothermal:
+    production volume:
+      variable: Production|Electricity|Renewable|Geothermal
+    ecoinvent alias:
+      name: electricity production, deep geothermal
+      reference product: electricity, high voltage
+      exists in original database: True
+
+  biomass:
+    production volume:
+      variable: Production|Electricity|Renewable|Biomass
+    ecoinvent alias:
+      name: heat and power co-generation, wood chips, 6667 kW
+      reference product: electricity, high voltage
+      exists in original database: True
+
+  biogas:
+    production volume:
+      variable: Production|Electricity|Renewable|Biogas
+    ecoinvent alias:
+      name: heat and power co-generation, biogas, gas engine
+      reference product: electricity, high voltage
+      exists in original database: True
+
+  import:
+    production volume:
+      variable: Production|Electricity|Import
+    ecoinvent alias:
+      name: market for electricity, from neighboring countries, high voltage, EP2050
+      reference product: electricity, high voltage
+      exists in original database: False
+      new dataset: True
+
+  medium_to_high:
+    production volume:
+      variable: Production|Electricity|Medium to high
+    ecoinvent alias:
+      name: market for electricity, high voltage, EP2050
+      reference product: electricity, high voltage
+      exists in original database: False
+      new dataset: True
+
+  low_to_medium:
+    production volume:
+      variable: Production|Electricity|Low to medium
+    ecoinvent alias:
+      name: market for electricity, medium voltage, EP2050
+      reference product: electricity, medium voltage
+      exists in original database: False
+      new dataset: True
+
+  neighbors_hydro_reservoir:
+    production volume:
+      variable: Production|Electricity|Neighbor countries|Reservoir
+    ecoinvent alias:
+      name: electricity production, hydro, reservoir, alpine region
+      reference product: electricity, high voltage
+      exists in original database: True
+
+  neighbors_nuclear:
+    production volume:
+      variable: Production|Electricity|Neighbor countries|Nuclear
+    ecoinvent alias:
+      name: electricity production, nuclear, boiling water reactor
+      reference product: electricity, high voltage
+      exists in original database: True
+
+  neighbors_coal:
+    production volume:
+      variable: Production|Electricity|Neighbor countries|Coal
+    ecoinvent alias:
+      name: electricity production, hard coal
+      reference product: electricity, high voltage
+      exists in original database: True
+
+  neighbors_conventional_ng:
+    production volume:
+      variable: Production|Electricity|Neighbor countries|Natural gas
+    ecoinvent alias:
+      name: electricity production, natural gas, combined cycle power plant
+      reference product: electricity, high voltage
+      exists in original database: True
+
+  neighbors_conventional_waste:
+    production volume:
+      variable: Production|Electricity|Neighbor countries|Conventional|Waste-to-Energy
+    ecoinvent alias:
+      name: treatment of municipal solid waste, incineration
+      reference product: electricity, for reuse in municipal waste incineration only
+      exists in original database: True
+
+  neighbors_pv:
+    production volume:
+      variable: Production|Electricity|Neighbor countries|Renewable|Photovoltaic
+    ecoinvent alias:
+      name: electricity production, photovoltaic
+      reference product: electricity, low voltage
+      exists in original database: True
+
+  neighbors_wind_on:
+    production volume:
+      variable: Production|Electricity|Neighbor countries|Renewable|Wind turbines|Onshore
+    ecoinvent alias:
+      name: electricity production, wind, >3MW turbine, onshore
+      reference product: electricity, high voltage
+      exists in original database: True
+
+  neighbors_wind_off:
+    production volume:
+      variable: Production|Electricity|Neighbor countries|Renewable|Wind turbines|Offshore
+    ecoinvent alias:
+      name: electricity production, wind, 1-3MW turbine, offshore
+      reference product: electricity, high voltage
+      exists in original database: True
+  
+  neighbors_biomass:
+    production volume:
+      variable: Production|Electricity|Neighbor countries|Renewable|Biomass
+    ecoinvent alias:
+      name: heat and power co-generation, wood chips, 6667 kW
+      reference product: electricity, high voltage
+      exists in original database: True
+
+  neighbors_import:
+    production volume:
+      variable: Production|Electricity|Neighbor countries|Import
+    ecoinvent alias:
+      name: market group for electricity, high voltage
+      reference product: electricity, high voltage
+      exists in original database: True
+
+  diesel:
+    production volume:
+      variable: Production|Liquid fuel|Diesel|Diesel
+    ecoinvent alias:
+      name: market for diesel, low-sulfur
+      reference product: diesel, low-sulfur
+      exists in original database: True
+
+  biodiesel:
+    production volume:
+      variable: Production|Liquid fuel|Diesel|Biodiesel
+    ecoinvent alias:
+      name: Biodiesel, from rapeseed oil, at fuelling station
+      reference product: biodiesel, vehicle grade
+      exists in original database: True
+
+  syndiesel:
+    production volume:
+      variable: Production|Liquid fuel|Diesel|Synthetic diesel
+    ecoinvent alias:
+      name: diesel production, synthetic, from Fischer Tropsch process, hydrogen from electrolysis, energy allocation, at fuelling station, EP2050
+      reference product: diesel, synthetic, vehicle grade
+      exists in original database: True
+
+  petrol:
+    production volume:
+      variable: Production|Liquid fuel|Petrol|Petrol
+    ecoinvent alias:
+      name: market for petrol, low-sulfur
+      reference product: petrol, low-sulfur
+      exists in original database: True
+
+  bioethanol:
+    production volume:
+      variable: Production|Liquid fuel|Petrol|Bioethanol
+    ecoinvent alias:
+      name: ethanol production from sugar beet
+      reference product: ethanol, without water, in 95% solution state, from fermentation
+      exists in original database: True
+
+  synpetrol:
+    production volume:
+      variable: Production|Liquid fuel|Petrol|Synthetic petrol
+    ecoinvent alias:
+      name: gasoline production, synthetic, from methanol, hydrogen from electrolysis, CO2 from DAC, energy allocation, at fuelling station, EP2050
+      reference product: gasoline, synthetic, vehicle grade
+      exists in original database: True
+
+  electrolysis_hydrogen:
+    production volume:
+      variable: Production|Gaseous fuel|Hydrogen|Domestic|Electrolysis
+    efficiency:
+      - variable: Efficiency|Gaseous fuel|Hydrogen|Domestic|Electrolysis
+        includes:
+          technosphere:
+            - electricity
+    ecoinvent alias:
+        name: hydrogen production, electrolysis, 25 bar, domestic, EP2050
+        reference product: hydrogen, gaseous
+        exists in original database: True
+
+  electrolysis_hydrogen_import:
+    production volume:
+      variable: Production|Gaseous fuel|Hydrogen|Neighboring countries|Electrolysis
+    efficiency:
+      - variable: Efficiency|Gaseous fuel|Hydrogen|Neighboring countries|Electrolysis
+        includes:
+          technosphere:
+            - electricity
+    ecoinvent alias:
+      name: hydrogen production, electrolysis, 25 bar, imported, EP2050
+      reference product: hydrogen, gaseous
+      exists in original database: True
+
+    replaces:
+      - name: hydrogen production, gaseous, 25 bar, from electrolysis
+        product: Hydrogen, gaseous, 25 bar
+
+    replaces in:
+      - name: Carbon monoxide, from RWGS, for Fischer Tropsch process, hydrogen from electrolysis, EP2050
+        reference product: Carbon monoxide, from RWGS
+        location: CH
+
+      - name: Syngas, RWGS, Production, for Fischer Tropsch process, hydrogen from electrolysis, EP2050
+        reference product: Syngas, RWGS, Production, for Fischer Tropsch process, hydrogen from electrolysis
+        location: CH
+
+      - name: gasoline production, from methanol, hydrogen from electrolysis, CO2 from DAC, energy allocation, EP2050
+        reference product: gasoline, synthetic
+        location: CH
+
+      - name: methanol synthesis, hydrogen from electrolysis, CO2 from DAC, EP2050
+        reference product: methanol, unpurified
+        location: CH
+
+      - name: methane, from electrochemical methanation, with carbon from atmospheric CO2 capture, EP2050
+        reference product: methane, from electrochemical methanation
+        location: CH
+
+  hydrogen_liquid:
+    production volume:
+      variable: Production|Gaseous fuel|Hydrogen|Gaseous to liquid
+    ecoinvent alias:
+      name: market for hydrogen, gaseous, EP2050
+      reference product: hydrogen, gaseous
+      exists in original database: False
+      new dataset: True
+
+  DAC:
+    production volume:
+      variable: Production|Liquid fuel|DAC
+    ecoinvent alias:
+      name: carbon dioxide, captured from atmosphere, EP2050
+      reference product: carbon dioxide, captured from the atmosphere
+      exists in original database: False
+
+    replaces:
+      - name: carbon dioxide, captured from atmosphere
+        product: carbon dioxide, captured from the atmosphere
+
+    replaces in:
+      - name: Carbon monoxide, from RWGS, for Fischer Tropsch process, hydrogen from electrolysis, EP205
+        reference product: Carbon monoxide, from RWGS
+        location: CH
+
+      - name: methanol synthesis, hydrogen from electrolysis, CO2 from DAC, EP2050
+        reference product: methanol, unpurified
+        location: CH
+
+      - name: methane, from electrochemical methanation, with carbon from atmospheric CO2 capture, EP2050
+        reference product: methane, from electrochemical methanation
+        location: CH
+
+  CNG:
+    production volume:
+      variable: Production|Gaseous fuel|CNG
+    ecoinvent alias:
+      name: natural gas, high pressure, at consumer
+      reference product: natural gas, high pressure, at consumer
+      exists in original database: True
+
+  LNG:
+    production volume:
+      variable: Production|Gaseous fuel|LNG
+    ecoinvent alias:
+      name: market for natural gas, liquefied
+      reference product: natural gas, liquefied
+      exists in original database: True
+
+  biomethane:
+    production volume:
+      variable: Production|Gaseous fuel|Biomethane
+    ecoinvent alias:
+      name: market for biomethane, high pressure
+      reference product: biomethane, high pressure
+      exists in original database: True
+
+  syngas:
+    production volume:
+      variable: Production|Gaseous fuel|Synthetic gas
+    ecoinvent alias:
+      name: Methane, synthetic, gaseous, 5 bar, from electrochemical methanation, at fuelling station, EP2050
+      reference product: methane, high pressure
+      exists in original database: True
+
+  low_to_high_pressure_gas:
+    production volume:
+      variable: Production|Gaseous fuel|Low to high
+    ecoinvent alias:
+      name: market for compressed gas, high pressure, EP2050
+      reference product: compressed gas
+      exists in original database: False
+      new dataset: True
+
+markets:
+
+  - name: market for compressed gas, high pressure, EP2050
+    reference product: compressed gas
+    unit: cubic meter
+    includes:
+      - CNG
+      - LNG
+      - biomethane
+      - syngas
+    except regions:
+      - World
+
+  - name: market for compressed gas, low pressure, EP2050
+    reference product: compressed gas
+    unit: cubic meter
+
+    includes:
+      - low_to_high_pressure_gas
+
+    efficiency:
+      - variable: Distribution losses|Gaseous fuel|Low to high
+
+    add:
+      - name: natural gas, burned in gas turbine
+        reference product: natural gas, burned in gas turbine
+        amount: 0.044118
+      - name: market for pipeline, natural gas, low pressure distribution network
+        reference product: pipeline, natural gas, low pressure distribution network
+        amount: 1.43e-7
+      - name: Butane
+        categories: air::non-urban air or from high stacks
+        unit: kilogram
+        amount: 1.56e-05
+      - name: Carbon dioxide, fossil
+        categories: air::non-urban air or from high stacks
+        unit: kilogram
+        amount: 5.63e-05
+      - name: Ethane
+        categories: air::non-urban air or from high stacks
+        unit: kilogram
+        amount: 1.35e-04
+      - name: Methane, fossil
+        categories: air::non-urban air or from high stacks
+        unit: kilogram
+        amount: 0.001628712
+      - name: NMVOC, non-methane volatile organic compounds, unspecified origin
+        categories: air::non-urban air or from high stacks
+        unit: kilogram
+        amount: 1.123812e-06
+      - name: Propane
+        categories: air::non-urban air or from high stacks
+        unit: kilogram
+        amount: 3.035e-05
+
+    except regions:
+      - World
+
+  - name: market for hydrogen, gaseous, EP2050
+    reference product: hydrogen, gaseous
+    unit: kilogram
+    includes:
+      - electrolysis_hydrogen
+      - electrolysis_hydrogen_import
+
+    add:
+
+      - name: solution mining for geological hydrogen storage
+        reference product: solution mining
+        amount: 1.0
+
+      - name: geological hydrogen storage
+        reference product: hydrogen storage
+        amount: 1.0
+
+      - name: market for transport, freight, lorry, unspecified
+        reference product: transport, freight, lorry, unspecified
+        amount: 0.2
+
+      - name: Hydrogen
+        categories: air::non-urban air or from high stacks
+        unit: kilogram
+        amount: 0.01
+
+    efficiency:
+      - variable: Cushion gas|Gaseous fuel|Hydrogen|Geological storage
+        includes:
+          technosphere:
+            - name: hydrogen production
+
+    except regions:
+      - World
+
+  - name: market for hydrogen, liquid, EP2050
+    reference product: hydrogen, liquid
+    unit: kilogram
+    includes:
+      - hydrogen_liquid
+
+    add:
+      - name: high pressure hydrogen storage tank
+        reference product: high pressure hydrogen storage tank
+        amount: 1.37e-4
+
+      - name: market for electricity, low voltage
+        reference product: electricity, low voltage
+        amount: 12.0
+
+      - name: market for transport, freight, lorry, unspecified
+        reference product: transport, freight, lorry, unspecified
+        amount: 0.2
+
+
+      - name: Hydrogen
+        categories: air::non-urban air or from high stacks
+        unit: kilogram
+        amount: 0.01
+
+    efficiency:
+      - variable: Efficiency|Gaseous fuel|Hydrogen|Liquefaction
+        includes:
+          technosphere:
+            - name: electricity
+
+      - variable: Distribution losses|Gaseous fuel|Hydrogen|Liquefaction
+        includes:
+          technosphere:
+            - name: hydrogen
+          biosphere:
+            - name: Hydrogen
+
+      - variable: Distribution losses|Gaseous fuel|Hydrogen|Evaporation
+        includes:
+          technosphere:
+            - name: hydrogen
+
+      - variable: Distribution losses|Gaseous fuel|Hydrogen|Leakage
+        includes:
+          biosphere:
+              - name: Hydrogen
+
+    except regions:
+      - World
+
+    replaces:
+      - name: market for hydrogen, liquid
+        product: hydrogen, liquid
+
+    replaces in:
+      - location: CH
+
+  - name: market for diesel, EP2050
+    reference product: diesel
+    unit: kilogram
+    includes:
+      - diesel
+      - biodiesel
+      - syndiesel
+
+    except regions:
+      - World
+
+  - name: market for petrol, EP2050
+    reference product: petrol
+    unit: kilogram
+    includes:
+      - petrol
+      - bioethanol
+      - synpetrol
+
+    except regions:
+      - World
+
+  - name: market for electricity, from neighboring countries, high voltage, EP2050
+    reference product: electricity, high voltage
+    unit: kilowatt hour
+    includes:
+      - neighbors_hydro_reservoir
+      - neighbors_nuclear
+      - neighbors_coal
+      - neighbors_conventional_ng
+      - conventional_waste
+      - neighbors_pv
+      - neighbors_wind_on
+      - neighbors_wind_off
+      - neighbors_biomass
+      - neighbors_import
+
+    add:
+
+      - name: transmission network construction, long-distance
+        reference product: transmission network, long-distance
+        amount: 3.17e-10
+
+      - name: transmission network construction, electricity, high voltage
+        reference product: transmission network, electricity, high voltage
+        amount: 6.58e-09
+
+      - name: Dinitrogen monoxide
+        categories: air
+        unit: kilogram
+        amount: 5.0e-06
+
+      - name: Ozone
+        categories: air
+        unit: kilogram
+        amount: 4.16e-06
+    
+    except regions:
+      - World
+
+    replaces:
+      - name: market for electricity, low voltage
+        product: electricity, low voltage
+      - name: market group for electricity, medium voltage
+        product: electricity, medium voltage
+      - name: market group for electricity, low voltage
+        product: electricity, low voltage
+
+    replaces in:
+      - name: hydrogen production, electrolysis, 25 bar, imported, EP2050
+        reference product: hydrogen, gaseous
+        location: CH
+
+      - name: carbon dioxide, captured from atmosphere, EP2050
+        reference product: carbon dioxide, captured from the atmosphere
+        location: CH
+
+      - name: diesel production, synthetic, from Fischer Tropsch process, hydrogen from electrolysis, energy allocation, at fuelling station, EP2050
+        reference product: diesel, synthetic, vehicle grade
+        location: CH
+
+      - name: diesel production, synthetic, from Fischer Tropsch process, hydrogen from electrolysis, energy allocation, at fuelling station, EP2050
+        reference product: diesel, synthetic, vehicle grade
+        location: CH
+
+      - name: gasoline production, synthetic, from methanol, hydrogen from electrolysis, CO2 from DAC, energy allocation, at fuelling station, EP2050
+        reference product: gasoline, synthetic, vehicle grade
+        location: CH
+
+      - name: gasoline production, from methanol, hydrogen from electrolysis, CO2 from DAC, energy allocation, EP2050
+        reference product: gasoline, synthetic
+        location: CH
+
+      - name: methanol synthesis, hydrogen from electrolysis, CO2 from DAC, EP2050
+        reference product: methanol, unpurified
+        location: CH
+
+      - name: methanol distillation, hydrogen from electrolysis, CO2 from DAC, EP2050
+        reference product: methanol, purified
+        location: CH
+
+      - name: Methane, synthetic, gaseous, 5 bar, from electrochemical methanation, at fuelling station, EP2050
+        reference product: methane, high pressure
+        location: CH
+
+
+  - name: market for electricity, high voltage, EP2050
+    reference product: electricity, high voltage
+    unit: kilowatt hour
+    includes:
+      - hydro_run_of_river
+      - hydro_reservoir
+      - nuclear_boiling_water
+      - nuclear_pressure_water
+      - conventional_waste
+      - conventional_other
+      - pv
+      - wind
+      - geothermal
+      - biomass
+      - biogas
+      - import
+
+    add:
+      - name: transmission network construction, long-distance
+        reference product: transmission network, long-distance
+        amount: 3.17e-10
+
+      - name: transmission network construction, electricity, high voltage
+        reference product: transmission network, electricity, high voltage
+        amount: 6.58e-09
+
+      - name: Dinitrogen monoxide
+        categories: air
+        unit: kilogram
+        amount: 5.0e-06
+
+      - name: Ozone
+        categories: air
+        unit: kilogram
+        amount: 4.16e-06
+
+    replaces:
+      - name: market for electricity, high voltage
+        product: electricity, high voltage
+        location: CH
+
+    replaces in:
+      - location: CH
+
+    except regions:
+      - World
+
+  - name: market for electricity, medium voltage, EP2050
+    reference product: electricity, medium voltage
+    unit: kilowatt hour
+    includes:
+      - medium_to_high
+
+    add:
+      - name: market for sulfur hexafluoride, liquid
+        reference product: sulfur hexafluoride, liquid
+        amount: 5.4e-08
+
+      - name: transmission network construction, electricity, medium voltage
+        reference product: transmission network, electricity, medium voltage
+        amount: 1.86e-08
+
+      - name: Sulfur hexafluoride
+        categories: air
+        unit: kilogram
+        amount: 5.4e-08
+
+    efficiency:
+      - variable: Transmission losses|Electricity|Medium to high
+
+    replaces:
+      - name: market for electricity, medium voltage
+        product: electricity, medium voltage
+        location: CH
+
+    replaces in:
+      - location: CH
+
+    except regions:
+      - World
+
+  - name: market for electricity, low voltage, EP2050
+    reference product: electricity, low voltage
+    unit: kilowatt hour
+    includes:
+      - low_to_medium
+
+    add:
+      - name: market for sulfur hexafluoride, liquid
+        reference product: sulfur hexafluoride, liquid
+        amount: 2.99e-09
+
+      - name: distribution network construction, electricity, low voltage
+        reference product: distribution network, electricity, low voltage
+        amount: 8.74e-08
+
+      - name: Sulfur hexafluoride
+        categories: air
+        unit: kilogram
+        amount: 2.99e-09
+
+    efficiency:
+      - variable: Distribution losses|Electricity|Low to medium
+
+    replaces:
+      - name: market for electricity, low voltage
+        product: electricity, low voltage
+        location: CH
+
+    replaces in:
+      - location: CH
+
+    except regions:
+      - World
