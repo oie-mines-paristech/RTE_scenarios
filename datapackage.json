@@ -37,8 +37,24 @@
                 "pathway": "SSP2-Base"
             },
             {
+                "model": "image",
+                "pathway": "SSP2-RCP26"
+            },
+            {
+                "model": "image",
+                "pathway": "SSP2-RCP19"
+            },
+            {
                 "model": "remind",
                 "pathway": "SSP2-Npi"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg1150"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg500"
             }
         ],
         "Extensive reindustrialization M0": [
@@ -47,8 +63,24 @@
                 "pathway": "SSP2-Base"
             },
             {
+                "model": "image",
+                "pathway": "SSP2-RCP26"
+            },
+            {
+                "model": "image",
+                "pathway": "SSP2-RCP19"
+            },
+            {
                 "model": "remind",
                 "pathway": "SSP2-Npi"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg1150"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg500"
             }
         ],
         "Sobriety M0": [
@@ -57,8 +89,24 @@
                 "pathway": "SSP2-Base"
             },
             {
+                "model": "image",
+                "pathway": "SSP2-RCP26"
+            },
+            {
+                "model": "image",
+                "pathway": "SSP2-RCP19"
+            },
+            {
                 "model": "remind",
                 "pathway": "SSP2-Npi"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg1150"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg500"
             }
         ],
         "Reference M1": [
@@ -67,8 +115,24 @@
                 "pathway": "SSP2-Base"
             },
             {
+                "model": "image",
+                "pathway": "SSP2-RCP26"
+            },
+            {
+                "model": "image",
+                "pathway": "SSP2-RCP19"
+            },
+            {
                 "model": "remind",
                 "pathway": "SSP2-Npi"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg1150"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg500"
             }
         ],
         "Extensive reindustrialization M1": [
@@ -77,8 +141,24 @@
                 "pathway": "SSP2-Base"
             },
             {
+                "model": "image",
+                "pathway": "SSP2-RCP26"
+            },
+            {
+                "model": "image",
+                "pathway": "SSP2-RCP19"
+            },
+            {
                 "model": "remind",
                 "pathway": "SSP2-Npi"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg1150"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg500"
             }
         ],
         "Sobriety M1": [
@@ -87,8 +167,24 @@
                 "pathway": "SSP2-Base"
             },
             {
+                "model": "image",
+                "pathway": "SSP2-RCP26"
+            },
+            {
+                "model": "image",
+                "pathway": "SSP2-RCP19"
+            },
+            {
                 "model": "remind",
                 "pathway": "SSP2-Npi"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg1150"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg500"
             }
         ],
         "Reference M23": [
@@ -97,8 +193,24 @@
                 "pathway": "SSP2-Base"
             },
             {
+                "model": "image",
+                "pathway": "SSP2-RCP26"
+            },
+            {
+                "model": "image",
+                "pathway": "SSP2-RCP19"
+            },
+            {
                 "model": "remind",
                 "pathway": "SSP2-Npi"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg1150"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg500"
             }
         ],
         "Extensive reindustrialization M23": [
@@ -107,8 +219,24 @@
                 "pathway": "SSP2-Base"
             },
             {
+                "model": "image",
+                "pathway": "SSP2-RCP26"
+            },
+            {
+                "model": "image",
+                "pathway": "SSP2-RCP19"
+            },
+            {
                 "model": "remind",
                 "pathway": "SSP2-Npi"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg1150"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg500"
             }
         ],
         "Sobriety M23": [
@@ -117,8 +245,24 @@
                 "pathway": "SSP2-Base"
             },
             {
+                "model": "image",
+                "pathway": "SSP2-RCP26"
+            },
+            {
+                "model": "image",
+                "pathway": "SSP2-RCP19"
+            },
+            {
                 "model": "remind",
                 "pathway": "SSP2-Npi"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg1150"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg500"
             }
         ],
         "Reference N1": [
@@ -127,8 +271,24 @@
                 "pathway": "SSP2-Base"
             },
             {
+                "model": "image",
+                "pathway": "SSP2-RCP26"
+            },
+            {
+                "model": "image",
+                "pathway": "SSP2-RCP19"
+            },
+            {
                 "model": "remind",
                 "pathway": "SSP2-Npi"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg1150"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg500"
             }
         ],
         "Extensive reindustrialization N1": [
@@ -137,8 +297,24 @@
                 "pathway": "SSP2-Base"
             },
             {
+                "model": "image",
+                "pathway": "SSP2-RCP26"
+            },
+            {
+                "model": "image",
+                "pathway": "SSP2-RCP19"
+            },
+            {
                 "model": "remind",
                 "pathway": "SSP2-Npi"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg1150"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg500"
             }
         ],
         "Sobriety N1": [
@@ -147,8 +323,24 @@
                 "pathway": "SSP2-Base"
             },
             {
+                "model": "image",
+                "pathway": "SSP2-RCP26"
+            },
+            {
+                "model": "image",
+                "pathway": "SSP2-RCP19"
+            },
+            {
                 "model": "remind",
                 "pathway": "SSP2-Npi"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg1150"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg500"
             }
         ],
         "Reference N2": [
@@ -157,8 +349,24 @@
                 "pathway": "SSP2-Base"
             },
             {
+                "model": "image",
+                "pathway": "SSP2-RCP26"
+            },
+            {
+                "model": "image",
+                "pathway": "SSP2-RCP19"
+            },
+            {
                 "model": "remind",
                 "pathway": "SSP2-Npi"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg1150"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg500"
             }
         ],
         "Extensive reindustrialization N2": [
@@ -167,8 +375,24 @@
                 "pathway": "SSP2-Base"
             },
             {
+                "model": "image",
+                "pathway": "SSP2-RCP26"
+            },
+            {
+                "model": "image",
+                "pathway": "SSP2-RCP19"
+            },
+            {
                 "model": "remind",
                 "pathway": "SSP2-Npi"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg1150"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg500"
             }
         ],
         "Sobriety N2": [
@@ -177,8 +401,24 @@
                 "pathway": "SSP2-Base"
             },
             {
+                "model": "image",
+                "pathway": "SSP2-RCP26"
+            },
+            {
+                "model": "image",
+                "pathway": "SSP2-RCP19"
+            },
+            {
                 "model": "remind",
                 "pathway": "SSP2-Npi"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg1150"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg500"
             }
         ],
         "Reference N03": [
@@ -187,8 +427,24 @@
                 "pathway": "SSP2-Base"
             },
             {
+                "model": "image",
+                "pathway": "SSP2-RCP26"
+            },
+            {
+                "model": "image",
+                "pathway": "SSP2-RCP19"
+            },
+            {
                 "model": "remind",
                 "pathway": "SSP2-Npi"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg1150"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg500"
             }
         ],
         "Extensive reindustrialization N03": [
@@ -197,8 +453,24 @@
                 "pathway": "SSP2-Base"
             },
             {
+                "model": "image",
+                "pathway": "SSP2-RCP26"
+            },
+            {
+                "model": "image",
+                "pathway": "SSP2-RCP19"
+            },
+            {
                 "model": "remind",
                 "pathway": "SSP2-Npi"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg1150"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg500"
             }
         ],
         "Sobriety N03": [
@@ -207,8 +479,24 @@
                 "pathway": "SSP2-Base"
             },
             {
+                "model": "image",
+                "pathway": "SSP2-RCP26"
+            },
+            {
+                "model": "image",
+                "pathway": "SSP2-RCP19"
+            },
+            {
                 "model": "remind",
                 "pathway": "SSP2-Npi"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg1150"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-PkBudg500"
             }
         ]
     },
