@@ -1,47 +1,214 @@
 {
     "profile": "data-package",
-    "name": "energy-perspective-2050-switzerland",
-    "title": "Energy Perspective 2050 + scenario implementation",
-    "description": "Implementation of BAU and ZERO Basis scenarios from Energy Perspective 2050 +",
-    "version": "0.0.4",
+    "name": "futurs-energetiques-2050",
+    "title": "Futurs énergétiques 2050",
+    "description": "Implementation of the electricity and hydrogen scenarios described in Futurs énergétiques 2050",
+    "version": "1.0.0",
     "contributors":[{
+    "title": "Joanna Schlesinger",
+    "email": "joanna.schlesinger@minesparis.psl.eu"
+    },{
     "title": "Romain Sacchi",
     "email": "r_s@me.com"
     }],
     "dependencies": {
-        "premise": ">=1.2.5"
+        "premise": ">=1.3.8"
     },
     "ecoinvent": {
         "version": "3.8",
         "system model": "cut-off"
     },
+    "scenarios decription": {
+        "Reference": "Gradual electrification (substitution for fossil fuels) and ambitious targets for\nenergy efficiency (NLCS assumption). Assumes continued economic growth\n(+1.3% per year from 2030) and demographic growth (INSEE’s low fertility\nscenario). The baseline trajectory assumes a high degree of efficacy of public\npolicies and plans (stimulus, hydrogen, industry). The manufacturing industry\nexpands, and its share of GDP ceases to decrease. Building renovation is\nfactored in but so is the related rebound effect.",
+        "Sobriety": "Lifestyles change to increase energy sufficiency in terms of end-uses\nand consumption (less individual travel favouring soft mobility and mass\ntransport, less consumption of manufactured goods, sharing economy,\nlower set point temperatures for heating, increase in remote working,\ndigital sustainability, etc.), resulting in an overall reduction in energy\nneeds, and thus electricity needs.",
+        "Extensive reindustrialization": "Without returning to the same level as the early 1990s, the manufacturing\nindustry’s share of GDP rebounds sharply, reaching 12-13% in 2050.\nThis scenario models an investment in cutting edge, strategic technologies\nand takes into account the reshoring of some high-carbon production\nin order to reduce the carbon footprint of consumption in France.",
+        "Generation - M0": "Nuclear is phased out in 2050:\nthe decommissioning of existing\nnuclear reactors is accelerated\nand the rate of development of\nsolar, wind and marine energies\nis pushed to the maximum.",
+        "Generation - M1": "Very robust development of\ndistributed renewable generation\nacross the country driven in large\npart by solar. This development\nimplies strong mobilisation\non the part of local actors\nand governments.",
+        "Generation - M23": "Very robust development of all\nrenewable technologies, driven\nnotably by the installation of large\nonshore and offshore wind farms.\nFocus on economic optimisation and\nthe technologies and geographic\nareas with the highest efficiency\nto allow economies of scale.",
+        "Generation - N1": "Launch of a programme to build\nnew nuclear reactors, developed\nin pairs on existing sites every\nfive years starting in 2035.\nRobust development of renewables\nto offset the decommissioning of\nsecond-generation nuclear plants.",
+        "Generation - N2": "Launch of a programme calling\nfor the faster development of new\nreactors (a pair every three years)\nfrom 2035 with a gradual ramp-up.\nRenewable energy development\ncontinues but at a slower pace\nthan in scenarios N1 and M.",
+        "Generation - N03": "The generation mix is evenly split\nbetween renewables and nuclear\nin 2050. This implies keeping\nexisting nuclear power plants\nin service for as long as possible\nand proactively developing a\ndiversified mix of new nuclear\n(EPR 2 + SMR)."
+    },
+    "source": "https://assets.rte-france.com/prod/public/2022-01/Energy%20pathways%202050_Key%20results.pdf",
     "scenarios": {
-        "Business As Usual": [
+        "Reference M0": [
             {
                 "model": "image",
                 "pathway": "SSP2-Base"
             },
             {
                 "model": "remind",
-                "pathway": "SSP2-Base"
+                "pathway": "SSP2-Npi"
             }
         ],
-        "ZERO Basis": [
+        "Extensive reindustrialization M0": [
             {
                 "model": "image",
-                "pathway": "SSP2-RCP26"
-            },
-            {
-                "model": "image",
-                "pathway": "SSP2-RCP19"
+                "pathway": "SSP2-Base"
             },
             {
                 "model": "remind",
-                "pathway": "SSP2-PkBudg1150"
+                "pathway": "SSP2-Npi"
+            }
+        ],
+        "Sobriety M0": [
+            {
+                "model": "image",
+                "pathway": "SSP2-Base"
             },
             {
                 "model": "remind",
-                "pathway": "SSP2-PkBudg500"
+                "pathway": "SSP2-Npi"
+            }
+        ],
+        "Reference M1": [
+            {
+                "model": "image",
+                "pathway": "SSP2-Base"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-Npi"
+            }
+        ],
+        "Extensive reindustrialization M1": [
+            {
+                "model": "image",
+                "pathway": "SSP2-Base"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-Npi"
+            }
+        ],
+        "Sobriety M1": [
+            {
+                "model": "image",
+                "pathway": "SSP2-Base"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-Npi"
+            }
+        ],
+        "Reference M23": [
+            {
+                "model": "image",
+                "pathway": "SSP2-Base"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-Npi"
+            }
+        ],
+        "Extensive reindustrialization M23": [
+            {
+                "model": "image",
+                "pathway": "SSP2-Base"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-Npi"
+            }
+        ],
+        "Sobriety M23": [
+            {
+                "model": "image",
+                "pathway": "SSP2-Base"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-Npi"
+            }
+        ],
+        "Reference N1": [
+            {
+                "model": "image",
+                "pathway": "SSP2-Base"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-Npi"
+            }
+        ],
+        "Extensive reindustrialization N1": [
+            {
+                "model": "image",
+                "pathway": "SSP2-Base"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-Npi"
+            }
+        ],
+        "Sobriety N1": [
+            {
+                "model": "image",
+                "pathway": "SSP2-Base"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-Npi"
+            }
+        ],
+        "Reference N2": [
+            {
+                "model": "image",
+                "pathway": "SSP2-Base"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-Npi"
+            }
+        ],
+        "Extensive reindustrialization N2": [
+            {
+                "model": "image",
+                "pathway": "SSP2-Base"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-Npi"
+            }
+        ],
+        "Sobriety N2": [
+            {
+                "model": "image",
+                "pathway": "SSP2-Base"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-Npi"
+            }
+        ],
+        "Reference N03": [
+            {
+                "model": "image",
+                "pathway": "SSP2-Base"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-Npi"
+            }
+        ],
+        "Extensive reindustrialization N03": [
+            {
+                "model": "image",
+                "pathway": "SSP2-Base"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-Npi"
+            }
+        ],
+        "Sobriety N03": [
+            {
+                "model": "image",
+                "pathway": "SSP2-Base"
+            },
+            {
+                "model": "remind",
+                "pathway": "SSP2-Npi"
             }
         ]
     },
@@ -91,12 +258,7 @@
                         "format": "default"
                     },
                     {
-                        "name": "2020",
-                        "type": "number",
-                        "format": "default"
-                    },
-                    {
-                        "name": "2025",
+                        "name": "2019",
                         "type": "number",
                         "format": "default"
                     },
@@ -106,17 +268,7 @@
                         "format": "default"
                     },
                     {
-                        "name": "2035",
-                        "type": "number",
-                        "format": "default"
-                    },
-                    {
                         "name": "2040",
-                        "type": "number",
-                        "format": "default"
-                    },
-                    {
-                        "name": "2045",
                         "type": "number",
                         "format": "default"
                     },
@@ -129,26 +281,6 @@
                         "name": "2060",
                         "type": "number",
                         "format": "default"
-                    },
-                    {
-                        "name": "2070",
-                        "type": "number",
-                        "format": "default"
-                    },
-                    {
-                        "name": "2080",
-                        "type": "number",
-                        "format": "default"
-                    },
-                    {
-                        "name": "2090",
-                        "type": "number",
-                        "format": "default"
-                    },
-                    {
-                        "name": "2100",
-                        "type": "number",
-                        "format": "default"
                     }
                 ],
                 "missingValues": [
@@ -157,7 +289,7 @@
             }
         },
         {
-            "path": "inventories/lci-EP2050.csv",
+            "path": "inventories/lci-FE2050.csv",
             "profile": "data-resource",
             "name": "inventories",
             "format": "csv",

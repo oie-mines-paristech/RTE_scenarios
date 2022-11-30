@@ -97,7 +97,7 @@ production pathways:
     production volume:
       variable: Production|Electricity|Import
     ecoinvent alias:
-      name: market for electricity, from neighboring countries, high voltage, EP2050
+      name: market for electricity, from neighboring countries, high voltage, FE2050
       reference product: electricity, high voltage
       exists in original database: False
       new dataset: True
@@ -106,7 +106,7 @@ production pathways:
     production volume:
       variable: Production|Electricity|Medium to high
     ecoinvent alias:
-      name: market for electricity, high voltage, EP2050
+      name: market for electricity, high voltage, FE2050
       reference product: electricity, high voltage
       exists in original database: False
       new dataset: True
@@ -115,7 +115,7 @@ production pathways:
     production volume:
       variable: Production|Electricity|Low to medium
     ecoinvent alias:
-      name: market for electricity, medium voltage, EP2050
+      name: market for electricity, medium voltage, FE2050
       reference product: electricity, medium voltage
       exists in original database: False
       new dataset: True
@@ -220,7 +220,7 @@ production pathways:
     production volume:
       variable: Production|Liquid fuel|Diesel|Synthetic diesel
     ecoinvent alias:
-      name: diesel production, synthetic, from Fischer Tropsch process, hydrogen from electrolysis, energy allocation, at fuelling station, EP2050
+      name: diesel production, synthetic, from Fischer Tropsch process, hydrogen from electrolysis, energy allocation, at fuelling station, FE2050
       reference product: diesel, synthetic, vehicle grade
       exists in original database: True
 
@@ -244,7 +244,7 @@ production pathways:
     production volume:
       variable: Production|Liquid fuel|Petrol|Synthetic petrol
     ecoinvent alias:
-      name: gasoline production, synthetic, from methanol, hydrogen from electrolysis, CO2 from DAC, energy allocation, at fuelling station, EP2050
+      name: gasoline production, synthetic, from methanol, hydrogen from electrolysis, CO2 from DAC, energy allocation, at fuelling station, FE2050
       reference product: gasoline, synthetic, vehicle grade
       exists in original database: True
 
@@ -257,7 +257,7 @@ production pathways:
           technosphere:
             - electricity
     ecoinvent alias:
-        name: hydrogen production, electrolysis, 25 bar, domestic, EP2050
+        name: hydrogen production, electrolysis, 25 bar, domestic, FE2050
         reference product: hydrogen, gaseous
         exists in original database: True
 
@@ -270,7 +270,7 @@ production pathways:
           technosphere:
             - electricity
     ecoinvent alias:
-      name: hydrogen production, electrolysis, 25 bar, imported, EP2050
+      name: hydrogen production, electrolysis, 25 bar, imported, FE2050
       reference product: hydrogen, gaseous
       exists in original database: True
 
@@ -279,23 +279,23 @@ production pathways:
         product: Hydrogen, gaseous, 25 bar
 
     replaces in:
-      - name: Carbon monoxide, from RWGS, for Fischer Tropsch process, hydrogen from electrolysis, EP2050
+      - name: Carbon monoxide, from RWGS, for Fischer Tropsch process, hydrogen from electrolysis, FE2050
         reference product: Carbon monoxide, from RWGS
         location: CH
 
-      - name: Syngas, RWGS, Production, for Fischer Tropsch process, hydrogen from electrolysis, EP2050
+      - name: Syngas, RWGS, Production, for Fischer Tropsch process, hydrogen from electrolysis, FE2050
         reference product: Syngas, RWGS, Production, for Fischer Tropsch process, hydrogen from electrolysis
         location: CH
 
-      - name: gasoline production, from methanol, hydrogen from electrolysis, CO2 from DAC, energy allocation, EP2050
+      - name: gasoline production, from methanol, hydrogen from electrolysis, CO2 from DAC, energy allocation, FE2050
         reference product: gasoline, synthetic
         location: CH
 
-      - name: methanol synthesis, hydrogen from electrolysis, CO2 from DAC, EP2050
+      - name: methanol synthesis, hydrogen from electrolysis, CO2 from DAC, FE2050
         reference product: methanol, unpurified
         location: CH
 
-      - name: methane, from electrochemical methanation, with carbon from atmospheric CO2 capture, EP2050
+      - name: methane, from electrochemical methanation, with carbon from atmospheric CO2 capture, FE2050
         reference product: methane, from electrochemical methanation
         location: CH
 
@@ -303,7 +303,7 @@ production pathways:
     production volume:
       variable: Production|Gaseous fuel|Hydrogen|Gaseous to liquid
     ecoinvent alias:
-      name: market for hydrogen, gaseous, EP2050
+      name: market for hydrogen, gaseous, FE2050
       reference product: hydrogen, gaseous
       exists in original database: False
       new dataset: True
@@ -312,7 +312,7 @@ production pathways:
     production volume:
       variable: Production|Liquid fuel|DAC
     ecoinvent alias:
-      name: carbon dioxide, captured from atmosphere, EP2050
+      name: carbon dioxide, captured from atmosphere, FE2050
       reference product: carbon dioxide, captured from the atmosphere
       exists in original database: False
 
@@ -325,11 +325,11 @@ production pathways:
         reference product: Carbon monoxide, from RWGS
         location: CH
 
-      - name: methanol synthesis, hydrogen from electrolysis, CO2 from DAC, EP2050
+      - name: methanol synthesis, hydrogen from electrolysis, CO2 from DAC, FE2050
         reference product: methanol, unpurified
         location: CH
 
-      - name: methane, from electrochemical methanation, with carbon from atmospheric CO2 capture, EP2050
+      - name: methane, from electrochemical methanation, with carbon from atmospheric CO2 capture, FE2050
         reference product: methane, from electrochemical methanation
         location: CH
 
@@ -361,7 +361,7 @@ production pathways:
     production volume:
       variable: Production|Gaseous fuel|Synthetic gas
     ecoinvent alias:
-      name: Methane, synthetic, gaseous, 5 bar, from electrochemical methanation, at fuelling station, EP2050
+      name: Methane, synthetic, gaseous, 5 bar, from electrochemical methanation, at fuelling station, FE2050
       reference product: methane, high pressure
       exists in original database: True
 
@@ -369,14 +369,14 @@ production pathways:
     production volume:
       variable: Production|Gaseous fuel|Low to high
     ecoinvent alias:
-      name: market for compressed gas, high pressure, EP2050
+      name: market for compressed gas, high pressure, FE2050
       reference product: compressed gas
       exists in original database: False
       new dataset: True
 
 markets:
 
-  - name: market for compressed gas, high pressure, EP2050
+  - name: market for compressed gas, high pressure, FE2050
     reference product: compressed gas
     unit: cubic meter
     includes:
@@ -387,7 +387,7 @@ markets:
     except regions:
       - World
 
-  - name: market for compressed gas, low pressure, EP2050
+  - name: market for compressed gas, low pressure, FE2050
     reference product: compressed gas
     unit: cubic meter
 
@@ -432,7 +432,7 @@ markets:
     except regions:
       - World
 
-  - name: market for hydrogen, gaseous, EP2050
+  - name: market for hydrogen, gaseous, FE2050
     reference product: hydrogen, gaseous
     unit: kilogram
     includes:
@@ -467,7 +467,7 @@ markets:
     except regions:
       - World
 
-  - name: market for hydrogen, liquid, EP2050
+  - name: market for hydrogen, liquid, FE2050
     reference product: hydrogen, liquid
     unit: kilogram
     includes:
@@ -525,7 +525,7 @@ markets:
     replaces in:
       - location: CH
 
-  - name: market for diesel, EP2050
+  - name: market for diesel, FE2050
     reference product: diesel
     unit: kilogram
     includes:
@@ -536,7 +536,7 @@ markets:
     except regions:
       - World
 
-  - name: market for petrol, EP2050
+  - name: market for petrol, FE2050
     reference product: petrol
     unit: kilogram
     includes:
@@ -547,7 +547,7 @@ markets:
     except regions:
       - World
 
-  - name: market for electricity, from neighboring countries, high voltage, EP2050
+  - name: market for electricity, from neighboring countries, high voltage, FE2050
     reference product: electricity, high voltage
     unit: kilowatt hour
     includes:
@@ -594,44 +594,44 @@ markets:
         product: electricity, low voltage
 
     replaces in:
-      - name: hydrogen production, electrolysis, 25 bar, imported, EP2050
+      - name: hydrogen production, electrolysis, 25 bar, imported, FE2050
         reference product: hydrogen, gaseous
         location: CH
 
-      - name: carbon dioxide, captured from atmosphere, EP2050
+      - name: carbon dioxide, captured from atmosphere, FE2050
         reference product: carbon dioxide, captured from the atmosphere
         location: CH
 
-      - name: diesel production, synthetic, from Fischer Tropsch process, hydrogen from electrolysis, energy allocation, at fuelling station, EP2050
+      - name: diesel production, synthetic, from Fischer Tropsch process, hydrogen from electrolysis, energy allocation, at fuelling station, FE2050
         reference product: diesel, synthetic, vehicle grade
         location: CH
 
-      - name: diesel production, synthetic, from Fischer Tropsch process, hydrogen from electrolysis, energy allocation, at fuelling station, EP2050
+      - name: diesel production, synthetic, from Fischer Tropsch process, hydrogen from electrolysis, energy allocation, at fuelling station, FE2050
         reference product: diesel, synthetic, vehicle grade
         location: CH
 
-      - name: gasoline production, synthetic, from methanol, hydrogen from electrolysis, CO2 from DAC, energy allocation, at fuelling station, EP2050
+      - name: gasoline production, synthetic, from methanol, hydrogen from electrolysis, CO2 from DAC, energy allocation, at fuelling station, FE2050
         reference product: gasoline, synthetic, vehicle grade
         location: CH
 
-      - name: gasoline production, from methanol, hydrogen from electrolysis, CO2 from DAC, energy allocation, EP2050
+      - name: gasoline production, from methanol, hydrogen from electrolysis, CO2 from DAC, energy allocation, FE2050
         reference product: gasoline, synthetic
         location: CH
 
-      - name: methanol synthesis, hydrogen from electrolysis, CO2 from DAC, EP2050
+      - name: methanol synthesis, hydrogen from electrolysis, CO2 from DAC, FE2050
         reference product: methanol, unpurified
         location: CH
 
-      - name: methanol distillation, hydrogen from electrolysis, CO2 from DAC, EP2050
+      - name: methanol distillation, hydrogen from electrolysis, CO2 from DAC, FE2050
         reference product: methanol, purified
         location: CH
 
-      - name: Methane, synthetic, gaseous, 5 bar, from electrochemical methanation, at fuelling station, EP2050
+      - name: Methane, synthetic, gaseous, 5 bar, from electrochemical methanation, at fuelling station, FE2050
         reference product: methane, high pressure
         location: CH
 
 
-  - name: market for electricity, high voltage, EP2050
+  - name: market for electricity, high voltage, FE2050
     reference product: electricity, high voltage
     unit: kilowatt hour
     includes:
@@ -678,7 +678,7 @@ markets:
     except regions:
       - World
 
-  - name: market for electricity, medium voltage, EP2050
+  - name: market for electricity, medium voltage, FE2050
     reference product: electricity, medium voltage
     unit: kilowatt hour
     includes:
@@ -712,7 +712,7 @@ markets:
     except regions:
       - World
 
-  - name: market for electricity, low voltage, EP2050
+  - name: market for electricity, low voltage, FE2050
     reference product: electricity, low voltage
     unit: kilowatt hour
     includes:

@@ -41,9 +41,9 @@ ecoinvent 3.8 cut-off
 IAM scenario compatibility
 ---------------------------
 
-The following coupling is done between IAM and EP2050+ scenarios:
+The following coupling is done between IAM and FE2050+ scenarios:
 
-| IAM scenario           | EP2050+ scenario     |
+| IAM scenario           | FE2050+ scenario     |
 |------------------------|----------------------|
 | IMAGE SSP2-Base        | Business As Usual    |
 | IMAGE SSP2-RCP26       | ZERO Basis (default) |
@@ -99,7 +99,7 @@ LCI datasets are used.
 Electricity
 ***********
 
-| Technologies in EP2050+            | LCI datasets used                                               | Remarks                                                                                                                   |
+| Technologies in FE2050+            | LCI datasets used                                               | Remarks                                                                                                                   |
 | ---------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | Hydro, run-of-river                | electricity production, hydro, run-of-river                     |
 | Hydro, alpine reservoir            | electricity production, hydro, reservoir, alpine region         |
@@ -133,7 +133,7 @@ How to use it?
     
     
     fp = r"https://raw.githubusercontent.com/romainsacchi/RTE_scenarios/main/datapackage.json"
-    ep2050 = Package(fp)
+    FE2050 = Package(fp)
     
     bw.projects.set_current("your_bw_project")
     
@@ -146,7 +146,7 @@ How to use it?
             source_version="3.8",
             key='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
             external_scenarios=[
-                ep2050, # <-- list datapackages here
+                FE2050, # <-- list datapackages here
             ] 
         )
 ```
