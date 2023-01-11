@@ -31,7 +31,7 @@
     },
     "source": "https://assets.rte-france.com/prod/public/2022-01/Energy%20pathways%202050_Key%20results.pdf",
     "scenarios": {
-        "Reference M0": [
+        "Reference - M0": [
             {
                 "model": "image",
                 "pathway": "SSP2-Base"
@@ -57,7 +57,7 @@
                 "pathway": "SSP2-PkBudg500"
             }
         ],
-        "Extensive reindustrialization M0": [
+        "Extensive reindustrialization - M0": [
             {
                 "model": "image",
                 "pathway": "SSP2-Base"
@@ -83,7 +83,7 @@
                 "pathway": "SSP2-PkBudg500"
             }
         ],
-        "Sobriety M0": [
+        "Sobriety - M0": [
             {
                 "model": "image",
                 "pathway": "SSP2-Base"
@@ -109,7 +109,7 @@
                 "pathway": "SSP2-PkBudg500"
             }
         ],
-        "Reference M1": [
+        "Reference - M1": [
             {
                 "model": "image",
                 "pathway": "SSP2-Base"
@@ -135,7 +135,7 @@
                 "pathway": "SSP2-PkBudg500"
             }
         ],
-        "Extensive reindustrialization M1": [
+        "Extensive reindustrialization - M1": [
             {
                 "model": "image",
                 "pathway": "SSP2-Base"
@@ -161,7 +161,7 @@
                 "pathway": "SSP2-PkBudg500"
             }
         ],
-        "Sobriety M1": [
+        "Sobriety - M1": [
             {
                 "model": "image",
                 "pathway": "SSP2-Base"
@@ -187,7 +187,7 @@
                 "pathway": "SSP2-PkBudg500"
             }
         ],
-        "Reference M23": [
+        "Reference - M23": [
             {
                 "model": "image",
                 "pathway": "SSP2-Base"
@@ -213,7 +213,7 @@
                 "pathway": "SSP2-PkBudg500"
             }
         ],
-        "Extensive reindustrialization M23": [
+        "Extensive reindustrialization - M23": [
             {
                 "model": "image",
                 "pathway": "SSP2-Base"
@@ -239,7 +239,7 @@
                 "pathway": "SSP2-PkBudg500"
             }
         ],
-        "Sobriety M23": [
+        "Sobriety - M23": [
             {
                 "model": "image",
                 "pathway": "SSP2-Base"
@@ -265,7 +265,7 @@
                 "pathway": "SSP2-PkBudg500"
             }
         ],
-        "Reference N1": [
+        "Reference - N1": [
             {
                 "model": "image",
                 "pathway": "SSP2-Base"
@@ -291,7 +291,7 @@
                 "pathway": "SSP2-PkBudg500"
             }
         ],
-        "Extensive reindustrialization N1": [
+        "Extensive reindustrialization - N1": [
             {
                 "model": "image",
                 "pathway": "SSP2-Base"
@@ -317,7 +317,7 @@
                 "pathway": "SSP2-PkBudg500"
             }
         ],
-        "Sobriety N1": [
+        "Sobriety - N1": [
             {
                 "model": "image",
                 "pathway": "SSP2-Base"
@@ -343,7 +343,7 @@
                 "pathway": "SSP2-PkBudg500"
             }
         ],
-        "Reference N2": [
+        "Reference - N2": [
             {
                 "model": "image",
                 "pathway": "SSP2-Base"
@@ -369,7 +369,7 @@
                 "pathway": "SSP2-PkBudg500"
             }
         ],
-        "Extensive reindustrialization N2": [
+        "Extensive reindustrialization - N2": [
             {
                 "model": "image",
                 "pathway": "SSP2-Base"
@@ -395,7 +395,7 @@
                 "pathway": "SSP2-PkBudg500"
             }
         ],
-        "Sobriety N2": [
+        "Sobriety - N2": [
             {
                 "model": "image",
                 "pathway": "SSP2-Base"
@@ -421,7 +421,7 @@
                 "pathway": "SSP2-PkBudg500"
             }
         ],
-        "Reference N03": [
+        "Reference - N03": [
             {
                 "model": "image",
                 "pathway": "SSP2-Base"
@@ -447,7 +447,7 @@
                 "pathway": "SSP2-PkBudg500"
             }
         ],
-        "Extensive reindustrialization N03": [
+        "Extensive reindustrialization - N03": [
             {
                 "model": "image",
                 "pathway": "SSP2-Base"
@@ -473,7 +473,7 @@
                 "pathway": "SSP2-PkBudg500"
             }
         ],
-        "Sobriety N03": [
+        "Sobriety - N03": [
             {
                 "model": "image",
                 "pathway": "SSP2-Base"
