@@ -21,6 +21,7 @@ image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Electricity|Ren
 image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Electricity|Renewable|Sea,TWh/year,0,2.15,4.3,8.7,11.5
 image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Electricity|Renewable|Wind turbines|Offshore,TWh/year,0,72.8,145.6,276.2,283.3
 image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Electricity|Renewable|Wind turbines|Onshore,TWh/year,33.9,78,122.1,178.3,178.4
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
 image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Gaseous fuel|Biomethane,%,0.1,12,54,100,100
 image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Gaseous fuel|CNG,%,56.9,50.2,26.2,0,0
 image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Gaseous fuel|LNG,%,43,37.8,19.8,0,0
@@ -29,7 +30,41 @@ image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Liquid fuel|Die
 image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Liquid fuel|Diesel|Diesel,%,93,88,44,0,0
 image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Liquid fuel|Petrol|Bioethanol,%,7,12,56,100,100
 image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Liquid fuel|Petrol|Petrol,%,93,88,44,0,0
-image,SSP2-Base,Extensive reindustrialization - M0,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0,3.7,2.3,0.9,0.9
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,4.1,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,8.9,7.9,4.9,1.9,1.9
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,0,5.9,5.5,4.9,4.9
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,7.2,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.7,0.6,0.6,0.5,0.5
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,0,1,1,1,1
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6,0.6,0.6,0.6
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,0,1.5,2,5,5
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0,0.3,0.3,0.3,0.3
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0.3,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0,0,0,0
 image,SSP2-Base,Extensive reindustrialization - M1,FR,Distribution losses|Electricity|Low to medium,TWh/year,1,0.973,0.973,0.973,0.973
 image,SSP2-Base,Extensive reindustrialization - M1,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,1,0.9975,0.9975,0.9975,0.9975
 image,SSP2-Base,Extensive reindustrialization - M1,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
@@ -61,6 +96,41 @@ image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Liquid fuel|Die
 image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Liquid fuel|Petrol|Bioethanol,%,7,12,56,100,100
 image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Liquid fuel|Petrol|Petrol,%,93,88,44,0,0
 image,SSP2-Base,Extensive reindustrialization - M1,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0,3.7,2.3,0.9,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,4.1,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,8.9,7.9,4.9,1.9,1.9
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,0,5.9,5.5,4.9,4.9
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,7.2,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.7,0.6,0.6,0.5,0.5
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,0,1,1,1,1
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6,0.6,0.6,0.6
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,0,1.5,2,5,5
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0,0.3,0.3,0.3,0.3
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0.3,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0,0,0,0
 image,SSP2-Base,Extensive reindustrialization - M23,FR,Distribution losses|Electricity|Low to medium,TWh/year,1,0.973,0.973,0.973,0.973
 image,SSP2-Base,Extensive reindustrialization - M23,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,1,0.9975,0.9975,0.9975,0.9975
 image,SSP2-Base,Extensive reindustrialization - M23,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
@@ -92,6 +162,41 @@ image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Liquid fuel|Di
 image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Liquid fuel|Petrol|Bioethanol,%,7,12,56,100,100
 image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Liquid fuel|Petrol|Petrol,%,93,88,44,0,0
 image,SSP2-Base,Extensive reindustrialization - M23,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0,3.7,2.3,0.9,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,4.1,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,8.9,7.9,4.9,1.9,1.9
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,0,5.9,5.5,4.9,4.9
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,7.2,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.7,0.6,0.6,0.5,0.5
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,0,1,1,1,1
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6,0.6,0.6,0.6
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,0,1.5,2,5,5
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0,0.3,0.3,0.3,0.3
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0.3,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0,0,0,0
 image,SSP2-Base,Extensive reindustrialization - N03,FR,Distribution losses|Electricity|Low to medium,TWh/year,1,0.973,0.973,0.973,0.973
 image,SSP2-Base,Extensive reindustrialization - N03,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,1,0.9975,0.9975,0.9975,0.9975
 image,SSP2-Base,Extensive reindustrialization - N03,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
@@ -123,6 +228,41 @@ image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Liquid fuel|Di
 image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Liquid fuel|Petrol|Bioethanol,%,7,12,56,100,100
 image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Liquid fuel|Petrol|Petrol,%,93,88,44,0,0
 image,SSP2-Base,Extensive reindustrialization - N03,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0,3.7,2.3,0.9,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,4.1,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,8.9,7.9,4.9,1.9,1.9
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,0,5.9,5.5,4.9,4.9
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,7.2,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.7,0.6,0.6,0.5,0.5
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,0,1,1,1,1
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6,0.6,0.6,0.6
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,0,1.5,2,5,5
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0,0.3,0.3,0.3,0.3
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0.3,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0,0,0,0
 image,SSP2-Base,Extensive reindustrialization - N1,FR,Distribution losses|Electricity|Low to medium,TWh/year,1,0.973,0.973,0.973,0.973
 image,SSP2-Base,Extensive reindustrialization - N1,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,1,0.9975,0.9975,0.9975,0.9975
 image,SSP2-Base,Extensive reindustrialization - N1,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
@@ -557,132 +697,96 @@ image,SSP2-Base,Sobriety - N2,FR,Production|Liquid fuel|Diesel|Diesel,%,93,88,44
 image,SSP2-Base,Sobriety - N2,FR,Production|Liquid fuel|Petrol|Bioethanol,%,7,12,56,100,100
 image,SSP2-Base,Sobriety - N2,FR,Production|Liquid fuel|Petrol|Petrol,%,93,88,44,0,0
 image,SSP2-Base,Sobriety - N2,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
-image,SSP2-Base,Extensive reindustrialization - M0,FR,Efficiency|Storage|Vehicle to grid|Charge,%,85,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - M1,FR,Efficiency|Storage|Vehicle to grid|Charge,%,85,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - M23,FR,Efficiency|Storage|Vehicle to grid|Charge,%,85,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - N03,FR,Efficiency|Storage|Vehicle to grid|Charge,%,85,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - N1,FR,Efficiency|Storage|Vehicle to grid|Charge,%,85,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - N2,FR,Efficiency|Storage|Vehicle to grid|Charge,%,85,90,95,97,98
-image,SSP2-Base,Reference - M0,FR,Efficiency|Storage|Vehicle to grid|Charge,%,85,90,95,97,98
-image,SSP2-Base,Reference - M1,FR,Efficiency|Storage|Vehicle to grid|Charge,%,85,90,95,97,98
-image,SSP2-Base,Reference - M23,FR,Efficiency|Storage|Vehicle to grid|Charge,%,85,90,95,97,98
-image,SSP2-Base,Reference - N1,FR,Efficiency|Storage|Vehicle to grid|Charge,%,85,90,95,97,98
-image,SSP2-Base,Reference - N2,FR,Efficiency|Storage|Vehicle to grid|Charge,%,85,90,95,97,98
-image,SSP2-Base,Reference - N03,FR,Efficiency|Storage|Vehicle to grid|Charge,%,85,90,95,97,98
-image,SSP2-Base,Sobriety - M0,FR,Efficiency|Storage|Vehicle to grid|Charge,%,85,90,95,97,98
-image,SSP2-Base,Sobriety - M1,FR,Efficiency|Storage|Vehicle to grid|Charge,%,85,90,95,97,98
-image,SSP2-Base,Sobriety - M23,FR,Efficiency|Storage|Vehicle to grid|Charge,%,85,90,95,97,98
-image,SSP2-Base,Sobriety - N03,FR,Efficiency|Storage|Vehicle to grid|Charge,%,85,90,95,97,98
-image,SSP2-Base,Sobriety - N1,FR,Efficiency|Storage|Vehicle to grid|Charge,%,85,90,95,97,98
-image,SSP2-Base,Sobriety - N2,FR,Efficiency|Storage|Vehicle to grid|Charge,%,85,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - M0,FR,Efficiency|Storage|Vehicle to grid|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - M1,FR,Efficiency|Storage|Vehicle to grid|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - M23,FR,Efficiency|Storage|Vehicle to grid|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - N03,FR,Efficiency|Storage|Vehicle to grid|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - N1,FR,Efficiency|Storage|Vehicle to grid|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - N2,FR,Efficiency|Storage|Vehicle to grid|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Reference - M0,FR,Efficiency|Storage|Vehicle to grid|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Reference - M1,FR,Efficiency|Storage|Vehicle to grid|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Reference - M23,FR,Efficiency|Storage|Vehicle to grid|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Reference - N1,FR,Efficiency|Storage|Vehicle to grid|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Reference - N2,FR,Efficiency|Storage|Vehicle to grid|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Reference - N03,FR,Efficiency|Storage|Vehicle to grid|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Sobriety - M0,FR,Efficiency|Storage|Vehicle to grid|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Sobriety - M1,FR,Efficiency|Storage|Vehicle to grid|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Sobriety - M23,FR,Efficiency|Storage|Vehicle to grid|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Sobriety - N03,FR,Efficiency|Storage|Vehicle to grid|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Sobriety - N1,FR,Efficiency|Storage|Vehicle to grid|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Sobriety - N2,FR,Efficiency|Storage|Vehicle to grid|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - M0,FR,Efficiency|Storage|Battery|Charge,%,85,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - M1,FR,Efficiency|Storage|Battery|Charge,%,85,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - M23,FR,Efficiency|Storage|Battery|Charge,%,85,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - N03,FR,Efficiency|Storage|Battery|Charge,%,85,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - N1,FR,Efficiency|Storage|Battery|Charge,%,85,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - N2,FR,Efficiency|Storage|Battery|Charge,%,85,90,95,97,98
-image,SSP2-Base,Reference - M0,FR,Efficiency|Storage|Battery|Charge,%,85,90,95,97,98
-image,SSP2-Base,Reference - M1,FR,Efficiency|Storage|Battery|Charge,%,85,90,95,97,98
-image,SSP2-Base,Reference - M23,FR,Efficiency|Storage|Battery|Charge,%,85,90,95,97,98
-image,SSP2-Base,Reference - N1,FR,Efficiency|Storage|Battery|Charge,%,85,90,95,97,98
-image,SSP2-Base,Reference - N2,FR,Efficiency|Storage|Battery|Charge,%,85,90,95,97,98
-image,SSP2-Base,Reference - N03,FR,Efficiency|Storage|Battery|Charge,%,85,90,95,97,98
-image,SSP2-Base,Sobriety - M0,FR,Efficiency|Storage|Battery|Charge,%,85,90,95,97,98
-image,SSP2-Base,Sobriety - M1,FR,Efficiency|Storage|Battery|Charge,%,85,90,95,97,98
-image,SSP2-Base,Sobriety - M23,FR,Efficiency|Storage|Battery|Charge,%,85,90,95,97,98
-image,SSP2-Base,Sobriety - N03,FR,Efficiency|Storage|Battery|Charge,%,85,90,95,97,98
-image,SSP2-Base,Sobriety - N1,FR,Efficiency|Storage|Battery|Charge,%,85,90,95,97,98
-image,SSP2-Base,Sobriety - N2,FR,Efficiency|Storage|Battery|Charge,%,85,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - M0,FR,Efficiency|Storage|Battery|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - M1,FR,Efficiency|Storage|Battery|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - M23,FR,Efficiency|Storage|Battery|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - N03,FR,Efficiency|Storage|Battery|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - N1,FR,Efficiency|Storage|Battery|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - N2,FR,Efficiency|Storage|Battery|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Reference - M0,FR,Efficiency|Storage|Battery|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Reference - M1,FR,Efficiency|Storage|Battery|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Reference - M23,FR,Efficiency|Storage|Battery|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Reference - N1,FR,Efficiency|Storage|Battery|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Reference - N2,FR,Efficiency|Storage|Battery|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Reference - N03,FR,Efficiency|Storage|Battery|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Sobriety - M0,FR,Efficiency|Storage|Battery|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Sobriety - M1,FR,Efficiency|Storage|Battery|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Sobriety - M23,FR,Efficiency|Storage|Battery|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Sobriety - N03,FR,Efficiency|Storage|Battery|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Sobriety - N1,FR,Efficiency|Storage|Battery|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Sobriety - N2,FR,Efficiency|Storage|Battery|Discharge,%,88,90,95,97,98
-image,SSP2-Base,Extensive reindustrialization - M0,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,66,70,75
-image,SSP2-Base,Extensive reindustrialization - M1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,66,70,75
-image,SSP2-Base,Extensive reindustrialization - M23,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,66,70,75
-image,SSP2-Base,Extensive reindustrialization - N03,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,66,70,75
-image,SSP2-Base,Extensive reindustrialization - N1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,66,70,75
-image,SSP2-Base,Extensive reindustrialization - N2,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,66,70,75
-image,SSP2-Base,Reference - M0,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,66,70,75
-image,SSP2-Base,Reference - M1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,66,70,75
-image,SSP2-Base,Reference - M23,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,66,70,75
-image,SSP2-Base,Reference - N1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,66,70,75
-image,SSP2-Base,Reference - N2,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,66,70,75
-image,SSP2-Base,Reference - N03,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,66,70,75
-image,SSP2-Base,Sobriety - M0,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,66,70,75
-image,SSP2-Base,Sobriety - M1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,66,70,75
-image,SSP2-Base,Sobriety - M23,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,66,70,75
-image,SSP2-Base,Sobriety - N03,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,66,70,75
-image,SSP2-Base,Sobriety - N1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,66,70,75
-image,SSP2-Base,Sobriety - N2,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,66,70,75
-image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0.0,0.3,0.6,1.9,1.9
-image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0.0,0.3,0.6,1.9,1.9
-image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0.0,0.3,0.6,1.9,1.8
-image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0.0,0.3,0.6,1.8,1.8
-image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0.0,0.3,0.6,1.9,1.9
-image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0.0,0.3,0.6,1.8,1.8
-image,SSP2-Base,Reference - M0,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0.0,0.0,0.7,1.9,1.9
-image,SSP2-Base,Reference - M1,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0.0,0.0,0.7,1.9,1.9
-image,SSP2-Base,Reference - M23,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0.0,0.0,0.7,1.9,1.9
-image,SSP2-Base,Reference - N1,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0.0,0.0,0.7,1.9,1.9
-image,SSP2-Base,Reference - N2,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0.0,0.0,0.7,1.8,1.8
-image,SSP2-Base,Reference - N03,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0.0,0.0,0.6,1.8,1.8
-image,SSP2-Base,Sobriety - M0,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0.0,0.3,0.5,1.3,1.3
-image,SSP2-Base,Sobriety - M1,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0.0,0.3,0.5,1.3,1.3
-image,SSP2-Base,Sobriety - M23,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0.0,0.3,0.5,1.2,1.3
-image,SSP2-Base,Sobriety - N03,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0.0,0.3,0.5,1.2,1.2
-image,SSP2-Base,Sobriety - N1,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0.0,0.3,0.5,1.2,1.3
-image,SSP2-Base,Sobriety - N2,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0.0,0.3,0.5,1.2,1.2
-image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Electricity|Storage|Battery,TWh/year,0.0,7.4,14.8,28.8,43.5
-image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Electricity|Storage|Battery,TWh/year,0.0,6.6,13.1,30.4,53.8
-image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Electricity|Storage|Battery,TWh/year,0.0,3.9,7.7,14.3,24.0
-image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Electricity|Storage|Battery,TWh/year,0.0,0.0,0.0,3.7,3.7
-image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Electricity|Storage|Battery,TWh/year,0.0,2.1,4.2,13.5,21.0
-image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Electricity|Storage|Battery,TWh/year,0.0,2.5,4.9,9.8,9.9
-image,SSP2-Base,Reference - M0,FR,Production|Electricity|Storage|Battery,TWh/year,0.0,0.2,13.9,27.5,39.5
-image,SSP2-Base,Reference - M1,FR,Production|Electricity|Storage|Battery,TWh/year,0.0,0.2,8.9,21.7,43.5
-image,SSP2-Base,Reference - M23,FR,Production|Electricity|Storage|Battery,TWh/year,0.0,0.2,4.4,11.8,20.0
-image,SSP2-Base,Reference - N1,FR,Production|Electricity|Storage|Battery,TWh/year,0.0,0.2,0.0,7.7,11.4
-image,SSP2-Base,Reference - N2,FR,Production|Electricity|Storage|Battery,TWh/year,0.0,0.2,0.0,0.2,0.2
-image,SSP2-Base,Reference - N03,FR,Production|Electricity|Storage|Battery,TWh/year,0.0,0.3,0.0,0.0,0.0
-image,SSP2-Base,Sobriety - M0,FR,Production|Electricity|Storage|Battery,TWh/year,0.0,0.0,0.0,22.7,30.2
-image,SSP2-Base,Sobriety - M1,FR,Production|Electricity|Storage|Battery,TWh/year,0.0,0.0,0.0,15.0,28.4
-image,SSP2-Base,Sobriety - M23,FR,Production|Electricity|Storage|Battery,TWh/year,0.0,0.0,0.0,9.3,18.2
-image,SSP2-Base,Sobriety - N03,FR,Production|Electricity|Storage|Battery,TWh/year,0.0,0.0,0.0,0.0,0.0
-image,SSP2-Base,Sobriety - N1,FR,Production|Electricity|Storage|Battery,TWh/year,0.0,0.0,0.0,1.5,4.3
-image,SSP2-Base,Sobriety - N2,FR,Production|Electricity|Storage|Battery,TWh/year,0.0,0.0,0.0,0.0,0.0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,87.5,95,95,95
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,87.5,95,95,95
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,87.5,95,95,95
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,87.5,95,95,95
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,87.5,95,95,95
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,87.5,95,95,95
+image,SSP2-Base,Reference - M0,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,87.5,95,95,95
+image,SSP2-Base,Reference - M1,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,87.5,95,95,95
+image,SSP2-Base,Reference - M23,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,87.5,95,95,95
+image,SSP2-Base,Reference - N1,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,87.5,95,95,95
+image,SSP2-Base,Reference - N2,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,87.5,95,95,95
+image,SSP2-Base,Reference - N03,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,87.5,95,95,95
+image,SSP2-Base,Sobriety - M0,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,87.5,95,95,95
+image,SSP2-Base,Sobriety - M1,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,87.5,95,95,95
+image,SSP2-Base,Sobriety - M23,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,87.5,95,95,95
+image,SSP2-Base,Sobriety - N03,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,87.5,95,95,95
+image,SSP2-Base,Sobriety - N1,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,87.5,95,95,95
+image,SSP2-Base,Sobriety - N2,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,87.5,95,95,95
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Efficiency|Storage|Battery|Charge,%,85,90,90,90,90
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Efficiency|Storage|Battery|Charge,%,85,90,90,90,90
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Efficiency|Storage|Battery|Charge,%,85,90,90,90,90
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Efficiency|Storage|Battery|Charge,%,85,90,90,90,90
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Efficiency|Storage|Battery|Charge,%,85,90,90,90,90
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Efficiency|Storage|Battery|Charge,%,85,90,90,90,90
+image,SSP2-Base,Reference - M0,FR,Efficiency|Storage|Battery|Charge,%,85,90,90,90,90
+image,SSP2-Base,Reference - M1,FR,Efficiency|Storage|Battery|Charge,%,85,90,90,90,90
+image,SSP2-Base,Reference - M23,FR,Efficiency|Storage|Battery|Charge,%,85,90,90,90,90
+image,SSP2-Base,Reference - N1,FR,Efficiency|Storage|Battery|Charge,%,85,90,90,90,90
+image,SSP2-Base,Reference - N2,FR,Efficiency|Storage|Battery|Charge,%,85,90,90,90,90
+image,SSP2-Base,Reference - N03,FR,Efficiency|Storage|Battery|Charge,%,85,90,90,90,90
+image,SSP2-Base,Sobriety - M0,FR,Efficiency|Storage|Battery|Charge,%,85,90,90,90,90
+image,SSP2-Base,Sobriety - M1,FR,Efficiency|Storage|Battery|Charge,%,85,90,90,90,90
+image,SSP2-Base,Sobriety - M23,FR,Efficiency|Storage|Battery|Charge,%,85,90,90,90,90
+image,SSP2-Base,Sobriety - N03,FR,Efficiency|Storage|Battery|Charge,%,85,90,90,90,90
+image,SSP2-Base,Sobriety - N1,FR,Efficiency|Storage|Battery|Charge,%,85,90,90,90,90
+image,SSP2-Base,Sobriety - N2,FR,Efficiency|Storage|Battery|Charge,%,85,90,90,90,90
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,67,70,70
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,67,70,70
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,67,70,70
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,67,70,70
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,67,70,70
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,67,70,70
+image,SSP2-Base,Reference - M0,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,67,70,70
+image,SSP2-Base,Reference - M1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,67,70,70
+image,SSP2-Base,Reference - M23,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,67,70,70
+image,SSP2-Base,Reference - N1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,67,70,70
+image,SSP2-Base,Reference - N2,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,67,70,70
+image,SSP2-Base,Reference - N03,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,67,70,70
+image,SSP2-Base,Sobriety - M0,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,67,70,70
+image,SSP2-Base,Sobriety - M1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,67,70,70
+image,SSP2-Base,Sobriety - M23,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,67,70,70
+image,SSP2-Base,Sobriety - N03,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,67,70,70
+image,SSP2-Base,Sobriety - N1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,67,70,70
+image,SSP2-Base,Sobriety - N2,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,67,70,70
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0,0.3,0.6,1.9,1.9
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0,0.3,0.6,1.9,1.9
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0,0.3,0.6,1.9,1.8
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0,0.3,0.6,1.8,1.8
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0,0.3,0.6,1.9,1.9
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0,0.3,0.6,1.8,1.8
+image,SSP2-Base,Reference - M0,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0,0,0.7,1.9,1.9
+image,SSP2-Base,Reference - M1,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0,0,0.7,1.9,1.9
+image,SSP2-Base,Reference - M23,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0,0,0.7,1.9,1.9
+image,SSP2-Base,Reference - N1,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0,0,0.7,1.9,1.9
+image,SSP2-Base,Reference - N2,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0,0,0.7,1.8,1.8
+image,SSP2-Base,Reference - N03,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0,0,0.6,1.8,1.8
+image,SSP2-Base,Sobriety - M0,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0,0.3,0.5,1.3,1.3
+image,SSP2-Base,Sobriety - M1,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0,0.3,0.5,1.3,1.3
+image,SSP2-Base,Sobriety - M23,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0,0.3,0.5,1.2,1.3
+image,SSP2-Base,Sobriety - N03,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0,0.3,0.5,1.2,1.2
+image,SSP2-Base,Sobriety - N1,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0,0.3,0.5,1.2,1.3
+image,SSP2-Base,Sobriety - N2,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0,0.3,0.5,1.2,1.2
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Electricity|Storage|Battery,TWh/year,0,7.4,14.8,28.8,43.5
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Electricity|Storage|Battery,TWh/year,0,6.6,13.1,30.4,53.8
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Electricity|Storage|Battery,TWh/year,0,3.9,7.7,14.3,24
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Electricity|Storage|Battery,TWh/year,0,0,0,3.7,3.7
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Electricity|Storage|Battery,TWh/year,0,2.1,4.2,13.5,21
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Electricity|Storage|Battery,TWh/year,0,2.5,4.9,9.8,9.9
+image,SSP2-Base,Reference - M0,FR,Production|Electricity|Storage|Battery,TWh/year,0,0.2,13.9,27.5,39.5
+image,SSP2-Base,Reference - M1,FR,Production|Electricity|Storage|Battery,TWh/year,0,0.2,8.9,21.7,43.5
+image,SSP2-Base,Reference - M23,FR,Production|Electricity|Storage|Battery,TWh/year,0,0.2,4.4,11.8,20
+image,SSP2-Base,Reference - N1,FR,Production|Electricity|Storage|Battery,TWh/year,0,0.2,0,7.7,11.4
+image,SSP2-Base,Reference - N2,FR,Production|Electricity|Storage|Battery,TWh/year,0,0.2,0,0.2,0.2
+image,SSP2-Base,Reference - N03,FR,Production|Electricity|Storage|Battery,TWh/year,0,0.3,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Electricity|Storage|Battery,TWh/year,0,0,0,22.7,30.2
+image,SSP2-Base,Sobriety - M1,FR,Production|Electricity|Storage|Battery,TWh/year,0,0,0,15,28.4
+image,SSP2-Base,Sobriety - M23,FR,Production|Electricity|Storage|Battery,TWh/year,0,0,0,9.3,18.2
+image,SSP2-Base,Sobriety - N03,FR,Production|Electricity|Storage|Battery,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Electricity|Storage|Battery,TWh/year,0,0,0,1.5,4.3
+image,SSP2-Base,Sobriety - N2,FR,Production|Electricity|Storage|Battery,TWh/year,0,0,0,0,0
 image,SSP2-Base,Extensive reindustrialization - M0,FR,Efficiency|Storage|Hydro|Pumped storage,%,70,75,80,80,80
 image,SSP2-Base,Extensive reindustrialization - M1,FR,Efficiency|Storage|Hydro|Pumped storage,%,70,75,80,80,80
 image,SSP2-Base,Extensive reindustrialization - M23,FR,Efficiency|Storage|Hydro|Pumped storage,%,70,75,80,80,80
@@ -719,3 +823,529 @@ image,SSP2-Base,Sobriety - M23,FR,placeholder,placeholder,1,1,1,1,1
 image,SSP2-Base,Sobriety - N03,FR,placeholder,placeholder,1,1,1,1,1
 image,SSP2-Base,Sobriety - N1,FR,placeholder,placeholder,1,1,1,1,1
 image,SSP2-Base,Sobriety - N2,FR,placeholder,placeholder,1,1,1,1,1
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0,3.7,2.3,0.9,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,4.1,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,8.9,7.9,4.9,1.9,1.9
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,0,5.9,5.5,4.9,4.9
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,7.2,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.7,0.6,0.6,0.5,0.5
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,0,1,1,1,1
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6,0.6,0.6,0.6
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,0,1.5,2,5,5
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0,0.3,0.3,0.3,0.3
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0.3,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0,3.7,2.3,0.9,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,4.1,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,8.9,7.9,4.9,1.9,1.9
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,0,5.9,5.5,4.9,4.9
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,7.2,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.7,0.6,0.6,0.5,0.5
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,0,1,1,1,1
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6,0.6,0.6,0.6
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,0,1.5,2,5,5
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0,0.3,0.3,0.3,0.3
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0.3,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0,3.7,2.3,0.9,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,4.1,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,8.9,7.9,4.9,1.9,1.9
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,0,5.9,5.5,4.9,4.9
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,7.2,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.7,0.6,0.6,0.5,0.5
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,0,1,1,1,1
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6,0.6,0.6,0.6
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,0,1.5,2,5,5
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0,0.3,0.3,0.3,0.3
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0.3,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0,3.7,2.3,0.9,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,4.1,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,8.9,7.9,4.9,1.9,1.9
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,0,5.9,5.5,4.9,4.9
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,7.2,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.7,0.6,0.6,0.5,0.5
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,0,1,1,1,1
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6,0.6,0.6,0.6
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,0,1.5,2,5,5
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0,0.3,0.3,0.3,0.3
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0.3,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0,3.7,2.3,0.9,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,4.1,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,8.9,7.9,4.9,1.9,1.9
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,0,5.9,5.5,4.9,4.9
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,7.2,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.7,0.6,0.6,0.5,0.5
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,0,1,1,1,1
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6,0.6,0.6,0.6
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,0,1.5,2,5,5
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0,0.3,0.3,0.3,0.3
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0.3,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0,3.7,2.3,0.9,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,4.1,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,8.9,7.9,4.9,1.9,1.9
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,0,5.9,5.5,4.9,4.9
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,7.2,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.7,0.6,0.6,0.5,0.5
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,0,1,1,1,1
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6,0.6,0.6,0.6
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,0,1.5,2,5,5
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0,0.3,0.3,0.3,0.3
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0.3,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0,3.7,2.3,0.9,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,4.1,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,8.9,7.9,4.9,1.9,1.9
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,0,5.9,5.5,4.9,4.9
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,7.2,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.7,0.6,0.6,0.5,0.5
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,0,1,1,1,1
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6,0.6,0.6,0.6
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,0,1.5,2,5,5
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0,0.3,0.3,0.3,0.3
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0.3,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0,3.7,2.3,0.9,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,4.1,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,8.9,7.9,4.9,1.9,1.9
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,0,5.9,5.5,4.9,4.9
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,7.2,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.7,0.6,0.6,0.5,0.5
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,0,1,1,1,1
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6,0.6,0.6,0.6
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,0,1.5,2,5,5
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0,0.3,0.3,0.3,0.3
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0.3,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0,3.7,2.3,0.9,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,4.1,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,8.9,7.9,4.9,1.9,1.9
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,0,5.9,5.5,4.9,4.9
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,7.2,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.7,0.6,0.6,0.5,0.5
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,0,1,1,1,1
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6,0.6,0.6,0.6
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,0,1.5,2,5,5
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0,0.3,0.3,0.3,0.3
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0.3,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0,3.7,2.3,0.9,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,4.1,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,8.9,7.9,4.9,1.9,1.9
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,0,5.9,5.5,4.9,4.9
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,7.2,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.7,0.6,0.6,0.5,0.5
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,0,1,1,1,1
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6,0.6,0.6,0.6
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,0,1.5,2,5,5
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0,0.3,0.3,0.3,0.3
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0.3,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0,3.7,2.3,0.9,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,4.1,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,8.9,7.9,4.9,1.9,1.9
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,0,5.9,5.5,4.9,4.9
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,7.2,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.7,0.6,0.6,0.5,0.5
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,0,1,1,1,1
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6,0.6,0.6,0.6
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,0,1.5,2,5,5
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0,0.3,0.3,0.3,0.3
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0.3,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0,3.7,2.3,0.9,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,4.1,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,8.9,7.9,4.9,1.9,1.9
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,0,5.9,5.5,4.9,4.9
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,7.2,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.7,0.6,0.6,0.5,0.5
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,0,1,1,1,1
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6,0.6,0.6,0.6
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,0,1.5,2,5,5
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0,0.3,0.3,0.3,0.3
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0.3,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0,3.7,2.3,0.9,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,4.1,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,8.9,7.9,4.9,1.9,1.9
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,0,5.9,5.5,4.9,4.9
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,7.2,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.7,0.6,0.6,0.5,0.5
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,0,1,1,1,1
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6,0.6,0.6,0.6
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,0,1.5,2,5,5
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0,0.3,0.3,0.3,0.3
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0.3,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0,3.7,2.3,0.9,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,4.1,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,8.9,7.9,4.9,1.9,1.9
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,0,5.9,5.5,4.9,4.9
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,7.2,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.7,0.6,0.6,0.5,0.5
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,0,1,1,1,1
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6,0.6,0.6,0.6
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,0,1.5,2,5,5
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,1,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0,0.3,0.3,0.3,0.3
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0.3,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0,0,0,0
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0,0,0,0
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1,1,1,1
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1,1,1,1
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1,1,1,1
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1,1,1,1
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1,1,1,1
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1,1,1,1
+image,SSP2-Base,Reference - M0,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1,1,1,1
+image,SSP2-Base,Reference - M1,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1,1,1,1
+image,SSP2-Base,Reference - M23,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1,1,1,1
+image,SSP2-Base,Reference - N1,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1,1,1,1
+image,SSP2-Base,Reference - N2,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1,1,1,1
+image,SSP2-Base,Reference - N03,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1,1,1,1
+image,SSP2-Base,Sobriety - M0,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1,1,1,1
+image,SSP2-Base,Sobriety - M1,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1,1,1,1
+image,SSP2-Base,Sobriety - M23,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1,1,1,1
+image,SSP2-Base,Sobriety - N03,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1,1,1,1
+image,SSP2-Base,Sobriety - N1,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1,1,1,1
+image,SSP2-Base,Sobriety - N2,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1,1,1,1
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
+image,SSP2-Base,Reference - M0,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
+image,SSP2-Base,Reference - M1,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
+image,SSP2-Base,Reference - M23,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
+image,SSP2-Base,Reference - N1,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
+image,SSP2-Base,Reference - N2,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
+image,SSP2-Base,Reference - N03,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
+image,SSP2-Base,Sobriety - M0,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
+image,SSP2-Base,Sobriety - M1,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
+image,SSP2-Base,Sobriety - M23,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
+image,SSP2-Base,Sobriety - N03,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
+image,SSP2-Base,Sobriety - N1,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
+image,SSP2-Base,Sobriety - N2,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999

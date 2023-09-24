@@ -43,26 +43,27 @@ IAM scenario compatibility
 
 The following coupling is done between IAM and FE2050+ scenarios:
 
-| IAM scenario           | FE2050+ scenario     |
-|------------------------|----------------------|
-| IMAGE SSP2-Base        | Business As Usual    |
-| IMAGE SSP2-RCP26       | ZERO Basis (default) |
-| IMAGE SSP2-RCP26       | ZERO A               |
-| IMAGE SSP2-RCP26       | ZERO B               |
-| IMAGE SSP2-RCP26       | ZERO C               |
-| IMAGE SSP2-RCP19       | ZERO Basis (default) |
-| IMAGE SSP2-RCP19       | ZERO A               |
-| IMAGE SSP2-RCP19       | ZERO B               |
-| IMAGE SSP2-RCP19       | ZERO C               |
-| REMIND SSP2-Base       | Business As Usual    |
-| REMIND SSP2-PkBudg1150 | ZERO Basis (default) |
-| REMIND SSP2-PkBudg1150 | ZERO A               |
-| REMIND SSP2-PkBudg1150 | ZERO B               |
-| REMIND SSP2-PkBudg1150 | ZERO C               |
-| REMIND SSP2-PkBudg500  | ZERO Basis           |
-| REMIND SSP2-PkBudg500  | ZERO A               |
-| REMIND SSP2-PkBudg500  | ZERO B               |
-| REMIND SSP2-PkBudg500  | ZERO C               |
+| IAM scenario           | FE2050+ scenario                    |
+|------------------------|-------------------------------------|
+| IMAGE SSP2-Base        | Extensive reindustrialization - M0  |
+| IMAGE SSP2-RCP26       | Extensive reindustrialization - M1  |
+| IMAGE SSP2-RCP45       | Extensive reindustrialization - M23 |
+| IMAGE SSP2-RCP60       | Extensive reindustrialization - N03 |
+| IMAGE SSP2-RCP85       | Extensive reindustrialization - N1  |
+| IMAGE SSP2-Base        | Extensive reindustrialization - N2  |
+| IMAGE SSP2-RCP26       | Reference - M0                      |
+| IMAGE SSP2-RCP45       | Reference - M1                      |
+| IMAGE SSP2-RCP60       | Reference - M23                     |
+| IMAGE SSP2-RCP85       | Reference - N03                     |
+| IMAGE SSP2-Base        | Reference - N1                      |
+| IMAGE SSP2-RCP26       | Reference - N2                      |
+| IMAGE SSP2-RCP45       | Sobriety - M0                       |
+| IMAGE SSP2-RCP60       | Sobriety - M1                       |
+| IMAGE SSP2-RCP85       | Sobriety - M23                      |
+| IMAGE SSP2-Base        | Sobriety - N03                      |
+| IMAGE SSP2-RCP26       | Sobriety - N1                       |
+| IMAGE SSP2-RCP45       | Sobriety - N2                       |
+
 
 What does this do?
 ------------------
@@ -70,7 +71,7 @@ What does this do?
 ![map electricity markets](assets/map.png)
 
 This external scenario creates markets for France listed below, according
-to the projections from the RTE's Energy Future 2050 2050+ (yellow boundaries in map above).
+to the projections from the RTE's Energy Future 2050 (yellow boundaries in map above).
 
 Electricity
 ***********
@@ -81,13 +82,8 @@ Electricity
 
 These markets are relinked to activities that consume electricity in France.
 
-Additionally, the Swiss markets rely to a varying extent on imports from
-neighboring countries (FR + DE + IT + AT), for which a market is also created 
-(orange boundaries in map above):
-
-* `import from neighboring countries electricity, high voltage` (CH)
-
-That market itself relies on imports from the rest of Europe, which is
+Additionally, the French market relies to a varying extent on imports from
+neighboring countries. These imports are sourced from the rest of Europe, which is
 provided by the regional IAM market for European electricity (blue boundaries in map above).
 
 How are technologies mapped?
@@ -99,23 +95,76 @@ LCI datasets are used.
 Electricity
 ***********
 
-| Technologies in FE2050+            | LCI datasets used                                               | Remarks                                                                                                                   |
-| ---------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| Hydro, run-of-river                | electricity production, hydro, run-of-river                     |
-| Hydro, alpine reservoir            | electricity production, hydro, reservoir, alpine region         |
-| Nuclear, Boiling water reactor     | electricity production, nuclear, boiling water reactor          | The split between boiling water and pressure water is not provided. We use the current split, based on production volume. |
-| Nuclear, Pressure water reactor    | electricity production, nuclear, pressure water reactor         |
-| Conventional, Waste-to-Energy      | treatment of municipal solid waste, incineration                |
-| Conventional, Other                | electricity production, natural gas, combined cycle power plant | The report does not specify what "Other" is. Assumed to be natural gas.                                                   |
-| Conventional, Coal                 | electricity production, hard coal                               |
-| Conventional, Natural gas          | electricity production, natural gas, combined cycle power plant |
-| Renewable, Photovoltaic            | electricity production, photovoltaic                            | Datasets from 10.13140/RG.2.2.17977.19041.                                                                                |
-| Renewable, Wind turbines, Onshore  | electricity production, wind, 1-3MW turbine, onshore            |
-| Renewable, Wind turbines, Offshore | electricity production, wind, 1-3MW turbine, offshore           |
-| Renewable, Geothermal              | electricity production, deep geothermal                         | Dataset provided by premise, based on the geothermal heat dataset of ecoinvent.                                           |
-| Renewable, Biomass                 | heat and power co-generation, wood chips, 6667 kW               |
-| Renewable, Biogas                  | heat and power co-generation, biogas, gas engine                |
+| Technologies in FE2050+             | LCI datasets used                                               | Remarks                                                                                                                   |
+|-------------------------------------|-----------------------------------------------------------------| ------------------------------------------------------------------------------------------------------------------------- |
+| Hydro, run-of-river                 | electricity production, hydro, run-of-river                     |
+| Hydro, alpine reservoir             | electricity production, hydro, reservoir, alpine region         |
+| Nuclear, Evolutionary Power Reactor | electricity production, Evolutionary Power Reactor (EPR)        | 
+| Nuclear, Small Modular Reactor      | electricity production, Small Modular Reactor (SMR)             |
+| Nuclear, Pressure water reactor     | electricity production, nuclear, pressure water reactor         |
+| Conventional, Waste-to-Energy       | treatment of municipal solid waste, incineration                |
+| Conventional, Other                 | electricity production, natural gas, combined cycle power plant |                                                  |
+| Conventional, Coal                  | electricity production, hard coal                               |
+| Conventional, Natural gas           | electricity production, natural gas, combined cycle power plant |
+| Conventional, Oil                   | electricity production, oil                                     |
+| Renewable, Photovoltaic             | electricity production, photovoltaic                            | Datasets from 10.13140/RG.2.2.17977.19041.                                                                                |
+| Renewable, Wind turbines, Onshore   | electricity production, wind, 1-3MW turbine, onshore            |
+| Renewable, Wind turbines, Offshore  | electricity production, wind, 1-3MW turbine, offshore           |
+| Renewable, Geothermal               | electricity production, deep geothermal                         | Dataset provided by premise, based on the geothermal heat dataset of ecoinvent.                                           |
+| Renewable, Biomass                  | heat and power co-generation, wood chips, 6667 kW               |
+| Renewable, Biogas                   | heat and power co-generation, biogas, gas engine                |
+| Renewable, Wave                     | electricity production, wave energy converter                   |
+| Storage, Hydrogen                   | electricity production, from hydrogen                           |
+| Storage, Vehicle-to-grid            | electricity production, from vehicle-to-grid                    |
+| Storage, Battery                    | electricity production, from stationary battery                 |
+| Storage, Pumped hydro               | electricity production, hydro, pumped storage                   |
 
+Fuels
+*****
+
+Markets for diesel, gasoline and gas are created:
+
+* `market for diesel, EF2050` (FR)
+* `market for gasoline, EF2050` (FR)
+* `market for compressed gas, high pressure, FE2050` (FR)
+* `market for compressed gas, low pressure, FE2050` (FR)
+
+These markets are relinked to activities that consume liquid and gaseous fuels in France.
+
+| Technologies in FE2050+ | LCI datasets used                                 | Remarks |
+|-------------------------|---------------------------------------------------|---------|
+| Fossil, diesel          | market for diesel, low-sulfur                     |   
+| Fossil, gasoline        | market for gasoline, low-sulfur                   |
+| Biofuel, biodiesel      | diodiesel, from rapeseed oil, at fuelling station |
+| Biofuel, bioethanol     | ethanol production from sugar beet                |
+| CNG                     | market for natural gas, high pressure             |
+| LNG                     | market for natural gas, liquefied                 |
+| Biomethane              | market for biomethane, high pressure              |         |
+
+
+Hydrogen
+********
+
+Markets for hydrogen are created:
+
+* `market for hydrogen, gaseous, for refinery use, FE2050` (FR)
+* `market for hydrogen, gaseous, for ammonia use, FE2050` (FR)
+* `market for hydrogen, gaseous, for chemicals use, FE2050` (FR)
+* `market for hydrogen, gaseous, for steel use, FE2050` (FR)
+* `market for hydrogen, gaseous, for various use, FE2050` (FR)
+
+These markets are relinked to activities that consume hydrogen in France, according to their area
+of application.
+
+| Technologies in FE2050+       | LCI datasets used                                                       | Remarks |
+|-------------------------------|-------------------------------------------------------------------------|---------|
+| Hydrogen, electrolysis        | hydrogen production, electrolysis, 25 bar, domestic                     |
+| Hydrogen, from coke gas + CCS | hydrogen, recovered from coke oven gas, with carbon capture and storage |
+| Hydrogen, refinery            | hydrogen production, gaseous, petroleum refinery operation              |
+| Hydrogen, from chlore-alkali  | chlor-alkali electrolysis, diaphragm cell                               |
+| Hydrogen, APME cracking       | hydrogen cracking, APME                                                 |
+| Hydrogen, from SMR of NG      | hydrogen production, steam reforming                                    |
+| Hydrogen, from ammonia        | hydrogen production, steam reforming                                    |
 
 
 Flow diagram

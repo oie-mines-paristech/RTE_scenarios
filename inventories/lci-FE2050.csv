@@ -49,7 +49,7 @@ Exchanges,,,,,,,,,output pressure H2 of PEM is usually around 25-30 bar,,,Note
 name,amount,database,location,unit,type,reference product,categories,comment,energy content per kg h2,120,MJ/kg H2,
 "hydrogen production, electrolysis, 25 bar, domestic, FE2050",1.00E+00,FE2050,FR,kilogram,production,"hydrogen, gaseous",,,efficiency electrolyzer,0.61,[-],
 "electrolyzer, PEM, Balance of Plant",3.28315E-07,FE2050,GLO,unit,technosphere,"electrolyzer, PEM, Balance of Plant",,"Assuming lifetime of electrolyzer stack of 7 years, BOP 20 years",lifetime stack (7 years),61320,[hours],
-"electrolyzer, PEM, Stack",9.380E-07,FE2050,GLO,unit,technosphere,"electrolyzer, PEM, Stack",,,capacity factor,0.95,[-],High capacity factor since it is coupled to the grid. This will be much lower when coupled to renewable energy generators such as wind and PV (or autonomous configurations). 
+"electrolyzer, PEM, Stack",9.380E-07,FE2050,GLO,unit,technosphere,"electrolyzer, PEM, Stack",,,capacity factor,0.95,[-],High capacity factor since it is coupled to the grid. This will be much lower when coupled to renewable energy generators such as wind and PV (or autonomous configurations).
 "market for electricity, low voltage",5.46E+01,ecoinvent 3.7.1,FR,kilowatt hour,technosphere,"electricity, low voltage",,Electricity consumption with 61% eff.,,,,
 "market for water, deionised",1.20E+01,ecoinvent 3.7.1,Europe without Switzerland,kilogram,technosphere,"water, deionised",,"A perfect reaction of H2O results in 1 kg H2 and 8 kg O2, and needs 9 kg H2O, however, considering some losses we assume 12 kg H2O. ",Simons & Bauer assumed 12.318 kg H2O per kg H2 generated (can be used as Ref.),,,"In case the LCIs are used for large-scale hydrogen production, it makes sense to add impacts for water desalinization."
 Oxygen,8.00E+00,biosphere3,,kilogram,biosphere,,air,this flow is available if ecoinvent 3.8 is used,,,,
@@ -108,4 +108,18 @@ name,amount,database,location,unit,type,reference product,categories,comment,,,,
 "Transformation, to industrial area",1.49E+01,biosphere3,,square meter,biosphere,,natural resource::land,,,,,
 "Occupation, industrial area",2.97E+02,biosphere3,,square meter-year,biosphere,,natural resource::land,,,,,
 ,,,,,,,,,,,,
-,,,,,,,,,,,,
+Activity,"hydrogen, recovered from coke oven gas, FE2050",,,,,,,,,,,
+production amount,1.00E+00,,,,,,,,,,,
+comment,"1 kg of hydrogen recovered from coke oven gas. After benzol absorption step, gas stream is being subjected to the reforming technology, which comprises the following process units: coke oven gas reforming
+system, oxygen production installation, CO conversion system and the hydrolysis of COS, desulphurization system and CO2 removal system, H2 separation system and other plant. Although not specified, the oxygen and steam requirement is assumed to come from the coking step, hence, not listed as inventory inputs. Adapted to French context. Burmistrz et al., 2016. DOI: 10.1051/e3sconf/20161000023",,,,,,,,,,,
+reference product,"hydrogen, gaseous",,,,,,,,,,,
+location,FR,,,,,,,,,,,
+unit,kilogram,,,,,,,,,,,
+Exchanges,,,,,,,,,,,,
+name,amount,location,unit,type,reference product,categories,,comment,,,,
+"hydrogen, recovered from coke oven gas, FE2050",1.00E+00,FR,kilogram,production,"hydrogen, gaseous",,,,,,,
+coking,4.30E+00,DE,kilogram,technosphere,coal gas,,,,,,,
+coking,1.34E+00,DE,kilogram,technosphere,coal tar,,,,,,,
+market for tap water,4.03E+00,FR,kilogram,technosphere,tap water,,,,,,,
+"Carbon dioxide, fossil",8.34E+00,,kilogram,biosphere,,air,,,,,,
+market for electricity,4.64E+00,FR,kilowatt hour,technosphere,"electricity, medium voltage",,,,,,,

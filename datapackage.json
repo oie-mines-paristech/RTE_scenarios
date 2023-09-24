@@ -4,21 +4,23 @@
     "title": "Futurs énergétiques 2050",
     "description": "Implementation of the electricity and hydrogen scenarios described in Futurs énergétiques 2050",
     "version": "1.0.0",
-    "contributors":[{
-    "title": "Joanna Schlesinger",
-    "email": "joanna.schlesinger@minesparis.psl.eu"
-    },{
-    "title": "Romain Sacchi",
-    "email": "r_s@me.com"
-    }],
+    "contributors":[
+        {
+            "title": "Romain Sacchi",
+            "email": "romain.sacchi@psi.ch"
+        },{
+            "title": "Joanna Schlesinger",
+            "email": "joanna.schlesinger@minesparis.psl.eu"
+        }
+    ],
     "dependencies": {
         "premise": ">=1.3.8"
     },
     "ecoinvent": {
-        "version": "3.8",
+        "version": "3.9.1",
         "system model": "cut-off"
     },
-    "scenarios decription": {
+    "scenarios description": {
         "Reference": "Gradual electrification (substitution for fossil fuels) and ambitious targets for\nenergy efficiency (NLCS assumption). Assumes continued economic growth\n(+1.3% per year from 2030) and demographic growth (INSEE’s low fertility\nscenario). The baseline trajectory assumes a high degree of efficacy of public\npolicies and plans (stimulus, hydrogen, industry). The manufacturing industry\nexpands, and its share of GDP ceases to decrease. Building renovation is\nfactored in but so is the related rebound effect.",
         "Sobriety": "Lifestyles change to increase energy sufficiency in terms of end-uses\nand consumption (less individual travel favouring soft mobility and mass\ntransport, less consumption of manufactured goods, sharing economy,\nlower set point temperatures for heating, increase in remote working,\ndigital sustainability, etc.), resulting in an overall reduction in energy\nneeds, and thus electricity needs.",
         "Extensive reindustrialization": "Without returning to the same level as the early 1990s, the manufacturing\nindustry’s share of GDP rebounds sharply, reaching 12-13% in 2050.\nThis scenario models an investment in cutting edge, strategic technologies\nand takes into account the reshoring of some high-carbon production\nin order to reduce the carbon footprint of consumption in France.",
@@ -577,7 +579,7 @@
             }
         },
         {
-            "path": "inventories/lci-FE2050.csv",
+            "path": "inventories/lci-FE2050.xlsx",
             "profile": "data-resource",
             "name": "inventories",
             "format": "csv",
