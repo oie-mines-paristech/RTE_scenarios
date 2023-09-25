@@ -210,7 +210,7 @@ production pathways:
     production volume:
       variable: Production|Liquid fuel|Diesel|Biodiesel
     ecoinvent alias:
-      name: Biodiesel, from rapeseed oil, at fuelling station
+      name: biodiesel, from rapeseed oil, at fuelling station
       reference product: biodiesel, vehicle grade
       exists in original database: True
 
@@ -239,8 +239,8 @@ production pathways:
           technosphere:
             - electricity
     ecoinvent alias:
-        name: hydrogen production, electrolysis, 25 bar, domestic, FE2050
-        reference product: hydrogen, gaseous
+        name: hydrogen production, gaseous, 30 bar, from PEM electrolysis, from grid electricity, domestic, FE2050
+        reference product: hydrogen, gaseous, 30 bar
         exists in original database: True
 
   coking_hydrogen_refinery:
@@ -300,8 +300,8 @@ production pathways:
           technosphere:
             - electricity
     ecoinvent alias:
-      name: hydrogen production, electrolysis, 25 bar, domestic, FE2050
-      reference product: hydrogen, gaseous
+      name: hydrogen production, gaseous, 30 bar, from PEM electrolysis, from grid electricity, domestic, FE2050
+      reference product: hydrogen, gaseous, 30 bar
       exists in original database: True
 
   coking_hydrogen_ammonia:
@@ -361,8 +361,8 @@ production pathways:
           technosphere:
             - electricity
     ecoinvent alias:
-      name: hydrogen production, electrolysis, 25 bar, domestic, FE2050
-      reference product: hydrogen, gaseous
+      name: hydrogen production, gaseous, 30 bar, from PEM electrolysis, from grid electricity, domestic, FE2050
+      reference product: hydrogen, gaseous, 30 bar
       exists in original database: True
 
   coking_hydrogen_chemicals:
@@ -422,8 +422,8 @@ production pathways:
           technosphere:
             - electricity
     ecoinvent alias:
-      name: hydrogen production, electrolysis, 25 bar, domestic, FE2050
-      reference product: hydrogen, gaseous
+      name: hydrogen production, gaseous, 30 bar, from PEM electrolysis, from grid electricity, domestic, FE2050
+      reference product: hydrogen, gaseous, 30 bar
       exists in original database: True
 
   coking_hydrogen_steel:
@@ -483,8 +483,8 @@ production pathways:
           technosphere:
             - electricity
     ecoinvent alias:
-      name: hydrogen production, electrolysis, 25 bar, domestic, FE2050
-      reference product: hydrogen, gaseous
+      name: hydrogen production, gaseous, 30 bar, from PEM electrolysis, from grid electricity, domestic, FE2050
+      reference product: hydrogen, gaseous, 30 bar
       exists in original database: True
 
   coking_hydrogen_others:
@@ -544,8 +544,8 @@ production pathways:
           technosphere:
             - electricity
     ecoinvent alias:
-      name: hydrogen production, electrolysis, 25 bar, imported, FE2050
-      reference product: hydrogen, gaseous
+      name: hydrogen production, gaseous, 30 bar, from PEM electrolysis, from grid electricity
+      reference product: hydrogen, gaseous, 30 bar
       exists in original database: True
 
   CNG:
@@ -626,7 +626,7 @@ markets:
         categories: air::non-urban air or from high stacks
         unit: kilogram
         amount: 0.001628712
-      - name: NMVOC, non-methane volatile organic compounds, unspecified origin
+      - name: NMVOC, non-methane volatile organic compounds
         categories: air::non-urban air or from high stacks
         unit: kilogram
         amount: 1.123812e-06

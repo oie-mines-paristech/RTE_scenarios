@@ -110,28 +110,28 @@ LCI datasets are used.
 Electricity
 ***********
 
-| Technologies in FE2050+             | LCI datasets used                                               | Remarks                                                                                                                   |
-|-------------------------------------|-----------------------------------------------------------------| ------------------------------------------------------------------------------------------------------------------------- |
+| Technologies in FE2050+             | LCI datasets used                                               | Remarks                                                                         |
+|-------------------------------------|-----------------------------------------------------------------|---------------------------------------------------------------------------------|
 | Hydro, run-of-river                 | electricity production, hydro, run-of-river                     |
 | Hydro, alpine reservoir             | electricity production, hydro, reservoir, alpine region         |
-| Nuclear, Evolutionary Power Reactor | electricity production, Evolutionary Power Reactor (EPR)        | 
-| Nuclear, Small Modular Reactor      | electricity production, Small Modular Reactor (SMR)             |
+| Nuclear, Evolutionary Power Reactor | electricity production, Evolutionary Power Reactor (EPR)        | Datasets from 10.1177/0957650912440549.                                         
+| Nuclear, Small Modular Reactor      | electricity production, Small Modular Reactor (SMR)             | Based on 10.1073/pnas.2111833119.
 | Nuclear, Pressure water reactor     | electricity production, nuclear, pressure water reactor         |
 | Conventional, Waste-to-Energy       | treatment of municipal solid waste, incineration                |
-| Conventional, Other                 | electricity production, natural gas, combined cycle power plant |                                                  |
+| Conventional, Other                 | electricity production, natural gas, combined cycle power plant |                                                                                 |
 | Conventional, Coal                  | electricity production, hard coal                               |
 | Conventional, Natural gas           | electricity production, natural gas, combined cycle power plant |
 | Conventional, Oil                   | electricity production, oil                                     |
-| Renewable, Photovoltaic             | electricity production, photovoltaic                            | Datasets from 10.13140/RG.2.2.17977.19041.                                                                                |
+| Renewable, Photovoltaic             | electricity production, photovoltaic                            | Datasets from 10.13140/RG.2.2.17977.19041.                                      |
 | Renewable, Wind turbines, Onshore   | electricity production, wind, 1-3MW turbine, onshore            |
 | Renewable, Wind turbines, Offshore  | electricity production, wind, 1-3MW turbine, offshore           |
-| Renewable, Geothermal               | electricity production, deep geothermal                         | Dataset provided by premise, based on the geothermal heat dataset of ecoinvent.                                           |
+| Renewable, Geothermal               | electricity production, deep geothermal                         | Dataset provided by premise, based on the geothermal heat dataset of ecoinvent. |
 | Renewable, Biomass                  | heat and power co-generation, wood chips, 6667 kW               |
 | Renewable, Biogas                   | heat and power co-generation, biogas, gas engine                |
-| Renewable, Wave                     | electricity production, wave energy converter                   |
+| Renewable, Wave                     | electricity production, wave energy converter                   | Dataset from 10.1007/s11367-018-1504-2
 | Storage, Hydrogen                   | electricity production, from hydrogen                           |
 | Storage, Vehicle-to-grid            | electricity production, from vehicle-to-grid                    |
-| Storage, Battery                    | electricity production, from stationary battery                 |
+| Storage, Battery                    | electricity production, from stationary battery                 | Dataset from 10.1016/j.jclepro.2022.132899.
 | Storage, Pumped hydro               | electricity production, hydro, pumped storage                   |
 
 New inventories
@@ -204,11 +204,11 @@ manufacture of the vehicle. We assume a charge-discharge efficiency of 87.5%, wh
 is typical for an electric vehicle (Sacchi, Bauer, et al., 2022).
 
 * Supplying electricity from stationary batteries. An NMC-622 Li-ion battery is used 
-for this purpose, with a charge-discharge efficiency of 90%. To size the battery, 
-we assume an energy density of 0.2 kWh per kg of cell, a lifetime of 3,000 complete 
-charge-discharge cycles, and that 40% of the battery mass is taken up by auxiliary 
-equipment (charge manager, cooling, etc.). Based on this input data, we estimate 
-that storing 1 kWh of electricity requires around 2.8 g of battery.
+for this purpose, with a charge-discharge efficiency of 81%. Originally based on
+a dataset for a 14.4 kWh home storage system (Jasper et al., 2022)
+Friedrich B. Jasper, Jana Späthe, Manuel Baumann, Jens F. Peters, Janna Ruhland, Marcel Weil,
+Life cycle assessment (LCA) of a battery home storage system based on primary data,
+Journal of Cleaner Production, Volume 366, 2022, https://doi.org/10.1016/j.jclepro.2022.132899.
 
 To represent cross-border trade, we use the dataset representing the European 
 electricity mix. This electricity mix, initially present in the ecoinvent database, 
