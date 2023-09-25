@@ -279,16 +279,16 @@ production pathways:
     production volume:
       variable: Production|Hydrogen|Refineries|Steam methane reforming
     ecoinvent alias:
-      name: hydrogen production, steam reforming
-      reference product: hydrogen, gaseous
+      name: hydrogen production, steam methane reforming of natural gas, 25 bar
+      reference product: hydrogen, gaseous, 25 bar
       exists in original database: True
 
   ammonia_hydrogen_refinery:
     production volume:
       variable: Production|Hydrogen|Refineries|Co-produced|Ammonia
     ecoinvent alias:
-      name: hydrogen production, steam reforming
-      reference product: hydrogen, gaseous
+      name: hydrogen production, steam methane reforming of natural gas, 25 bar
+      reference product: hydrogen, gaseous, 25 bar
       exists in original database: True
       
   electrolysis_hydrogen_ammonia:
@@ -340,16 +340,16 @@ production pathways:
     production volume:
       variable: Production|Hydrogen|Ammonia|Steam methane reforming
     ecoinvent alias:
-      name: hydrogen production, steam reforming
-      reference product: hydrogen, gaseous
+      name: hydrogen production, steam methane reforming of natural gas, 25 bar
+      reference product: hydrogen, gaseous, 25 bar
       exists in original database: True
 
   ammonia_hydrogen_ammonia:
     production volume:
       variable: Production|Hydrogen|Ammonia|Co-produced|Ammonia
     ecoinvent alias:
-      name: hydrogen production, steam reforming
-      reference product: hydrogen, gaseous
+      name: hydrogen production, steam methane reforming of natural gas, 25 bar
+      reference product: hydrogen, gaseous, 25 bar
       exists in original database: True
 
   electrolysis_hydrogen_chemicals:
@@ -401,16 +401,16 @@ production pathways:
     production volume:
       variable: Production|Hydrogen|Chemicals|Steam methane reforming
     ecoinvent alias:
-      name: hydrogen production, steam reforming
-      reference product: hydrogen, gaseous
+      name: hydrogen production, steam methane reforming of natural gas, 25 bar
+      reference product: hydrogen, gaseous, 25 bar
       exists in original database: True
 
   ammonia_hydrogen_chemicals:
     production volume:
       variable: Production|Hydrogen|Chemicals|Co-produced|Chemicals
     ecoinvent alias:
-      name: hydrogen production, steam reforming
-      reference product: hydrogen, gaseous
+      name: hydrogen production, steam methane reforming of natural gas, 25 bar
+      reference product: hydrogen, gaseous, 25 bar
       exists in original database: True
 
   electrolysis_hydrogen_steel:
@@ -462,16 +462,16 @@ production pathways:
     production volume:
       variable: Production|Hydrogen|Steel|Steam methane reforming
     ecoinvent alias:
-      name: hydrogen production, steam reforming
-      reference product: hydrogen, gaseous
+      name: hydrogen production, steam methane reforming of natural gas, 25 bar
+      reference product: hydrogen, gaseous, 25 bar
       exists in original database: True
 
   ammonia_hydrogen_steel:
     production volume:
       variable: Production|Hydrogen|Steel|Co-produced|Ammonia
     ecoinvent alias:
-      name: hydrogen production, steam reforming
-      reference product: hydrogen, gaseous
+      name: hydrogen production, steam methane reforming of natural gas, 25 bar
+      reference product: hydrogen, gaseous, 25 bar
       exists in original database: True
       
   electrolysis_hydrogen_others:
@@ -523,16 +523,16 @@ production pathways:
     production volume:
       variable: Production|Hydrogen|Others|Steam methane reforming
     ecoinvent alias:
-      name: hydrogen production, steam reforming
-      reference product: hydrogen, gaseous
+      name: hydrogen production, steam methane reforming of natural gas, 25 bar
+      reference product: hydrogen, gaseous, 25 bar
       exists in original database: True
 
   ammonia_hydrogen_others:
     production volume:
       variable: Production|Hydrogen|Others|Co-produced|Ammonia
     ecoinvent alias:
-      name: hydrogen production, steam reforming
-      reference product: hydrogen, gaseous
+      name: hydrogen production, steam methane reforming of natural gas, 25 bar
+      reference product: hydrogen, gaseous, 25 bar
       exists in original database: True
 
   electrolysis_hydrogen_imported:
