@@ -8,6 +8,8 @@ This is a repository containing a scenario that implements the projections of th
 French electricity operator (RTE) for:
 
 * electricity
+* hydrogen
+* other liquid and gaseous fuels
 
 It is meant to be used in `premise` in addition to a global IAM scenario, to provide 
 refined projections at the country level.
