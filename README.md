@@ -47,16 +47,6 @@ Authors of this data package
 * Romain Sacchi (romain.sacchi@psi.ch)
 
 
-Data validation 
----------------
-
-[![goodtables.io](https://goodtables.io/badge/github/romainsacchi/RTE_scenarios.svg)](https://goodtables.io/github/romainsacchi/RTE_scenarios)
-
-Test 
-----
-
-![example workflow](https://github.com/romainsacchi/RTE_scenarios/actions/workflows/main.yml/badge.svg?branch=main)
-
 Ecoinvent database compatibility
 --------------------------------
 
@@ -341,8 +331,8 @@ How to use it?
                 {"model":"image", "pathway":"SSP2-Base", "year":2050,},
                 {"model":"image", "pathway":"SSP2-RCP26", "year":2030,},
             ],        
-            source_db="ecoinvent 3.8 cutoff",
-            source_version="3.8",
+            source_db="ecoinvent 3.9 cutoff",
+            source_version="3.9",
             key='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
             external_scenarios=[
                 FE2050, # <-- list datapackages here
