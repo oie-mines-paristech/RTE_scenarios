@@ -45,6 +45,9 @@ Authors of this data package
 
 * Johanna Schlesinger (joanna.schlesinger@minesparis.psl.eu)
 * Romain Sacchi (romain.sacchi@psi.ch)
+* Juliana Steinbach (juliana.steinbach@minesparis.psl.eu)
+* Thomas Beaussier (thomas.beaussier@minesparis.psl.eu)
+* Paula Perez-Lopez (paula.perez_lopez@minesparis.psl.eu)
 
 Funding
 -------
