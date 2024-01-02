@@ -46,6 +46,11 @@ Authors of this data package
 * Johanna Schlesinger (joanna.schlesinger@minesparis.psl.eu)
 * Romain Sacchi (romain.sacchi@psi.ch)
 
+Funding
+-------
+
+This work is supported by the ADEME agency, in the context of
+the HYSPI project (https://www.psi.ch/en/ta/projects/hyspi).
 
 Ecoinvent database compatibility
 --------------------------------
@@ -339,4 +344,3 @@ How to use it?
             ] 
         )
 ```
-
