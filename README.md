@@ -43,7 +43,7 @@ https://assets.rte-france.com/prod/public/2021-12/Futurs-Energetiques-2050-princ
 Authors of this data package
 ----------------------------
 
-* Johanna Schlesinger (joanna.schlesinger@minesparis.psl.eu)
+* Joanna Schlesinger (joanna.schlesinger@minesparis.psl.eu)
 * Romain Sacchi (romain.sacchi@psi.ch)
 * Juliana Steinbach (juliana.steinbach@minesparis.psl.eu)
 * Thomas Beaussier (thomas.beaussier@minesparis.psl.eu)
@@ -108,6 +108,8 @@ Additionally, the French market relies to a varying extent on imports from
 neighboring countries. These imports are sourced from the rest of Europe, which is
 provided by the regional IAM market for European electricity (blue boundaries in map above).
 
+
+
 How are technologies mapped?
 ---------------------------
 The tables below show how the mapping between reported technologies
@@ -140,37 +142,6 @@ Electricity
 | Storage, Vehicle-to-grid            | electricity production, from vehicle-to-grid                    |
 | Storage, Battery                    | electricity production, from stationary battery                 | Dataset from 10.1016/j.jclepro.2022.132899.
 | Storage, Pumped hydro               | electricity production, hydro, pumped storage                   |
-
-Imports and Exports
--------------------
-
-Available data
-______________
-
-The Figure 10-4 provided by RTE provide the imports, exports and balance (“solde annuel”).
-The File “Bilans énergétiques” provided by RTE provides the balance (“solde exportateur”). 
-The data “solde annuel” provided by RTE in the Figure 10-4 and the data “solde exportateur” provided by RTE in the file “Bilans énergétiques”  do not match. 
-
-Balance
-_______
-
-As the data used is taken from the file “Bilan énergétiques”, the balance used is the one provided in the file “Bilans énergétiques”. 
-
-Imports and exports 
-___________________
-
-The ratio of imports and exports are calculated based one the data provided in Fig. 10-4. 
-This ratio is applied to the balance taken from “Bilan énergétiques” to recalculate imports and exports. 
-
-Note
-____
-
-This calculation method was suggested by RTE experts that worked on Futurs Energétiques 2050 study. 
-The difference between balance data from two files (“solde annuel” and “solde exportateur”) is maximum 17%. 
-
-Other hypotheses
-•	As the ratios of imports and exports are not provided in Fig. 10-4 for 2060, the ratios of 2050 were reused for 2060. 
-•	The imports and exports data provided in Fig. 10-4 are given for each scenario M0, M1, M23, N1, N2, N03) but are not given for each consumption trajectory (reference, sobriety, reindustrialization). It was assumed that the ratios of imports and exports are the same for the three trajectories (for example, same ratios for M1 reference, M1 sobriety and M1 reindustrialization). 
 
 
 New inventories
@@ -313,6 +284,69 @@ according to their area of application.
 | Hydrogen, APME cracking       | hydrogen cracking, APME                                                 |
 | Hydrogen, from SMR of NG      | hydrogen production, steam reforming                                    |
 | Hydrogen, from ammonia        | hydrogen production, steam reforming                                    |
+
+
+How the original data provided by RTE have been modified and implemented ?  
+-------------------
+
+Flexibility technologies
+______________
+
+In RTE data excel file, electricity produced by Pumped Storage Power Station (STEP in French) and by hydrogen technologies are not put in the "flexibility" section. These two technologies are considered as flexibility technologies (also called storage technologies) in this model. 
+The "flexibility technologies" considered are thus :
+* Vehicle-to-Grid and Grid-to-Vehicle
+* Stationnary battery
+* Pumped Storage Power Station
+* Hydrogen Electrolyser and Fuel Cell
+
+The industrial curtailment of electricity and the electricity clipping (data provided by RTE) are not considered in this model.
+
+Imports and Exports data generation
+______________
+
+*Available data* 
+The Figure 10-4 provided by RTE provide the imports, exports and balance (“solde annuel”).
+The File “Bilans énergétiques” provided by RTE provides the balance (“solde exportateur”). 
+The data “solde annuel” provided by RTE in the Figure 10-4 and the data “solde exportateur” provided by RTE in the file “Bilans énergétiques”  do not match. 
+
+As the data used is taken from the file “Bilan énergétiques”, the balance used is the one provided in the file “Bilans énergétiques”. 
+
+*Imports and exports calculation* 
+The ratio of imports and exports are calculated based one the data provided in Fig. 10-4 considering the imports consumed in France and the exports that are not just transnational transfers. 
+This ratio is applied to the balance taken from “Bilan énergétiques” to recalculate imports and exports. 
+
+Notes : 
+* This calculation method was suggested by RTE experts that worked on Futurs Energétiques 2050 study. 
+* The difference between balance data from two files (“solde annuel” and “solde exportateur”) is maximum 17%. 
+
+Other hypotheses:
+* As the ratios of imports and exports are not provided in Fig. 10-4 for 2060, the ratios of 2050 were reused for 2060. 
+* The imports and exports data provided in Fig. 10-4 are given for each scenario M0, M1, M23, N1, N2, N03) but are not given for each consumption trajectory (reference, sobriety, reindustrialization). It was assumed that the ratios of imports and exports are the same for the three trajectories (for example, same ratios for M1 reference, M1 sobriety and M1 reindus
+
+Imports modeling
+______________
+The imports are considered as in ecoinvent as an input flow of the market for electricity. 
+The inventory chosen for modeling the imports is the European market of electricity provided by the regional IAM market for European electricity.
+This assumption involves that the considered imported electricity also includes the French electricity mix (that reprensents around 20% of the European electricity production).
+
+Warning : Even if the imports consumed in France are quite low (in 2050, maximum 6% of the total electricity demand for all scenarios), the imports can have a large influence on the climate change results as the French electicity mix is much less carbonized than the European electricity mix. 
+Potential improvements of imports modeling have been identified :
+* excluding France from the European electricity mix used to model the import flow
+* modeling the electricity mix from the neighboring countries (RTE provides only data for 2050 for Germany, Italy, Spain and United Kingdom)
+
+Exports modeling : change of production volumes of "primary" electricity
+______________
+As we aim to model the electricity mix consumed in France, we have considered that :
+* the exports are taken from the "primary" electricity production (ie the electricity that is not consumed then injected by flexibility technologies).
+* the electricity consumed then injected by flexibility technologies are only dedicated to French electricity market
+
+The production data used has thus been resized by substracting the exports from the volumes of "primary" electricity produced. 
+
+Hydro electricity production data
+______________
+
+As the data provided by RTE is not divided in reservoir hydro and run-of-river hydro, the actual percentage of repartition between both technologies as been applied to generate production data for both technologies.
+The percentage has been calculated based on `market for electricity, high voltage` (FR) taken from ecoinvent 3.10 : 84% for run-of-river and 16% for reservoir technologies.
 
 
 Flow diagram
