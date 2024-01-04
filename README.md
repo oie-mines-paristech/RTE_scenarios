@@ -40,15 +40,20 @@ Futurs énergétiques 2050\
 Réseau de Transport d'Electricité\
 https://assets.rte-france.com/prod/public/2021-12/Futurs-Energetiques-2050-principaux-resultats.pdf
 
-Data validation 
----------------
+Authors of this data package
+----------------------------
 
-[![goodtables.io](https://goodtables.io/badge/github/romainsacchi/RTE_scenarios.svg)](https://goodtables.io/github/romainsacchi/RTE_scenarios)
+* Johanna Schlesinger (joanna.schlesinger@minesparis.psl.eu)
+* Romain Sacchi (romain.sacchi@psi.ch)
+* Juliana Steinbach (juliana.steinbach@minesparis.psl.eu)
+* Thomas Beaussier (thomas.beaussier@minesparis.psl.eu)
+* Paula Perez-Lopez (paula.perez_lopez@minesparis.psl.eu)
 
-Test 
-----
+Funding
+-------
 
-![example workflow](https://github.com/romainsacchi/RTE_scenarios/actions/workflows/main.yml/badge.svg?branch=main)
+This work is supported by the ADEME agency, in the context of
+the HYSPI project (https://www.psi.ch/en/ta/projects/hyspi).
 
 Ecoinvent database compatibility
 --------------------------------
@@ -135,6 +140,38 @@ Electricity
 | Storage, Vehicle-to-grid            | electricity production, from vehicle-to-grid                    |
 | Storage, Battery                    | electricity production, from stationary battery                 | Dataset from 10.1016/j.jclepro.2022.132899.
 | Storage, Pumped hydro               | electricity production, hydro, pumped storage                   |
+
+Imports and Exports
+-------------------
+
+Available data
+______________
+
+The Figure 10-4 provided by RTE provide the imports, exports and balance (“solde annuel”).
+The File “Bilans énergétiques” provided by RTE provides the balance (“solde exportateur”). 
+The data “solde annuel” provided by RTE in the Figure 10-4 and the data “solde exportateur” provided by RTE in the file “Bilans énergétiques”  do not match. 
+
+Balance
+_______
+
+As the data used is taken from the file “Bilan énergétiques”, the balance used is the one provided in the file “Bilans énergétiques”. 
+
+Imports and exports 
+___________________
+
+The ratio of imports and exports are calculated based one the data provided in Fig. 10-4. 
+This ratio is applied to the balance taken from “Bilan énergétiques” to recalculate imports and exports. 
+
+Note
+____
+
+This calculation method was suggested by RTE experts that worked on Futurs Energétiques 2050 study. 
+The difference between balance data from two files (“solde annuel” and “solde exportateur”) is maximum 17%. 
+
+Other hypotheses
+•	As the ratios of imports and exports are not provided in Fig. 10-4 for 2060, the ratios of 2050 were reused for 2060. 
+•	The imports and exports data provided in Fig. 10-4 are given for each scenario M0, M1, M23, N1, N2, N03) but are not given for each consumption trajectory (reference, sobriety, reindustrialization). It was assumed that the ratios of imports and exports are the same for the three trajectories (for example, same ratios for M1 reference, M1 sobriety and M1 reindustrialization). 
+
 
 New inventories
 _______________
@@ -302,12 +339,11 @@ How to use it?
                 {"model":"image", "pathway":"SSP2-Base", "year":2050,},
                 {"model":"image", "pathway":"SSP2-RCP26", "year":2030,},
             ],        
-            source_db="ecoinvent 3.8 cutoff",
-            source_version="3.8",
+            source_db="ecoinvent 3.9 cutoff",
+            source_version="3.9",
             key='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
             external_scenarios=[
                 FE2050, # <-- list datapackages here
             ] 
         )
 ```
-
