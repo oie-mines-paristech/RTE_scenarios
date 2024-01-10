@@ -305,8 +305,9 @@ Imports and Exports data generation
 ______________
 
 *Available data* 
-The Figure 10-4 provided by RTE provide the imports, exports and balance (“solde annuel”).
-The File “Bilans énergétiques” provided by RTE provides the balance (“solde exportateur”). 
+https://www.rte-france.com/analyses-tendances-et-prospectives/bilan-previsionnel-2050-futurs-energetiques#Lesdonnees
+The Figure 10-4 (file FE2050_Annexes chapitre 10) provided by RTE provide the imports, exports and balance (“solde annuel”).
+The File “FE2050_Annexes Bilans énergétiques” provided by RTE provides the balance (“solde exportateur”). 
 The data “solde annuel” provided by RTE in the Figure 10-4 and the data “solde exportateur” provided by RTE in the file “Bilans énergétiques”  do not match. 
 
 As the data used is taken from the file “Bilan énergétiques”, the balance used is the one provided in the file “Bilans énergétiques”. 
@@ -361,6 +362,8 @@ How to use it?
     import brightway2 as bw
     from premise import NewDatabase
     from datapackage import Package
+    import bw2io
+    from brightway2 import *
     
     
     fp = r"https://raw.githubusercontent.com/romainsacchi/RTE_scenarios/main/datapackage.json"
@@ -372,12 +375,22 @@ How to use it?
             scenarios = [
                 {"model":"image", "pathway":"SSP2-Base", "year":2050,},
                 {"model":"image", "pathway":"SSP2-RCP26", "year":2030,},
-            ],        
+            ],
             source_db="ecoinvent 3.9 cutoff",
+            # source_type="ecospold", # <-- this is NEW
+            # source_file_path=r"dataset_file_path", # <-- this is NEW
             source_version="3.9",
             key='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
             external_scenarios=[
                 FE2050, # <-- list datapackages here
             ] 
         )
+
+    ndb.update_external_scenario()
+
+
+    # bw2io.create_default_biosphere3(overwrite=True) <-- solves the error "Exchange between ('biosphere3') and ('ecoinvent_cutoff_3.9_image_SSP2-Base_2050') is invalid" in case it appears
+
+
+    ndb.write_db_to_brightway(name=["new_database_name"])
 ```
