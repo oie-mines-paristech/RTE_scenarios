@@ -11,19 +11,20 @@ French electricity operator (RTE) for:
 * hydrogen
 * other liquid and gaseous fuels
 
-It is meant to be used in `premise` in addition to a global IAM scenario, to provide 
+It is meant to be used in [`premise`](https://github.com/polca/premise), optionally in addition to a global IAM scenario, to provide 
 refined projections at the country level.
 
 This data package contains all the files necessary for `premise` to implement
 this scenario and create market-specific composition for electricity (including imports from
-neighboring countries), liquid and gaseous fuels (including hydrogen).
+neighboring countries), liquid and gaseous fuels (including hydrogen) in the LCA database ecoinvent.
 
-The data relating to the annual production volumes of different energy carriers (e.g. electricity, hydrogen) 
-for each Energy Futures 2050 scenario (18 in number) have been formatted and organised in a data package 
-defined by the Frictionless standards (Walsh and Pollock, 2022). This data package is read and interpreted 
-by premise. We therefore store a number of scenarios in a single data package. 
+The data relating to the annual production volumes of different energy carriers 
+(e.g. electricity, hydrogen) for each Energy Futures 2050 scenario (18 in number) 
+have been formatted and organised in a data package  defined by the Frictionless standards 
+(Walsh and Pollock, 2022). This data package is read and interpreted by `premise`. 
+We therefore store a number of scenarios in a single data package. 
 
-This is made up of four elements: 
+This datapackage contains four files necessary to the scenarios implementation into the ecoinvent LCA database: 
 
 * A datapackage.json file, which provides the metadata for the data package (e.g. authors, scenario descriptions, list and locations of resources, etc.). 
 * A config.yaml file which provides the correspondence between the scenario variables and the LCA datasets in the ecoinvent DB, as well as the "LCA datasets to be created" as they are not available in the ecoinvent DB. 
@@ -86,17 +87,24 @@ The following coupling is done between IAM and FE2050+ scenarios:
 | IMAGE SSP2-Base         | Sobriety - N1                          |
 | IMAGE SSP2-Base         | Sobriety - N2                          |
 
+This pairing was done solely based on the author's opinions and does not reflect 
+any official coupling between the two scenarios. This is to prevent coupling
+between scenarios that are not compatible (e.g. coupling between a global scenario with
+a high carbon price and a national scenario with a low carbon price).
 
 What does this do?
 ------------------
 
 ![map electricity markets](assets/map.png)
 
-This external scenario creates markets for France listed below, according
+This external scenario creates electricity and fuel markets for France listed below, according
 to the projections from the RTE's Energy Future 2050 (yellow boundaries in map above).
+Imports of electricity are provided by the regional IAM market for European electricity (blue boundaries in map above).
 
 Electricity
 ***********
+
+The following market datasets are created:
 
 * `market for electricity, high voltage, EF2050` (FR)
 * `market for electricity, medium voltage, EF2050` (FR)
@@ -107,7 +115,6 @@ These markets are relinked to activities that consume electricity in France.
 Additionally, the French market relies to a varying extent on imports from
 neighboring countries. These imports are sourced from the rest of Europe, which is
 provided by the regional IAM market for European electricity (blue boundaries in map above).
-
 
 
 How are technologies mapped?
@@ -138,8 +145,8 @@ Electricity
 | Renewable, Biomass                  | heat and power co-generation, wood chips, 6667 kW               |
 | Renewable, Biogas                   | heat and power co-generation, biogas, gas engine                |
 | Renewable, Wave                     | electricity production, wave energy converter                   | Dataset from 10.1007/s11367-018-1504-2
-| Storage, Hydrogen                   | electricity production, from hydrogen                           |
-| Storage, Vehicle-to-grid            | electricity production, from vehicle-to-grid                    |
+| Storage, Hydrogen                   | electricity production, from hydrogen                           | Created for this data package.                                                  |
+| Storage, Vehicle-to-grid            | electricity production, from vehicle-to-grid                    | Crearted for this data package.                                                  |
 | Storage, Battery                    | electricity production, from stationary battery                 | Dataset from 10.1016/j.jclepro.2022.132899.
 | Storage, Pumped hydro               | electricity production, hydro, pumped storage                   |
 
@@ -204,6 +211,7 @@ of electricity produced in 2020 - 50% efficiency - to reach 65% efficiency in 20
 (Cigolotti, Genovese and Fragiacomo, 2021). The total efficiency of this means of 
 storage is therefore 30% in 2020. This will improve slightly over time, as the 
 efficiency of the electrolyser and the fuel cell increases, reaching 35% by 2050. 
+
 The fraction of fuel cell required to produce 1 kWh is :
   * 1 kWh/(80,000 hours * 2 kW) = 6.25e-6 assuming that the fuel cell operates for 
 80,000 hours or 18 years and has a rated output of 2 kW.
@@ -222,7 +230,8 @@ Journal of Cleaner Production, Volume 366, 2022, https://doi.org/10.1016/j.jclep
 
 To represent cross-border trade, we use the dataset representing the European 
 electricity mix. This electricity mix, initially present in the ecoinvent database, 
-is transformed by premise, and depends on the global scenario used as input. 
+is transformed by `premise`, and depends on the global IAM scenario used as input.
+If no IAM scenario is used, the European electricity mix is similar to the original ecoinvent dataset.
 The Energy Futures 2050 scenarios do not detail the electricity mix of neighbouring 
 countries. We therefore consider the average European mix as projected by IAM's 
 global scenarios. This mix changes with the global scenario used (e.g., SSP1, SSP2, SSP5) 
@@ -248,23 +257,26 @@ Markets for diesel, gasoline and gas are created:
 * `market for compressed gas, high pressure, FE2050` (FR)
 * `market for compressed gas, low pressure, FE2050` (FR)
 
+The datasets listed below are used to supply the above-listed markets:
+
+| Technologies in FE2050+ | LCI datasets used                                           | Market                                           |
+|-------------------------|-------------------------------------------------------------|--------------------------------------------------|
+| Fossil, diesel          | diesel production, low-sulfur, petroleum refinery operation | market for diesel, EF2050              |
+| Biofuel, biodiesel      | biodiesel, from rapeseed oil, at fuelling station           | market for diesel, EF2050                        |
+| Fossil, gasoline        | petrol production, low-sulfur                               | market for gasoline, EF2050                      |
+| Biofuel, bioethanol     | ethanol production from sugar beet                          | market for gasoline, EF2050                      |
+| CNG                     | market for natural gas, high pressure                       | market for compressed gas, high pressure, FE2050 |
+| LNG                     | market for natural gas, liquefied                           | market for compressed gas, high pressure, FE2050 |
+| Biomethane              | market for biomethane, high pressure                        | market for compressed gas, high pressure, FE2050 |
+
 These markets are relinked to activities that consume liquid and gaseous fuels in France.
 
-| Technologies in FE2050+ | LCI datasets used                                 | Remarks |
-|-------------------------|---------------------------------------------------|---------|
-| Fossil, diesel          | market for diesel, low-sulfur                     |   
-| Fossil, gasoline        | market for gasoline, low-sulfur                   |
-| Biofuel, biodiesel      | biodiesel, from rapeseed oil, at fuelling station |
-| Biofuel, bioethanol     | ethanol production from sugar beet                |
-| CNG                     | market for natural gas, high pressure             |
-| LNG                     | market for natural gas, liquefied                 |
-| Biomethane              | market for biomethane, high pressure              |         |
 
 
 Hydrogen
 ********
 
-Markets for hydrogen are created:
+The following markets for hydrogen are created:
 
 * `market for hydrogen, gaseous, for refinery use, FE2050` (FR)
 * `market for hydrogen, gaseous, for ammonia use, FE2050` (FR)
@@ -272,11 +284,10 @@ Markets for hydrogen are created:
 * `market for hydrogen, gaseous, for steel use, FE2050` (FR)
 * `market for hydrogen, gaseous, for various use, FE2050` (FR)
 
-These markets are relinked to activities that consume hydrogen in France, 
-according to their area of application.
+The datasets listed below are used to supply the above-listed markets:
 
-| Technologies in FE2050+       | LCI datasets used                                                       | Remarks |
-|-------------------------------|-------------------------------------------------------------------------|---------|
+| Technologies in FE2050+       | LCI datasets used                                                       | 
+|-------------------------------|-------------------------------------------------------------------------|
 | Hydrogen, electrolysis        | hydrogen production, electrolysis, 25 bar, domestic                     |
 | Hydrogen, from coke gas + CCS | hydrogen, recovered from coke oven gas, with carbon capture and storage |
 | Hydrogen, refinery            | hydrogen production, gaseous, petroleum refinery operation              |
@@ -285,46 +296,59 @@ according to their area of application.
 | Hydrogen, from SMR of NG      | hydrogen production, steam reforming                                    |
 | Hydrogen, from ammonia        | hydrogen production, steam reforming                                    |
 
+These markets are relinked to activities that consume hydrogen in France, 
+according to their area of application.
 
-How the original data provided by RTE have been modified and implemented ?  
--------------------
+
+How have the original data provided by RTE been modified and implemented ?  
+***************************************************************************
 
 Flexibility technologies
-______________
+________________________
 
-In RTE data excel file, electricity produced by Pumped Storage Power Station (STEP in French) and by hydrogen technologies are not put in the "flexibility" section. These two technologies are considered as flexibility technologies (also called storage technologies) in this model. 
-The "flexibility technologies" considered are thus :
+In RTE data files, the electricity supplied by Pumped Storage Power Station (STEP in French) 
+and by hydrogen technologies are not considered under the "flexibility" section. 
+These two technologies are considered as flexibility technologies (also called storage technologies) in this model. 
+The "flexibility technologies" considered are thus:
 * Vehicle-to-Grid and Grid-to-Vehicle
-* Stationnary battery
+* Stationary battery
 * Pumped Storage Power Station
-* Hydrogen Electrolyser and Fuel Cell
+* Hydrogen from electrolysis converted using fuel Cell
 
-The industrial curtailment of electricity and the electricity clipping (data provided by RTE) are not considered in this model.
+The industrial curtailment of electricity and the electricity clipping 
+(data provided by RTE) are not considered in this model.
 
 Imports and Exports data generation
-______________
+___________________________________
 
-*Available data* 
-The Figure 10-4 provided by RTE provide the imports, exports and balance (“solde annuel”).
+###### Available data
+
+
+The Figure 10-4 provided by RTE provides the imports, exports and balance (“solde annuel”).
 The File “Bilans énergétiques” provided by RTE provides the balance (“solde exportateur”). 
-The data “solde annuel” provided by RTE in the Figure 10-4 and the data “solde exportateur” provided by RTE in the file “Bilans énergétiques”  do not match. 
+The data “solde annuel” provided by RTE in the Figure 10-4 and 
+the data “solde exportateur” provided by RTE in the file “Bilans énergétiques” do not match. 
 
-As the data used is taken from the file “Bilan énergétiques”, the balance used is the one provided in the file “Bilans énergétiques”. 
+As the data used is taken from the file “Bilan énergétiques”, the balance used is 
+the one provided in the file “Bilans énergétiques”. 
 
-*Imports and exports calculation* 
-The ratio of imports and exports are calculated based one the data provided in Fig. 10-4 considering the imports consumed in France and the exports that are not just transnational transfers. 
-This ratio is applied to the balance taken from “Bilan énergétiques” to recalculate imports and exports. 
+###### Imports and exports calculation
+
+The ratio of imports and exports are calculated based one the data provided in Fig. 10-4 
+considering the imports consumed in France and the exports that are not just 
+transnational transfers. This ratio is applied to the balance taken from 
+“Bilan énergétiques” to recalculate imports and exports. 
 
 Notes : 
 * This calculation method was suggested by RTE experts that worked on Futurs Energétiques 2050 study. 
 * The difference between balance data from two files (“solde annuel” and “solde exportateur”) is maximum 17%. 
 
-Other hypotheses:
+Other assumptions:
 * As the ratios of imports and exports are not provided in Fig. 10-4 for 2060, the ratios of 2050 were reused for 2060. 
 * The imports and exports data provided in Fig. 10-4 are given for each scenario M0, M1, M23, N1, N2, N03) but are not given for each consumption trajectory (reference, sobriety, reindustrialization). It was assumed that the ratios of imports and exports are the same for the three trajectories (for example, same ratios for M1 reference, M1 sobriety and M1 reindus
 
-Imports modeling
-______________
+###### Imports modeling for the leectricity mix consumed in France
+
 The imports are considered as in ecoinvent as an input flow of the market for electricity. 
 The inventory chosen for modeling the imports is the European market of electricity provided by the regional IAM market for European electricity.
 This assumption involves that the considered imported electricity also includes the French electricity mix (that reprensents around 20% of the European electricity production).
@@ -334,24 +358,29 @@ Potential improvements of imports modeling have been identified :
 * excluding France from the European electricity mix used to model the import flow
 * modeling the electricity mix from the neighboring countries (RTE provides only data for 2050 for Germany, Italy, Spain and United Kingdom)
 
-Exports modeling : change of production volumes of "primary" electricity
-______________
+###### Exports modeling : change of production volumes of "primary" electricity
+
 As we aim to model the electricity mix consumed in France, we have considered that :
 * the exports are taken from the "primary" electricity production (ie the electricity that is not consumed then injected by flexibility technologies).
 * the electricity consumed then injected by flexibility technologies are only dedicated to French electricity market
 
 The production data used has thus been resized by substracting the exports from the volumes of "primary" electricity produced. 
 
-Hydro electricity production data
-______________
+###### Hydro electricity production data
 
-As the data provided by RTE is not divided in reservoir hydro and run-of-river hydro, the actual percentage of repartition between both technologies as been applied to generate production data for both technologies.
-The percentage has been calculated based on `market for electricity, high voltage` (FR) taken from ecoinvent 3.10 : 84% for run-of-river and 16% for reservoir technologies.
+As the data provided by RTE is not divided in reservoir hydro and run-of-river hydro, 
+the actual percentage of repartition between both technologies as been applied to generate 
+production data for both technologies. The percentage has been calculated based 
+on `market for electricity, high voltage` (FR) taken from ecoinvent 3.10 : 
+84% for run-of-river and 16% for reservoir technologies.
 
 
 Flow diagram
 ------------
 
+![flow diagram electricity markets](assets/diagram1.png)
+
+![flow diagram hydrogen markets](assets/diagram2.png)
 
 How to use it?
 --------------
@@ -366,7 +395,7 @@ How to use it?
     fp = r"https://raw.githubusercontent.com/romainsacchi/RTE_scenarios/main/datapackage.json"
     FE2050 = Package(fp)
     
-    bw.projects.set_current("your_bw_project")
+    bw.projects.set_current("your_brightway_project")
     
     ndb = NewDatabase(
             scenarios = [

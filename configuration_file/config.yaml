@@ -202,7 +202,7 @@ production pathways:
     production volume:
       variable: Production|Liquid fuel|Diesel|Diesel
     ecoinvent alias:
-      name: market for diesel, low-sulfur
+      name: diesel production, low-sulfur, petroleum refinery operation
       reference product: diesel, low-sulfur
       exists in original database: True
 
@@ -213,12 +213,13 @@ production pathways:
       name: biodiesel, from rapeseed oil, at fuelling station
       reference product: biodiesel, vehicle grade
       exists in original database: True
+      regionalize: True
 
   petrol:
     production volume:
       variable: Production|Liquid fuel|Petrol|Petrol
     ecoinvent alias:
-      name: market for petrol, low-sulfur
+      name: petrol production, low-sulfur
       reference product: petrol, low-sulfur
       exists in original database: True
 
@@ -229,6 +230,7 @@ production pathways:
       name: ethanol production from sugar beet
       reference product: ethanol, without water, in 95% solution state, from fermentation
       exists in original database: True
+      regionalize: True
 
   electrolysis_hydrogen_refinery:
     production volume:
@@ -571,6 +573,7 @@ production pathways:
       name: market for biomethane, high pressure
       reference product: biomethane, high pressure
       exists in original database: True
+      regionalize: True
 
   low_to_high_pressure_gas:
     production volume:
