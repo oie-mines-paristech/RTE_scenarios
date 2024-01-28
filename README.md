@@ -126,29 +126,29 @@ LCI datasets are used.
 Electricity
 ***********
 
-| Technologies in FE2050+             | LCI datasets used                                               | Remarks                                                                         |
-|-------------------------------------|-----------------------------------------------------------------|---------------------------------------------------------------------------------|
-| Hydro, run-of-river                 | electricity production, hydro, run-of-river                     |
-| Hydro, alpine reservoir             | electricity production, hydro, reservoir, alpine region         |
-| Nuclear, Evolutionary Power Reactor | electricity production, Evolutionary Power Reactor (EPR)        | Datasets from 10.1177/0957650912440549.                                         
-| Nuclear, Small Modular Reactor      | electricity production, Small Modular Reactor (SMR)             | Based on 10.1073/pnas.2111833119.
-| Nuclear, Pressure water reactor     | electricity production, nuclear, pressure water reactor         |
-| Conventional, Waste-to-Energy       | treatment of municipal solid waste, incineration                |
-| Conventional, Other                 | electricity production, natural gas, combined cycle power plant |                                                                                 |
-| Conventional, Coal                  | electricity production, hard coal                               |
-| Conventional, Natural gas           | electricity production, natural gas, combined cycle power plant |
-| Conventional, Oil                   | electricity production, oil                                     |
-| Renewable, Photovoltaic             | electricity production, photovoltaic                            | Datasets from 10.13140/RG.2.2.17977.19041.                                      |
-| Renewable, Wind turbines, Onshore   | electricity production, wind, 1-3MW turbine, onshore            |
-| Renewable, Wind turbines, Offshore  | electricity production, wind, 1-3MW turbine, offshore           |
-| Renewable, Geothermal               | electricity production, deep geothermal                         | Dataset provided by premise, based on the geothermal heat dataset of ecoinvent. |
-| Renewable, Biomass                  | heat and power co-generation, wood chips, 6667 kW               |
-| Renewable, Biogas                   | heat and power co-generation, biogas, gas engine                |
-| Renewable, Wave                     | electricity production, wave energy converter                   | Dataset from 10.1007/s11367-018-1504-2
-| Storage, Hydrogen                   | electricity production, from hydrogen                           | Created for this data package.                                                  |
-| Storage, Vehicle-to-grid            | electricity production, from vehicle-to-grid                    | Crearted for this data package.                                                  |
-| Storage, Battery                    | electricity production, from stationary battery                 | Dataset from 10.1016/j.jclepro.2022.132899.
-| Storage, Pumped hydro               | electricity production, hydro, pumped storage                   |
+| Technologies in FE2050+             | LCI datasets used                                                          | Remarks                                                                         |
+|-------------------------------------|----------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+| Hydro, run-of-river                 | electricity production, hydro, run-of-river                                |
+| Hydro, alpine reservoir             | electricity production, hydro, reservoir, alpine region                    |
+| Nuclear, Evolutionary Power Reactor | electricity production, Evolutionary Power Reactor (EPR)                   | Datasets from 10.1177/0957650912440549.                                         
+| Nuclear, Small Modular Reactor      | electricity production, Small Modular Reactor (SMR)                        | Based on 10.1073/pnas.2111833119.
+| Nuclear, Pressure water reactor     | electricity production, nuclear, pressure water reactor                    |
+| Conventional, Waste-to-Energy       | treatment of municipal solid waste, incineration                           |
+| Conventional, Other                 | electricity production, natural gas, combined cycle power plant            |                                                                                 |
+| Conventional, Coal                  | electricity production, hard coal                                          |
+| Conventional, Natural gas           | electricity production, natural gas, combined cycle power plant            |
+| Conventional, Oil                   | electricity production, oil                                                |
+| Renewable, Photovoltaic             | electricity production, photovoltaic                                       | Datasets from 10.13140/RG.2.2.17977.19041.                                      |
+| Renewable, Wind turbines, Onshore   | electricity production, wind, 1-3MW turbine, onshore                       |
+| Renewable, Wind turbines, Offshore  | electricity production, wind, 1-3MW turbine, offshore                      |
+| Renewable, Geothermal               | electricity production, deep geothermal                                    | Dataset provided by premise, based on the geothermal heat dataset of ecoinvent. |
+| Renewable, Biomass                  | heat and power co-generation, wood chips, 6667 kW                          |
+| Renewable, Biogas                   | heat and power co-generation, biogas, gas engine                           |
+| Renewable, Wave                     | electricity production, wave energy converter                              | Dataset from 10.1007/s11367-018-1504-2
+| Storage, Hydrogen                   | electricity production, from hydrogen                                      | Created for this data package.                                                  |
+| Storage, Vehicle-to-grid            | electricity production, from vehicle-to-grid                               | Crearted for this data package.                                                  |
+| Storage, Battery                    | electricity supply, high voltage, from vanadium-redox flow battery system  | Dataset from 10.1021/acs.est.8b02073.
+| Storage, Pumped hydro               | electricity production, hydro, pumped storage                              |
 
 
 New inventories

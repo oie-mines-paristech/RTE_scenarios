@@ -132,7 +132,7 @@ production pathways:
 
   hydrogen:
     production volume:
-      variable: Production|Electricity|Renewable|Hydrogen
+      variable: Production|Electricity|Storage|Hydrogen
     ecoinvent alias:
       name: electricity production, from hydrogen, FE2050
       reference product: electricity, high voltage
@@ -162,7 +162,7 @@ production pathways:
     production volume:
       variable: Production|Electricity|Storage|Battery
     ecoinvent alias:
-      name: electricity production, from stationary battery, FE2050
+      name: electricity supply, high voltage, from vanadium-redox flow battery system
       reference product: electricity, high voltage
       exists in original database: True
 
