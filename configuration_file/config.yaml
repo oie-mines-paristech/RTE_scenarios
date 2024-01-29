@@ -596,15 +596,54 @@ markets:
     except regions:
       - World
 
+    is fuel:
+      CNG:
+        Carbon dioxide, fossil: 1.944
+        Carbon dioxide, non-fossil: 0.0
+      LNG:
+        Carbon dioxide, fossil: 1.944
+        Carbon dioxide, non-fossil: 0.0
+      biomethane:
+        Carbon dioxide, fossil: 0.0
+        Carbon dioxide, non-fossil: 1.944
+
+    replaces:
+      - name: market for natural gas, high pressure
+        product: natural gas, high pressure
+
+    replaces in:
+      - location: FR
+
+
   - name: market for compressed gas, low pressure, FE2050
     reference product: compressed gas
     unit: cubic meter
 
     includes:
-      - low_to_high_pressure_gas
+      - CNG
+      - LNG
+      - biomethane
 
     efficiency:
       - variable: Distribution losses|Gaseous fuel|Low to high
+
+    is fuel:
+      CNG:
+        Carbon dioxide, fossil: 1.944
+        Carbon dioxide, non-fossil: 0.0
+      LNG:
+        Carbon dioxide, fossil: 1.944
+        Carbon dioxide, non-fossil: 0.0
+      biomethane:
+        Carbon dioxide, fossil: 0.0
+        Carbon dioxide, non-fossil: 1.944
+
+    replaces:
+      - name: market for natural gas, low pressure
+        product: natural gas, low pressure
+
+    replaces in:
+      - location: FR
 
     add:
       - name: natural gas, burned in gas turbine
@@ -649,8 +688,25 @@ markets:
       - diesel
       - biodiesel
 
+    is fuel:
+      diesel:
+        Carbon dioxide, fossil: 3.15
+        Carbon dioxide, non-fossil: 0.0
+      biodiesel:
+        Carbon dioxide, fossil: 0.0
+        Carbon dioxide, non-fossil: 3.15
+
     except regions:
       - World
+
+    replaces:
+      - name: market for diesel
+        product: diesel
+      - name: market for diesel, low-sulfur
+        product: diesel, low-sulfur
+
+    replaces in:
+      - location: FR
 
   - name: market for petrol, FE2050
     reference product: petrol
@@ -661,6 +717,23 @@ markets:
 
     except regions:
       - World
+
+    is fuel:
+      petrol:
+        Carbon dioxide, fossil: 3.15
+        Carbon dioxide, non-fossil: 0.0
+      bioethanol:
+        Carbon dioxide, fossil: 0.0
+        Carbon dioxide, non-fossil: 3.15
+
+    replaces:
+      - name: market for petrol
+        product: petrol
+      - name: market for petrol, low-sulfur
+        product: petrol, low-sulfur
+
+    replaces in:
+      - location: FR
 
 
   - name: market for electricity, high voltage, FE2050
@@ -688,7 +761,6 @@ markets:
       - import
 
     add:
-
       - name: transmission network construction, electricity, high voltage
         reference product: transmission network, electricity, high voltage
         amount: 6.58e-09
