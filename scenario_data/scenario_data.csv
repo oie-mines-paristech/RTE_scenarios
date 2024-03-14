@@ -787,6 +787,24 @@ image,SSP2-Base,Sobriety - M23,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%
 image,SSP2-Base,Sobriety - N03,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,67,70,70
 image,SSP2-Base,Sobriety - N1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,67,70,70
 image,SSP2-Base,Sobriety - N2,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,66,67,70,70
+image,SSP2-Base,Extensive reindustrialization - M0,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,66,67,70,70
+image,SSP2-Base,Extensive reindustrialization - M1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,66,67,70,70
+image,SSP2-Base,Extensive reindustrialization - M23,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,66,67,70,70
+image,SSP2-Base,Extensive reindustrialization - N03,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,66,67,70,70
+image,SSP2-Base,Extensive reindustrialization - N1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,66,67,70,70
+image,SSP2-Base,Extensive reindustrialization - N2,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,66,67,70,70
+image,SSP2-Base,Reference - M0,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,66,67,70,70
+image,SSP2-Base,Reference - M1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,66,67,70,70
+image,SSP2-Base,Reference - M23,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,66,67,70,70
+image,SSP2-Base,Reference - N1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,66,67,70,70
+image,SSP2-Base,Reference - N2,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,66,67,70,70
+image,SSP2-Base,Reference - N03,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,66,67,70,70
+image,SSP2-Base,Sobriety - M0,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,66,67,70,70
+image,SSP2-Base,Sobriety - M1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,66,67,70,70
+image,SSP2-Base,Sobriety - M23,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,66,67,70,70
+image,SSP2-Base,Sobriety - N03,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,66,67,70,70
+image,SSP2-Base,Sobriety - N1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,66,67,70,70
+image,SSP2-Base,Sobriety - N2,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,66,67,70,70
 image,SSP2-Base,Extensive reindustrialization - M0,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0,0.3,0.6,1.9,1.9
 image,SSP2-Base,Extensive reindustrialization - M1,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0,0.3,0.6,1.9,1.9
 image,SSP2-Base,Extensive reindustrialization - M23,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,0,0.3,0.6,1.9,1.8
