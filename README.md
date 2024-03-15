@@ -303,15 +303,21 @@ The following markets for hydrogen are created:
 * `market for hydrogen, gaseous, for various use, FE2050` (FR)
 
 The datasets listed below are used to supply the above-listed markets:
-
+* For the direct production of hydrogen :
+  
 | Technologies in FE2050+       | LCI datasets used                                                       | 
 |-------------------------------|-------------------------------------------------------------------------|
 | Hydrogen, electrolysis        | hydrogen production, electrolysis, 25 bar, domestic                     |
+| Hydrogen, from SMR of NG      | hydrogen production, steam reforming                                    |
 | Hydrogen, from coke gas + CCS | hydrogen, recovered from coke oven gas, with carbon capture and storage |
+
+* For the production of hydrogen as a co-product, that is then consumed by this sector (refinery, ??chlore alkali is used for which sector ????????????????????????????????????, chemicals, ammonia) :
+  
+| Technologies in FE2050+       | LCI datasets used                                                       | 
+|-------------------------------|-------------------------------------------------------------------------|
 | Hydrogen, refinery            | hydrogen production, gaseous, petroleum refinery operation              |
 | Hydrogen, from chlore-alkali  | chlor-alkali electrolysis, diaphragm cell                               |
 | Hydrogen, APME cracking       | hydrogen cracking, APME                                                 |
-| Hydrogen, from SMR of NG      | hydrogen production, steam reforming                                    |
 | Hydrogen, from ammonia        | hydrogen production, steam reforming                                    |
 
 These markets are relinked to activities that consume hydrogen in France, 
