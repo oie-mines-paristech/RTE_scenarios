@@ -1,11 +1,12 @@
-# Futurs énergétiques 2050 (Energy future 2050)
+# Futurs énergétiques 2050 (Energy future 2050) / RTE
+Implementation of RTE scenarios Futurs énerétiques 2050 into ecoinvent database with premise
 
 
 Description
 -----------
 
-This is a repository containing a scenario that implements the projections of the 
-French electricity operator (RTE) for:
+This is a repository containing the implementation of the prospective scenarios provided by the 
+French ADEME agengy into ecoinvent for the following sectors in France :
 
 * electricity
 * hydrogen
@@ -20,7 +21,7 @@ neighboring countries), liquid and gaseous fuels (including hydrogen) in the LCA
 
 The data relating to the annual production volumes of different energy carriers 
 (e.g. electricity, hydrogen) for each Energy Futures 2050 scenario (18 in number) 
-have been formatted and organised in a data package  defined by the Frictionless standards 
+have been formatted and organised in a data package defined by the Frictionless standards 
 (Walsh and Pollock, 2022). This data package is read and interpreted by `premise`. 
 We therefore store a number of scenarios in a single data package. 
 
@@ -39,7 +40,11 @@ Projections are extracted from:
 
 Futurs énergétiques 2050\
 Réseau de Transport d'Electricité\
-https://assets.rte-france.com/prod/public/2021-12/Futurs-Energetiques-2050-principaux-resultats.pdf
+https://www.rte-france.com/analyses-tendances-et-prospectives/bilan-previsionnel-2050-futurs-energetiques \
+[`Reports`](https://www.rte-france.com/analyses-tendances-et-prospectives/bilan-previsionnel-2050-futurs-energetiques#Lesdocuments) \
+[`Data repository`](https://www.rte-france.com/analyses-tendances-et-prospectives/bilan-previsionnel-2050-futurs-energetiques#Lesdonnees) \
+
+
 
 Authors of this data package
 ----------------------------
@@ -60,6 +65,19 @@ Ecoinvent database compatibility
 --------------------------------
 
 ecoinvent 3.9.1 cut-off
+
+
+Prospective scenarios
+---------------------------
+RTE provides 3 demand scenarios : 
+* reference
+* extensive reindustrialisation (higher demand compared to reference scenario)
+* sobriety (lower demand compared to reference scenario).
+
+For each demand scenario, RTE provides 6 electricity production scenarios 
+* M0, M1, M23 : that rely mostly on renewables development
+* N1, N2, N03 : that rely both on renewables and nuclear development
+  
 
 IAM scenario compatibility
 ---------------------------
