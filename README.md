@@ -6,7 +6,7 @@ Description
 -----------
 
 This is a repository containing the implementation of the prospective scenarios provided by the 
-French ADEME agengy into ecoinvent for the following sectors in France :
+French Transmission System Operator - RTE, into ecoinvent for the following sectors in France :
 
 * electricity
 * hydrogen
@@ -40,9 +40,9 @@ Projections are extracted from:
 
 Futurs énergétiques 2050\
 Réseau de Transport d'Electricité\
-https://www.rte-france.com/analyses-tendances-et-prospectives/bilan-previsionnel-2050-futurs-energetiques \
+[`Website`](https://www.rte-france.com/analyses-tendances-et-prospectives/bilan-previsionnel-2050-futurs-energetiques) \
 [`Reports`](https://www.rte-france.com/analyses-tendances-et-prospectives/bilan-previsionnel-2050-futurs-energetiques#Lesdocuments) \
-[`Data repository`](https://www.rte-france.com/analyses-tendances-et-prospectives/bilan-previsionnel-2050-futurs-energetiques#Lesdonnees) \
+[`Data repository`](https://www.rte-france.com/analyses-tendances-et-prospectives/bilan-previsionnel-2050-futurs-energetiques#Lesdonnees)
 
 
 
