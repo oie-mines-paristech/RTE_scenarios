@@ -1,11 +1,12 @@
-# Futurs énergétiques 2050 (Energy future 2050)
+# Futurs énergétiques 2050 (Energy future 2050) / RTE
+Implementation of RTE scenarios Futurs énerétiques 2050 into ecoinvent database with premise
 
 
 Description
 -----------
 
-This is a repository containing a scenario that implements the projections of the 
-French electricity operator (RTE) for:
+This is a repository containing the implementation of the prospective scenarios provided by the 
+French Transmission System Operator - RTE, into ecoinvent for the following sectors in France :
 
 * electricity
 * hydrogen
@@ -20,7 +21,7 @@ neighboring countries), liquid and gaseous fuels (including hydrogen) in the LCA
 
 The data relating to the annual production volumes of different energy carriers 
 (e.g. electricity, hydrogen) for each Energy Futures 2050 scenario (18 in number) 
-have been formatted and organised in a data package  defined by the Frictionless standards 
+have been formatted and organised in a data package defined by the Frictionless standards 
 (Walsh and Pollock, 2022). This data package is read and interpreted by `premise`. 
 We therefore store a number of scenarios in a single data package. 
 
@@ -39,7 +40,11 @@ Projections are extracted from:
 
 Futurs énergétiques 2050\
 Réseau de Transport d'Electricité\
-https://assets.rte-france.com/prod/public/2021-12/Futurs-Energetiques-2050-principaux-resultats.pdf
+[`Website`](https://www.rte-france.com/analyses-tendances-et-prospectives/bilan-previsionnel-2050-futurs-energetiques) \
+[`Reports`](https://www.rte-france.com/analyses-tendances-et-prospectives/bilan-previsionnel-2050-futurs-energetiques#Lesdocuments) \
+[`Data repository`](https://www.rte-france.com/analyses-tendances-et-prospectives/bilan-previsionnel-2050-futurs-energetiques#Lesdonnees)
+
+
 
 Authors of this data package
 ----------------------------
@@ -60,6 +65,19 @@ Ecoinvent database compatibility
 --------------------------------
 
 ecoinvent 3.9.1 cut-off
+
+
+Prospective scenarios
+---------------------------
+RTE provides 3 demand scenarios : 
+* reference
+* extensive reindustrialisation (higher demand compared to reference scenario)
+* sobriety (lower demand compared to reference scenario).
+
+For each demand scenario, RTE provides 6 electricity production scenarios 
+* M0, M1, M23 : that rely mostly on renewables development
+* N1, N2, N03 : that rely both on renewables and nuclear development
+  
 
 IAM scenario compatibility
 ---------------------------
@@ -146,7 +164,7 @@ Electricity
 | Renewable, Biogas                   | heat and power co-generation, biogas, gas engine                           |
 | Renewable, Wave                     | electricity production, wave energy converter                              | Dataset from 10.1007/s11367-018-1504-2
 | Storage, Hydrogen                   | electricity production, from hydrogen                                      | Created for this data package.                                                  |
-| Storage, Vehicle-to-grid            | electricity production, from vehicle-to-grid                               | Crearted for this data package.                                                  |
+| Storage, Vehicle-to-grid            | electricity production, from vehicle-to-grid                               | Created for this data package.                                                  |
 | Storage, Battery                    | electricity supply, high voltage, from vanadium-redox flow battery system  | Dataset from 10.1021/acs.est.8b02073.
 | Storage, Pumped hydro               | electricity production, hydro, pumped storage                              |
 
@@ -285,15 +303,21 @@ The following markets for hydrogen are created:
 * `market for hydrogen, gaseous, for various use, FE2050` (FR)
 
 The datasets listed below are used to supply the above-listed markets:
-
+* For the direct production of hydrogen :
+  
 | Technologies in FE2050+       | LCI datasets used                                                       | 
 |-------------------------------|-------------------------------------------------------------------------|
 | Hydrogen, electrolysis        | hydrogen production, electrolysis, 25 bar, domestic                     |
+| Hydrogen, from SMR of NG      | hydrogen production, steam reforming                                    |
 | Hydrogen, from coke gas + CCS | hydrogen, recovered from coke oven gas, with carbon capture and storage |
+
+* For the production of hydrogen as a co-product, that is then consumed by this sector (refinery, ??chlore alkali is used for which sector ????????????????????????????????????, chemicals, ammonia) :
+  
+| Technologies in FE2050+       | LCI datasets used                                                       | 
+|-------------------------------|-------------------------------------------------------------------------|
 | Hydrogen, refinery            | hydrogen production, gaseous, petroleum refinery operation              |
 | Hydrogen, from chlore-alkali  | chlor-alkali electrolysis, diaphragm cell                               |
 | Hydrogen, APME cracking       | hydrogen cracking, APME                                                 |
-| Hydrogen, from SMR of NG      | hydrogen production, steam reforming                                    |
 | Hydrogen, from ammonia        | hydrogen production, steam reforming                                    |
 
 These markets are relinked to activities that consume hydrogen in France, 
@@ -301,8 +325,7 @@ according to their area of application.
 
 
 How have the original data provided by RTE been modified and implemented ?  
-***************************************************************************
-
+-----------
 Flexibility technologies
 ________________________
 
@@ -347,7 +370,7 @@ Other assumptions:
 * As the ratios of imports and exports are not provided in Fig. 10-4 for 2060, the ratios of 2050 were reused for 2060. 
 * The imports and exports data provided in Fig. 10-4 are given for each scenario M0, M1, M23, N1, N2, N03) but are not given for each consumption trajectory (reference, sobriety, reindustrialization). It was assumed that the ratios of imports and exports are the same for the three trajectories (for example, same ratios for M1 reference, M1 sobriety and M1 reindus
 
-###### Imports modeling for the leectricity mix consumed in France
+###### Imports modeling for the electricity mix consumed in France
 
 The imports are considered as in ecoinvent as an input flow of the market for electricity. 
 The inventory chosen for modeling the imports is the European market of electricity provided by the regional IAM market for European electricity.
