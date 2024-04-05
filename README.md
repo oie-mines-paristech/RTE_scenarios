@@ -164,7 +164,7 @@ Electricity
 | Renewable, Biogas                   | heat and power co-generation, biogas, gas engine                           |
 | Renewable, Wave                     | electricity production, wave energy converter                              | Dataset from 10.1007/s11367-018-1504-2
 | Storage, Hydrogen                   | electricity production, from hydrogen                                      | Created for this data package.                                                  |
-| Storage, Vehicle-to-grid            | electricity production, from vehicle-to-grid                               | Crearted for this data package.                                                  |
+| Storage, Vehicle-to-grid            | electricity production, from vehicle-to-grid                               | Created for this data package.                                                  |
 | Storage, Battery                    | electricity supply, high voltage, from vanadium-redox flow battery system  | Dataset from 10.1021/acs.est.8b02073.
 | Storage, Pumped hydro               | electricity production, hydro, pumped storage                              |
 
@@ -325,8 +325,7 @@ according to their area of application.
 
 
 How have the original data provided by RTE been modified and implemented ?  
-***************************************************************************
-
+-----------
 Flexibility technologies
 ________________________
 
@@ -371,7 +370,7 @@ Other assumptions:
 * As the ratios of imports and exports are not provided in Fig. 10-4 for 2060, the ratios of 2050 were reused for 2060. 
 * The imports and exports data provided in Fig. 10-4 are given for each scenario M0, M1, M23, N1, N2, N03) but are not given for each consumption trajectory (reference, sobriety, reindustrialization). It was assumed that the ratios of imports and exports are the same for the three trajectories (for example, same ratios for M1 reference, M1 sobriety and M1 reindus
 
-###### Imports modeling for the leectricity mix consumed in France
+###### Imports modeling for the electricity mix consumed in France
 
 The imports are considered as in ecoinvent as an input flow of the market for electricity. 
 The inventory chosen for modeling the imports is the European market of electricity provided by the regional IAM market for European electricity.
