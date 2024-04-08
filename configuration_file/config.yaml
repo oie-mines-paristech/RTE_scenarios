@@ -426,7 +426,7 @@ production pathways:
 
   ammonia_hydrogen_chemicals:
     production volume:
-      variable: Production|Hydrogen|Chemicals|Co-produced|Chemicals
+      variable: Production|Hydrogen|Chemicals|Co-produced|Ammonia
     ecoinvent alias:
       name: hydrogen production, steam methane reforming of natural gas, 25 bar
       reference product: hydrogen, gaseous, 25 bar
