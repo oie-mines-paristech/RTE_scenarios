@@ -792,6 +792,11 @@ markets:
       - import
 
     add:
+
+      - name: market for electricity, high voltage, FE2050
+        reference product: electricity, high voltage
+        amount: 0.0312426845152551
+
       - name: transmission network construction, electricity, high voltage
         reference product: transmission network, electricity, high voltage
         amount: 6.58e-09
