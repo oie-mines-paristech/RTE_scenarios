@@ -918,12 +918,9 @@ markets:
         reference product: electricity, low voltage
         unit: kilowatt hour
         amount: 1.82
-
-    efficiency:
-      - variable: Distribution losses|Gaseous fuel|Hydrogen|Leakage
-        includes:
-          technosphere:
-            - name: hydrogen
+      - name: market for hydrogen, gaseous, for refinery use, FE2050
+        reference product: hydrogen, gaseous
+        amount: 0.005
 
     except regions:
       - World
@@ -965,12 +962,9 @@ markets:
         reference product: electricity, low voltage
         unit: kilowatt hour
         amount: 1.82
-
-    efficiency:
-      - variable: Distribution losses|Gaseous fuel|Hydrogen|Leakage
-        includes:
-          technosphere:
-            - name: hydrogen
+      - name: market for hydrogen, gaseous, for ammonia use, FE2050
+        reference product: hydrogen, gaseous
+        amount: 0.005
 
     except regions:
       - World
@@ -1012,12 +1006,9 @@ markets:
         reference product: electricity, low voltage
         unit: kilowatt hour
         amount: 1.82
-
-    efficiency:
-      - variable: Distribution losses|Gaseous fuel|Hydrogen|Leakage
-        includes:
-          technosphere:
-            - name: hydrogen
+      - name: market for hydrogen, gaseous, for chemicals use, FE2050
+        reference product: hydrogen, gaseous
+        amount: 0.005
 
     except regions:
       - World
@@ -1059,12 +1050,9 @@ markets:
         reference product: electricity, low voltage
         unit: kilowatt hour
         amount: 1.82
-
-    efficiency:
-      - variable: Distribution losses|Gaseous fuel|Hydrogen|Leakage
-        includes:
-          technosphere:
-            - name: hydrogen
+      - name: market for hydrogen, gaseous, for steel use, FE2050
+        reference product: hydrogen, gaseous
+        amount: 0.005
 
     except regions:
       - World
@@ -1106,12 +1094,9 @@ markets:
         reference product: electricity, low voltage
         unit: kilowatt hour
         amount: 1.82
-
-    efficiency:
-      - variable: Distribution losses|Gaseous fuel|Hydrogen|Leakage
-        includes:
-          technosphere:
-            - name: hydrogen
+      - name: market for hydrogen, gaseous, for various use, FE2050
+        reference product: hydrogen, gaseous
+        amount: 0.005
 
     except regions:
       - World
@@ -1181,14 +1166,9 @@ markets:
         reference product: electricity, low voltage
         unit: kilowatt hour
         amount: 1.82
-
-    efficiency:
-      - variable: Distribution losses|Gaseous fuel|Hydrogen|Leakage
-        includes:
-          technosphere:
-            - name: hydrogen
-          biosphere:
-            - name: Hydrogen
+      - name: market for hydrogen, FE2050
+        reference product: hydrogen, gaseous
+        amount: 0.005
 
     except regions:
       - World
