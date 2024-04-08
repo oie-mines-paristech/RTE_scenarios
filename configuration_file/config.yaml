@@ -814,11 +814,7 @@ markets:
     replaces:
       - name: market for electricity, high voltage
         product: electricity, high voltage
-      - name: market group for electricity, high voltage
-        product: electricity, high voltage
-
-    replaces in:
-      - location: FR
+        location: FR
 
     except regions:
       - World
@@ -849,11 +845,7 @@ markets:
     replaces:
       - name: market for electricity, medium voltage
         product: electricity, medium voltage
-      - name: market group for electricity, medium voltage
-        product: electricity, medium voltage
-
-    replaces in:
-      - location: FR
+        location: FR
 
     except regions:
       - World
@@ -884,11 +876,7 @@ markets:
     replaces:
       - name: market for electricity, low voltage
         product: electricity, low voltage
-      - name: market group for electricity, low voltage
-        product: electricity, low voltage
-
-    replaces in:
-      - location: FR
+        location: FR
 
     except regions:
       - World
