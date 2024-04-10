@@ -302,26 +302,30 @@ The following markets for hydrogen are created:
 * `market for hydrogen, gaseous, for steel use, FE2050` (FR)
 * `market for hydrogen, gaseous, for various use, FE2050` (FR)
 
-The datasets listed below are used to supply the above-listed markets:
+The inventories datasets listed below are used to model the different ways of producing H2:
 * For the direct production of hydrogen :
   
-| Technologies in FE2050+       | LCI datasets used                                                       | 
-|-------------------------------|-------------------------------------------------------------------------|
-| Hydrogen, electrolysis        | hydrogen production, electrolysis, 25 bar, domestic                     |
-| Hydrogen, from SMR of NG      | hydrogen production, steam reforming                                    |
-| Hydrogen, from coke gas + CCS | hydrogen, recovered from coke oven gas, with carbon capture and storage |
+| Technologies in FE2050+       | LCI datasets used                                                       | Source | 
+|-------------------------------|-------------------------------------------------------------------------| -------|
+| Electrolysis        | hydrogen production, gaseous, 30 bar, from PEM electrolysis, from grid electricity, domestic, FE2050 - FR | Dataset created for this datapackage from https://doi.org/10.1016/j.est.2021.102759 |
+| Hydrogen, from Steam methane reforming  | hydrogen production, steam reforming of natural gas, 25 bar - FR| ecoinvent 3.9.1|
 
-* For the production of hydrogen as a co-product, that is then consumed by this sector (refinery, ??chlore alkali is used for which sector ????????????????????????????????????, chemicals, ammonia) :
+* For the production of hydrogen as a co-product, that is then consumed by this sector (refinery, chemicals, ammonia) :
   
-| Technologies in FE2050+       | LCI datasets used                                                       | 
-|-------------------------------|-------------------------------------------------------------------------|
-| Hydrogen, refinery            | hydrogen production, gaseous, petroleum refinery operation              |
-| Hydrogen, from chlore-alkali  | chlor-alkali electrolysis, diaphragm cell                               |
-| Hydrogen, APME cracking       | hydrogen cracking, APME                                                 |
-| Hydrogen, from ammonia        | hydrogen production, steam reforming                                    |
+| Technologies in FE2050+       | LCI datasets used                                                       | Source | 
+|-------------------------------|-------------------------------------------------------------------------| -------|
+| Co-product of refinery sector | hydrogen production, gaseous, petroleum refinery operation, FR          | ecoinvent 3.9.1 |
+| Co-product of chemical sector | hydrogen cracking, APME                                                 | ecoinvent 3.9.1 |
+| Co-product of ammonia sector  | hydrogen production, steam reforming of natural gas, 25 bar             | ecoinvent 3.9.1 | 
+| Co-product of chlore sector   | chlor-alkali electrolysis, diaphragm cell                               | ecoinvent 3.9.1 |
+| Co-product of coking sector   | hydrogen, recovered from coke oven gas, with carbon capture and storage | Dataset created for this package from 10.1051/e3sconf/20161000023 | 
 
-These markets are relinked to activities that consume hydrogen in France, 
-according to their area of application.
+[To be discussed]
+* add SMR + CCS inventory
+* coke gas + CCS, is not used in the current model
+* Co-product of chlore sector =0 in all scenarios
+* Co-product of coking sector =0 in all scenarios
+* Delete this sentence because it s not the case  : These markets are relinked to activities that consume hydrogen in France, according to their area of application.
 
 
 How have the original data provided by RTE been modified and implemented ?  
