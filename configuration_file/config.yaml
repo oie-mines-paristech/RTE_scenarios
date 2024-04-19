@@ -797,9 +797,18 @@ markets:
         reference product: electricity, high voltage
         amount: 0.0312426845152551
 
-      - name: transmission network construction, electricity, high voltage
-        reference product: transmission network, electricity, high voltage
-        amount: 6.58e-09
+      - name: transmission network, electricity, high voltage direct current aerial line
+        reference product: transmission network, electricity, high voltage direct current aerial line
+        amount: 5.65e-09
+
+      - name: transmission network, electricity, high voltage direct current land cable
+        reference product: transmission network, electricity, high voltage direct current land cable
+        amount: 3.86e-10
+
+      - name: transmission network, electricity, high voltage direct current subsea cable
+        reference product: transmission network, electricity, high voltage direct current subsea cable
+        amount: 3.47e-12
+
 
       - name: Dinitrogen monoxide
         categories: air
@@ -826,6 +835,11 @@ markets:
       - medium_to_high
 
     add:
+
+      - name: market for electricity, medium voltage, FE2050
+        reference product: electricity, medium voltage
+        amount: 0.0042
+
       - name: market for sulfur hexafluoride, liquid
         reference product: sulfur hexafluoride, liquid
         amount: 5.4e-08
@@ -838,9 +852,6 @@ markets:
         categories: air
         unit: kilogram
         amount: 5.4e-08
-
-    efficiency:
-      - variable: Transmission losses|Electricity|Medium to high
 
     replaces:
       - name: market for electricity, medium voltage
@@ -857,9 +868,13 @@ markets:
       - low_to_medium
 
     add:
+      - name: market for electricity, low voltage, FE2050
+        reference product: electricity, low voltage
+        amount: 0.0307
+
       - name: market for sulfur hexafluoride, liquid
         reference product: sulfur hexafluoride, liquid
-        amount: 2.99e-09
+        amount: 4.03e-10
 
       - name: distribution network construction, electricity, low voltage
         reference product: distribution network, electricity, low voltage
@@ -868,10 +883,7 @@ markets:
       - name: Sulfur hexafluoride
         categories: air
         unit: kilogram
-        amount: 2.99e-09
-
-    efficiency:
-      - variable: Distribution losses|Electricity|Low to medium
+        amount: 4.03e-10
 
     replaces:
       - name: market for electricity, low voltage

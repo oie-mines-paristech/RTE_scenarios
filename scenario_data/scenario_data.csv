@@ -1,7 +1,5 @@
 ﻿scenario,region,variables,unit,2019,2030,2040,2050,2060
-Extensive reindustrialization - M0,FR,Distribution losses|Electricity|Low to medium,TWh/year,1,0.973,0.973,0.973,0.973
 Extensive reindustrialization - M0,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,1,0.9975,0.9975,0.9975,0.9975
-Extensive reindustrialization - M0,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
 Extensive reindustrialization - M0,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
 Extensive reindustrialization - M0,FR,Production|Electricity|Low to medium,TWh/year,1,1,1,1,1
 Extensive reindustrialization - M0,FR,Production|Electricity|Medium to high,TWh/year,1,1,1,1,1
@@ -67,9 +65,7 @@ Extensive reindustrialization - M0,FR,Production|Hydrogen|Others|Co-produced|Oil
 Extensive reindustrialization - M0,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0,0,0,0
 Extensive reindustrialization - M0,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0,0,0,0
 Extensive reindustrialization - M0,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0,0,0,0
-Extensive reindustrialization - M1,FR,Distribution losses|Electricity|Low to medium,TWh/year,1,0.973,0.973,0.973,0.973
 Extensive reindustrialization - M1,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,1,0.9975,0.9975,0.9975,0.9975
-Extensive reindustrialization - M1,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
 Extensive reindustrialization - M1,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
 Extensive reindustrialization - M1,FR,Production|Electricity|Low to medium,TWh/year,1,1,1,1,1
 Extensive reindustrialization - M1,FR,Production|Electricity|Medium to high,TWh/year,1,1,1,1,1
@@ -135,9 +131,7 @@ Extensive reindustrialization - M1,FR,Production|Hydrogen|Others|Co-produced|Oil
 Extensive reindustrialization - M1,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0,0,0,0
 Extensive reindustrialization - M1,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0,0,0,0
 Extensive reindustrialization - M1,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0,0,0,0
-Extensive reindustrialization - M23,FR,Distribution losses|Electricity|Low to medium,TWh/year,1,0.973,0.973,0.973,0.973
 Extensive reindustrialization - M23,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,1,0.9975,0.9975,0.9975,0.9975
-Extensive reindustrialization - M23,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
 Extensive reindustrialization - M23,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
 Extensive reindustrialization - M23,FR,Production|Electricity|Low to medium,TWh/year,1,1,1,1,1
 Extensive reindustrialization - M23,FR,Production|Electricity|Medium to high,TWh/year,1,1,1,1,1
@@ -203,9 +197,7 @@ Extensive reindustrialization - M23,FR,Production|Hydrogen|Others|Co-produced|Oi
 Extensive reindustrialization - M23,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0,0,0,0
 Extensive reindustrialization - M23,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0,0,0,0
 Extensive reindustrialization - M23,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0,0,0,0
-Extensive reindustrialization - N03,FR,Distribution losses|Electricity|Low to medium,TWh/year,1,0.973,0.973,0.973,0.973
 Extensive reindustrialization - N03,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,1,0.9975,0.9975,0.9975,0.9975
-Extensive reindustrialization - N03,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
 Extensive reindustrialization - N03,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
 Extensive reindustrialization - N03,FR,Production|Electricity|Low to medium,TWh/year,1,1,1,1,1
 Extensive reindustrialization - N03,FR,Production|Electricity|Medium to high,TWh/year,1,1,1,1,1
@@ -271,9 +263,7 @@ Extensive reindustrialization - N03,FR,Production|Hydrogen|Others|Co-produced|Oi
 Extensive reindustrialization - N03,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0,0,0,0
 Extensive reindustrialization - N03,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0,0,0,0
 Extensive reindustrialization - N03,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0,0,0,0
-Extensive reindustrialization - N1,FR,Distribution losses|Electricity|Low to medium,TWh/year,1,0.973,0.973,0.973,0.973
 Extensive reindustrialization - N1,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,1,0.9975,0.9975,0.9975,0.9975
-Extensive reindustrialization - N1,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
 Extensive reindustrialization - N1,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
 Extensive reindustrialization - N1,FR,Production|Electricity|Low to medium,TWh/year,1,1,1,1,1
 Extensive reindustrialization - N1,FR,Production|Electricity|Medium to high,TWh/year,1,1,1,1,1
@@ -304,9 +294,7 @@ Extensive reindustrialization - N1,FR,Production|Liquid fuel|Diesel|Biodiesel,%,
 Extensive reindustrialization - N1,FR,Production|Liquid fuel|Diesel|Diesel,%,93,88,44,0,0
 Extensive reindustrialization - N1,FR,Production|Liquid fuel|Petrol|Bioethanol,%,7,12,56,100,100
 Extensive reindustrialization - N1,FR,Production|Liquid fuel|Petrol|Petrol,%,93,88,44,0,0
-Extensive reindustrialization - N2,FR,Distribution losses|Electricity|Low to medium,TWh/year,1,0.973,0.973,0.973,0.973
 Extensive reindustrialization - N2,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,1,0.9975,0.9975,0.9975,0.9975
-Extensive reindustrialization - N2,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
 Extensive reindustrialization - N2,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
 Extensive reindustrialization - N2,FR,Production|Electricity|Low to medium,TWh/year,1,1,1,1,1
 Extensive reindustrialization - N2,FR,Production|Electricity|Medium to high,TWh/year,1,1,1,1,1
@@ -337,9 +325,7 @@ Extensive reindustrialization - N2,FR,Production|Liquid fuel|Diesel|Biodiesel,%,
 Extensive reindustrialization - N2,FR,Production|Liquid fuel|Diesel|Diesel,%,93,88,44,0,0
 Extensive reindustrialization - N2,FR,Production|Liquid fuel|Petrol|Bioethanol,%,7,12,56,100,100
 Extensive reindustrialization - N2,FR,Production|Liquid fuel|Petrol|Petrol,%,93,88,44,0,0
-Reference - M0,FR,Distribution losses|Electricity|Low to medium,TWh/year,1,0.973,0.973,0.973,0.973
 Reference - M0,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,1,0.9975,0.9975,0.9975,0.9975
-Reference - M0,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
 Reference - M0,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
 Reference - M0,FR,Production|Electricity|Low to medium,TWh/year,1,1,1,1,1
 Reference - M0,FR,Production|Electricity|Medium to high,TWh/year,1,1,1,1,1
@@ -370,9 +356,7 @@ Reference - M0,FR,Production|Liquid fuel|Diesel|Biodiesel,%,7,12,56,100,100
 Reference - M0,FR,Production|Liquid fuel|Diesel|Diesel,%,93,88,44,0,0
 Reference - M0,FR,Production|Liquid fuel|Petrol|Bioethanol,%,7,12,56,100,100
 Reference - M0,FR,Production|Liquid fuel|Petrol|Petrol,%,93,88,44,0,0
-Reference - M1,FR,Distribution losses|Electricity|Low to medium,TWh/year,1,0.973,0.973,0.973,0.973
 Reference - M1,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,1,0.9975,0.9975,0.9975,0.9975
-Reference - M1,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
 Reference - M1,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
 Reference - M1,FR,Production|Electricity|Low to medium,TWh/year,1,1,1,1,1
 Reference - M1,FR,Production|Electricity|Medium to high,TWh/year,1,1,1,1,1
@@ -403,9 +387,7 @@ Reference - M1,FR,Production|Liquid fuel|Diesel|Biodiesel,%,7,12,56,100,100
 Reference - M1,FR,Production|Liquid fuel|Diesel|Diesel,%,93,88,44,0,0
 Reference - M1,FR,Production|Liquid fuel|Petrol|Bioethanol,%,7,12,56,100,100
 Reference - M1,FR,Production|Liquid fuel|Petrol|Petrol,%,93,88,44,0,0
-Reference - M23,FR,Distribution losses|Electricity|Low to medium,TWh/year,1,0.973,0.973,0.973,0.973
 Reference - M23,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,1,0.9975,0.9975,0.9975,0.9975
-Reference - M23,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
 Reference - M23,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
 Reference - M23,FR,Production|Electricity|Low to medium,TWh/year,1,1,1,1,1
 Reference - M23,FR,Production|Electricity|Medium to high,TWh/year,1,1,1,1,1
@@ -436,9 +418,7 @@ Reference - M23,FR,Production|Liquid fuel|Diesel|Biodiesel,%,7,12,56,100,100
 Reference - M23,FR,Production|Liquid fuel|Diesel|Diesel,%,93,88,44,0,0
 Reference - M23,FR,Production|Liquid fuel|Petrol|Bioethanol,%,7,12,56,100,100
 Reference - M23,FR,Production|Liquid fuel|Petrol|Petrol,%,93,88,44,0,0
-Reference - N1,FR,Distribution losses|Electricity|Low to medium,TWh/year,1,0.973,0.973,0.973,0.973
 Reference - N1,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,1,0.9975,0.9975,0.9975,0.9975
-Reference - N1,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
 Reference - N1,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
 Reference - N1,FR,Production|Electricity|Low to medium,TWh/year,1,1,1,1,1
 Reference - N1,FR,Production|Electricity|Medium to high,TWh/year,1,1,1,1,1
@@ -469,9 +449,7 @@ Reference - N1,FR,Production|Liquid fuel|Diesel|Biodiesel,%,7,12,56,100,100
 Reference - N1,FR,Production|Liquid fuel|Diesel|Diesel,%,93,88,44,0,0
 Reference - N1,FR,Production|Liquid fuel|Petrol|Bioethanol,%,7,12,56,100,100
 Reference - N1,FR,Production|Liquid fuel|Petrol|Petrol,%,93,88,44,0,0
-Reference - N2,FR,Distribution losses|Electricity|Low to medium,TWh/year,1,0.973,0.973,0.973,0.973
 Reference - N2,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,1,0.9975,0.9975,0.9975,0.9975
-Reference - N2,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
 Reference - N2,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
 Reference - N2,FR,Production|Electricity|Low to medium,TWh/year,1,1,1,1,1
 Reference - N2,FR,Production|Electricity|Medium to high,TWh/year,1,1,1,1,1
@@ -502,9 +480,7 @@ Reference - N2,FR,Production|Liquid fuel|Diesel|Biodiesel,%,7,12,56,100,100
 Reference - N2,FR,Production|Liquid fuel|Diesel|Diesel,%,93,88,44,0,0
 Reference - N2,FR,Production|Liquid fuel|Petrol|Bioethanol,%,7,12,56,100,100
 Reference - N2,FR,Production|Liquid fuel|Petrol|Petrol,%,93,88,44,0,0
-Reference - N03,FR,Distribution losses|Electricity|Low to medium,TWh/year,1,0.973,0.973,0.973,0.973
 Reference - N03,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,1,0.9975,0.9975,0.9975,0.9975
-Reference - N03,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
 Reference - N03,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
 Reference - N03,FR,Production|Electricity|Low to medium,TWh/year,1,1,1,1,1
 Reference - N03,FR,Production|Electricity|Medium to high,TWh/year,1,1,1,1,1
@@ -535,9 +511,7 @@ Reference - N03,FR,Production|Liquid fuel|Diesel|Biodiesel,%,7,12,56,100,100
 Reference - N03,FR,Production|Liquid fuel|Diesel|Diesel,%,93,88,44,0,0
 Reference - N03,FR,Production|Liquid fuel|Petrol|Bioethanol,%,7,12,56,100,100
 Reference - N03,FR,Production|Liquid fuel|Petrol|Petrol,%,93,88,44,0,0
-Sobriety - M0,FR,Distribution losses|Electricity|Low to medium,TWh/year,1,0.973,0.973,0.973,0.973
 Sobriety - M0,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,1,0.9975,0.9975,0.9975,0.9975
-Sobriety - M0,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
 Sobriety - M0,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
 Sobriety - M0,FR,Production|Electricity|Low to medium,TWh/year,1,1,1,1,1
 Sobriety - M0,FR,Production|Electricity|Medium to high,TWh/year,1,1,1,1,1
@@ -568,9 +542,7 @@ Sobriety - M0,FR,Production|Liquid fuel|Diesel|Biodiesel,%,7,12,56,100,100
 Sobriety - M0,FR,Production|Liquid fuel|Diesel|Diesel,%,93,88,44,0,0
 Sobriety - M0,FR,Production|Liquid fuel|Petrol|Bioethanol,%,7,12,56,100,100
 Sobriety - M0,FR,Production|Liquid fuel|Petrol|Petrol,%,93,88,44,0,0
-Sobriety - M1,FR,Distribution losses|Electricity|Low to medium,TWh/year,1,0.973,0.973,0.973,0.973
 Sobriety - M1,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,1,0.9975,0.9975,0.9975,0.9975
-Sobriety - M1,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
 Sobriety - M1,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
 Sobriety - M1,FR,Production|Electricity|Low to medium,TWh/year,1,1,1,1,1
 Sobriety - M1,FR,Production|Electricity|Medium to high,TWh/year,1,1,1,1,1
@@ -601,9 +573,7 @@ Sobriety - M1,FR,Production|Liquid fuel|Diesel|Biodiesel,%,7,12,56,100,100
 Sobriety - M1,FR,Production|Liquid fuel|Diesel|Diesel,%,93,88,44,0,0
 Sobriety - M1,FR,Production|Liquid fuel|Petrol|Bioethanol,%,7,12,56,100,100
 Sobriety - M1,FR,Production|Liquid fuel|Petrol|Petrol,%,93,88,44,0,0
-Sobriety - M23,FR,Distribution losses|Electricity|Low to medium,TWh/year,1,0.973,0.973,0.973,0.973
 Sobriety - M23,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,1,0.9975,0.9975,0.9975,0.9975
-Sobriety - M23,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
 Sobriety - M23,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
 Sobriety - M23,FR,Production|Electricity|Low to medium,TWh/year,1,1,1,1,1
 Sobriety - M23,FR,Production|Electricity|Medium to high,TWh/year,1,1,1,1,1
@@ -634,10 +604,8 @@ Sobriety - M23,FR,Production|Liquid fuel|Diesel|Biodiesel,%,7,12,56,100,100
 Sobriety - M23,FR,Production|Liquid fuel|Diesel|Diesel,%,93,88,44,0,0
 Sobriety - M23,FR,Production|Liquid fuel|Petrol|Bioethanol,%,7,12,56,100,100
 Sobriety - M23,FR,Production|Liquid fuel|Petrol|Petrol,%,93,88,44,0,0
-Sobriety - N03,FR,Distribution losses|Electricity|Low to medium,TWh/year,1,0.973,0.973,0.973,0.973
 Sobriety - N03,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,1,0.9975,0.9975,0.9975,0.9975
 Sobriety - N03,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
-Sobriety - N03,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
 Sobriety - N03,FR,Production|Electricity|Low to medium,TWh/year,1,1,1,1,1
 Sobriety - N03,FR,Production|Electricity|Medium to high,TWh/year,1,1,1,1,1
 Sobriety - N03,FR,Production|Electricity|Import,TWh/year,2.035906643,3.611396304,5.922826855,23.55480363,52.83915408
@@ -667,9 +635,7 @@ Sobriety - N03,FR,Production|Liquid fuel|Diesel|Biodiesel,%,7,12,56,100,100
 Sobriety - N03,FR,Production|Liquid fuel|Diesel|Diesel,%,93,88,44,0,0
 Sobriety - N03,FR,Production|Liquid fuel|Petrol|Bioethanol,%,7,12,56,100,100
 Sobriety - N03,FR,Production|Liquid fuel|Petrol|Petrol,%,93,88,44,0,0
-Sobriety - N1,FR,Distribution losses|Electricity|Low to medium,TWh/year,1,0.973,0.973,0.973,0.973
 Sobriety - N1,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,1,0.9975,0.9975,0.9975,0.9975
-Sobriety - N1,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
 Sobriety - N1,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
 Sobriety - N1,FR,Production|Electricity|Low to medium,TWh/year,1,1,1,1,1
 Sobriety - N1,FR,Production|Electricity|Medium to high,TWh/year,1,1,1,1,1
@@ -700,9 +666,7 @@ Sobriety - N1,FR,Production|Liquid fuel|Diesel|Biodiesel,%,7,12,56,100,100
 Sobriety - N1,FR,Production|Liquid fuel|Diesel|Diesel,%,93,88,44,0,0
 Sobriety - N1,FR,Production|Liquid fuel|Petrol|Bioethanol,%,7,12,56,100,100
 Sobriety - N1,FR,Production|Liquid fuel|Petrol|Petrol,%,93,88,44,0,0
-Sobriety - N2,FR,Distribution losses|Electricity|Low to medium,TWh/year,1,0.973,0.973,0.973,0.973
 Sobriety - N2,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,1,0.9975,0.9975,0.9975,0.9975
-Sobriety - N2,FR,Transmission losses|Electricity|Medium to high,TWh/year,1,0.935,0.935,0.935,0.935
 Sobriety - N2,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
 Sobriety - N2,FR,Production|Electricity|Low to medium,TWh/year,1,1,1,1,1
 Sobriety - N2,FR,Production|Electricity|Medium to high,TWh/year,1,1,1,1,1
@@ -1385,21 +1349,3 @@ Sobriety - M23,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1,1,1,1
 Sobriety - N03,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1,1,1,1
 Sobriety - N1,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1,1,1,1
 Sobriety - N2,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1,1,1,1
-Extensive reindustrialization - M0,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
-Extensive reindustrialization - M1,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
-Extensive reindustrialization - M23,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
-Extensive reindustrialization - N03,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
-Extensive reindustrialization - N1,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
-Extensive reindustrialization - N2,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
-Reference - M0,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
-Reference - M1,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
-Reference - M23,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
-Reference - N1,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
-Reference - N2,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
-Reference - N03,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
-Sobriety - M0,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
-Sobriety - M1,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
-Sobriety - M23,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
-Sobriety - N03,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
-Sobriety - N1,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
-Sobriety - N2,FR,Distribution losses|Gaseous fuel|Hydrogen|Leakage,TWh/year,1,0.98,0.99,0.995,0.999
