@@ -82,33 +82,31 @@ For each demand scenario, RTE provides 6 electricity production scenarios
 IAM scenario compatibility
 ---------------------------
 
-The following coupling is done between IAM and FE2050+ scenarios:
+The following FE2050+ scenarios are modelled:
 
-| IAM scenario            | FE2050+ scenario                       |
-|-------------------------|----------------------------------------|
-| IMAGE SSP2-Base         | Extensive reindustrialization - M0     |
-| IMAGE SSP2-Base         | Extensive reindustrialization - M1     |
-| IMAGE SSP2-Base         | Extensive reindustrialization - M23    |
-| IMAGE SSP2-Base         | Extensive reindustrialization - N03    |
-| IMAGE SSP2-Base         | Extensive reindustrialization - N1     |
-| IMAGE SSP2-Base         | Extensive reindustrialization - N2     |
-| IMAGE SSP2-Base         | Reference - M0                         |
-| IMAGE SSP2-Base         | Reference - M1                         |
-| IMAGE SSP2-Base         | Reference - M23                        |
-| IMAGE SSP2-Base         | Reference - N03                        |
-| IMAGE SSP2-Base         | Reference - N1                         |
-| IMAGE SSP2-Base         | Reference - N2                         |
-| IMAGE SSP2-Base         | Sobriety - M0                          |
-| IMAGE SSP2-Base         | Sobriety - M1                          |
-| IMAGE SSP2-Base         | Sobriety - M23                         |
-| IMAGE SSP2-Base         | Sobriety - N03                         |
-| IMAGE SSP2-Base         | Sobriety - N1                          |
-| IMAGE SSP2-Base         | Sobriety - N2                          |
+| FE2050+ scenario                       |
+|----------------------------------------|
+| Extensive reindustrialization - M0     |
+| Extensive reindustrialization - M1     |
+| Extensive reindustrialization - M23    |
+| Extensive reindustrialization - N03    |
+| Extensive reindustrialization - N1     |
+| Extensive reindustrialization - N2     |
+| Reference - M0                         |
+| Reference - M1                         |
+| Reference - M23                        |
+| Reference - N03                        |
+| Reference - N1                         |
+| Reference - N2                         |
+| Sobriety - M0                          |
+| Sobriety - M1                          |
+| Sobriety - M23                         |
+| Sobriety - N03                         |
+| Sobriety - N1                          |
+| Sobriety - N2                          |
 
-This pairing was done solely based on the author's opinions and does not reflect 
-any official coupling between the two scenarios. This is to prevent coupling
-between scenarios that are not compatible (e.g. coupling between a global scenario with
-a high carbon price and a national scenario with a low carbon price).
+These scenarios can be coupled with any global IAM scenarios, but care must be taken
+with regard to consistency between the French national scenario and the global scenario.
 
 What does this do?
 ------------------
@@ -325,7 +323,6 @@ The inventories datasets listed below are used to model the different ways of pr
 * coke gas + CCS, is not used in the current model
 * Co-product of chlore sector =0 in all scenarios
 * Co-product of coking sector =0 in all scenarios
-* Delete this sentence because it s not the case  : These markets are relinked to activities that consume hydrogen in France, according to their area of application.
 
 
 How have the original data provided by RTE been modified and implemented ?  
@@ -372,13 +369,13 @@ Notes :
 
 Other assumptions:
 * As the ratios of imports and exports are not provided in Fig. 10-4 for 2060, the ratios of 2050 were reused for 2060. 
-* The imports and exports data provided in Fig. 10-4 are given for each scenario M0, M1, M23, N1, N2, N03) but are not given for each consumption trajectory (reference, sobriety, reindustrialization). It was assumed that the ratios of imports and exports are the same for the three trajectories (for example, same ratios for M1 reference, M1 sobriety and M1 reindus
+* The imports and exports data provided in Fig. 10-4 are given for each scenario M0, M1, M23, N1, N2, N03) but are not given for each consumption trajectory (reference, sobriety, reindustrialization). It was assumed that the ratios of imports and exports are the same for the three trajectories (for example, same ratios for M1 reference, M1 sobriety and M1 reindustrialization).
 
 ###### Imports modeling for the electricity mix consumed in France
 
 The imports are considered as in ecoinvent as an input flow of the market for electricity. 
 The inventory chosen for modeling the imports is the European market of electricity provided by the regional IAM market for European electricity.
-This assumption involves that the considered imported electricity also includes the French electricity mix (that reprensents around 20% of the European electricity production).
+This assumption involves that the considered imported electricity also includes the French electricity mix (that reprensents around 7% of the European electricity production).
 
 Warning : Even if the imports consumed in France are quite low (in 2050, maximum 6% of the total electricity demand for all scenarios), the imports can have a large influence on the climate change results as the French electicity mix is much less carbonized than the European electricity mix. 
 Potential improvements of imports modeling have been identified :
