@@ -260,8 +260,8 @@ We then model the losses associated with the transmission of electricity from hi
 medium voltage (3.12%), and from distribution to low voltage (3.07%), on the basis of 
 IEA statistics for France (International Energy Agency, 2022). It should be noted that 
 the breakdown of production between run-of-river and reservoir-equipped hydroelectric 
-plants is not given, and is therefore based on current statistics: 24% for run-of-river
-plants, 76% for reservoir-equipped plants.
+plants is not given, and is therefore based on current statistics: 16% for run-of-river
+plants, 84% for reservoir-equipped plants.
 
 Fuels
 *****
