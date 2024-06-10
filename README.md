@@ -398,6 +398,9 @@ production data for both technologies. The percentage has been calculated based
 on `market for electricity, high voltage` (FR) taken from ecoinvent 3.10 : 
 84% for run-of-river and 16% for reservoir technologies.
 
+###### Nuclear electricity production data
+
+The data provided by RTE is divided into existing nuclear, EPR2, and SMR. The "existing nuclear" production also includes the electricity produced by Flamanville EPR plant.  However, this "existing nuclear" data has been connected to PWR technology inventory. PWR electricity is thus slighly overestimated whereas EPR is underestimated. 
 
 Flow diagram
 ------------
