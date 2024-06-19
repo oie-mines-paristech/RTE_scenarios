@@ -32,7 +32,8 @@ import bw2data
 import bw2io
 ```
 
-# To do `🔧` 
+# Intitialisation
+## `🔧` Project name 
 
 ```python
 PROJECT_NAME="HySPI_premise_FE2050_9"
@@ -45,7 +46,7 @@ list(bw2data.databases)
 #agb.list_databases() #equivalent lca_algebraic function
 ```
 
-# Fonctions
+# Utils
 ## Manipulating databases
 
 ```python
@@ -76,7 +77,10 @@ for db_name in premise_db_name_list:
 premise_db_list
 ```
 
+## `🔧` filters
+
 ```python
+#tag the database with corresponding year, IAM  scenario and FR scenario
 for db in premise_db_list:
     if '2050' in db.name:
         db.year=2050
@@ -102,6 +106,7 @@ for db in premise_db_list:
 ```
 
 ```python
+#Each database can be sorted with these tags
 df=pd.DataFrame([],columns=['db_name','IAM scenario','FR scenario','year'])
 for db in premise_db_list:
     df.loc[len(df.index)] = [db.name,db.IAM_scenario,db.FR_scenario,db.year]
@@ -109,6 +114,12 @@ df
 ```
 
 ```python
+#To generate a list of databases based on filters on the year / IAM scenario / FR_Scenario
+selected_db=[db for db in premise_db_list if db.IAM_scenario=='Base' and db.FR_scenario=='M0'] #and db.year==2050]
+```
+
+```python
+#Old function, not used anymore. Generate a list of database names (not of databases)
 def db_name_list(*args):
     """ Generate a list of database's name containing given keywords (one or several)"""
     list_db_name=[]
@@ -173,6 +184,7 @@ def style_neg(v, props=''):
 ```python
 EF = 'EF v3.0 no LT'
 climate = (EF, 'climate change no LT', 'global warming potential (GWP100) no LT')
+ecosystem_quality_acid = (EF,'acidification','accumulated exceedance (AE)')
 impacts=[climate]
 ```
 
@@ -182,63 +194,23 @@ list_LCIA_methods = [*set(list_LCIA_methods)]  #this line automatically delete t
 list_LCIA_methods
 ```
 
-```python
-LCIA_method = 'EF v3.0'
-
-ecosystem_quality_acid = (LCIA_method,'acidification','accumulated exceedance (AE)')
-impacts=[ecosystem_quality_acid]
-```
-
-# Impact of electricity
+# Impact 1 kWh of electricity
 
 
-## To do `🔧` 
+## `🔧` elec_act_name
 
 ```python
 elec_act_name="market for electricity, high voltage, FE2050"
 ```
 
-## Impact 1 kWh of electricity
-
-```python
-#To do : generate a list of databases to exploe
-#list_db_name=db_name_list('S1')
-list_db_name=premise_db_name_list
-list_db_name
-```
-
-```python
-df=pd.DataFrame([],columns=['scenario','act','impact','unit'])
-list_act=[]
-
-for dbtoexplore_name in list_db_name:
-    act_elec_1kWh=agb.findActivity(elec_act_name, db_name=dbtoexplore_name)
-    list_act.append(act_elec_1kWh)
-
-for act in list_act:
-   lca = act.lca(method=climate, amount=1)
-   score = lca.score
-   unit = bw2data.Method(climate).metadata["unit"]
-   df.loc[len(df.index)] = [act["database"],act["name"],score,unit]
-```
-
-```python
-df
-```
-
-```python
-df_colour=df.style.background_gradient(cmap='Blues')
-df_colour
-```
+## Run
 
 ```python
 df=pd.DataFrame([],columns=['db_name','IAM scenario','FR scenario','year','act','impact','unit'])
 list_act=[]
 
 for db in premise_db_list:
-#for dbtoexplore_name in list_db_name:
     act=agb.findActivity(elec_act_name, db_name=db.name)
-    #list_act.append(act_elec_1kWh)
     lca = act.lca(method=climate, amount=1)
     score = lca.score
     unit = bw2data.Method(climate).metadata["unit"]
@@ -253,168 +225,193 @@ df_elec=df.style.background_gradient(cmap='Reds')
 df_elec
 ```
 
-## Imports contribution 
-## `🔧` Comment/uncomment + Change name of act without imports
+# Imports contribution 
+## `🔧` elec_act_name + impact cat.
+## WARNING : Comment/uncomment + Change name of act without imports if needed
 
 ```python
-list_db_name=premise_db_name_list
+elec_act_name="market for electricity, high voltage, FE2050"
+impact_cat=climate
 ```
 
 ```python
-df=pd.DataFrame([],columns=['scenario','% import','% impact of imports','impact 1 kWh elec','impact 1 kWh import','impact 1kWh without import','unit'])
-list_act=[]
+df=pd.DataFrame([],columns=[
+    'db_name',
+    'IAM scenario',
+    'FR scenario',
+    'year',
+    'Contribution of import to consumption elec mix (1 kWh)',
+    'Contribution of imports to impacts of 1 kWh of consumption elec mix',
+    'impacts(1 kWh imports)/impact(1 kWh production elec mix)',
+    'impact 1 kWh elec',
+    'impact 1 kWh import',
+    'impact 1kWh without import',
+    'unit'])
 
-for dbtoexplore_name in list_db_name:
-    act_elec_1kWh=agb.findActivity(elec_act_name, db_name=dbtoexplore_name)
-    list_act.append(act_elec_1kWh)
+for db in premise_db_list:
+    #Activity 1 kWh elec mix
+    act_elec_1kWh=agb.findActivity(elec_act_name, db_name=db.name)
 
-for act_elec_1kWh in list_act:
+    #Impact of 1 kWh of consumption elec mix
     lca = act_elec_1kWh.lca(method=climate, amount=1)
     impact_elec_1kWh = lca.score
 
+    #Activity that models import
     import_kWh=[exc for exc in act_elec_1kWh.exchanges() if exc["name"]=='market group for electricity, high voltage'][0]
     act_import=import_kWh.input
+
+    #Contribution of import to consumption elec mix (1 kWh)
+    #import_kWh["amount"]
     
+    #Impact of 1 kWh of import
     lca = act_import.lca(method=climate, amount=1)
     impact_import_1kWh = lca.score
-    ratio_impact=impact_import_1kWh*import_kWh["amount"]/impact_elec_1kWh 
-    #act_elec_without_import=agb.findActivity("market for electricity without imports, high voltage, FE2050",db_name=act_elec_1kWh["database"])
-    #act_elec_without_import=agb.copyActivity(act_elec_1kWh["database"],act_elec_1kWh,"market for electricity without imports, high voltage, FE2050")
-    #act_elec_without_import.deleteExchanges('market group for electricity, high voltage')
-    lca = act_elec_without_import.lca(method=climate, amount=1)
-    impact_elec_without_import_1kWh = lca.score/(1-import_kWh["amount"])
-    
-    unit = bw2data.Method(climate).metadata["unit"]
-    
-    df.loc[len(df.index)] = [act_elec_1kWh["database"],import_kWh["amount"],ratio_impact,impact_elec_1kWh,impact_import_1kWh,impact_elec_without_import_1kWh,unit]
 
-df_import=df.style.map(style_neg, props='background-color:red;',subset='impact 1kWh without import')
+    #Contribution of imports to impacts of 1 kWh of consumption elec mix
+    contribution_imports_impact_consumptionmix=impact_import_1kWh*import_kWh["amount"]/impact_elec_1kWh 
+
+    #Generating activity that models production elec mix (just deleting imports)
+    act_elec_without_import=agb.copyActivity(db.name,act_elec_1kWh,"market for electricity without imports, high voltage, FE2050 - warning the ref flow is no more 1 kWh")
+    act_elec_without_import.deleteExchanges('market group for electricity, high voltage')
+
+    #If you redo the calcultation, comment the two last lines and run only the line below
+    act_elec_without_import=agb.findActivity("market for electricity without imports, high voltage, FE2050 - warning the ref flow is no more 1 kWh",db_name=db.name)
+    
+    #Impacts of production elec mix (redimensioning the impacts to consider a 1 kWh ref flow)
+    lca = act_elec_without_import.lca(method=impact_cat, amount=1)
+    impact_elec_without_import_1kWh = lca.score/(1-import_kWh["amount"])
+
+    #'impacts(1 kWh imports)/impact(1 kWh production elec mix)'
+    ratio_impacts_imports_on_productionmix=impact_import_1kWh/impact_elec_without_import_1kWh
+    
+    #Unit of the impact considered
+    unit = bw2data.Method(climate).metadata["unit"]
+
+    df.loc[len(df.index)] = [
+        db.name,
+        db.IAM_scenario,
+        db.FR_scenario,
+        db.year,
+        import_kWh["amount"],
+        contribution_imports_impact_consumptionmix,
+        ratio_impacts_imports_on_productionmix,
+        impact_elec_1kWh,
+        impact_import_1kWh,
+        impact_elec_without_import_1kWh,
+        unit]
+
+#df_import=df.style.map(style_neg, props='background-color:red;',subset='impact 1kWh without import')
+df_import=df
 df_import
 ```
 
-## Impact of background activities used to model FR electricity market (depends on IAM model)
-
-
-## To do `🔧` : choose IAM scenario
+# Impact of background activities used to model FR electricity market
 
 ```python
-#list_db_name=db_name_list('Base')
-#list_db_name=db_name_list('RCP26')
-list_db_name=db_name_list('RCP19')
+df=pd.DataFrame([],columns=[
+    'db_name',
+    'IAM scenario',
+    'FR scenario',
+    'year',
+    'act',
+    'impact',
+    'unit'
+    ])
 
-list_db_name
+for db in premise_db_list:
+    act=agb.findActivity(elec_act_name, db_name=db.name)
+    excs=[exc.input for exc in act.exchanges() if exc["type"]=='technosphere'] #and exc["name"]!=elec_act_name]
+    for exc in excs:
+        lca = exc.lca(method=climate, amount=1)
+        score = lca.score
+        unit = bw2data.Method(climate).metadata["unit"]
+        df.loc[len(df.index)] = [
+            db.name,
+            db.IAM_scenario,
+            db.FR_scenario,
+            db.year,
+            exc["name"],
+            score,
+            unit]
+
 ```
 
-### Print All
+```python
+df_elec_all=df.style.background_gradient(cmap='Reds')
+df_elec_all
+```
 
 ```python
-df=pd.DataFrame([],columns=['scenario','act','impact','unit'])
-list_exc=[]
-list_act=[]
+#Same done for 'market for electricity, high voltage, FR' from original ecoinvent database
 
-for dbtoexplore_name in list_db_name:
-    act_elec_1kWh=agb.findActivity(elec_act_name, db_name=dbtoexplore_name)
-    list_act.append(act_elec_1kWh)
+df=pd.DataFrame([],columns=[
+    'db_name',
+    'IAM scenario',
+    'FR scenario',
+    'year',
+    'act',
+    'impact',
+    'unit'
+    ])
 
-for act in list_act:
-    excs=[exc.input for exc in act.exchanges() if exc["type"]=='technosphere' and exc["name"]!=elec_act_name]
-    for exc in excs:
-#        if exc["name"] not in str(list_exc):
-            list_exc.append(exc)
 
-for exc in list_exc:
+act=agb.findActivity('market for electricity, high voltage', loc='FR', db_name='ecoinvent-3.9.1-cutoff')
+excs=[exc.input for exc in act.exchanges() if exc["type"]=='technosphere'] #and exc["name"]!=elec_act_name]
+for exc in excs:
     lca = exc.lca(method=climate, amount=1)
     score = lca.score
     unit = bw2data.Method(climate).metadata["unit"]
-    df.loc[len(df.index)] = [exc["database"],exc["name"],score,unit]
-
-#df_Base_all = df.style.map(style_neg, props='background-color:red;')
-#df_Base_all
-#df_RCP26_al = df.style.map(style_neg, props='background-color:red;')
-#df_RCP26_all
-df_RCP19_all = df.style.map(style_neg, props='background-color:red;')
-df_RCP19_all
+    df.loc[len(df.index)] = [
+            'ecoinvent-3.9.1-cutoff',
+            "None",
+            "None",
+            "None",
+            exc["name"],
+            score,
+            unit]
 ```
 
-## Print only neg values
+```python
+df_elec_ecoinvent=df.style.background_gradient(cmap='Reds')
+df_elec_ecoinvent
+```
+
+# Heat
 
 ```python
-df=pd.DataFrame([],columns=['scenario','act','impact','unit'])
-list_exc=[]
+heat_act_name='market for heat, district or industrial, natural gas'
+```
+
+```python
+df=pd.DataFrame([],columns=['db_name','IAM scenario','FR scenario','year','act','impact','unit'])
 list_act=[]
 
-for dbtoexplore_name in list_db_name:
-    act_elec_1kWh=agb.findActivity(elec_act_name, db_name=dbtoexplore_name)
-    list_act.append(act_elec_1kWh)
-
-for act in list_act:
-    excs=[exc.input for exc in act.exchanges() if exc["type"]=='technosphere' and exc["name"]!=elec_act_name]
-    for exc in excs:
-#        if exc["name"] not in str(list_exc):
-            list_exc.append(exc)
-
-for exc in list_exc:
-    lca = exc.lca(method=climate, amount=1)
+for db in premise_db_list:
+    act=agb.findActivity(heat_act_name, loc='WEU',db_name=db.name)
+    lca = act.lca(method=climate, amount=1)
     score = lca.score
     unit = bw2data.Method(climate).metadata["unit"]
-    if score < 0 :
-        df.loc[len(df.index)] = [exc["database"],exc["name"],score,unit]
-
-df_RCP19_neg = df.style.map(style_neg, props='background-color:red;')
-df_RCP19_neg
-```
-
-### Print for one act
-
-```python
-#list_db_name=db_name_list('Base')
-#list_db_name=db_name_list('RCP26')
-list_db_name=db_name_list('RCP19')
-list_db_name
-
-line_0=2
+    df.loc[len(df.index)] = [db.name,db.IAM_scenario,db.FR_scenario,db.year,act["name"],score,unit]
 ```
 
 ```python
-df=pd.DataFrame([],columns=['scenario','act','impact','unit'])
-list_exc=[]
-list_act=[]
-
-for dbtoexplore_name in list_db_name:
-    act_elec_1kWh=agb.findActivity(elec_act_name, db_name=dbtoexplore_name)
-    list_act.append(act_elec_1kWh)
-
-for act in list_act:
-    excs=[exc.input for exc in act.exchanges() if exc["type"]=='technosphere' and exc["name"]!=elec_act_name]
-    for exc in excs:
-#        if exc["name"] not in str(list_exc):
-            list_exc.append(exc)
-
-for n in range(5):
-    exc=list_exc[n*15+line_0]
-    lca = exc.lca(method=climate, amount=1)
-    score = lca.score
-    unit = bw2data.Method(climate).metadata["unit"]
-    df.loc[len(df.index)] = [exc["database"],exc["name"],score,unit]
-
-df_comparison = df.style.map(style_neg, props='background-color:red;')
-df_comparison
-```
-
-# Heat > can not print some results ??
-
-```python
-#    act_heat=agb.findActivity('market for heat, district or industrial, natural gas', loc='WEU', db_name=dbtoexplore_name)
+#df_elec = df.style.map(style_red, props='background-color:red;')\
+#             .map(style_orange, props='background-color:orange;')\
+#             .map(style_green, props='background-color:green;')
+df_heat=df.style.background_gradient(cmap='Reds')
+df_heat
 ```
 
 # Export to excel
 
 ```python
-xlsx_file_name="export_data_FE2050.xlsx"
+xlsx_file_name="export_data_FE2050_9.xlsx"
 list_df_to_export=[
-    ["elec 1 kWh",df_elec],     
+    ["elec 1 kWh",df_elec],
+    ["elec background act premise", df_elec_all],
+    ["elec background act ecoinvent", df_elec_ecoinvent],
+    ["heat WEU act", df_heat],    
     ["imports contribution",df_import],
-    ["background act", df_RCP19_all]  
 ]
 export_data_to_excel(list_df_to_export,xlsx_file_name)
 ```
@@ -468,33 +465,6 @@ pv=agb.findActivity("electricity production, photovoltaic", loc='FR', db_name=db
 
 ```python
 agb.compute_impacts(pv,impacts)
-```
-
-# Draft
-
-```python
-bw2data.methods
-```
-
-```python
-list_LCIA_methods = [m[0] for m in bw.methods if "EF v3.0"  in str(m) and not "no LT" in str(m) and not'EN15804' in str(m)]
-list_LCIA_methods = [*set(list_LCIA_methods)]  #this line automatically delete the duplicates
-list_LCIA_methods[0].keys()
-```
-
-```python
-bw.methods
-```
-
-```python
-method_key = ('EF v3.0 no LT', 'climate change no LT', 'global warming potential (GWP100) no LT')
-method_key
-```
-
-```python
-method_data = bw.Method(method_key).load()
-print("Number of CFs:", len(method_data))
-method_data[:60]
 ```
 
 ```python
