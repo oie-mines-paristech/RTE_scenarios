@@ -35,17 +35,17 @@ import bw2io
 # To do `🔧` 
 
 ```python
-PROJECT_NAME="HySPI_premise_FE2050_6"
+PROJECT_NAME="HySPI_premise_FE2050_9"
 ```
 
 ```python
 #Set in the right project and print the databases
 bw2data.projects.set_current(PROJECT_NAME)
-bw2data.databases
+list(bw2data.databases)
 #agb.list_databases() #equivalent lca_algebraic function
 ```
 
-# Fonctions 
+# Fonctions
 ## Manipulating databases
 
 ```python
@@ -54,7 +54,11 @@ ecoinvent_3_9_db_name='ecoinvent-3.9.1-cutoff'
 ```
 
 ```python
-#generate a list of generated databases by premise
+ecoinvent_3_9_db.name
+```
+
+```python
+#generate a list of names of generated databases by premise
 premise_db_name_list=list(bw2data.databases.keys())
 for db_name in bw2data.databases.keys():
     if "biosphere" in db_name:
@@ -62,6 +66,46 @@ for db_name in bw2data.databases.keys():
     elif "ecoinvent" in db_name:
         premise_db_name_list.remove(db_name)
 premise_db_name_list
+```
+
+```python
+#generate a list of generated databases by premise
+premise_db_list=[]
+for db_name in premise_db_name_list:
+    premise_db_list.append(bw2data.Database(db_name))
+premise_db_list
+```
+
+```python
+for db in premise_db_list:
+    if '2050' in db.name:
+        db.year=2050
+    if 'Base' in db.name:
+        db.IAM_scenario='Base'
+    if 'RCP26' in db.name:
+        db.IAM_scenario='RCP26'
+    if 'RCP19' in db.name:
+        db.IAM_scenario='RCP19'
+    if 'M0' in db.name:
+        db.FR_scenario='M0'
+    if 'M1' in db.name:
+        db.FR_scenario='M1'
+    if 'M23' in db.name:
+        db.FR_scenario='M23'
+    if 'N1' in db.name:
+        db.FR_scenario='N1'
+    if 'N2' in db.name:
+        db.FR_scenario='N2'
+    if 'N03' in db.name:
+        db.FR_scenario='N03'
+
+```
+
+```python
+df=pd.DataFrame([],columns=['db_name','IAM scenario','FR scenario','year'])
+for db in premise_db_list:
+    df.loc[len(df.index)] = [db.name,db.IAM_scenario,db.FR_scenario,db.year]
+df
 ```
 
 ```python
@@ -108,18 +152,20 @@ def export_data_to_excel(list_df_to_export, xlsx_file_name):
 ## Dataframe printing
 
 ```python
+high_value=0.050
+low_value=0.015
+
 def style_red(v, props=''):
-    return props if type(v)==float and v > 0.100 else None
+    return props if type(v)==float and v > high_value else None
 def style_orange(v, props=''):
-    return props if type(v)==float and v < 0.100 and v > 0.03 else None
+    return props if type(v)==float and v < high_value and v >low_value else None
 def style_green(v, props=''):
-    return props if type(v)==float and v < 0.03 else None
+    return props if type(v)==float and v < low_value else None
 ```
 
 ```python
 def style_neg(v, props=''):
     return props if type(v)==float and v < 0 else None
-
 ```
 
 # Methods
@@ -128,6 +174,19 @@ def style_neg(v, props=''):
 EF = 'EF v3.0 no LT'
 climate = (EF, 'climate change no LT', 'global warming potential (GWP100) no LT')
 impacts=[climate]
+```
+
+```python
+list_LCIA_methods = [m[0] for m in bw.methods if "EF"  in str(m) and not "no LT" in str(m) and not'obsolete' in str(m)]
+list_LCIA_methods = [*set(list_LCIA_methods)]  #this line automatically delete the duplicates
+list_LCIA_methods
+```
+
+```python
+LCIA_method = 'EF v3.0'
+
+ecosystem_quality_acid = (LCIA_method,'acidification','accumulated exceedance (AE)')
+impacts=[ecosystem_quality_acid]
 ```
 
 # Impact of electricity
@@ -164,9 +223,33 @@ for act in list_act:
 ```
 
 ```python
-df_elec = df.style.map(style_red, props='background-color:red;')\
-             .map(style_orange, props='background-color:orange;')\
-             .map(style_green, props='background-color:green;')
+df
+```
+
+```python
+df_colour=df.style.background_gradient(cmap='Blues')
+df_colour
+```
+
+```python
+df=pd.DataFrame([],columns=['db_name','IAM scenario','FR scenario','year','act','impact','unit'])
+list_act=[]
+
+for db in premise_db_list:
+#for dbtoexplore_name in list_db_name:
+    act=agb.findActivity(elec_act_name, db_name=db.name)
+    #list_act.append(act_elec_1kWh)
+    lca = act.lca(method=climate, amount=1)
+    score = lca.score
+    unit = bw2data.Method(climate).metadata["unit"]
+    df.loc[len(df.index)] = [db.name,db.IAM_scenario,db.FR_scenario,db.year,act["name"],score,unit]
+```
+
+```python
+#df_elec = df.style.map(style_red, props='background-color:red;')\
+#             .map(style_orange, props='background-color:orange;')\
+#             .map(style_green, props='background-color:green;')
+df_elec=df.style.background_gradient(cmap='Reds')
 df_elec
 ```
 
@@ -195,7 +278,7 @@ for act_elec_1kWh in list_act:
     lca = act_import.lca(method=climate, amount=1)
     impact_import_1kWh = lca.score
     ratio_impact=impact_import_1kWh*import_kWh["amount"]/impact_elec_1kWh 
-    act_elec_without_import=agb.findActivity("market for electricity without imports, high voltage, FE2050",db_name=act_elec_1kWh["database"])
+    #act_elec_without_import=agb.findActivity("market for electricity without imports, high voltage, FE2050",db_name=act_elec_1kWh["database"])
     #act_elec_without_import=agb.copyActivity(act_elec_1kWh["database"],act_elec_1kWh,"market for electricity without imports, high voltage, FE2050")
     #act_elec_without_import.deleteExchanges('market group for electricity, high voltage')
     lca = act_elec_without_import.lca(method=climate, amount=1)
@@ -336,9 +419,8 @@ list_df_to_export=[
 export_data_to_excel(list_df_to_export,xlsx_file_name)
 ```
 
-<!-- #region jp-MarkdownHeadingCollapsed=true -->
 # Basic test
-<!-- #endregion -->
+
 
 ## Test ecoinvent
 
@@ -358,7 +440,8 @@ agb.compute_impacts(elec_ecoinvent,impacts)
 ## Test premise database
 
 ```python
-dbtoexplore=db_name_list('S2','RCP19')[0]
+dbtoexplore=db_name_list('2024')[0]
+#dbtoexplore='M0_2050_SSP2Base'
 dbtoexplore	
 ```
 
@@ -371,18 +454,48 @@ agb.printAct(elec_2050)
 ```
 
 ```python
+excs=[exc for exc in elec_2050.exchanges() if 'Ozone' in exc["name"]][0]
+excs.input["database"]
+```
+
+```python
 agb.compute_impacts(elec_2050,impacts)
 ```
 
 ```python
-pv_S2_RCP19=agb.findActivity("electricity production, photovoltaic", loc='FR', db_name=dbtoexplore)
+pv=agb.findActivity("electricity production, photovoltaic", loc='FR', db_name=dbtoexplore)
 ```
 
 ```python
-agb.compute_impacts(pv_S2_RCP19,impacts)
+agb.compute_impacts(pv,impacts)
 ```
 
 # Draft
+
+```python
+bw2data.methods
+```
+
+```python
+list_LCIA_methods = [m[0] for m in bw.methods if "EF v3.0"  in str(m) and not "no LT" in str(m) and not'EN15804' in str(m)]
+list_LCIA_methods = [*set(list_LCIA_methods)]  #this line automatically delete the duplicates
+list_LCIA_methods[0].keys()
+```
+
+```python
+bw.methods
+```
+
+```python
+method_key = ('EF v3.0 no LT', 'climate change no LT', 'global warming potential (GWP100) no LT')
+method_key
+```
+
+```python
+method_data = bw.Method(method_key).load()
+print("Number of CFs:", len(method_data))
+method_data[:60]
+```
 
 ```python
 
