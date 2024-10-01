@@ -639,6 +639,8 @@ markets:
     replaces:
       - name: market for natural gas, high pressure
         product: natural gas, high pressure
+      - name: market group for natural gas, high pressure
+        product: natural gas, high pressure
 
     replaces in:
       - location: FR
@@ -670,8 +672,6 @@ markets:
     replaces:
       - name: market for natural gas, low pressure
         product: natural gas, low pressure
-      - name: market group for natural gas, high pressure
-        product: natural gas, high pressure
 
     replaces in:
       - location: FR
@@ -824,6 +824,7 @@ markets:
       - name: market for electricity, high voltage
         product: electricity, high voltage
         location: FR
+    
 
     except regions:
       - World
