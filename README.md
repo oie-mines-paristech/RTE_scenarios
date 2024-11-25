@@ -64,7 +64,7 @@ the HYSPI project (https://www.psi.ch/en/ta/projects/hyspi).
 Ecoinvent database compatibility
 --------------------------------
 
-ecoinvent 3.9.1 cut-off
+ecoinvent 3.10 cut-off
 
 
 Prospective scenarios
