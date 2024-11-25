@@ -544,8 +544,8 @@ production pathways:
     production volume:
       variable: Production|Hydrogen|Others|Co-produced|Chemicals
     ecoinvent alias:
-      name: hydrogen cracking, APME
-      reference product: hydrogen, liquid
+      name: hydrogen production, gaseous, petroleum refinery operation
+      reference product: hydrogen, gaseous, low pressure
       exists in original database: True
       regionalize: True
 
