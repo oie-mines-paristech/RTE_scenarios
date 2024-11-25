@@ -62,7 +62,7 @@ production pathways:
     production volume:
       variable: Production|Electricity|Conventional|Waste
     ecoinvent alias:
-      name: treatment of municipal solid waste, incineration
+      name: treatment of municipal solid waste, municipal incineration
       reference product: electricity, for reuse in municipal waste incineration only
       exists in original database: True
 
@@ -259,7 +259,7 @@ production pathways:
       variable: Production|Hydrogen|Refineries|Co-produced|Oil refining
     ecoinvent alias:
       name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous
+      reference product: hydrogen, gaseous, low pressure
       exists in original database: True
       regionalize: True
 
@@ -268,7 +268,7 @@ production pathways:
       variable: Production|Hydrogen|Refineries|Co-produced|Chlore
     ecoinvent alias:
       name: chlor-alkali electrolysis, diaphragm cell
-      reference product: hydrogen, liquid
+      reference product: hydrogen, gaseous, low pressure
       exists in original database: True
       regionalize: True
 
@@ -276,8 +276,8 @@ production pathways:
     production volume:
       variable: Production|Hydrogen|Refineries|Co-produced|Chemicals
     ecoinvent alias:
-      name: hydrogen cracking, APME
-      reference product: hydrogen, liquid
+      name: hydrogen production, gaseous, petroleum refinery operation
+      reference product: hydrogen, gaseous, low pressure
       exists in original database: True
       regionalize: True
 
