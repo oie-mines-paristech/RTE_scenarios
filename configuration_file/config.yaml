@@ -134,15 +134,9 @@ production pathways:
     production volume:
       variable: Production|Electricity|Storage|Hydrogen
     ecoinvent alias:
-      name: electricity production, from hydrogen, FE2050
+      name: electricity production, from hydrogen, with gas turbine, for grid-balancing, FE2050
       reference product: electricity, high voltage
       exists in original database: True
-
-    efficiency:
-      - variable: Efficiency|Electricity|Hydrogen|Fuel cell
-        includes:
-          technosphere:
-            - hydrogen
 
   vehicle_to_grid:
     production volume:
@@ -639,8 +633,6 @@ markets:
     replaces:
       - name: market for natural gas, high pressure
         product: natural gas, high pressure
-      - name: market group for natural gas, high pressure
-        product: natural gas, high pressure
 
     replaces in:
       - location: FR
@@ -797,15 +789,15 @@ markets:
         reference product: electricity, high voltage
         amount: 0.0312426845152551
 
-      - name: transmission network, electricity, high voltage direct current aerial line
+      - name: transmission network construction, electricity, high voltage direct current aerial line
         reference product: transmission network, electricity, high voltage direct current aerial line
         amount: 5.65e-09
 
-      - name: transmission network, electricity, high voltage direct current land cable
+      - name: transmission network construction, electricity, high voltage direct current land cable
         reference product: transmission network, electricity, high voltage direct current land cable
         amount: 3.86e-10
 
-      - name: transmission network, electricity, high voltage direct current subsea cable
+      - name: transmission network construction, electricity, high voltage direct current subsea cable
         reference product: transmission network, electricity, high voltage direct current subsea cable
         amount: 3.47e-12
 

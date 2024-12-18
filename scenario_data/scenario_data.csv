@@ -298,7 +298,7 @@ Extensive reindustrialization - N2,FR,Distribution losses|Gaseous fuel|Low to hi
 Extensive reindustrialization - N2,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,58,62,64,65
 Extensive reindustrialization - N2,FR,Production|Electricity|Low to medium,TWh/year,1,1,1,1,1
 Extensive reindustrialization - N2,FR,Production|Electricity|Medium to high,TWh/year,1,1,1,1,1
-Extensive reindustrialization - N2,FR,Consumption|Electricity|Import,TWh/year,2.035906643,2.902977413,11.85584608,24.31518072,39.44462651
+Extensive reindustrialization - N2,FR,Production|Electricity|Import,TWh/year,2.035906643,2.902977413,11.85584608,24.31518072,39.44462651
 Extensive reindustrialization - N2,FR,Production|Electricity|Export,TWh/year,58.73590664,78.30297741,45.65584608,42.31518072,68.64462651
 Extensive reindustrialization - N2,FR,Production|Electricity|Total without production from flexibility,TWh/year,532.9,605.5,678.1,781.4,792.9
 Extensive reindustrialization - N2,FR,Production|Electricity|Conventional|Coal,TWh/year,1.423648995,0.696544373,0,0,0
