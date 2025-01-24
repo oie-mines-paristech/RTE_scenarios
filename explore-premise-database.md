@@ -5,24 +5,14 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.2
+      jupytext_version: 1.16.4
   kernelspec:
-    display_name: lca_alg_11
+    display_name: premise5
     language: python
-    name: lca_alg_11
+    name: premise5
 ---
 
-Impacts market for electricity, high voltage, Tr2050 > see sheet elec 1 kWh
-* Impacts elec 1kWh FR : Base (17 to 50 kgCo2eq) > RCP26 (10 to 40 kgCo2eq) > RCP19 (-10 to 30 kgCo2eq)
-  
-Imports > See sheet imports contributions 
-* Impacts elec 1kWh FR without import : Base (17 to 50 kgCo2eq) > RCP26 (10 to 40 kgCo2eq) > RCP19 (neg to 30 kgCo2eq)  kgCo2eq 
-* Impacts imports Base > RCP26  > RCP19  == 400 / 100 / 8 kgCo2eq
-* Imports S1 =18% > S2 > S3 > S4 =28%
-  
-Background activities used as input for "market for electricity, high voltage, Tr2050"
-* Strange impact results for these activities (a lot of neg values)
-* Surprising that same IAM model and different French scenarios, the results are slightly different 
+## `🔧` To switch from FE2050 to Tr2050
 
 
 ```python
@@ -36,7 +26,7 @@ import bw2io
 ## `🔧` Project name 
 
 ```python
-PROJECT_NAME="HySPI_premise_FE2050_9"
+PROJECT_NAME="HySPI_premise_FE2050_11"
 ```
 
 ```python
@@ -77,65 +67,44 @@ for db_name in premise_db_name_list:
 premise_db_list
 ```
 
-## `🔧` filters
+## `🔧` filters the database
 
 ```python
-#tag the database with corresponding year, IAM  scenario and FR scenario
+model_list=['image','tiam-ucl','remind']
+SSP_list=['SSP1','SSP2']
+IAM_scenario_list=['Base','RCP26','RCP45','Npi']
+FR_scenario_list=['M0','M1','M23','N1','N2','NO3']
+```
+
+```python
+#tag the database with corresponding year, model, IAM scenario and FR scenario
 for db in premise_db_list:
     if '2050' in db.name:
         db.year=2050
-    if 'Base' in db.name:
-        db.IAM_scenario='Base'
-    if 'RCP26' in db.name:
-        db.IAM_scenario='RCP26'
-    if 'RCP19' in db.name:
-        db.IAM_scenario='RCP19'
-    if 'M0' in db.name:
-        db.FR_scenario='M0'
-    if 'M1' in db.name:
-        db.FR_scenario='M1'
-    if 'M23' in db.name:
-        db.FR_scenario='M23'
-    if 'N1' in db.name:
-        db.FR_scenario='N1'
-    if 'N2' in db.name:
-        db.FR_scenario='N2'
-    if 'N03' in db.name:
-        db.FR_scenario='N03'
+    for model in model_list:
+        if model in db.name:
+            db.model=model    
+    for IAM_scenario in IAM_scenario_list:
+        if IAM_scenario in db.name:
+            db.IAM_scenario=IAM_scenario      
+    db.FR_scenario='None'
+    for FR_scenario in FR_scenario_list:
+        if FR_scenario in db.name:
+            db.FR_scenario=FR_scenario    
 
 ```
 
 ```python
 #Each database can be sorted with these tags
-df=pd.DataFrame([],columns=['db_name','IAM scenario','FR scenario','year'])
+df=pd.DataFrame([],columns=['db_name','model','IAM scenario','FR scenario','year'])
 for db in premise_db_list:
-    df.loc[len(df.index)] = [db.name,db.IAM_scenario,db.FR_scenario,db.year]
+    df.loc[len(df.index)] = [db.name,db.model,db.IAM_scenario,db.FR_scenario,db.year]
 df
 ```
 
 ```python
 #To generate a list of databases based on filters on the year / IAM scenario / FR_Scenario
-selected_db=[db for db in premise_db_list if db.IAM_scenario=='Base' and db.FR_scenario=='M0'] #and db.year==2050]
-```
-
-```python
-#Old function, not used anymore. Generate a list of database names (not of databases)
-def db_name_list(*args):
-    """ Generate a list of database's name containing given keywords (one or several)"""
-    list_db_name=[]
-    for db_name in bw2data.databases.keys():
-        a=0
-        for arg in args:
-            if arg in db_name:
-                a=a+1
-        if a==len(args):
-            list_db_name.append(db_name)
-    return list_db_name
-```
-
-```python
-#Example 
-db_name_list('Base')
+selected_db=[db for db in premise_db_list if db.model=='tiam-ucl' and db.IAM_scenario=='Base' and db.FR_scenario=='M0'] #and db.year==2050]
 ```
 
 ## Export excel 
@@ -182,10 +151,19 @@ def style_neg(v, props=''):
 # Methods
 
 ```python
-EF = 'EF v3.0 no LT'
-climate = (EF, 'climate change no LT', 'global warming potential (GWP100) no LT')
-ecosystem_quality_acid = (EF,'acidification','accumulated exceedance (AE)')
-impacts=[climate]
+EF = 'EF v3.1'
+climate = (EF, 'climate change no LT', 'global warming potential (GWP100)')
+acidification = (EF,'acidification','accumulated exceedance (AE)')
+land=('EF v3.1', 'land use', 'soil quality index')
+ionising_rad=('EF v3.1','ionising radiation: human health','human exposure efficiency relative to u235')
+metals_minerals= ('EF v3.1','material resources: metals/minerals','abiotic depletion potential (ADP): elements (ultimate reserves)'),
+non_renew_energy=('EF v3.1','energy resources: non-renewable','abiotic depletion potential (ADP): fossil fuels')
+impacts=[climate, acidification, land, ionising_rad,metals_minerals,non_renew_energy]
+```
+
+```python
+#To see all the categories associated with EF3.1
+#agb.findMethods("",EF)
 ```
 
 ```python
@@ -225,9 +203,9 @@ df_elec=df.style.background_gradient(cmap='Reds')
 df_elec
 ```
 
-# Imports contribution 
-## `🔧` elec_act_name + impact cat.
-## WARNING : Comment/uncomment + Change name of act without imports if needed
+# Electricity imports contribution 
+## `🔧` elec_act_name + impact category
+## WARNING : Comment/uncomment the line starting with #Warning and change name of the "activity without imports" if needed
 
 ```python
 elec_act_name="market for electricity, high voltage, FE2050"
@@ -274,7 +252,7 @@ for db in premise_db_list:
     act_elec_without_import=agb.copyActivity(db.name,act_elec_1kWh,"market for electricity without imports, high voltage, FE2050 - warning the ref flow is no more 1 kWh")
     act_elec_without_import.deleteExchanges('market group for electricity, high voltage')
 
-    #If you redo the calcultation, comment the two last lines and run only the line below
+#WARNING #If you redo the calcultation, comment the two last lines and run only the line below
     act_elec_without_import=agb.findActivity("market for electricity without imports, high voltage, FE2050 - warning the ref flow is no more 1 kWh",db_name=db.name)
     
     #Impacts of production elec mix (redimensioning the impacts to consider a 1 kWh ref flow)
@@ -376,7 +354,25 @@ df_elec_ecoinvent=df.style.background_gradient(cmap='Reds')
 df_elec_ecoinvent
 ```
 
-# Heat
+## Tests à compléter sur les autres marchés
+
+
+**Comparaison ecoinvent / premise / premise + external scenarios**
+
+* market group for gas, high pressure - WEU
+* market for compressed gas, high pressure, FE2050
+replaces market for natural gas, high pressure - FR (ei)
+* market for compressed gas, low pressure, FE2050
+replaces market for natural gas, low pressure - FR (ei)
+
+* pas de market for petrol centralisé dans ei
+* market for diesel, FE2050
+replaces market for petrol - WEU + market for petrol, low sulfur - WEU
+
+* market for hydrogen créés > ce sont les mêmes ratios pour les marchés donc diff viennent de market for compressed gas, low pressure, FE2050 pour SMR et market elec pour électrolysis > comparer juste l'hydrogène produit par électrolyse et l'hydrogène par SMR en FR
+
+
+# Heat > to be deleted. Peu de différence entre les différents scénarios RCP
 
 ```python
 heat_act_name='market for heat, district or industrial, natural gas'
@@ -437,9 +433,8 @@ agb.compute_impacts(elec_ecoinvent,impacts)
 ## Test premise database
 
 ```python
-dbtoexplore=db_name_list('2024')[0]
-#dbtoexplore='M0_2050_SSP2Base'
-dbtoexplore	
+dbtoexplore='ei_cutoff_3.9_image_SSP2-Base_2050_Reference - M0 2024-06-17'
+elec_act_name="market for electricity, high voltage, FE2050"
 ```
 
 ```python
