@@ -829,6 +829,61 @@ markets:
     except regions:
       - World
 
+
+  - name: market for electricity, production mix, high voltage, FE2050
+    reference product: electricity, high voltage
+    unit: kilowatt hour
+    includes:
+      - hydro_run_of_river
+      - hydro_reservoir
+      - hydro_pumped_storage
+      - nuclear_pressure_water
+      - nuclear_EPR
+      - nuclear_SMR
+      - waste
+      - natural_gas
+      - fuel_oil
+      - coal
+      - pv
+      - wind_onshore
+      - wind_offshore
+      - biomass
+      - wave
+      - hydrogen
+      - vehicle_to_grid
+      - battery
+
+    add:
+
+      - name: market for electricity, high voltage, FE2050
+        reference product: electricity, high voltage
+        amount: 0.0312426845152551
+
+      - name: transmission network construction, electricity, high voltage direct current aerial line
+        reference product: transmission network, electricity, high voltage direct current aerial line
+        amount: 5.65e-09
+
+      - name: transmission network construction, electricity, high voltage direct current land cable
+        reference product: transmission network, electricity, high voltage direct current land cable
+        amount: 3.86e-10
+
+      - name: transmission network construction, electricity, high voltage direct current subsea cable
+        reference product: transmission network, electricity, high voltage direct current subsea cable
+        amount: 3.47e-12
+
+
+      - name: Dinitrogen monoxide
+        categories: air
+        unit: kilogram
+        amount: 5.0e-06
+
+      - name: Ozone
+        categories: air
+        unit: kilogram
+        amount: 4.16e-06
+
+
+
   - name: market for electricity, medium voltage, FE2050
     reference product: electricity, medium voltage
     unit: kilowatt hour
