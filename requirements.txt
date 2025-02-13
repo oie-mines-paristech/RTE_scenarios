@@ -1,7 +1,0 @@
-numpy
-pandas
-pyyaml
-schema
-premise
-datapackage
-bw2io==0.8.7
