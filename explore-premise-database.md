@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.4
   kernelspec:
-    display_name: premise5
+    display_name: lca_alg_11
     language: python
-    name: premise5
+    name: lca_alg_11
 ---
 
 ## `🔧` To switch from FE2050 to Tr2050
@@ -17,9 +17,10 @@ jupyter:
 
 ```python
 #importation of usefull packages
-from init import *
+#from init import *
 import bw2data
 import bw2io
+import pandas as pd
 ```
 
 # Intitialisation
@@ -40,12 +41,8 @@ list(bw2data.databases)
 ## Manipulating databases
 
 ```python
-ecoinvent_3_9_db= bw2data.Database('ecoinvent-3.9.1-cutoff')
 ecoinvent_3_9_db_name='ecoinvent-3.9.1-cutoff'
-```
-
-```python
-ecoinvent_3_9_db.name
+eidb= bw2data.Database(ecoinvent_3_9_db_name)
 ```
 
 ```python
@@ -73,7 +70,7 @@ premise_db_list
 model_list=['image','tiam-ucl','remind']
 SSP_list=['SSP1','SSP2']
 IAM_scenario_list=['Base','RCP26','RCP45','Npi']
-FR_scenario_list=['M0','M1','M23','N1','N2','NO3']
+FR_scenario_list=['M0','M1','M23','N1','N2','N03']
 ```
 
 ```python
@@ -100,11 +97,6 @@ df=pd.DataFrame([],columns=['db_name','model','IAM scenario','FR scenario','year
 for db in premise_db_list:
     df.loc[len(df.index)] = [db.name,db.model,db.IAM_scenario,db.FR_scenario,db.year]
 df
-```
-
-```python
-#To generate a list of databases based on filters on the year / IAM scenario / FR_Scenario
-selected_db=[db for db in premise_db_list if db.model=='tiam-ucl' and db.IAM_scenario=='Base' and db.FR_scenario=='M0'] #and db.year==2050]
 ```
 
 ## Export excel 
@@ -152,24 +144,32 @@ def style_neg(v, props=''):
 
 ```python
 EF = 'EF v3.1'
-climate = (EF, 'climate change no LT', 'global warming potential (GWP100)')
+climate = (EF, 'climate change', 'global warming potential (GWP100)')
 acidification = (EF,'acidification','accumulated exceedance (AE)')
-land=('EF v3.1', 'land use', 'soil quality index')
-ionising_rad=('EF v3.1','ionising radiation: human health','human exposure efficiency relative to u235')
-metals_minerals= ('EF v3.1','material resources: metals/minerals','abiotic depletion potential (ADP): elements (ultimate reserves)'),
-non_renew_energy=('EF v3.1','energy resources: non-renewable','abiotic depletion potential (ADP): fossil fuels')
+land=(EF, 'land use', 'soil quality index')
+ionising_rad=(EF,'ionising radiation: human health','human exposure efficiency relative to u235')
+metals_minerals=(EF,  'material resources: metals/minerals',  'abiotic depletion potential (ADP): elements (ultimate reserves)')
+non_renew_energy=(EF,'energy resources: non-renewable','abiotic depletion potential (ADP): fossil fuels')
+non_renew_energy=(EF,  'energy resources: non-renewable',  'abiotic depletion potential (ADP): fossil fuels')
+
 impacts=[climate, acidification, land, ionising_rad,metals_minerals,non_renew_energy]
+
+for impact in impacts:
+    print(impact, bw2data.Method(impact).metadata['unit'])
 ```
 
 ```python
 #To see all the categories associated with EF3.1
-#agb.findMethods("",EF)
+#agb.findMethods("",'EF v3.1')
+[m for m in bw2data.methods if EF == m[0]]
 ```
 
+# Exploring database and activities
+
 ```python
-list_LCIA_methods = [m[0] for m in bw.methods if "EF"  in str(m) and not "no LT" in str(m) and not'obsolete' in str(m)]
-list_LCIA_methods = [*set(list_LCIA_methods)]  #this line automatically delete the duplicates
-list_LCIA_methods
+#To generate a list of databases based on filters on the year / IAM scenario / FR_Scenario
+selected_db=[db for db in premise_db_list if db.model=='image' and db.IAM_scenario=='RCP26' and db.FR_scenario=='M0'][0] #and db.year==2050]
+selected_db
 ```
 
 # Impact 1 kWh of electricity
@@ -179,20 +179,27 @@ list_LCIA_methods
 
 ```python
 elec_act_name="market for electricity, high voltage, FE2050"
+impact_cat=climate
 ```
 
 ## Run
 
 ```python
-df=pd.DataFrame([],columns=['db_name','IAM scenario','FR scenario','year','act','impact','unit'])
-list_act=[]
+act=db.search(elec_act_name)[0]
+act
+```
 
-for db in premise_db_list:
-    act=agb.findActivity(elec_act_name, db_name=db.name)
+```python
+df=pd.DataFrame([],columns=['db_name','model','IAM scenario','FR scenario','year','act','impact','unit'])
+#list_act=[]
+
+for db in premise_db_list:    
+    #act=agb.findActivity(elec_act_name, db_name=db.name)
+    act=db.search(elec_act_name)[0]
     lca = act.lca(method=climate, amount=1)
     score = lca.score
-    unit = bw2data.Method(climate).metadata["unit"]
-    df.loc[len(df.index)] = [db.name,db.IAM_scenario,db.FR_scenario,db.year,act["name"],score,unit]
+    unit = bw2data.Method(impact_cat).metadata["unit"]
+    df.loc[len(df.index)] = [db.name,db.model, db.IAM_scenario,db.FR_scenario,db.year,act["name"],score,unit]
 ```
 
 ```python
@@ -202,6 +209,77 @@ for db in premise_db_list:
 df_elec=df.style.background_gradient(cmap='Reds')
 df_elec
 ```
+
+## section added
+
+```python
+elec_act_name="market for electricity, production mix, high voltage, FE2050"
+impact_cat=climate
+```
+
+```python
+[db for db in premise_db_list if '2025-02-02' in db.name]
+```
+
+```python
+selected_db=[db for db in premise_db_list if '2025-02' in db.name]
+for db in selected_db:    
+    #act=agb.findActivity(elec_act_name, db_name=db.name)
+    act=db.search(elec_act_name)
+    act
+```
+
+```python
+df=pd.DataFrame([],columns=['db_name','model','IAM scenario','FR scenario','year','act','impact','unit'])
+#list_act=[]
+selected_db_list=[db for db in premise_db_list if '2025-02' in db.name]
+
+
+for db in selected_db_list:    
+    #act=agb.findActivity(elec_act_name, db_name=db.name)
+    act=db.search(elec_act_name)[0]
+    lca = act.lca(method=climate, amount=1)
+    score = lca.score
+    unit = bw2data.Method(impact_cat).metadata["unit"]
+    df.loc[len(df.index)] = [db.name,db.model, db.IAM_scenario,db.FR_scenario,db.year,act["name"],score,unit]
+
+    #df_elec = df.style.map(style_red, props='background-color:red;')\
+#             .map(style_orange, props='background-color:orange;')\
+#             .map(style_green, props='background-color:green;')
+df_elec_prod=df.style.background_gradient(cmap='Reds')
+df_elec_prod
+```
+
+```python
+df=pd.DataFrame([],columns=['db_name','model','IAM scenario','FR scenario','year','act','impact','unit'])
+#list_act=[]
+selected_db_list=[db for db in premise_db_list if '2025-02' in db.name]
+
+
+for db in selected_db_list:    
+    #act=agb.findActivity(elec_act_name, db_name=db.name)
+    act=db.search(elec_act_name)[0]
+    lca = act.lca(method=climate, amount=1)
+    score = lca.score
+    unit = bw2data.Method(impact_cat).metadata["unit"]
+    df.loc[len(df.index)] = [db.name,db.model, db.IAM_scenario,db.FR_scenario,db.year,act["name"],score,unit]
+
+    #df_elec = df.style.map(style_red, props='background-color:red;')\
+#             .map(style_orange, props='background-color:orange;')\
+#             .map(style_green, props='background-color:green;')
+df_imports=df.style.background_gradient(cmap='Reds')
+df_imports
+```
+
+```python
+xlsx_file_name="export_data_FE2050_11.xlsx"
+list_df_to_export=[
+    ["elec 1 kWh",df_elec,df_elec_prod]]
+export_data_to_excel(list_df_to_export,xlsx_file_name)
+```
+
+# end of section added
+
 
 # Electricity imports contribution 
 ## `🔧` elec_act_name + impact category
@@ -215,6 +293,7 @@ impact_cat=climate
 ```python
 df=pd.DataFrame([],columns=[
     'db_name',
+    'model',
     'IAM scenario',
     'FR scenario',
     'year',
@@ -226,9 +305,11 @@ df=pd.DataFrame([],columns=[
     'impact 1kWh without import',
     'unit'])
 
+
 for db in premise_db_list:
     #Activity 1 kWh elec mix
-    act_elec_1kWh=agb.findActivity(elec_act_name, db_name=db.name)
+    #act_elec_1kWh=agb.findActivity(elec_act_name, db_name=db.name)
+    act_elec_1kWh=db.search(elec_act_name)[0]
 
     #Impact of 1 kWh of consumption elec mix
     lca = act_elec_1kWh.lca(method=climate, amount=1)
@@ -249,11 +330,21 @@ for db in premise_db_list:
     contribution_imports_impact_consumptionmix=impact_import_1kWh*import_kWh["amount"]/impact_elec_1kWh 
 
     #Generating activity that models production elec mix (just deleting imports)
-    act_elec_without_import=agb.copyActivity(db.name,act_elec_1kWh,"market for electricity without imports, high voltage, FE2050 - warning the ref flow is no more 1 kWh")
-    act_elec_without_import.deleteExchanges('market group for electricity, high voltage')
+    #act_elec_without_import=agb.copyActivity(db.name,act_elec_1kWh,"market for electricity without imports, high voltage, FE2050 - warning the ref flow is no more 1 kWh")
+    act_elec_without_import = act_elec_1kWh.copy()
+    act_elec_without_import.name="market for electricity without imports, high voltage, FE2050 - warning the ref flow is no more 1 kWh"
+    act_elec_without_import.save()
+    act_elec_without_import.as_dict()
+    #act_elec_without_import.deleteExchanges('market group for electricity, high voltage')
+    import_kWh_bis=[exc for exc in act_elec_without_import.exchanges() if exc["name"]=='market group for electricity, high voltage'][0]
+    import_kWh_bis.delete
+    act_elec_without_import.save()
+    act_elec_without_import.as_dict()
 
+    
 #WARNING #If you redo the calcultation, comment the two last lines and run only the line below
-    act_elec_without_import=agb.findActivity("market for electricity without imports, high voltage, FE2050 - warning the ref flow is no more 1 kWh",db_name=db.name)
+    #act_elec_without_import=agb.findActivity("market for electricity without imports, high voltage, FE2050 - warning the ref flow is no more 1 kWh",db_name=db.name)
+    db.search("market for electricity without imports, high voltage, FE2050 - warning the ref flow is no more 1 kWh")
     
     #Impacts of production elec mix (redimensioning the impacts to consider a 1 kWh ref flow)
     lca = act_elec_without_import.lca(method=impact_cat, amount=1)
@@ -267,6 +358,7 @@ for db in premise_db_list:
 
     df.loc[len(df.index)] = [
         db.name,
+        db.model,
         db.IAM_scenario,
         db.FR_scenario,
         db.year,
