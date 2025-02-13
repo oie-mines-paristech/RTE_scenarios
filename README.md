@@ -1,4 +1,4 @@
-# Futurs énergétiques 2050 (Energy pathways to 2050) / RTE
+# Premise + French prospective scenarios : Futurs énergétiques 2050 / RTE
 Implementation of French prospective scenarios from RTE study "Futurs énergétiques 2050" into ecoinvent database with premise
 
 
@@ -14,6 +14,10 @@ This repository creates market-specific activities in the LCA database ecoinvent
 * fuel & gas
 
 The evolution at the world regional scale are modeled by coupling the French scenarios with a global scenario provided by an Integrated Assessment Model (IAM).
+
+**Warning:**
+* The modeled markets for hydrogen do not cover all uses of hydrogen, only material uses of hydrogen for the following industrial sectors : ammonia, steel, chemistry, diverse sectors, refinery). This model does not cover energetic, grid balancing and synthetic fuel uses of hydrogen.
+* The proxy used to generate imports and exports electricity datasets probably artificially overestimates the imports in 2060. The electricity datasets for 2060 shall be used with caution. 
 
 
 
@@ -50,10 +54,10 @@ We therefore store a number of scenarios in a single data package.
 
 This datapackage contains four files necessary to the scenarios implementation into the ecoinvent LCA database: 
 
-* A datapackage.json file, which provides the metadata for the data package (e.g. authors, scenario descriptions, list and locations of resources, etc.). 
-* A config.yaml file which provides the correspondence between the scenario variables and the LCA datasets in the ecoinvent DB, as well as the additional "LCA datasets" when they are not available in the ecoinvent database. 
-* A tabular data file containing the time series for each variable in the set of scenarios. 
-* An optional Excel file containing the LCA inventories of the additional "LCA datasets" for any technology not initially present in the ecoinvent database. 
+* A **datapackage.json** file, which provides the metadata for the data package (e.g. authors, scenario descriptions, list and locations of resources, etc.). 
+* A **config.yaml** file which provides the correspondence between the scenario variables and the LCA datasets in the ecoinvent DB, as well as the additional "LCA datasets" when they are not available in the ecoinvent database. 
+* A tabular data **scenario_data.csv** file containing the time series for each variable in the set of scenarios. 
+* An optional Excel file **LCI-FE2050.xlsx** containing the LCA inventories of the additional "LCA datasets" for any technology not initially present in the ecoinvent database. 
 
 Additionally, a pdf document called "supplementary information" presents the methodological choices that where made to build this model.
 
