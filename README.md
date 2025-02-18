@@ -6,7 +6,7 @@ into ecoinvent database with premise
 What does this repository do ?
 -----------
 
-![boundaries map](https://github.com/oie-mines-paristech/RTE_scenarios/blob/556bb6c68311ed2de8403a64ba9aab92eeb61a55/assets/map.png?raw=true)
+![boundaries map](https://github.com/oie-mines-paristech/RTE_scenarios/assets/map.png?raw=true)
 
 This is a repository containing the implementation of prospective scenarios 
 for France into ecoinvent. The prospective scenarios are provided in the 
@@ -27,6 +27,14 @@ Assessment Model (IAM).
 * The modeled markets for hydrogen do not cover all uses of hydrogen, only material uses of hydrogen for the following industrial sectors : ammonia, steel, chemistry, diverse sectors, refinery). This model does not cover energetic, grid balancing and synthetic fuel uses of hydrogen.
 * The proxy used to generate imports and exports electricity datasets probably artificially overestimates the imports in 2060. The electricity datasets for 2060 shall be used with caution. 
 
+The figure below shows the different electricity and liquid fuel markets created in the ecoinvent database.
+
+![boundaries map](https://github.com/oie-mines-paristech/RTE_scenarios/assets/diagram1.png?raw=true)
+
+
+The figure below shows the different hydrogen markets created in the ecoinvent database.
+
+![boundaries map](https://github.com/oie-mines-paristech/RTE_scenarios/assets/diagram2.png?raw=true)
 
 
 RTE prospective study 
