@@ -1,19 +1,27 @@
 # Premise + French prospective scenarios : Futurs énergétiques 2050 / RTE
-Implementation of French prospective scenarios from RTE study "Futurs énergétiques 2050" into ecoinvent database with premise
+Implementation of French prospective scenarios from RTE study "Futurs énergétiques 2050" 
+into ecoinvent database with premise
 
 
 What does this repository do ?
 -----------
 
-This is a repository containing the implementation of prospective scenarios for France into ecoinvent. 
-The prospective scenarios are provided in the "Futurs énergétiques 2050" (also called "Energy pathways to 2050") study by the French Transmission System Operator - RTE.   
-The scope of RTE prospective study is metropolitan France, from now to 2050, and covers in details the electricity mix sector and with less details the fuel & gas, and hydrogen sectors.
-This repository creates market-specific activities in the LCA database ecoinvent for the following sectors in France:
+![boundaries map](https://github.com/oie-mines-paristech/RTE_scenarios/blob/556bb6c68311ed2de8403a64ba9aab92eeb61a55/assets/map.png?raw=true)
+
+This is a repository containing the implementation of prospective scenarios 
+for France into ecoinvent. The prospective scenarios are provided in the 
+"Futurs énergétiques 2050" (also called "Energy pathways to 2050") study by 
+the French Transmission System Operator - RTE. The scope of RTE prospective 
+study is metropolitan France, from now to 2050, and covers in details the 
+electricity mix sector and with less details the fuel & gas, and hydrogen 
+sectors. This repository creates market-specific activities in the LCA database ecoinvent for the following sectors in France:
 * electricity
 * hydrogen
 * fuel & gas
 
-The evolution at the world regional scale are modeled by coupling the French scenarios with a global scenario provided by an Integrated Assessment Model (IAM).
+The evolution at the world regional scale are modeled by coupling the 
+French scenarios with a global scenario provided by an Integrated 
+Assessment Model (IAM).
 
 **Warning:**
 * The modeled markets for hydrogen do not cover all uses of hydrogen, only material uses of hydrogen for the following industrial sectors : ammonia, steel, chemistry, diverse sectors, refinery). This model does not cover energetic, grid balancing and synthetic fuel uses of hydrogen.
