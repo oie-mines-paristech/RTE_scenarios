@@ -6,7 +6,7 @@ into ecoinvent database with premise
 What does this repository do ?
 -----------
 
-![boundaries map](https://github.com/oie-mines-paristech/RTE_scenarios/assets/map.png?raw=true)
+![boundaries map](https://github.com/oie-mines-paristech/RTE_scenarios/blob/main/assets/map.png?raw=true)
 
 This is a repository containing the implementation of prospective scenarios 
 for France into ecoinvent. The prospective scenarios are provided in the 
@@ -29,12 +29,12 @@ Assessment Model (IAM).
 
 The figure below shows the different electricity and liquid fuel markets created in the ecoinvent database.
 
-![boundaries map](https://github.com/oie-mines-paristech/RTE_scenarios/assets/diagram1.png?raw=true)
+![boundaries map](https://github.com/oie-mines-paristech/RTE_scenarios/blob/main/assets/diagram1.png?raw=true)
 
 
 The figure below shows the different hydrogen markets created in the ecoinvent database.
 
-![boundaries map](https://github.com/oie-mines-paristech/RTE_scenarios/assets/diagram2.png?raw=true)
+![boundaries map](https://github.com/oie-mines-paristech/RTE_scenarios/blob/main/assets/diagram2.png?raw=true)
 
 
 RTE prospective study 
