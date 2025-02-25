@@ -27,7 +27,7 @@ from datapackage import Package
 #Put the name of your brightway project
 # ecoinvent + biosphere shall be already loaded as databases of the project
 # It should be ecoinvent 3.9 or more recent version
-NAME_BW_PROJECT="HySPI_premise_FE2050_13"
+NAME_BW_PROJECT="HySPI_premise_FE2050_12"
 ```
 
 ```python
@@ -47,8 +47,8 @@ list(bw2data.databases)
 ```
 
 ```python editable=true slideshow={"slide_type": ""}
-ecoinvent_3_9_db_name='ecoinvent-3.9.1-cutoff'
-ecoinvent_3_9_bio_db_name="ecoinvent-3.9.1-biosphere"
+ecoinvent_3_10_db_name='ecoinvent-3.10-cutoff'
+ecoinvent_3_10_bio_db_name="ecoinvent-3.10-biosphere"
 ```
 
 # Generate a new version of ecoinvent according to scenarios
@@ -103,9 +103,10 @@ fr_scenario_6_ind="Extensive reindustrialization - N2"
 ```
 
 ```python
-#Run premise without French scenario
-#scenarios = [
-#        {"model": model_2, "pathway":world_scenario_4, "year": year}   ]
+#to delete
+scenarios = [
+        {"model": model_2, "pathway":world_scenario_1, "year": 2050, "external scenarios": [{"scenario": fr_scenario_1, "data": rte}]},
+  ]
 ```
 
 ```python editable=true slideshow={"slide_type": ""}
@@ -120,10 +121,10 @@ scenarios = [
 ```python editable=true slideshow={"slide_type": ""}
 ndb = NewDatabase(
         scenarios = scenarios,        
-        source_db=ecoinvent_3_9_db_name,
-        source_version="3.9.1",
+        source_db=ecoinvent_3_10_db_name,
+        source_version="3.10",
         key='tUePmX_S5B8ieZkkM7WUU2CnO8SmShwmAeWK9x2rTFo=',
-        biosphere_name=ecoinvent_3_9_bio_db_name,
+        biosphere_name=ecoinvent_3_10_bio_db_name,
         #use_multiprocessing=True
 )
 ```
@@ -160,7 +161,7 @@ list(bw2data.databases)
 
 ```python
 #name of the db you want to explore
-db_name='ei_cutoff_3.9_tiam-ucl_SSP2-Base_2050_Reference - M0 2025-02-01'
+db_name='ei_cutoff_3.10_tiam-ucl_SSP2-Base_2050_Reference - M0 2025-02-25'
 db = bw2data.Database(db_name)
 ```
 
@@ -194,52 +195,5 @@ climate = ('EF v3.1', 'climate change', 'global warming potential (GWP100)')
 lca = act.lca(method=climate, amount=1)
 score = lca.score
 unit = bw2data.Method(climate).metadata["unit"]
-score
-```
-
-## Compare premise gwp with EF gwp
-
-```python
-#If you want you can import climate change impact method that is updated by premise
-from premise_gwp import add_premise_gwp
-add_premise_gwp()
-climate_premise=('IPCC 2021', 'climate change', 'GWP 100a, incl. H and bio CO2')
-```
-
-```python
-#name of the db you want to explore
-db_name_1='ei_cutoff_3.9_tiam-ucl_SSP2-Base_2050_Reference - M0 2025-02-01'
-db_name_2='ei_cutoff_3.9_tiam-ucl_SSP2-RCP45_2050_Reference - M0 2025-02-01'
-```
-
-```python
-db1 = bw2data.Database(db_name_1)
-db2 = bw2data.Database(db_name_2)
-
-act1=[act for act in db1 if "market for electricity, high voltage, FE2050" in act["name"] and act["location"]=="FR"][0]
-act2=[act for act in db2 if "market for electricity, high voltage, FE2050" in act["name"] and act["location"]=="FR"][0]
-```
-
-```python
-#SSP2base
-lca = act1.lca(method=climate, amount=1)
-score1 = lca.score
-
-lca = act1.lca(method=climate_premise, amount=1)
-score1p = lca.score
-
-print("{:.2f}".format(score1*1000))
-print("{:.2f}".format(score1p*1000))
-```
-
-```python
-#SSP2 RCP45
-lca = act2.lca(method=climate, amount=1)
-score2 = lca.score
-
-lca = act2.lca(method=climate_premise, amount=1)
-score2p = lca.score
-
-print("{:.2f}".format(score2*1000))
-print("{:.2f}".format(score2p*1000))
+score, unit
 ```
