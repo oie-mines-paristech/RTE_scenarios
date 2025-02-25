@@ -84,8 +84,9 @@ How to use this notebook ?
 * 1. Install the environment as explained [`here`](https://github.com/polca/premise?tab=readme-ov-file#how-to-install-this-package).
   Use premise version => 2.2.6
 * 2. Create a brightway project and load ecoinvent database in the project. It can be done using [`ecoinvent_interface`](https://github.com/brightway-lca/ecoinvent_interface).
-* 3. Run the script for a chosen combination of Year x IAM model x IAM scenario x French scenario. Here is an example for two French scenarios combined with the same IAM scenario.
-
+* 3. Run the following script for a chosen combination of Year x IAM model x IAM scenario x French scenario. Here is an example for two French scenarios combined with the same IAM scenario.
+* 3bis. Or run the file run-premise-rte.md
+  
   ```python
 
     import brightway2 as bw
@@ -94,6 +95,13 @@ How to use this notebook ?
     import bw2io
     from datapackage import Package
 
+    NAME_BW_PROJECT="name_of_my_project"
+    ecoinvent_3_9_db_name='ecoinvent-3.9.1-cutoff'
+    ecoinvent_3_9_bio_db_name="ecoinvent-3.9.1-biosphere"
+  
+    #Open the brightway project
+    bw2data.projects.set_current(NAME_BW_PROJECT)
+       
     fp = r"datapackage.json"
     rte = Package(fp)
 
@@ -101,7 +109,7 @@ How to use this notebook ?
     model_1="tiam-ucl"
     #Choose the world scenario
     world_scenario_1=SSP2-RCP45"
-    #choose the Year
+    #Choose the Year
     year=2050
     #Choose the French scenario 
     fr_scenario_1="Reference - M0"
@@ -117,6 +125,7 @@ How to use this notebook ?
         source_db=ecoinvent_3_9_db_name,
         source_version="3.9.1",
         key= , #ask the key to Romain Sacchi
+        biosphere_name=ecoinvent_3_9_bio_db_name,
         )
   
     ndb.update()
