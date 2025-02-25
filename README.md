@@ -114,9 +114,9 @@ How to use this notebook ?
   
     ndb = NewDatabase(
         scenarios = scenarios,        
-        source_db=ecoinvent_3_9_db_name,
-        source_version="3.9.1",
-        key= , #ask the key to Romain Sacchi
+        source_db=ecoinvent_3_10_db_name,
+        source_version="3.10.1",
+        key="" , #ask the key to Romain Sacchi
         )
   
     ndb.update()
