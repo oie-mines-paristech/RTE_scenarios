@@ -320,7 +320,7 @@ production pathways:
       variable: Production|Hydrogen|Ammonia|Co-produced|Oil refining
     ecoinvent alias:
       name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous
+      reference product: hydrogen, gaseous, low pressure
       exists in original database: True
       regionalize: True
 
@@ -387,7 +387,7 @@ production pathways:
       variable: Production|Hydrogen|Chemicals|Co-produced|Oil refining
     ecoinvent alias:
       name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous
+      reference product: hydrogen, gaseous, low pressure
       exists in original database: True
       regionalize: True
 
@@ -454,7 +454,7 @@ production pathways:
       variable: Production|Hydrogen|Steel|Co-produced|Oil refining
     ecoinvent alias:
       name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous
+      reference product: hydrogen, gaseous, low pressure
       exists in original database: True
       regionalize: True
 
@@ -521,7 +521,7 @@ production pathways:
       variable: Production|Hydrogen|Others|Co-produced|Oil refining
     ecoinvent alias:
       name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous
+      reference product: hydrogen, gaseous, low pressure
       exists in original database: True
       regionalize: True
 
