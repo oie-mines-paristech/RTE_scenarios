@@ -35,7 +35,7 @@ from datapackage import Package
 # Open a brightway project where ecoinvent + biosphere is already loaded as databases of the project
 # It should be acoinvent 3.9 or more recent version
 
-bw2data.projects.set_current("HySPI_premise_FE2050_11")
+bw2data.projects.set_current("HySPI_premise_FE2050_13")
 
 #bw2data.projects.current
 
@@ -46,11 +46,13 @@ list(bw2data.databases)
 
 ```python
 #if needed to delete a database
-#del bw2data.databases['ei_cutoff_3.9_tiam-ucl_SSP2-RCP45_2050_Reference - M0 2025-01-23']
+del bw2data.databases['tiam-SSP2-Base-N1']
+
 ```
 
-```python
+```python editable=true slideshow={"slide_type": ""}
 ecoinvent_3_9_db_name='ecoinvent-3.9.1-cutoff'
+ecoinvent_3_9_bio_db_name="ecoinvent-3.9.1-biosphere"
 ```
 
 # Generate a new version of ecoinvent according to scenarios
@@ -70,9 +72,9 @@ model_3="remind"
 #world scenario
 
 world_scenario_1="SSP2-Base"
-world_scenario_2="SSP2-RCP26"
-world_scenario_3="SSP2-RCP19"
-world_scenario_4="SSP2-RCP45"
+world_scenario_2="SSP2-RCP45"
+world_scenario_3="SSP2-RCP26"
+world_scenario_4="SSP2-RCP19"
 world_scenario_5="SSP2-NPi"
 
 #Year
@@ -82,9 +84,9 @@ year=2050
 fr_scenario_1="Reference - M0"
 fr_scenario_2="Reference - M1"
 fr_scenario_3="Reference - M23"
-fr_scenario_4="Reference - N03"
-fr_scenario_5="Reference - N1"
-fr_scenario_6="Reference - N2"
+fr_scenario_4="Reference - N1"
+fr_scenario_5="Reference - N2"
+fr_scenario_6="Reference - N03"
 
 #French scenario sob
 fr_scenario_1_sob="Sobriety - M0"
@@ -110,24 +112,24 @@ fr_scenario_6_ind="Extensive reindustrialization - N2"
 #        {"model": model_2, "pathway":world_scenario_4, "year": year}   ]
 ```
 
-```python
+```python editable=true slideshow={"slide_type": ""}
 #Run premise with a global and a French scenario
 scenarios = [
-        {"model": model_3, "pathway":world_scenario_1, "year": year, "external scenarios": [{"scenario": fr_scenario_1, "data": rte}]},
-        #{"model": model_1, "pathway":world_scenario_1, "year": year, "external scenarios": [{"scenario": fr_scenario_1, "data": rte}]},
-        #{"model": model_1, "pathway":world_scenario_2, "year": year, "external scenarios": [{"scenario": fr_scenario_1, "data": rte}]},
-        #{"model": model_2, "pathway":world_scenario_4, "year": year, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
-        #{"model": model_2, "pathway":world_scenario_1, "year": year, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
-        #{"model": model_2, "pathway":world_scenario_2, "year": year, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+        {"model": model_2, "pathway":world_scenario_2, "year": 2050, "external scenarios": [{"scenario": fr_scenario_6, "data": rte}]},
+        #{"model": model_2, "pathway":world_scenario_1, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+        #{"model": model_2, "pathway":world_scenario_2, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+        #{"model": model_1, "pathway":world_scenario_1, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+        #{"model": model_1, "pathway":world_scenario_3, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
   ]
 ```
 
-```python
+```python editable=true slideshow={"slide_type": ""}
 ndb = NewDatabase(
         scenarios = scenarios,        
         source_db=ecoinvent_3_9_db_name,
         source_version="3.9.1",
         key='tUePmX_S5B8ieZkkM7WUU2CnO8SmShwmAeWK9x2rTFo=',
+        biosphere_name=ecoinvent_3_9_bio_db_name,
         #use_multiprocessing=True
 )
 ```
@@ -136,25 +138,158 @@ ndb = NewDatabase(
 ndb.update()
 ```
 
-```python
+```python editable=true slideshow={"slide_type": ""}
 ndb.write_db_to_brightway()
 #if you want to choose the name of the created database
 #ndb.write_db_to_brightway(name=list_db_name)
+#ndb.write_superstructure_db_to_brightway(name="tiam-SSP2-Base-M0")
 ```
 
-```python
+```python editable=true slideshow={"slide_type": ""}
+sectors = {
+    "FR scenarios":"externals",
+    "electricity": "electricity",
+    "steel": "steel",
+    "others1": ["dac","fuels","heat"],
+    "others2": ["biomass","cement","emissions","cars","trucks","two_wheelers","buses"]
+    
+}
+sectors = ["external","electricity", "steel"]
+#ndb.update(sectors=sectors)
+#ndb.write_increment_db_to_brightway(name="test increment", file_format="csv")
+```
+
+```python editable=true slideshow={"slide_type": ""}
 list(bw2data.databases)
 ```
 
-```python
+```python editable=true slideshow={"slide_type": ""}
 #if needed to delete a database
-#del bw2data.databases[ 'ei_cutoff_3.9_image_SSP2-RCP26_2050_Reference - M0 2025-01-24']
+#del bw2data.databases['ei_cutoff_3.9_tiam-ucl_SSP2-RCP45_2050_Reference - N03']
+```
+
+## Run a loop
+
+```python
+scenarios = [
+        {"model": model_2, "pathway":world_scenario_1, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+        {"model": model_2, "pathway":world_scenario_2, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+        {"model": model_1, "pathway":world_scenario_1, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+        {"model": model_1, "pathway":world_scenario_3, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+  ]
+
+ndb = NewDatabase(
+        scenarios = scenarios,        
+        source_db=ecoinvent_3_9_db_name,
+        source_version="3.9.1",
+        key='tUePmX_S5B8ieZkkM7WUU2CnO8SmShwmAeWK9x2rTFo=',
+        biosphere_name=ecoinvent_3_9_bio_db_name,
+        #use_multiprocessing=True
+)
+ndb.update()
+ndb.write_db_to_brightway()
+```
+
+```python editable=true slideshow={"slide_type": ""}
+scenarios = [
+        {"model": model_2, "pathway":world_scenario_2, "year": 2020, "external scenarios": [{"scenario": fr_scenario_1, "data": rte}]},
+        {"model": model_2, "pathway":world_scenario_2, "year": 2030, "external scenarios": [{"scenario": fr_scenario_1, "data": rte}]},
+        {"model": model_2, "pathway":world_scenario_2, "year": 2040, "external scenarios": [{"scenario": fr_scenario_1, "data": rte}]},
+        {"model": model_2, "pathway":world_scenario_2, "year": 2050, "external scenarios": [{"scenario": fr_scenario_1, "data": rte}]},
+    #{"model": model_2, "pathway":world_scenario_1, "year": 2050, "external scenarios": [{"scenario": fr_scenario_1, "data": rte}]},
+        #{"model": model_2, "pathway":world_scenario_1, "year": year, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+        #{"model": model_2, "pathway":world_scenario_2, "year": year, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+  ]
+ndb = NewDatabase(
+        scenarios = scenarios,        
+        source_db=ecoinvent_3_9_db_name,
+        source_version="3.9.1",
+        key='tUePmX_S5B8ieZkkM7WUU2CnO8SmShwmAeWK9x2rTFo=',
+        biosphere_name=ecoinvent_3_9_bio_db_name,
+        #use_multiprocessing=True
+)
+ndb.update()
+ndb.write_superstructure_db_to_brightway(name="tiam-SSP2-RCP45-M0")
+```
+
+```python
+scenarios = [
+        {"model": model_2, "pathway":world_scenario_2, "year": 2020, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+        {"model": model_2, "pathway":world_scenario_2, "year": 2030, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+        {"model": model_2, "pathway":world_scenario_2, "year": 2040, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+        {"model": model_2, "pathway":world_scenario_2, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+    #{"model": model_2, "pathway":world_scenario_1, "year": 2050, "external scenarios": [{"scenario": fr_scenario_1, "data": rte}]},
+        #{"model": model_2, "pathway":world_scenario_1, "year": year, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+        #{"model": model_2, "pathway":world_scenario_2, "year": year, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+  ]
+ndb = NewDatabase(
+        scenarios = scenarios,        
+        source_db=ecoinvent_3_9_db_name,
+        source_version="3.9.1",
+        key='tUePmX_S5B8ieZkkM7WUU2CnO8SmShwmAeWK9x2rTFo=',
+        biosphere_name=ecoinvent_3_9_bio_db_name,
+        #use_multiprocessing=True
+)
+ndb.update()
+ndb.write_superstructure_db_to_brightway(name="tiam-SSP2-RCP45-N1")
+```
+
+```python
+scenarios = [
+        {"model": model_2, "pathway":world_scenario_2, "year": 2020, "external scenarios": [{"scenario": fr_scenario_6, "data": rte}]},
+        {"model": model_2, "pathway":world_scenario_2, "year": 2030, "external scenarios": [{"scenario": fr_scenario_6, "data": rte}]},
+        {"model": model_2, "pathway":world_scenario_2, "year": 2040, "external scenarios": [{"scenario": fr_scenario_6, "data": rte}]},
+        {"model": model_2, "pathway":world_scenario_2, "year": 2050, "external scenarios": [{"scenario": fr_scenario_6, "data": rte}]},
+    #{"model": model_2, "pathway":world_scenario_1, "year": 2050, "external scenarios": [{"scenario": fr_scenario_1, "data": rte}]},
+        #{"model": model_2, "pathway":world_scenario_1, "year": year, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+        #{"model": model_2, "pathway":world_scenario_2, "year": year, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+  ]
+ndb = NewDatabase(
+        scenarios = scenarios,        
+        source_db=ecoinvent_3_9_db_name,
+        source_version="3.9.1",
+        key='tUePmX_S5B8ieZkkM7WUU2CnO8SmShwmAeWK9x2rTFo=',
+        biosphere_name=ecoinvent_3_9_bio_db_name,
+        #use_multiprocessing=True
+)
+ndb.update()
+ndb.write_superstructure_db_to_brightway(name="tiam-SSP2-RCP45-N03")
+```
+
+```python
+scenarios = [
+        {"model": model_2, "pathway":world_scenario_1, "year": 2020, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+        {"model": model_2, "pathway":world_scenario_1, "year": 2030, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+        {"model": model_2, "pathway":world_scenario_1, "year": 2040, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+        {"model": model_2, "pathway":world_scenario_1, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+    #{"model": model_2, "pathway":world_scenario_1, "year": 2050, "external scenarios": [{"scenario": fr_scenario_1, "data": rte}]},
+        #{"model": model_2, "pathway":world_scenario_1, "year": year, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+        #{"model": model_2, "pathway":world_scenario_2, "year": year, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+  ]
+ndb = NewDatabase(
+        scenarios = scenarios,        
+        source_db=ecoinvent_3_9_db_name,
+        source_version="3.9.1",
+        key='tUePmX_S5B8ieZkkM7WUU2CnO8SmShwmAeWK9x2rTFo=',
+        biosphere_name=ecoinvent_3_9_bio_db_name,
+        #use_multiprocessing=True
+)
+ndb.update()
+
+```
+
+```python
+ndb.write_superstructure_db_to_brightway(name="tiam-SSP2-Base-N1")
 ```
 
 # Explore the new database
 
 
 ## Explore the activities and exchanges
+
+```python
+list(bw2data.databases)
+```
 
 ```python
 db_name='ei_cutoff_3.9_tiam-ucl_SSP2-Base_2050_Reference - M0 2025-02-01'
@@ -241,8 +376,4 @@ score2p = lca.score
 
 print("{:.2f}".format(score2*1000))
 print("{:.2f}".format(score2p*1000))
-```
-
-```python
-
 ```
