@@ -21,6 +21,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 ```
 
+```python
+import lca_algebraic as agb
+```
+
 # Intitialisation
 ## `🔧` Project name and ecoinvent names *2
 
@@ -123,23 +127,26 @@ for db_name in premise_db_name_list:
 #Options for model / SSP / IAM / FR scenarios
 model_list=['image','tiam-ucl','remind']
 year_list=['2020','2050']
-SSP_list=['SSP1','SSP2']
-IAM_scenario_list=['Base','RCP26','RCP45','Npi']
+SSP_list=['SSP1','SSP2','SSP3','SSP4','SSP5']
+RCP_list=['Base','RCP26','RCP45','Npi']
 FR_scenario_list=['M0','M1','M23','N1','N2','N03']
 ```
 
 ```python
-#tag the database with corresponding year, model, IAM scenario and FR scenario
+#tag the database with corresponding year, model, SSP, RCP and FR scenario
 for db in premise_db_list:
     for year in year_list:
         if year in db.name:
             db.year=int(year)
     for model in model_list:
         if model in db.name:
-            db.model=model    
-    for IAM_scenario in IAM_scenario_list:
-        if IAM_scenario in db.name:
-            db.IAM_scenario=IAM_scenario      
+            db.model=model
+    for SSP in SSP_list:
+        if SSP in db.name:
+            db.SSP=SSP
+    for RCP in RCP_list:
+        if RCP in db.name:
+            db.RCP=RCP      
     db.FR_scenario='None'
     for FR_scenario in FR_scenario_list:
         if FR_scenario in db.name:
@@ -159,9 +166,9 @@ for db in premise_db_list:
 
 ```python
 #Each database can be sorted with these tags
-df=pd.DataFrame([],columns=['db_name','model','IAM scenario','FR scenario','year','warning'])
+df=pd.DataFrame([],columns=['db_name','model','SSP','RCP','FR scenario','year','warning'])
 for db in premise_db_list:
-    df.loc[len(df.index)] = [db.name,db.model,db.IAM_scenario,db.FR_scenario,db.year, db.warning]
+    df.loc[len(df.index)] = [db.name,db.model,db.SSP,db.RCP,db.FR_scenario,db.year, db.warning]
 df
 ```
 
@@ -173,15 +180,15 @@ selected_db_list=premise_db_list
 ```
 
 ```python
-#To generate a list of databases based on filters on the year / IAM scenario / FR_Scenario
+#To generate a list of databases based on filters on the year / SSP / RCP/ FR_Scenario
 #Example
-selected_db_list=[db for db in premise_db_list if '2025-05-15' in db.name and db.FR_scenario=='N1'and db.IAM_scenario=='RCP45' and db.year==2020]+[db for db in premise_db_list if '2025-05-15' in db.name and db.IAM_scenario=='RCP45' and db.year==2050]
+selected_db_list=[db for db in premise_db_list if '2025-05-15' in db.name and db.FR_scenario=='N1'and db.RCP=='RCP45' and db.year==2020]+[db for db in premise_db_list if '2025-05-15' in db.name and db.RCP=='RCP45' and db.year==2050]+[db for db in premise_db_list if '2025-05-15' in db.name and db.FR_scenario=='N1'and db.RCP=='Base' and db.year==2020]+[db for db in premise_db_list if '2025-05-15' in db.name and db.RCP=='Base' and db.year==2050]
 #selected_db_list=[db for db in premise_db_list if '2025-05-22' in db.name and 'update' not in db.name]+[db for db in premise_db_list if db.name=='ei_cutoff_3.9_tiam-ucl_SSP2-RCP45_2050_Reference - N1 2025-05-15']+[db for db in premise_db_list if db.name=='ei_cutoff_3.9_tiam-ucl_SSP2-Base_2050_Reference - N1 2025-05-15']
 #selected_db_list=[db for db in premise_db_list if db.warning==' ']
 #selected_db_list=[db for db in premise_db_list if 'update' not in db.name]
 #selected_db_list=[bw2data.Database('ei_cutoff_3.9_tiam-ucl_SSP2-RCP45_2050_Reference - N03 2025-05-15')]+[bw2data.Database('ei_cutoff_3.9_tiam-ucl_SSP2-RCP45_2020_Reference - N1 2025-05-15')]+[bw2data.Database('ei_cutoff_3.9_tiam-ucl_SSP2-RCP45_2020_Reference - M03 2025-05-15')]
 selected_db_list
-
+#selected_db_list=[selected_db_list[2]]
 #database'2025-05-16' = scenario_data_2050 ratios with premise year 2019_except efficencies_column
 ```
 
@@ -264,6 +271,61 @@ dict_color={
      }  
 ```
 
+```python
+list_dict_storage=[
+    {
+    'act_storage_name':'electricity production, hydro, pumped storage, FE2050',
+    'act_where_elec_is_stored_name':'electricity production, hydro, pumped storage, FE2050',
+    'act_elec_stored_name':"market for electricity, high voltage, FE2050"
+     },
+    {
+    'act_storage_name':'electricity production, from hydrogen, with gas turbine, for grid-balancing, FE2050',
+    'act_where_elec_is_stored_name':'hydrogen production, gaseous, 30 bar, from PEM electrolysis, from grid electricity, domestic, FE2050',
+    'act_elec_stored_name':"market for electricity, low voltage, FE2050"
+    },    
+    {
+    'act_storage_name':'electricity production, from vehicle-to-grid, FE2050',
+    'act_where_elec_is_stored_name':'electricity production, from vehicle-to-grid, FE2050',
+    'act_elec_stored_name':"market for electricity, low voltage, FE2050"
+     },
+    {
+    'act_storage_name':'electricity supply, high voltage, from vanadium-redox flow battery system, FE2050',
+    'act_where_elec_is_stored_name':'electricity supply, high voltage, from vanadium-redox flow battery system, FE2050',
+    'act_elec_stored_name':"market for electricity, high voltage, FE2050"
+     }
+]
+
+```
+
+# Dev en cours
+
+
+## To do : 
+* resortir les graphes évolutions N1 et comparaison
+
+* Problème : High/medium/low voltage = des sources différentes pour les différentes sources de stockage, des impacts différents pour chaque source.
+  > faire un seul marché, 8% de pertes RTE + accumuler tous les réseau.
+  > Est ce qu'on distingue les réseaux high en fonction des scénarios ? 
+* Problème : on retire le marché de conso français et pas le marché de prod directe alors qu'on veut fusionner les 2. 
+ > Enlever le market for elec, from direct production plutôt ? mais attention, pour le calcul d'efficacité, garder le marché conso. 
+
+
+## Pertes high medium low 
+
+```python
+for db in [selected_db_list[0]]:  
+    elec_high=db.search("market for electricity, high voltage, FE2050")[0]
+    elec_med=db.search("market for electricity, medium voltage, FE2050")[0]
+    elec_low=db.search("market for electricity, low voltage, FE2050")[0]
+```
+
+```python
+1.0312427*1.0042*1.0307
+#0.0312427 	0.0042 0.0307 pertes high/medium/low
+#8% RTE
+
+```
+
 # Impact 1 kWh of electricity
 
 
@@ -284,7 +346,7 @@ impact_cat=climate
 ## Run
 
 ```python
-df=pd.DataFrame([],columns=['db_name','model','IAM scenario','FR scenario','year','warning','act','impact','unit'])
+df=pd.DataFrame([],columns=['db_name','model','SSP','RCP','FR scenario','year','warning','act','impact','unit'])
 
 for db in selected_db_list:    
     for act_name in act_name_list:
@@ -293,7 +355,10 @@ for db in selected_db_list:
         lca = act.lca(method=impact_cat, amount=1)
         score = lca.score
         unit_impact = bw2data.Method(impact_cat).metadata["unit"]
-        df.loc[len(df.index)] = [db.name,db.model, db.IAM_scenario,db.FR_scenario,db.year,db.warning,act["name"],score,unit_impact]
+        if unit_impact == "kg CO2-Eq":
+            score=1000*score
+            unit_impact="g CO2-Eq"
+        df.loc[len(df.index)] = [db.name,db.model, db.SSP, db.RCP,db.FR_scenario,db.year,db.warning,act["name"],score,unit_impact]
 ```
 
 ```python editable=true slideshow={"slide_type": ""}
@@ -331,7 +396,7 @@ impact_cat=climate
 list_df_ca_aggreg=[]
 
 for db in selected_db_list:  
-    df=pd.DataFrame([],columns=['db_name','model','IAM scenario','FR scenario','year','warning','act','amount (kWh)','contribution to impact','unit'])    
+    df=pd.DataFrame([],columns=['db_name','model','SSP','RCP','FR scenario','year','warning','act','amount (kWh)','contribution to impact','unit'])    
     #Amount of direct electricity / storage / imports
     act=db.search("market for electricity, high voltage, FE2050")[0]
     excs=[exc for exc in act.exchanges()]
@@ -368,7 +433,7 @@ for db in selected_db_list:
             score=1000*score
             unit_impact="g CO2-Eq"
         #export
-        df.loc[len(df.index)] = [db.name,db.model, db.IAM_scenario,db.FR_scenario,db.year,db.warning,act["name"],amount,score,unit_impact]
+        df.loc[len(df.index)] = [db.name,db.model, db.SSP,db.RCP,db.FR_scenario,db.year,db.warning,act["name"],amount,score,unit_impact]
     #For each db in the selected list add the dataframe to the list of dataframes
     list_df_ca_aggreg.append(df)
 
@@ -399,7 +464,156 @@ for df in list_df_ca_aggreg:
 ```
 
 ```python
-list_df_ca_aggreg[3].head(4)
+for df in selected_db_list: 
+
+    act_market_elec= act_storage=db.search("market for electricity, high voltage, FE2050")[0]
+    excs_market_elec=[exc for exc in act_market_elec.exchanges()]
+    
+    for diki in list_dict_storage:
+        act_storage_name=diki['act_storage_name']
+        act_where_elec_is_stored_name=diki['act_where_elec_is_stored_name']
+        act_elec_stored_name=diki['act_elec_stored_name']
+    
+        #Storage amount
+        exc_amount=0
+        for exc in excs_market_elec:
+            if exc.input["name"]==act_storage_name:
+                exc_amount=exc["amount"]
+
+        #Store scores in a dataframe
+        df.loc[len(df.index)] = [db.name,db.model, db.SSP, db.RCP,db.FR_scenario,db.year,db.warning,act_storage_name,exc_amount]
+    #For each db in the selected list add the dataframe to the list of dataframes
+    list_df_storage_2.append(df)           
+
+```
+
+```python
+list_df_storage_2[7]
+```
+
+```python
+unit_impact = bw2data.Method(impact_cat).metadata["unit"]
+
+list_df_storage=[]
+
+for db in selected_db_list: 
+    df=pd.DataFrame([],columns=['db_name','model','SSP','RCP','FR scenario','year','warning','act','elec from storage (1kWh)','storage infrastructure','input elec losses','input elec 1kWh','unit','% storage infrastructure','% input elec losses','% input elec 1kWh','% efficency',"amount in elec market"])    
+
+    act_market_elec= act_storage=db.search("market for electricity, high voltage, FE2050")[0]
+    excs_market_elec=[exc for exc in act_market_elec.exchanges()]
+    
+    for diki in list_dict_storage:
+        act_storage_name=diki['act_storage_name']
+        act_where_elec_is_stored_name=diki['act_where_elec_is_stored_name']
+        act_elec_stored_name=diki['act_elec_stored_name']
+    
+        #storage activity to study
+        act_storage=db.search(act_storage_name)[0]
+        #activity that countains the electricity flow to be stored
+        act_where_elec_is_stored=db.search(act_where_elec_is_stored_name)[0]
+        #Elec flow stored
+        act_elec_stored=db.search(act_elec_stored_name)[0]
+
+        #Elec stored 
+        lca = act_elec_stored.lca(method=impact_cat, amount=1)
+        score_elec=lca.score #Total : Electricity from storage score
+    
+        #Total : Electricity from storage score
+        lca = act_storage.lca(method=impact_cat, amount=1)
+        total=lca.score #Total : Electricity from storage score
+
+        #Modification of the activity that countains the electricity flow to be stored
+        #This flow is turned to zero to model only LCI of infrastructure
+        excs=[exc for exc in act_where_elec_is_stored.exchanges()]
+        for exc in excs:
+            if exc.input["name"]==act_elec_stored_name:
+                amount=exc["amount"]
+                exc["amount"]=0
+                exc.save()
+        #act_where_elec_is_stored.updateExchanges({ act_elec_stored: None})
+        lca = act_storage.lca(method=impact_cat, amount=1)
+        infra=lca.score #Storage infrastructure score
+        
+        #Delete modification
+        for exc in excs:
+            if exc.input["name"]==act_elec_stored_name:
+                exc["amount"]=amount
+                exc.save()
+        lca = act_storage.lca(method=impact_cat, amount=1)
+        test=lca.score #test
+        #Test that the database was nos modified
+        if total!=test:
+            print('there is an issue')
+
+        #elec_losses
+        losses=total-infra-score_elec
+
+        #Contrib
+        score_elec_contrib=score_elec/total*100
+        infra_contrib=infra/total*100
+        losses_contrib =losses/total*100
+
+        #Efficency
+        efficency=score_elec/(losses+score_elec)*100
+
+        #Conversion for climate change impact
+        if unit_impact == "kg CO2-Eq":
+            total =1000*total
+            infra=1000*infra
+            score_elec=1000*score_elec
+            losses=1000*losses
+            unit_impact="g CO2-Eq"
+
+        #Storage amount
+        exc_amount=0
+        for exc in excs_market_elec:
+            if exc.input["name"]==act_storage_name:
+                exc_amount=exc["amount"]
+                
+        #Store scores in a dataframe
+        df.loc[len(df.index)] = [db.name,db.model, db.SSP, db.RCP, db.FR_scenario,db.year,db.warning,act_storage_name,total,infra,losses,score_elec,unit_impact,infra_contrib,losses_contrib,score_elec_contrib,efficency,exc_amount]
+    #For each db in the selected list add the dataframe to the list of dataframes
+    list_df_storage.append(df)           
+
+```
+
+```python
+for df in list_df_storage:
+ #Average % of input elec
+    df['Helper'] = df["amount in elec market"] * df['% input elec 1kWh']
+    df.loc[0,'Weighted average % input elec 1kWh'] = df['Helper'].sum() / df["amount in elec market"].sum()
+ #Average efficency
+    df['Helper'] = df["amount in elec market"] * df['% efficency']
+    df.loc[0,'Weighted average efficency'] = df['Helper'].sum() / df["amount in elec market"].sum()
+ #Average contrib of storage infra
+    df['Helper'] = df["amount in elec market"] * df['storage infrastructure']
+    df.loc[0,'Weighted average storage infrastructure impact'] = df['Helper'].sum() / df["amount in elec market"].sum()
+```
+
+```python
+#for each database
+for n in range (len(list_df_ca_aggreg)):
+    #Reallocation factor taken from list_df_storage
+    #print(list_df_storage[n].loc[0,['Weighted mean % input elec 1kWh']])
+    realloc=(list_df_storage[n].loc[0,['Weighted mean % input elec 1kWh']]).to_list()[0]/100 #to_list()[0] to convert the serie into a float
+    df=list_df_ca_aggreg[n]
+    #df.loc[1,"realloc contribution to impact"]=df.loc[2,"contribution to impact"]*realloc
+    
+    #df.loc[1,"realloc contribution to impact"]=df.loc[1,"contribution to impact"]+realloc*df.loc[2,"contribution to impact"]
+    #The share of contribution related to direct production is increased
+    #The share of contribution related to storage is decreased
+    df.loc[0,"realloc contribution to impact"]=df.loc[0,"contribution to impact"]
+    df.loc[1,"realloc contribution to impact"]=df.loc[1,"contribution to impact"]+realloc*df.loc[2,"contribution to impact"]
+    df.loc[2,"realloc contribution to impact"]=df.loc[2,"contribution to impact"]*(1-realloc)
+    df.loc[3,"realloc contribution to impact"]=df.loc[3,"contribution to impact"]
+```
+
+```python
+list_df_ca_aggreg[0].head(4)
+```
+
+```python
+list_df_storage[2]
 ```
 
 # Graphs
@@ -415,22 +629,25 @@ list_df
 ## `🔧` Choose databases to compare and order
 
 ```python
-#Choose what you want to plot in which order
+#Choose what you want to plot in which order on the graphs
 #rows_to_plot=[5,1,4]
 #rows_to_plot=[0,15,1]+[0,8,1]
-plot_order=[3,2]
+plot_order=[3,2,7,6] #
 
 #Generate the list to plot
 list_df_to_plot= []
 for order in plot_order:
     list_df_to_plot.append(list_df_ca_aggreg[order])
-```
 
-```python
+#To plot all graphs
 #list_df_to_plot=list_df_ca_aggreg
 ```
 
 ## Compare production mix vs consumption mix
+
+```python
+list_df_to_plot[0]
+```
 
 ```python
 column='impact/kWh (absolute)'
@@ -459,7 +676,7 @@ for df in list_df_to_plot:
 
     label_bar_number.append(a)
     #list of bar label
-    label_bar.append(df['model'].iloc[0]+', '+ df['IAM scenario'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
+    label_bar.append(df['model'].iloc[0]+', '+ df['SSP']+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
 
 
 # add labels with bar_label
@@ -476,7 +693,7 @@ by_label = dict(zip(labels, handles))
 fig.legend(by_label.values(), by_label.keys(), loc='lower center',bbox_to_anchor=(0.5, -0.1))
 plt.tight_layout()
 #plt.show()
-plt.savefig('image1-consumption.png')
+plt.savefig('image2-consumption.png')
 ```
 
 ```python
@@ -517,7 +734,7 @@ for df in list_df_to_plot:
     #list of bar number
     label_bar_number.append(a)
     #list of bar label
-    label_bar.append(df['model'].iloc[0]+', '+ df['IAM scenario'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
+    label_bar.append(df['model'].iloc[0]+', '+ df['SSP']+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
 
 
 # add labels with bar_label
@@ -534,12 +751,25 @@ by_label = dict(zip(labels, handles))
 fig.legend(by_label.values(), by_label.keys(), loc='lower center',bbox_to_anchor=(0.5, -0.1))
 plt.tight_layout()
 #plt.show()
-plt.savefig('image1-prod vs consumption.png')
+plt.savefig('image2-prod vs consumption.png')
 ```
 
-## Contribution analysis to compare scenarios
-- pie chart for electricity origin ??
-- 
+## Origin of electricity
+* export pie chart to be changed
+
+
+```python
+column="amount (kWh)"
+a=0
+
+for df in list_df_to_plot:
+    df=df[df["act"]!="market for electricity, high voltage, FE2050"].head()
+    fig, ax = plt.subplots()
+    patches, texts, autotexts  = ax.pie(df[column], autopct='%1.1f%%',colors=df["color"]) #labels=df["label"]
+    [autotext.set_color('white') for autotext in autotexts]
+    a=a+1
+    plt.savefig('image-origin of electricity.png')
+```
 
 ```python
 #Fonction to plot aggregated amount
@@ -559,7 +789,7 @@ def plot_bar_graph_amount(list_df_to_plot, column, rows=[1,2,3], figsize=(5, 5))
         #list of bar number
         label_bar_number.append(a)
         #list of bar label
-        label_bar.append(df['model'].iloc[0]+', '+ df['IAM scenario'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
+        label_bar.append(df['model'].iloc[0]+', '+ df['SSP']+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
         base=0
         for row in rows:
             ax.bar(a, df[column].iloc[row], bottom=base, color=df['color'].iloc[row], label=df['label'].iloc[row])
@@ -602,7 +832,7 @@ def plot_bar_graph_contrib(list_df_to_plot, column, rows=[1,2,3], figsize=(10, 6
         #list of bar number
         label_bar_number.append(a)
         #list of bar label
-        label_bar.append(df['model'].iloc[0]+', '+ df['IAM scenario'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
+        label_bar.append(df['model'].iloc[0]+', '+ df['SSP']+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
         #Plot contributions
         base=0
         for row in rows:
@@ -629,11 +859,15 @@ def plot_bar_graph_contrib(list_df_to_plot, column, rows=[1,2,3], figsize=(10, 6
     plt.legend(by_label.values(), by_label.keys(),bbox_to_anchor=(1.5, 0.8), loc='right')
     plt.tight_layout()
     #plt.show()    
-    plt.savefig('image-contrib to impact.png')
+    plt.savefig('image2-contrib to impact.png')
 ```
 
 ```python
 plot_bar_graph_contrib(list_df_to_plot=list_df_to_plot, column='contribution to impact') #title, figsize
+```
+
+```python
+plot_bar_graph_contrib(list_df_to_plot=list_df_to_plot, column='realloc contribution to impact') #title, figsize
 ```
 
 ```python
@@ -665,7 +899,7 @@ for df in list_df_to_plot:
     #list of bar number
     label_bar_number.append(a)
     #list of bar label
-    label_bar.append(df['model'].iloc[0]+', '+ df['IAM scenario'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
+    label_bar.append(df['model'].iloc[0]+', '+ df['SSP']+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
 
 
 # add labels with bar_label
@@ -705,7 +939,8 @@ for db in selected_db_list:
     df=pd.DataFrame([],columns=[
         'db_name',
         'model',
-        'IAM scenario',
+        'SSP',
+        'RCP',
         'FR scenario',
         'year',
         'warning',
@@ -746,7 +981,8 @@ for db in selected_db_list:
             df.loc[len(df.index)] = [
                 db.name,
                 db.model,
-                db.IAM_scenario,
+                db.SSP,
+                db.RCP,
                 db.FR_scenario,
                 db.year,
                 db.warning,
@@ -833,7 +1069,7 @@ def plot_bar_graph_disagreg_contrib(list_df_to_plot, column, figsize=(10, 6)):
         #list of bar number
         label_bar_number.append(a)
         #list of bar label
-        label_bar.append(df['model'].iloc[0]+', '+ df['IAM scenario'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
+        label_bar.append(df['model'].iloc[0]+', '+ df['SSP']+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
         #Plot contributions
         base=0
         for row in rows:
@@ -872,11 +1108,76 @@ plot_bar_graph_disagreg_contrib(
 
 ```
 
+# Compare standard GWP and premise GWP
+
+```python
+premise_db_list
+
+```
+
+```python
+selected_db_list=
+
+act_name_list=[
+    "market for electricity, high voltage, FE2050",
+    #"market for electricity, from direct French production, FE2050",
+    #"market for electricity, from storage, FE2050",
+    #"market for electricity, from import, FE2050",
+]
+    
+impacts=[climate,climate_premise]
+list_df_premisegwp=[]
+```
+
+```python
+
+for impact_cat in impacts:
+    df=pd.DataFrame([],columns=['db_name','model','SSP','RCP','FR scenario','year','warning','act','impact','unit'])
+    for db in selected_db_list:    
+        for act_name in act_name_list:
+            #act=agb.findActivity(elec_act_name, db_name=db.name)
+            act=db.search(act_name)[0]
+            lca = act.lca(method=impact_cat, amount=1)
+            score = lca.score
+            unit_impact = bw2data.Method(impact_cat).metadata["unit"]
+            df.loc[len(df.index)] = [db.name,db.model, db.SSP,db.RCP,db.FR_scenario,db.year,db.warning,act["name"],score,unit_impact]
+    list_df_premisegwp.append(df)
+```
+
+```python
+xlsx_file_name="export-comparison GWP and presimeGWP-01.xlsx"
+
+list_df_to_export=[
+    ["GWP"] + list_df_premisegwp,
+]
+
+export_data_to_excel(list_df_to_export,xlsx_file_name)
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
 <!-- #region editable=true slideshow={"slide_type": ""} -->
-# old Detailed contribution analysis
+# OLD
 <!-- #endregion -->
 
-## `🔧` activity, impact category, db to explore
+## old Detailed contribution analysis
+
+
+### `🔧` activity, impact category, db to explore
 
 ```python
 elec_act_name="market for electricity, high voltage, FE2050"
@@ -891,7 +1192,7 @@ selected_db_list=selected_db_list #premise_db_list
 unit_impact= bw2data.Method(impact_cat).metadata["unit"]
 ```
 
-## Run
+### Run
 
 ```python
 list_df_ca=[]
@@ -902,7 +1203,8 @@ for db in selected_db_list:
     df=pd.DataFrame([],columns=[
         'db_name',
         'model',
-        'IAM scenario',
+        'SSP',
+        'RCP',
         'FR scenario',
         'year',
         'warning',
@@ -933,7 +1235,8 @@ for db in selected_db_list:
             df.loc[len(df.index)] = [
                 db.name,
                 db.model,
-                db.IAM_scenario,
+                db.SSP,
+                db.RCP,
                 db.FR_scenario,
                 db.year,
                 db.warning,
@@ -951,7 +1254,8 @@ for db in selected_db_list:
                 df.loc[len(df.index)] = [
                 db.name,
                 db.model,
-                db.IAM_scenario,
+                db.SSP,
+                db.RCP,
                 db.FR_scenario,
                 db.year,
                 db.warning,
@@ -967,7 +1271,7 @@ for db in selected_db_list:
     list_df_ca.append(df)
 ```
 
-# Old Aggregated contribution analysis into 6 subcategories for electricity source
+## Old Aggregated contribution analysis into 6 subcategories for electricity source
 * 1/ direct production
 * 2/ flexibilités
 * 3/ imports 
@@ -1046,7 +1350,7 @@ for df in list_df_ca:
         result_df = pd.DataFrame(columns=df.columns)
         result_df['db_name']=filtered_df['db_name'].iloc[0],
         result_df['model']=filtered_df['model'].iloc[0],
-        result_df['IAM scenario']=filtered_df['IAM scenario'].iloc[0],
+        result_df['RCP']=filtered_df['RCP'].iloc[0],
         result_df['FR scenario']=filtered_df['FR scenario'].iloc[0],
         result_df['year']=filtered_df['year'].iloc[0],
         result_df['warning']=filtered_df['warning'].iloc[0],
@@ -1105,6 +1409,122 @@ for df in list_df_ca:
 list_df_ca_aggregated[0]
 ```
 
+## Old Test contrib analysis storage avec axis 
+
+```python
+USER_DB='user_database'
+agb.resetDb(USER_DB)
+
+```
+
+### Test axis sur la database
+
+```python
+selected_db_list[0].name
+```
+
+```python
+for db in [selected_db_list[0]]: 
+    pumped_storage=db.search('electricity production, hydro, pumped storage, FE2050')[0]
+    elec=db.search("market for electricity, high voltage, FE2050")[0]
+```
+
+```python
+elec["contrib"]="electricity"
+elec.save()
+pumped_storage.save()
+```
+
+```python
+agb.compute_impacts(
+    pumped_storage,
+    climate,
+    axis="contrib")
+```
+
+```python
+agb.compute_impacts(
+    pumped_storage,
+    climate
+    )
+```
+
+```python
+agb.printAct(pumped_storage)
+```
+
+### test axis sur des activités copiées dans USER_DB
+Axis fonctionne mais lorsque je copie l'élec sans la modifier "market for electricity, high voltage, FE2050" je n'obtiens pas le même impact pour l'act copiée et pour l'activité originale ???
+
+```python
+#db_name=selected_db_list[0].name
+for db in [selected_db_list[0]]:  
+    pumped_storage_1=db.search('electricity production, hydro, pumped storage, FE2050')[0]
+    elec_1=db.search("market for electricity, high voltage, FE2050")[0]
+```
+
+```python
+pumped_storage_2=agb.copyActivity(USER_DB,pumped_storage_1,"pumped_storage_2")
+elec_2=agb.copyActivity(USER_DB,elec_1,"elec_2")
+elec_2["contrib"]="electricity"
+elec.save()
+pumped_storage_2.updateExchanges({ 
+    'market for electricity, high voltage, FE2050' : elec_2}) 
+```
+
+```python
+pumped_storage_2=agb.copyActivity(USER_DB,pumped_storage_1,"pumped_storage_2")
+pumped_storage_2.updateExchanges({ 
+    'market for electricity, high voltage, FE2050' : None}) 
+```
+
+```python
+pumped_storage_3=agb.copyActivity(USER_DB,pumped_storage_1,"pumped_storage_3")
+elec_3=agb.copyActivity(USER_DB,elec_1,"elec_3")
+
+```
+
+```python
+agb.printAct(pumped_storage_1,pumped_storage_2)
+```
+
+```python
+agb.compute_impacts(
+    pumped_storage_2,
+    climate,
+    axis="contrib"
+)
+```
+
+```python
+agb.compute_impacts(
+    [pumped_storage_1,pumped_storage_2,pumped_storage_3],
+    climate,
+)
+```
+
+```python
+agb.compute_impacts(
+    [elec_1,elec_2,elec_3],
+    climate,
+)
+```
+
+## oLD Ajouter un échange
+
+```python
+new_exc=act_storage.new_exchange(
+    input=act_elec_stored,
+    amount=1.243177, # Example amount
+    type='technosphere'
+)
+new_exc.save()
+```
+
+```python
+
+```
+
 # Excel Export
 
 ```python editable=true slideshow={"slide_type": ""}
@@ -1120,10 +1540,11 @@ export_data_to_excel(list_df_to_export,xlsx_file_name)
 ```
 
 ```python
-xlsx_file_name="export-contribution-flex.xlsx"
+xlsx_file_name="export-full-250711.xlsx"
 
 list_df_to_export=[
-    ["elec 1 kWh", df_elec_2] #, df_elec_2, df_elec_3, df_elec_4, df_elec_5, df_elec_6],
+    ["contrib an. aggreg"] + list_df_ca_aggreg,
+    ["storage"]+ list_df_storage #, df_elec_2, df_elec_3, df_elec_4, df_elec_5, df_elec_6],
 ]
 
 export_data_to_excel(list_df_to_export,xlsx_file_name)
