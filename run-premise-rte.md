@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.4
   kernelspec:
-    display_name: premise8
+    display_name: premise5
     language: python
-    name: premise8
+    name: premise5
 ---
 
 # Initialisation
@@ -118,9 +118,15 @@ scenarios = [
 scenarios = [
         {"model": model_2, "pathway":world_scenario_2, "year": 2020, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
         {"model": model_2, "pathway":world_scenario_1, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
-        {"model": model_2, "pathway":world_scenario_2, "year": 2020, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+        {"model": model_2, "pathway":world_scenario_2, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
         {"model": model_2, "pathway":world_scenario_3, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
   ]
+```
+
+```python
+scenarios = [
+    {"model": model_2, "pathway":world_scenario_2, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+]
 ```
 
 ```python editable=true slideshow={"slide_type": ""}
