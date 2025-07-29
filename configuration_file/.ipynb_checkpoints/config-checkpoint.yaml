@@ -62,7 +62,7 @@ production pathways:
     production volume:
       variable: Production|Electricity|Conventional|Waste
     ecoinvent alias:
-      name: treatment of municipal solid waste, municipal incineration
+      name: treatment of municipal solid waste, incineration
       reference product: electricity, for reuse in municipal waste incineration only
       exists in original database: True
 
@@ -143,7 +143,7 @@ production pathways:
       variable: Production|Electricity|Storage|Vehicle to grid
     ecoinvent alias:
       name: electricity production, from vehicle-to-grid, FE2050
-      reference product: electricity, high voltage
+      reference product: electricity, low voltage
       exists in original database: True
 
     efficiency:
@@ -253,7 +253,7 @@ production pathways:
       variable: Production|Hydrogen|Refineries|Co-produced|Oil refining
     ecoinvent alias:
       name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, gaseous
       exists in original database: True
       regionalize: True
 
@@ -262,7 +262,7 @@ production pathways:
       variable: Production|Hydrogen|Refineries|Co-produced|Chlore
     ecoinvent alias:
       name: chlor-alkali electrolysis, diaphragm cell
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -270,8 +270,8 @@ production pathways:
     production volume:
       variable: Production|Hydrogen|Refineries|Co-produced|Chemicals
     ecoinvent alias:
-      name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      name: hydrogen cracking, APME
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -320,7 +320,7 @@ production pathways:
       variable: Production|Hydrogen|Ammonia|Co-produced|Oil refining
     ecoinvent alias:
       name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, gaseous
       exists in original database: True
       regionalize: True
 
@@ -329,7 +329,7 @@ production pathways:
       variable: Production|Hydrogen|Ammonia|Co-produced|Chlore
     ecoinvent alias:
       name: chlor-alkali electrolysis, diaphragm cell
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -337,8 +337,8 @@ production pathways:
     production volume:
       variable: Production|Hydrogen|Ammonia|Co-produced|Chemicals
     ecoinvent alias:
-      name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      name: hydrogen cracking, APME
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -387,7 +387,7 @@ production pathways:
       variable: Production|Hydrogen|Chemicals|Co-produced|Oil refining
     ecoinvent alias:
       name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, gaseous
       exists in original database: True
       regionalize: True
 
@@ -396,7 +396,7 @@ production pathways:
       variable: Production|Hydrogen|Chemicals|Co-produced|Chlore
     ecoinvent alias:
       name: chlor-alkali electrolysis, diaphragm cell
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -404,8 +404,8 @@ production pathways:
     production volume:
       variable: Production|Hydrogen|Chemicals|Co-produced|Chemicals
     ecoinvent alias:
-      name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      name: hydrogen cracking, APME
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -454,7 +454,7 @@ production pathways:
       variable: Production|Hydrogen|Steel|Co-produced|Oil refining
     ecoinvent alias:
       name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, gaseous
       exists in original database: True
       regionalize: True
 
@@ -463,7 +463,7 @@ production pathways:
       variable: Production|Hydrogen|Steel|Co-produced|Chlore
     ecoinvent alias:
       name: chlor-alkali electrolysis, diaphragm cell
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -471,8 +471,8 @@ production pathways:
     production volume:
       variable: Production|Hydrogen|Steel|Co-produced|Chemicals
     ecoinvent alias:
-      name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      name: hydrogen cracking, APME
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -521,7 +521,7 @@ production pathways:
       variable: Production|Hydrogen|Others|Co-produced|Oil refining
     ecoinvent alias:
       name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, gaseous
       exists in original database: True
       regionalize: True
 
@@ -530,7 +530,7 @@ production pathways:
       variable: Production|Hydrogen|Others|Co-produced|Chlore
     ecoinvent alias:
       name: chlor-alkali electrolysis, diaphragm cell
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -538,8 +538,8 @@ production pathways:
     production volume:
       variable: Production|Hydrogen|Others|Co-produced|Chemicals
     ecoinvent alias:
-      name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      name: hydrogen cracking, APME
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -815,12 +815,7 @@ markets:
     replaces:
       - name: market for electricity, high voltage
         product: electricity, high voltage
-       
-      - name: market group for electricity, high voltage
-        product: electricity, high voltage
-
-    replaces in:
-      - location: FR
+        location: FR
     
 
     except regions:
@@ -1058,12 +1053,7 @@ markets:
     replaces:
       - name: market for electricity, medium voltage
         product: electricity, medium voltage
-       
-      - name: market group for electricity, medium voltage
-        product: electricity, medium voltage
-
-    replaces in:
-      - location: FR
+        location: FR
 
     except regions:
       - World
@@ -1095,12 +1085,7 @@ markets:
     replaces:
       - name: market for electricity, low voltage
         product: electricity, low voltage
-       
-      - name: market group for electricity, low voltage
-        product: electricity, low voltage
-
-    replaces in:
-      - location: FR
+        location: FR
 
     except regions:
       - World

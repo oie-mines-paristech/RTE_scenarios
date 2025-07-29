@@ -62,7 +62,7 @@ production pathways:
     production volume:
       variable: Production|Electricity|Conventional|Waste
     ecoinvent alias:
-      name: treatment of municipal solid waste, municipal incineration
+      name: treatment of municipal solid waste, incineration
       reference product: electricity, for reuse in municipal waste incineration only
       exists in original database: True
 
@@ -143,7 +143,7 @@ production pathways:
       variable: Production|Electricity|Storage|Vehicle to grid
     ecoinvent alias:
       name: electricity production, from vehicle-to-grid, FE2050
-      reference product: electricity, high voltage
+      reference product: electricity, low voltage
       exists in original database: True
 
     efficiency:
@@ -253,7 +253,7 @@ production pathways:
       variable: Production|Hydrogen|Refineries|Co-produced|Oil refining
     ecoinvent alias:
       name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, gaseous
       exists in original database: True
       regionalize: True
 
@@ -262,7 +262,7 @@ production pathways:
       variable: Production|Hydrogen|Refineries|Co-produced|Chlore
     ecoinvent alias:
       name: chlor-alkali electrolysis, diaphragm cell
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -270,8 +270,8 @@ production pathways:
     production volume:
       variable: Production|Hydrogen|Refineries|Co-produced|Chemicals
     ecoinvent alias:
-      name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      name: hydrogen cracking, APME
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -320,7 +320,7 @@ production pathways:
       variable: Production|Hydrogen|Ammonia|Co-produced|Oil refining
     ecoinvent alias:
       name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, gaseous
       exists in original database: True
       regionalize: True
 
@@ -329,7 +329,7 @@ production pathways:
       variable: Production|Hydrogen|Ammonia|Co-produced|Chlore
     ecoinvent alias:
       name: chlor-alkali electrolysis, diaphragm cell
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -337,8 +337,8 @@ production pathways:
     production volume:
       variable: Production|Hydrogen|Ammonia|Co-produced|Chemicals
     ecoinvent alias:
-      name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      name: hydrogen cracking, APME
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -387,7 +387,7 @@ production pathways:
       variable: Production|Hydrogen|Chemicals|Co-produced|Oil refining
     ecoinvent alias:
       name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, gaseous
       exists in original database: True
       regionalize: True
 
@@ -396,7 +396,7 @@ production pathways:
       variable: Production|Hydrogen|Chemicals|Co-produced|Chlore
     ecoinvent alias:
       name: chlor-alkali electrolysis, diaphragm cell
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -404,8 +404,8 @@ production pathways:
     production volume:
       variable: Production|Hydrogen|Chemicals|Co-produced|Chemicals
     ecoinvent alias:
-      name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      name: hydrogen cracking, APME
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -454,7 +454,7 @@ production pathways:
       variable: Production|Hydrogen|Steel|Co-produced|Oil refining
     ecoinvent alias:
       name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, gaseous
       exists in original database: True
       regionalize: True
 
@@ -463,7 +463,7 @@ production pathways:
       variable: Production|Hydrogen|Steel|Co-produced|Chlore
     ecoinvent alias:
       name: chlor-alkali electrolysis, diaphragm cell
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -471,8 +471,8 @@ production pathways:
     production volume:
       variable: Production|Hydrogen|Steel|Co-produced|Chemicals
     ecoinvent alias:
-      name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      name: hydrogen cracking, APME
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -521,7 +521,7 @@ production pathways:
       variable: Production|Hydrogen|Others|Co-produced|Oil refining
     ecoinvent alias:
       name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, gaseous
       exists in original database: True
       regionalize: True
 
@@ -530,7 +530,7 @@ production pathways:
       variable: Production|Hydrogen|Others|Co-produced|Chlore
     ecoinvent alias:
       name: chlor-alkali electrolysis, diaphragm cell
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -538,8 +538,8 @@ production pathways:
     production volume:
       variable: Production|Hydrogen|Others|Co-produced|Chemicals
     ecoinvent alias:
-      name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      name: hydrogen cracking, APME
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -815,12 +815,7 @@ markets:
     replaces:
       - name: market for electricity, high voltage
         product: electricity, high voltage
-       
-      - name: market group for electricity, high voltage
-        product: electricity, high voltage
-
-    replaces in:
-      - location: FR
+        location: FR
     
 
     except regions:
@@ -1058,12 +1053,7 @@ markets:
     replaces:
       - name: market for electricity, medium voltage
         product: electricity, medium voltage
-       
-      - name: market group for electricity, medium voltage
-        product: electricity, medium voltage
-
-    replaces in:
-      - location: FR
+        location: FR
 
     except regions:
       - World
@@ -1095,304 +1085,8 @@ markets:
     replaces:
       - name: market for electricity, low voltage
         product: electricity, low voltage
-       
-      - name: market group for electricity, low voltage
-        product: electricity, low voltage
-
-    replaces in:
-      - location: FR
+        location: FR
 
     except regions:
       - World
 
-  - name: market for hydrogen, gaseous, for refinery use, FE2050
-    reference product: hydrogen, gaseous
-    unit: kilogram
-    includes:
-      - methane_reforming_hydrogen_refinery
-      - electrolysis_hydrogen_refinery
-      - coking_hydrogen_refinery
-      - oil_refining_hydrogen_refinery
-      - chlore_hydrogen_refinery
-      - chemical_hydrogen_refinery
-      - ammonia_hydrogen_refinery
-
-    add:
-      - name: Hydrogen
-        categories: air::non-urban air or from high stacks
-        unit: kilogram
-        amount: 0.005
-      - name: pipeline, hydrogen, low pressure distribution network
-        reference product: pipeline, for hydrogen distribution
-        unit: kilometer
-        amount: 1.14422E-06
-      - name: pipeline, hydrogen, high pressure transmission network
-        reference product: pipeline, for hydrogen transmission
-        unit: kilometer
-        amount: 2.01706E-09
-      - name: compressor assembly for transmission hydrogen pipeline
-        reference product: compressor, for hydrogen transmission
-        unit: unit
-        amount: 3.22703E-11
-      - name: geological hydrogen storage
-        reference product: hydrogen storage
-        unit: kilogram
-        amount: 0.302074305
-      - name: market for electricity, low voltage
-        reference product: electricity, low voltage
-        unit: kilowatt hour
-        amount: 1.82
-      - name: market for hydrogen, gaseous, for refinery use, FE2050
-        reference product: hydrogen, gaseous
-        amount: 0.005
-
-    except regions:
-      - World
-
-  - name: market for hydrogen, gaseous, for ammonia use, FE2050
-    reference product: hydrogen, gaseous
-    unit: kilogram
-    includes:
-      - methane_reforming_hydrogen_ammonia
-      - electrolysis_hydrogen_ammonia
-      - coking_hydrogen_ammonia
-      - oil_refining_hydrogen_ammonia
-      - chlore_hydrogen_ammonia
-      - chemical_hydrogen_ammonia
-      - ammonia_hydrogen_ammonia
-
-    add:
-      - name: Hydrogen
-        categories: air::non-urban air or from high stacks
-        unit: kilogram
-        amount: 0.005
-      - name: pipeline, hydrogen, low pressure distribution network
-        reference product: pipeline, for hydrogen distribution
-        unit: kilometer
-        amount: 1.14422E-06
-      - name: pipeline, hydrogen, high pressure transmission network
-        reference product: pipeline, for hydrogen transmission
-        unit: kilometer
-        amount: 2.01706E-09
-      - name: compressor assembly for transmission hydrogen pipeline
-        reference product: compressor, for hydrogen transmission
-        unit: unit
-        amount: 3.22703E-11
-      - name: geological hydrogen storage
-        reference product: hydrogen storage
-        unit: kilogram
-        amount: 0.302074305
-      - name: market for electricity, low voltage
-        reference product: electricity, low voltage
-        unit: kilowatt hour
-        amount: 1.82
-      - name: market for hydrogen, gaseous, for ammonia use, FE2050
-        reference product: hydrogen, gaseous
-        amount: 0.005
-
-    except regions:
-      - World
-
-  - name: market for hydrogen, gaseous, for chemicals use, FE2050
-    reference product: hydrogen, gaseous
-    unit: kilogram
-    includes:
-      - methane_reforming_hydrogen_chemicals
-      - electrolysis_hydrogen_chemicals
-      - coking_hydrogen_chemicals
-      - oil_refining_hydrogen_chemicals
-      - chlore_hydrogen_chemicals
-      - chemical_hydrogen_chemicals
-      - ammonia_hydrogen_chemicals
-
-    add:
-      - name: Hydrogen
-        categories: air::non-urban air or from high stacks
-        unit: kilogram
-        amount: 0.005
-      - name: pipeline, hydrogen, low pressure distribution network
-        reference product: pipeline, for hydrogen distribution
-        unit: kilometer
-        amount: 1.14422E-06
-      - name: pipeline, hydrogen, high pressure transmission network
-        reference product: pipeline, for hydrogen transmission
-        unit: kilometer
-        amount: 2.01706E-09
-      - name: compressor assembly for transmission hydrogen pipeline
-        reference product: compressor, for hydrogen transmission
-        unit: unit
-        amount: 3.22703E-11
-      - name: geological hydrogen storage
-        reference product: hydrogen storage
-        unit: kilogram
-        amount: 0.302074305
-      - name: market for electricity, low voltage
-        reference product: electricity, low voltage
-        unit: kilowatt hour
-        amount: 1.82
-      - name: market for hydrogen, gaseous, for chemicals use, FE2050
-        reference product: hydrogen, gaseous
-        amount: 0.005
-
-    except regions:
-      - World
-
-  - name: market for hydrogen, gaseous, for steel use, FE2050
-    reference product: hydrogen, gaseous
-    unit: kilogram
-    includes:
-      - methane_reforming_hydrogen_steel
-      - electrolysis_hydrogen_steel
-      - coking_hydrogen_steel
-      - oil_refining_hydrogen_steel
-      - chlore_hydrogen_steel
-      - chemical_hydrogen_steel
-      - ammonia_hydrogen_steel
-
-    add:
-      - name: Hydrogen
-        categories: air::non-urban air or from high stacks
-        unit: kilogram
-        amount: 0.005
-      - name: pipeline, hydrogen, low pressure distribution network
-        reference product: pipeline, for hydrogen distribution
-        unit: kilometer
-        amount: 1.14422E-06
-      - name: pipeline, hydrogen, high pressure transmission network
-        reference product: pipeline, for hydrogen transmission
-        unit: kilometer
-        amount: 2.01706E-09
-      - name: compressor assembly for transmission hydrogen pipeline
-        reference product: compressor, for hydrogen transmission
-        unit: unit
-        amount: 3.22703E-11
-      - name: geological hydrogen storage
-        reference product: hydrogen storage
-        unit: kilogram
-        amount: 0.302074305
-      - name: market for electricity, low voltage
-        reference product: electricity, low voltage
-        unit: kilowatt hour
-        amount: 1.82
-      - name: market for hydrogen, gaseous, for steel use, FE2050
-        reference product: hydrogen, gaseous
-        amount: 0.005
-
-    except regions:
-      - World
-
-  - name: market for hydrogen, gaseous, for various use, FE2050
-    reference product: hydrogen, gaseous
-    unit: kilogram
-    includes:
-      - methane_reforming_hydrogen_others
-      - electrolysis_hydrogen_others
-      - coking_hydrogen_others
-      - oil_refining_hydrogen_others
-      - chlore_hydrogen_others
-      - chemical_hydrogen_others
-      - ammonia_hydrogen_others
-
-    add:
-      - name: Hydrogen
-        categories: air::non-urban air or from high stacks
-        unit: kilogram
-        amount: 0.005
-      - name: pipeline, hydrogen, low pressure distribution network
-        reference product: pipeline, for hydrogen distribution
-        unit: kilometer
-        amount: 1.14422E-06
-      - name: pipeline, hydrogen, high pressure transmission network
-        reference product: pipeline, for hydrogen transmission
-        unit: kilometer
-        amount: 2.01706E-09
-      - name: compressor assembly for transmission hydrogen pipeline
-        reference product: compressor, for hydrogen transmission
-        unit: unit
-        amount: 3.22703E-11
-      - name: geological hydrogen storage
-        reference product: hydrogen storage
-        unit: kilogram
-        amount: 0.302074305
-      - name: market for electricity, low voltage
-        reference product: electricity, low voltage
-        unit: kilowatt hour
-        amount: 1.82
-      - name: market for hydrogen, gaseous, for various use, FE2050
-        reference product: hydrogen, gaseous
-        amount: 0.005
-
-    except regions:
-      - World
-
-  - name: market for hydrogen, FE2050
-    reference product: hydrogen, gaseous
-    unit: kilogram
-    includes:
-      - methane_reforming_hydrogen_refinery
-      - electrolysis_hydrogen_refinery
-      - coking_hydrogen_refinery
-      - oil_refining_hydrogen_refinery
-      - chlore_hydrogen_refinery
-      - chemical_hydrogen_refinery
-      - ammonia_hydrogen_refinery
-      - methane_reforming_hydrogen_ammonia
-      - electrolysis_hydrogen_ammonia
-      - coking_hydrogen_ammonia
-      - oil_refining_hydrogen_ammonia
-      - chlore_hydrogen_ammonia
-      - chemical_hydrogen_ammonia
-      - ammonia_hydrogen_ammonia
-      - methane_reforming_hydrogen_chemicals
-      - electrolysis_hydrogen_chemicals
-      - coking_hydrogen_chemicals
-      - oil_refining_hydrogen_chemicals
-      - chlore_hydrogen_chemicals
-      - chemical_hydrogen_chemicals
-      - ammonia_hydrogen_chemicals
-      - methane_reforming_hydrogen_steel
-      - electrolysis_hydrogen_steel
-      - coking_hydrogen_steel
-      - oil_refining_hydrogen_steel
-      - chlore_hydrogen_steel
-      - chemical_hydrogen_steel
-      - ammonia_hydrogen_steel
-      - methane_reforming_hydrogen_others
-      - electrolysis_hydrogen_others
-      - coking_hydrogen_others
-      - oil_refining_hydrogen_others
-      - chlore_hydrogen_others
-      - chemical_hydrogen_others
-      - ammonia_hydrogen_others
-
-    add:
-      - name: Hydrogen
-        categories: air::non-urban air or from high stacks
-        unit: kilogram
-        amount: 0.005
-      - name: pipeline, hydrogen, low pressure distribution network
-        reference product: pipeline, for hydrogen distribution
-        unit: kilometer
-        amount: 1.14422E-06
-      - name: pipeline, hydrogen, high pressure transmission network
-        reference product: pipeline, for hydrogen transmission
-        unit: kilometer
-        amount: 2.01706E-09
-      - name: compressor assembly for transmission hydrogen pipeline
-        reference product: compressor, for hydrogen transmission
-        unit: unit
-        amount: 3.22703E-11
-      - name: geological hydrogen storage
-        reference product: hydrogen storage
-        unit: kilogram
-        amount: 0.302074305
-      - name: market for electricity, low voltage
-        reference product: electricity, low voltage
-        unit: kilowatt hour
-        amount: 1.82
-      - name: market for hydrogen, FE2050
-        reference product: hydrogen, gaseous
-        amount: 0.005
-
-    except regions:
-      - World
