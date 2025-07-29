@@ -103,6 +103,13 @@ fr_scenario_6_ind="Extensive reindustrialization - N2"
 ```
 
 ```python
+scenarios = [
+        {"model": model_3, "pathway":"SSP1-NDC", "year": 2050},
+        {"model": model_2, "pathway":world_scenario_1, "year": year}      
+        ]
+```
+
+```python
 #to delete
 scenarios = [
         {"model": model_2, "pathway":world_scenario_1, "year": 2050, "external scenarios": [{"scenario": fr_scenario_1, "data": rte}]},
