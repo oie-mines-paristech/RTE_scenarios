@@ -12,6 +12,12 @@ jupyter:
     name: lca_alg_12
 ---
 
+```python
+#If you want you can import climate change impact method that is updated by premise
+from premise_gwp import add_premise_gwp
+add_premise_gwp()
+```
+
 ```python editable=true slideshow={"slide_type": ""}
 #importation of usefull packages
 import bw2data
@@ -25,17 +31,11 @@ import matplotlib.pyplot as plt
 import lca_algebraic as agb
 ```
 
-```python
-#If you want you can import climate change impact method that is updated by premise
-from premise_gwp import add_premise_gwp
-add_premise_gwp()
-```
-
 # Intitialisation
 ## `🔧` Project name and ecoinvent names *2
 
 ```python
-NAME_BW_PROJECT="HySPI_premise_FE2050_15"
+NAME_BW_PROJECT="HySPI_premise_FE2050_17"
 ```
 
 ```python
@@ -46,14 +46,14 @@ list(bw2data.databases)
 ```
 
 ```python
-ecoinvent_db_name='ecoinvent-3.9.1-cutoff'
+ecoinvent_db_name='ecoinvent-3.10.1-cutoff'
 ecoinvent_db=bw2data.Database(ecoinvent_db_name)
-biosphere_db_name='ecoinvent-3.9.1-biosphere'
+biosphere_db_name='ecoinvent-3.10.1-biosphere'
 ```
 
 ```python
 #If you need to delete a database
-#del bw2data.databases['ei_cutoff_3.9_tiam-ucl_SSP2-RCP45_2020_Reference - N1 2025-05-22 - update electricity']
+#del bw2data.databases['ei_cutoff_3.10_remind_SSP1-NDC_2050 2025-07-30']
 ```
 
 ## Export excel 
@@ -157,6 +157,10 @@ for db in premise_db_list:
             db.FR_scenario=FR_scenario    
     #Warning
     db.warning=' '
+    if '2025-07-31' in db.name:
+        db.warning='premise v2.3.0dev1'
+    if '2025-07-29' in db.name:
+        db.warning='premise v2.2.7'
     if '2025-05-16' in db.name:
         db.warning='in 2019: 2050 ratios (except efficencies) with premise year 2019'
     if 'elec' in db.name:
@@ -186,14 +190,9 @@ selected_db_list=premise_db_list
 ```python
 #To generate a list of databases based on filters on the year / SSP / RCP/ FR_Scenario
 #Example
-#selected_db_list=[db for db in premise_db_list if '2025-05-15' in db.name and db.FR_scenario=='N1'and db.RCP=='RCP45' and db.year==2020]+[db for db in premise_db_list if '2025-05-15' in db.name and db.RCP=='RCP45' and db.year==2050]+[db for db in premise_db_list if '2025-05-15' in db.name and db.FR_scenario=='N1'and db.RCP=='Base' and db.year==2020]+[db for db in premise_db_list if '2025-05-15' in db.name and db.RCP=='Base' and db.year==2050]
 #selected_db_list=[db for db in premise_db_list if '2025-05-22' in db.name and 'update' not in db.name]+[db for db in premise_db_list if db.name=='ei_cutoff_3.9_tiam-ucl_SSP2-RCP45_2050_Reference - N1 2025-05-15']+[db for db in premise_db_list if db.name=='ei_cutoff_3.9_tiam-ucl_SSP2-Base_2050_Reference - N1 2025-05-15']
-#selected_db_list=[db for db in premise_db_list if db.warning==' ']
-#selected_db_list=[db for db in premise_db_list if 'update' not in db.name]
-#selected_db_list=[bw2data.Database('ei_cutoff_3.9_tiam-ucl_SSP2-RCP45_2050_Reference - N03 2025-05-15')]+[bw2data.Database('ei_cutoff_3.9_tiam-ucl_SSP2-RCP45_2020_Reference - N1 2025-05-15')]+[bw2data.Database('ei_cutoff_3.9_tiam-ucl_SSP2-RCP45_2020_Reference - M03 2025-05-15')]
 selected_db_list
 #selected_db_list=[selected_db_list[2]]
-#database'2025-05-16' = scenario_data_2050 ratios with premise year 2019_except efficencies_column
 ```
 
 # List of activities in market for electricity high voltage
@@ -212,15 +211,14 @@ direct_elec_prod_act_names=[
     "electricity production, wind, 1-3MW turbine, onshore",
     "electricity production, wind, 1-3MW turbine, offshore",
     "heat and power co-generation, wood chips, 6667 kW",
-    "treatment of municipal solid waste, incineration",
+    "treatment of municipal solid waste, municipal incineration",
     "electricity production, wave energy converter",
     
     "electricity production, natural gas, combined cycle power plant",
     "electricity production, oil",
     "electricity production, hard coal",
     ]
-
-flexibilities_act_names=[
+storage_act_names=[
     "electricity production, hydro, pumped storage, FE2050",
     "electricity production, from hydrogen, with gas turbine, for grid-balancing, FE2050",
     "electricity production, from vehicle-to-grid, FE2050",
@@ -231,7 +229,7 @@ import_act_name=["market group for electricity, high voltage"]
 
 losses_act_names=["market for electricity, high voltage, FE2050"]
 
-tranmission_act_names=[
+transmission_act_names=[
     "transmission network construction, electricity, high voltage direct current aerial line",
     "transmission network construction, electricity, high voltage direct current land cable",
     "transmission network construction, electricity, high voltage direct current subsea cable",
@@ -240,10 +238,10 @@ tranmission_act_names=[
 #Labels of each subcategory
 dict_act_subcategories = {
     'direct electricity production in France':direct_elec_prod_act_names,
-    'electricity production from flexibilities': flexibilities_act_names,
+    'electricity production from flexibilities': storage_act_names,
     'imports':import_act_name,
     'losses':losses_act_names,
-    'network':tranmission_act_names
+    'network':transmission_act_names
 }
 ```
 
@@ -336,14 +334,28 @@ for db in [selected_db_list[0]]:
 ## Create new activity with french mix as import mix 
 
 ```python
+db=premise_db_list[2]
+```
+
+```python
+premise_db_list
+```
+
+```python
+selected_db_list=[premise_db_list[2]]
+
+```
+
+```python
 for db in selected_db_list:
     #Copy the french electricity mix
     french_mix=db.search("market for electricity, high voltage, FE2050")[0]
     french_mix_copy = agb.copyActivity(
         db_name=db.name,                   # Database where the new activity is copied
         activity = french_mix,             # initial activity
-        code="market for electricity, high voltage, with French market as import mix FE2050"
+        code="market for electricity, high voltage, with French market as import mix, FE2050" #
     )
+    excs_elec=[exc for exc in french_mix_copy.exchanges()]
 
     #Safety check : check that original and copied activity have the same impacts
     #lca1 = french_mix.lca(method=impact_cat, amount=1)
@@ -354,24 +366,208 @@ for db in selected_db_list:
     #    print("error original activity and copied activity do not have the same impact")
     #print("{:.5f}".format(score1))
     #print("{:.5f}".format(score2))
+
+
+    #Copy elec activities with elec input at level 1
+    for act_storage_name in ["electricity production, from vehicle-to-grid, FE2050",'electricity production, hydro, pumped storage, FE2050',"electricity supply, high voltage, from vanadium-redox flow battery system, FE2050"]:
+        act_storage=db.search(act_storage_name)[0]
+        act_storage_copy = agb.copyActivity(
+            db_name=db.name,                   # Database where the new activity is copied
+            activity = act_storage,             # initial activity
+            code=(act_storage["name"]+", with French market as import mix")
+        )
+    #Replace input elec mix in copied storage activities
+        excs=[exc for exc in act_storage_copy.exchanges()]
+        for exc in excs:
+            if exc.input["name"]=="market for electricity, high voltage, FE2050":
+                exc.input=french_mix_copy
+                exc.save()
+    #Replace by copied storage activities in French mix                
+        for exc in excs_elec:
+            if exc.input["name"]==act_storage_name:
+                exc.input=act_storage_copy
+                exc.save()
+                
+    #Specific case  for hydrogen storage as elec input is not at level 1
+    for act_storage_name in ["electricity production, from hydrogen, with gas turbine, for grid-balancing, FE2050"]:
+
+        #Replace elec input in copied activity at level1
+        act1=db.search("hydrogen production, gaseous, 30 bar, from PEM electrolysis, from grid electricity, domestic, FE2050")[0]
+        act1_copy = agb.copyActivity(
+            db_name=db.name,                   # Database where the new activity is copied
+            activity = act1,             # initial activity
+            code=(act1["name"]+", with French market as import mix")
+        )
+
+        excs=[exc for exc in act1_copy.exchanges()]
+        for exc in excs:
+            if exc.input["name"]==french_mix["name"]:
+                exc.input=french_mix_copy
+                exc.save()
+
+        #Replace by copied activity in intermediate activity at level 2
+        act2=db.search("hydrogen storage, for grid-balancing, FE2050")[0]
+        act2_copy = agb.copyActivity(
+            db_name=db.name,                   # Database where the new activity is copied
+            activity = act2,             # initial activity
+            code=(act2["name"]+", with French market as import mix")
+        )
+
+        excs=[exc for exc in act2_copy.exchanges()]
+        for exc in excs:
+            if exc.input["name"]==act1["name"]:
+                exc.input=act1_copy
+                exc.save()
+
+        #Replace by copied activity from level 2 in storage activity
+        act_storage=db.search(act_storage_name)[0]
+        act_storage_copy = agb.copyActivity(
+            db_name=db.name,                   # Database where the new activity is copied
+            activity = act_storage,             # initial activity
+            code=(act_storage["name"]+", with French market as import mix")
+        )
+
+        excs=[exc for exc in act_storage_copy.exchanges()]
+        for exc in excs:
+            if exc.input["name"]==act2["name"]:
+                exc.input=act2_copy
+                exc.save()
+
+        #Replace by copied storage activity in French mix                
+        for exc in excs_elec:
+            if exc.input["name"]==act_storage_name:
+                exc.input=act_storage_copy
+                exc.save()
+
+            
+        #Replace the import activity by the French production mix from direct elec (without : grid,losses,imports,storage)
+        #Save the import amount as act["import"]
     
+    french_prod=db.search("market for electricity production, direct production, high voltage, FE2050")[0]
 
-
-    #Replace the import activity by the French electricity mix
-    #Save the import amount as act["import"]
-    excs=[exc for exc in french_mix_copy.exchanges()]
-    for exc in excs:
+    for exc in excs_elec:
         if exc.input["name"]=='market group for electricity, high voltage':
             french_mix_copy["import"]=exc["amount"]
             french_mix_copy.save()
-            exc.input=french_mix_copy
+            exc.input=french_prod
             exc.save()
+```
 
-    #Print the activities (original vs new) and impacts of new activity
-    #agb.printAct(french_mix, french_mix_copy)
-    #lca3 = french_mix_copy.lca(method=impact_cat, amount=1)
-    #score3 = lca3.score
-    #print("{:.5f}".format(score3))
+```python
+db_import_list=[premise_db_list[1]]
+
+"market for electricity, high voltage, FE2050"+", with European market "+db_import.model+'-'+db_import.SSP+'-'+db_import.RCP+" as import mix"
+```
+
+```python
+for db in selected_db_list:
+    for db_import in db_import_list:
+        #To add to activity names
+        add_to_act_name=", with European market "+db_import.model+'-'+db_import.SSP+'-'+db_import.RCP+" as import mix"
+        #Copy the french electricity mix
+        french_mix=db.search("market for electricity, high voltage, FE2050")[0]
+        french_mix_copy = agb.copyActivity(
+            db_name=db.name,                   # Database where the new activity is copied
+            activity = french_mix,             # initial activity
+            code="market for electricity, high voltage, FE2050"+add_to_act_name #
+        )
+        
+        excs_elec=[exc for exc in french_mix_copy.exchanges()]
+    
+        #Safety check : check that original and copied activity have the same impacts
+        #lca1 = french_mix.lca(method=impact_cat, amount=1)
+        #score1 = lca1.score
+        #lca2 = french_mix_copy.lca(method=impact_cat, amount=1)
+        #score2 = lca2.score
+        #if (score1-score2)>1e-08:
+        #    print("error original activity and copied activity do not have the same impact")
+        #print("{:.5f}".format(score1))
+        #print("{:.5f}".format(score2))
+    
+    
+        #Copy elec activities with elec input at level 1
+        for act_storage_name in ["electricity production, from vehicle-to-grid, FE2050",'electricity production, hydro, pumped storage, FE2050',"electricity supply, high voltage, from vanadium-redox flow battery system, FE2050"]:
+            act_storage=db.search(act_storage_name)[0]
+            act_storage_copy = agb.copyActivity(
+                db_name=db.name,                   # Database where the new activity is copied
+                activity = act_storage,             # initial activity
+                code=(act_storage["name"]+", with European market "+add_to_act_name)
+            )
+        #Replace input elec mix in copied storage activities
+            excs=[exc for exc in act_storage_copy.exchanges()]
+            for exc in excs:
+                if exc.input["name"]=="market for electricity, high voltage, FE2050":
+                    exc.input=french_mix_copy
+                    exc.save()
+        #Replace by copied storage activities in French mix                
+            for exc in excs_elec:
+                if exc.input["name"]==act_storage_name:
+                    exc.input=act_storage_copy
+                    exc.save()
+                    
+        #Specific case  for hydrogen storage as elec input is not at level 1
+        for act_storage_name in ["electricity production, from hydrogen, with gas turbine, for grid-balancing, FE2050"]:
+    
+            #Replace elec input in copied activity at level1
+            act1=db.search("hydrogen production, gaseous, 30 bar, from PEM electrolysis, from grid electricity, domestic, FE2050")[0]
+            act1_copy = agb.copyActivity(
+                db_name=db.name,                   # Database where the new activity is copied
+                activity = act1,             # initial activity
+                code=(act1["name"]+", with European market "+add_to_act_name)
+            )
+    
+            excs=[exc for exc in act1_copy.exchanges()]
+            for exc in excs:
+                if exc.input["name"]==french_mix["name"]:
+                    exc.input=french_mix_copy
+                    exc.save()
+    
+            #Replace by copied activity in intermediate activity at level 2
+            act2=db.search("hydrogen storage, for grid-balancing, FE2050")[0]
+            act2_copy = agb.copyActivity(
+                db_name=db.name,                   # Database where the new activity is copied
+                activity = act2,             # initial activity
+                code=(act2["name"]+", with European market "+add_to_act_name)
+            )
+    
+            excs=[exc for exc in act2_copy.exchanges()]
+            for exc in excs:
+                if exc.input["name"]==act1["name"]:
+                    exc.input=act1_copy
+                    exc.save()
+    
+            #Replace by copied activity from level 2 in storage activity
+            act_storage=db.search(act_storage_name)[0]
+            act_storage_copy = agb.copyActivity(
+                db_name=db.name,                   # Database where the new activity is copied
+                activity = act_storage,             # initial activity
+                code=(act_storage["name"]+", with European market "+add_to_act_name)
+            )
+    
+            excs=[exc for exc in act_storage_copy.exchanges()]
+            for exc in excs:
+                if exc.input["name"]==act2["name"]:
+                    exc.input=act2_copy
+                    exc.save()
+    
+            #Replace by copied storage activity in French mix                
+            for exc in excs_elec:
+                if exc.input["name"]==act_storage_name:
+                    exc.input=act_storage_copy
+                    exc.save()
+    
+                
+            #Replace the import activity by the French production mix from direct elec (without : grid,losses,imports,storage)
+            #Save the import amount as act["import"]
+        
+        import_mix=[act for act in db_import if act["name"]=='market group for electricity, high voltage' and act["location"]=="RER"][0]
+    
+        for exc in excs_elec:
+            if exc.input["name"]=='market group for electricity, high voltage':
+                #french_mix_copy["import"]=exc["amount"]
+                #french_mix_copy.save()
+                exc.input=import_mix
+                exc.save()
 ```
 
 # Impact 1 kWh of electricity
@@ -380,40 +576,43 @@ for db in selected_db_list:
 ## `🔧` activity, impact category
 
 ```python
-selected_db_list=selected_db_list
-```
+#selected_db_list=premise_db_list
+selected_db_list=[premise_db_list[1]]+[premise_db_list[2]]+[premise_db_list[3]]
 
-```python
+#impact_cat=land
+impact_cat=climate
+#climate, acidification, land, ionising_rad,metals_minerals,non_renew_energy]
+
+
 act_name_list=[
+    #"market group for electricity, high voltage", ####RER
     "market for electricity, high voltage, FE2050",
+    #"market for electricity, high voltage, with French market as import mix, FE2050",
+    #"market for electricity, high voltage, FE2050"+", with European market "+db_import.model+'-'+db_import.SSP+'-'+db_import.RCP+" as import mix",
     #"market for electricity, from direct French production, FE2050",
+    #market for electricity production, direct production, high voltage, FE2050",
     #"market for electricity, from storage, FE2050",
     #"market for electricity, from import, FE2050",
-    #"market for electricity, high voltage, with French market as import mix FE2050"
+    #"market for electricity production, high voltage, with French market as import mix, FE2050"
 ]
-    
-impact_cat=climate
-#impact_cat=climate_premise
+
+
+
 ```
 
 ## Run
 
 ```python
-selected_db_list
-```
-
-```python
-act=selected_db_list[8].search(act_name)[0]
-```
-
-```python
 df=pd.DataFrame([],columns=['db_name','model','SSP','RCP','FR scenario','year','warning','act','impact','unit'])
-unit_impact = bw2data.Method(impact_cat).metadata["unit"]
+#unit_impact = bw2data.Method(impact_cat).metadata["unit"]
+unit_impact = "kg CO2-Eq"
+
 unit=unit_impact
 
 for db in selected_db_list:    
     for act_name in act_name_list:
-        act=db.search(act_name)[0]
+        #act=db.search(act_name)[0]
+        act=[act for act in db if act["name"]==act_name and act["location"]=="FR"][0]
         lca = act.lca(method=impact_cat, amount=1)
         score = lca.score
         #Rescale in gCO2 instead of kgCO2 for climate change
@@ -435,7 +634,10 @@ df_elec_1
 ## `🔧` activity, impact category
 
 ```python
-selected_db_list=[selected_db_list[6],selected_db_list[7]]
+selected_db_list=[premise_db_list[2]]
+impact_cat=climate
+#impact_cat=climate_premise
+calc_with_french_imports="yes" #"no"
 ```
 
 ```python
@@ -444,24 +646,20 @@ act_name_list=[
     "market for electricity, from direct French production, FE2050",
     "market for electricity, from storage, FE2050",
     "market for electricity, from import, FE2050",
+]
+
     #"market for electricity, from direct production and import, FE2050",
     #"market for electricity production, direct production, high voltage, FE2050",
     #"market for electricity production, storage production, FE2050",
     #"market for electricity production, import, FE2050"
-]
-    
-impact_cat=climate
-unit_impact = bw2data.Method(impact_cat).metadata["unit"]
-
-#impact_cat=climate_premise
 ```
 
 ## Run
 
 ```python
 list_df_ca_aggreg=[]
+unit_impact = bw2data.Method(impact_cat).metadata["unit"]
 unit=unit_impact
-
 
 for db in selected_db_list:  
     df=pd.DataFrame([],columns=['db_name','model','SSP','RCP','FR scenario','year','warning','act','amount (kWh)','contribution to impact','unit'])    
@@ -475,11 +673,16 @@ for db in selected_db_list:
     for exc in excs:
         if exc.input["name"] in direct_elec_prod_act_names:
             amount_direct_elec = exc["amount"]+amount_direct_elec
-        if exc.input["name"] in flexibilities_act_names:
+        if exc.input["name"] in storage_act_names:
             amount_storage = exc["amount"]+amount_storage
         if exc.input["name"] in import_act_name:
             amount_import = exc["amount"]+amount_import
-        
+    
+    # Safety Check 
+    if exc.input["name"] not in direct_elec_prod_act_names + storage_act_names+import_act_name+[act["name"]]:
+        if "transmission" not in exc.input["name"] and "Ozone" not in exc.input["name"] and "Dinitrogen"not in exc.input["name"]:
+            print("warning: exchange", exc.input["name"], "forgotten")
+            
     #Impact of each mix (total, from direct production, from storage, from import)
     for act_name in act_name_list:
         act=db.search(act_name)[0]
@@ -506,25 +709,28 @@ for db in selected_db_list:
         df.loc[len(df.index)] = [db.name,db.model, db.SSP,db.RCP,db.FR_scenario,db.year,db.warning,act["name"],amount,score,unit]
 
     #Redo the calculation when imports=French market
-    act=db.search("market for electricity, high voltage, with French market as import mix FE2050")[0]
-    lca = act.lca(method=impact_cat, amount=1)
-    score_0 = lca.score
-    if unit_impact == "kg CO2-Eq":
+    if calc_with_french_imports=="yes":
+        #score consumption mix 
+        act=db.search("market for electricity, high voltage, with French market as import mix, FE2050")[0]
+        lca = act.lca(method=impact_cat, amount=1)
+        score_0 = lca.score
+        if unit_impact == "kg CO2-Eq":
             score_0=1000*score_0
-    score_1=df['contribution to impact'].iloc[1]
-    score_3=score_0*amount_import
-    score_2=score_0-score_1-score_3
+        #score direct production mix is the same as with European imports
+        score_1=df['contribution to impact'].iloc[1]
+        #score imports = amount imports * consumption mix from direct production
+        act=db.search("market for electricity, from direct electricity production, FE2050")[0]
+        lca = act.lca(method=impact_cat, amount=amount_import)
+        score_3 = lca.score
+        if unit_impact == "kg CO2-Eq":
+            score_3=1000*score_3
+        #score storage is the rest
+        score_2=score_0-score_1-score_3
 
-    df["contribution to impacts with French imports"]=[score_0,score_1,score_2,score_3]
+        df["contribution to impacts with French imports"]=[score_0,score_1,score_2,score_3]
         
     #For each db in the selected list add the dataframe to the list of dataframes
     list_df_ca_aggreg.append(df)
-
-#list_df_ca_aggreg[0]
-```
-
-```python
-list_df_ca_aggreg[1]
 ```
 
 ```python
@@ -558,7 +764,14 @@ for df in list_df_ca_aggreg:
 ```
 
 ```python
-for db in selected_db_list: 
+list_df_ca_aggreg[0]
+```
+
+```python
+
+```
+
+# for db in selected_db_list: 
 
     act_market_elec= act_storage=db.search("market for electricity, high voltage, FE2050")[0]
     excs_market_elec=[exc for exc in act_market_elec.exchanges()]
@@ -579,7 +792,6 @@ for db in selected_db_list:
     #For each db in the selected list add the dataframe to the list of dataframes
     list_df_storage_2.append(df)           
 
-```
 
 ```python
 list_df_storage=[]
@@ -1241,7 +1453,7 @@ export_data_to_excel(list_df_to_export,xlsx_file_name)
 
 ```
 
-<!-- #region editable=true slideshow={"slide_type": ""} -->
+<!-- #region editable=true slideshow={"slide_type": ""} jp-MarkdownHeadingCollapsed=true -->
 # OLD
 <!-- #endregion -->
 
@@ -1372,7 +1584,7 @@ direct_elec_prod_act_names=[
     "electricity production, hard coal",
     ]
 
-flexibilities_act_names=[
+storage_act_names=[
     "electricity production, hydro, pumped storage, FE2050",
     "electricity production, from hydrogen, with gas turbine, for grid-balancing, FE2050",
     "electricity production, from vehicle-to-grid, FE2050",
@@ -1383,7 +1595,7 @@ import_act_name=["market group for electricity, high voltage"]
 
 losses_act_names=["market for electricity, high voltage, FE2050"]
 
-tranmission_act_names=[
+transmission_act_names=[
     "transmission network construction, electricity, high voltage direct current aerial line",
     "transmission network construction, electricity, high voltage direct current land cable",
     "transmission network construction, electricity, high voltage direct current subsea cable",
@@ -1392,10 +1604,10 @@ tranmission_act_names=[
 #Labels of each subcategory
 dict_act_subcategories = {
     'direct electricity production in France':direct_elec_prod_act_names,
-    'electricity production from flexibilities': flexibilities_act_names,
+    'electricity production from flexibilities': storage_act_names,
     'imports':import_act_name,
     'losses':losses_act_names,
-    'network':tranmission_act_names
+    'network':transmission_act_names
 }
 ```
 
@@ -1633,6 +1845,36 @@ french_mix_copy.updateExchanges({
 agb.printAct(french_mix,french_mix_copy)
 ```
 
+## Old Create a French production mix (without losses, without grid, with french imports)
+
+
+```python
+    french_prod_mix_copy = agb.copyActivity(
+        db_name=db.name,                   # Database where the new activity is copied
+        activity = french_mix_copy,             # initial activity
+        code="market for electricity production, high voltage, with French market as import mix, FE2050"
+        )
+    excs=[exc for exc in french_prod_mix_copy.exchanges()]
+        
+    for exc in excs:
+        if "transmission" in exc.input["name"]: 
+            exc.delete()
+            exc.save()
+        if "Ozone" in exc.input["name"]: 
+            exc.delete()
+            exc.save()
+        if "Dinitrogen" in exc.input["name"]: 
+            exc.delete()
+            exc.save()
+        if exc.input["name"]=='market group for electricity, high voltage':
+            exc.input=french_prod_mix_copy
+            exc.save()    
+```
+
+```python
+
+```
+
 # Excel Export
 
 ```python editable=true slideshow={"slide_type": ""}
@@ -1656,4 +1898,18 @@ list_df_to_export=[
 ]
 
 export_data_to_excel(list_df_to_export,xlsx_file_name)
+```
+
+```python
+xlsx_file_name="export-test-05.xlsx"
+
+list_df_to_export=[
+    ["elec 1 kWh", df_elec_1],
+]
+
+export_data_to_excel(list_df_to_export,xlsx_file_name)
+```
+
+```python
+
 ```
