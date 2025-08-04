@@ -170,9 +170,10 @@ production pathways:
     production volume:
       variable: Production|Electricity|Import
     ecoinvent alias:
-      name: market group for electricity, high voltage
+      name: market for electricity production, direct production, high voltage, FE2050
       reference product: electricity, high voltage
-      exists in original database: True
+      exists in original database: False
+      new dataset: True
 
   medium_to_high:
     production volume:
@@ -758,6 +759,24 @@ markets:
     replaces in:
       - location: FR
 
+  - name: market for electricity production, direct production, high voltage, FE2050
+    reference product: electricity, high voltage
+    unit: kilowatt hour
+    includes:
+      - nuclear_pressure_water
+      - nuclear_EPR
+      - nuclear_SMR
+      - hydro_run_of_river
+      - hydro_reservoir
+      - pv
+      - wind_onshore
+      - wind_offshore
+      - biomass
+      - waste
+      - wave
+      - natural_gas
+      - fuel_oil
+      - coal
 
   - name: market for electricity, high voltage, FE2050
     reference product: electricity, high voltage
@@ -787,7 +806,8 @@ markets:
 
       - name: market for electricity, high voltage, FE2050
         reference product: electricity, high voltage
-        amount: 0.0312426845152551
+        amount: 0.03109
+
 
       - name: transmission network construction, electricity, high voltage direct current aerial line
         reference product: transmission network, electricity, high voltage direct current aerial line
@@ -849,7 +869,7 @@ markets:
 
       - name: market for electricity, from direct French production, FE2050
         reference product: electricity, high voltage
-        amount: 0.0312426845152551
+        amount: 0.03109
 
       - name: transmission network construction, electricity, high voltage direct current aerial line
         reference product: transmission network, electricity, high voltage direct current aerial line
@@ -887,7 +907,7 @@ markets:
 
       - name: market for electricity, from storage, FE2050
         reference product: electricity, high voltage
-        amount: 0.0312426845152551
+        amount: 0.03109
 
       - name: transmission network construction, electricity, high voltage direct current aerial line
         reference product: transmission network, electricity, high voltage direct current aerial line
@@ -922,7 +942,7 @@ markets:
 
       - name: market for electricity, from import, FE2050
         reference product: electricity, high voltage
-        amount: 0.0312426845152551
+        amount: 0.03109
 
       - name: transmission network construction, electricity, high voltage direct current aerial line
         reference product: transmission network, electricity, high voltage direct current aerial line
@@ -970,7 +990,7 @@ markets:
 
       - name: market for electricity, from direct production and import, FE2050
         reference product: electricity, high voltage
-        amount: 0.0312426845152551
+        amount: 0.03109
 
       - name: transmission network construction, electricity, high voltage direct current aerial line
         reference product: transmission network, electricity, high voltage direct current aerial line
@@ -996,24 +1016,6 @@ markets:
         amount: 4.16e-06
 
 
-  - name: market for electricity production, direct production, high voltage, FE2050
-    reference product: electricity, high voltage
-    unit: kilowatt hour
-    includes:
-      - nuclear_pressure_water
-      - nuclear_EPR
-      - nuclear_SMR
-      - hydro_run_of_river
-      - hydro_reservoir
-      - pv
-      - wind_onshore
-      - wind_offshore
-      - biomass
-      - waste
-      - wave
-      - natural_gas
-      - fuel_oil
-      - coal
 
   - name: market for electricity production, storage production, FE2050
     reference product: electricity, high voltage
@@ -1077,7 +1079,7 @@ markets:
     add:
       - name: market for electricity, low voltage, FE2050
         reference product: electricity, low voltage
-        amount: 0.0307
+        amount: 0.030412
 
       - name: market for sulfur hexafluoride, liquid
         reference product: sulfur hexafluoride, liquid
