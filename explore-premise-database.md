@@ -892,59 +892,6 @@ for df in list_df_storage:
         df.loc[df['act'] == act_storage_name, 'storage losses (kWh)']=df_storage_efficency.loc[df_storage_efficency['act'] == act_storage_name, 'storage losses (kWh)'].values
 ```
 
-### with grid infra allocated to electicity production > ok it works but overestimates impacts from original production
-
-```python
-grid_losses_factor=1/(1-grid_losses)
-
-#Calculations
-for df in list_df_storage:
-    #Impact
-    df['impact grid final'] =  grid_losses_factor*df['impact grid per kWh'] 
-    # Reallocate grid to electricity proportionnaly to the amount of electricity
-    df['impact storage infra final'] =  grid_losses_factor*df['impact storage infra']/(1-df['amount in elec market (kWh)'])
-    df['impact storage losses final'] = grid_losses_factor*(df['storage losses (kWh)']*df['impact 1 kWh elec consumption mix'])/(1-df['amount in elec market (kWh)']*df['storage losses (kWh)'])    + df['impact grid final']*df['storage losses (kWh)']/(1+df['storage losses (kWh)'])
-    df['impact original elec final'] = grid_losses_factor*df['impact 1kWh prod elec from storage'] - df['impact storage infra final']  - df['impact storage losses final']          + df['impact grid final']*1
-    df['impact 1kWh elec from storage'] = df['impact storage infra final']+df['impact storage losses final']+df['impact original elec final'] #+ df['impact grid final']+
-    df['unit bis']=df['unit']
-
-    #contribution
-    df['contrib grid']=df['impact grid final']/df['impact 1kWh elec from storage']*100    
-    df['contrib storage infra']=df['impact storage infra final']/df['impact 1kWh elec from storage']*100
-    df['contrib storage losses']=df['impact storage losses final']/df['impact 1kWh elec from storage']*100
-    df['contrib original elec']=df['impact original elec final']/df['impact 1kWh elec from storage']*100
-
-    #Repartition of storage technology in electricity mix
-    df['% amount in elec market'] = df['amount in elec market (kWh)'] / df['amount in elec market (kWh)'].sum()
-```
-
-### with grid infra not allocated > ok but it still overestimates impacts from original elec as electricity losses (due to double ) are accounted for original elec
-
-```python
-grid_losses_factor=1/(1-grid_losses)
-
-#Calculations
-for df in list_df_storage:
-    #Impact
-    df['impact storage infra final'] =  grid_losses_factor*df['impact storage infra']/(1-df['amount in elec market (kWh)'])
-    df['impact storage losses final'] = grid_losses_factor*(df['storage losses (kWh)']*df['impact 1 kWh elec consumption mix'])/(1-df['amount in elec market (kWh)']*df['storage losses (kWh)'])
-    df['impact original elec final'] = grid_losses_factor*df['impact 1kWh prod elec from storage'] - df['impact storage infra final']  - df['impact storage losses final']
-    df['impact grid final'] =  grid_losses_factor*df['impact grid per kWh']
-    df['impact 1kWh elec from storage final'] = df['impact grid final']+df['impact storage infra final']+df['impact storage losses final']+df['impact original elec final']
-    df['unit bis']=df['unit']
-
-    #contribution
-    #df['contrib grid']=df['impact grid final']/df['impact 1kWh elec from storage']*100    
-    #df['contrib storage infra']=df['impact storage infra final']/df['impact 1kWh elec from storage']*100
-    #df['contrib storage losses']=df['impact storage losses final']/df['impact 1kWh elec from storage']*100
-    #df['contrib original elec']=df['impact original elec final']/df['impact 1kWh elec from storage']*100
-
-    #Repartition of storage technology in electricity mix
-    df['% amount in elec market'] = df['amount in elec market (kWh)'] / df['amount in elec market (kWh)'].sum()
-```
-
-### Ok : grid contribution is recalculated by forcing impact of original electricity
-
 ```python
 #Calculations
 for df in list_df_storage:
@@ -960,6 +907,7 @@ for df in list_df_storage:
     df['impact 1kWh elec from storage inter'] = df['impact grid inter']+df['impact storage infra final']+df['impact storage losses final']+df['impact original elec inter']
 
     #Recalculation of original elec impacts > reallocation of the difference to the grid
+    # grid contribution is recalculated by forcing impact of original electricity
     df['impact original elec final']= 1*df['impact 1 kWh elec mix from prod and import']
     df['impact grid final']=df['impact grid inter']+df['impact original elec inter']-df['impact original elec final']
     df['impact 1kWh elec from storage final'] = df['impact grid final']+df['impact storage infra final']+df['impact storage losses final']+df['impact original elec final']
@@ -1009,28 +957,12 @@ df_disaggreg_storage
 ```
 
 ```python
-
-```
-
-```python
-list_df_storage==========list_df_clean
-
-#for df in list_df_storage:
-#    del(df['contrib original elec'])
-
-#for df in list_df_storage:
-#    df=df.rename(columns={"impact 1 kWh input elec without grid" : 'impact 1 kWh elec consumption mix'})
-#list_df_storage[2]=list_df_storage[2].rename(columns={"impact 1 kWh input elec without grid" : 'impact 1 kWh elec consumption mix'})
-#list_df_storage=list_df_storage_2
-```
-
-```python
 dict_color_storage={
     'impact elec from storage mix':['tot','tot'],
-    'impact original elec in storage mix':['green','impact of 1kWh of electricity if there was no storage'],
+    'impact original elec in storage mix':['green','1kWh of electricity if there was no storage'],
     'impact grid in storage mix':['blue','additional transport in the electricity grid'],
     'impact storage infra in storage mix':['yellow', 'storage infrastructure'],
-    'impact storage losses in storage mix':['red','storage & release electricity losses'],
+    'impact storage losses in storage mix':['red','storage electricity losses'],
     }
 
         
