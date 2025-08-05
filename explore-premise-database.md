@@ -16,6 +16,7 @@ jupyter:
 #If you want you can import climate change impact method that is updated by premise
 from premise_gwp import add_premise_gwp
 add_premise_gwp()
+
 ```
 
 ```python editable=true slideshow={"slide_type": ""}
@@ -35,7 +36,7 @@ import lca_algebraic as agb
 ## `🔧` Project name and ecoinvent names *2
 
 ```python
-NAME_BW_PROJECT="HySPI_premise_FE2050_17"
+NAME_BW_PROJECT="HySPI_premise_FE2050_19"
 ```
 
 ```python
@@ -92,12 +93,13 @@ non_renew_energy=(EF,'energy resources: non-renewable','abiotic depletion potent
 
 impacts=[climate, acidification, land, ionising_rad,metals_minerals,non_renew_energy]
 
-for impact in impacts:
-    print(impact, bw2data.Method(impact).metadata['unit'])
+for impact_cat in impacts:
+    print(impact_cat, bw2data.Method(impact_cat).metadata['unit'])
 ```
 
 ```python
-climate_premise=('IPCC 2021', 'climate change', 'GWP 100a, incl. H and bio CO2')
+climate_premise=('IPCC 2013', 'climate change', 'GWP 20a, incl. H and bio CO2')
+
 ```
 
 ```python
@@ -211,13 +213,14 @@ direct_elec_prod_act_names=[
     "electricity production, wind, 1-3MW turbine, onshore",
     "electricity production, wind, 1-3MW turbine, offshore",
     "heat and power co-generation, wood chips, 6667 kW",
-    "treatment of municipal solid waste, municipal incineration",
+    'treatment of municipal solid waste, municipal incineration',
     "electricity production, wave energy converter",
     
     "electricity production, natural gas, combined cycle power plant",
     "electricity production, oil",
     "electricity production, hard coal",
     ]
+
 storage_act_names=[
     "electricity production, hydro, pumped storage, FE2050",
     "electricity production, from hydrogen, with gas turbine, for grid-balancing, FE2050",
@@ -225,7 +228,7 @@ storage_act_names=[
     "electricity supply, high voltage, from vanadium-redox flow battery system, FE2050",
     ]
 
-import_act_name=["market group for electricity, high voltage"]
+import_act_name=["market for electricity production, direct production, high voltage, FE2050"]
 
 losses_act_names=["market for electricity, high voltage, FE2050"]
 
@@ -256,7 +259,7 @@ dict_color={
     "electricity production, wind, 1-3MW turbine, onshore":['aquamarine','onshore wind'],
     "electricity production, wind, 1-3MW turbine, offshore":['mediumaquamarine','offshore wind'],
     "heat and power co-generation, wood chips, 6667 kW":['chartreuse','biomass and waste'],
-    "treatment of municipal solid waste, incineration":['chartreuse','biomass and waste'],
+    "treatment of municipal solid waste, municipal incineration":['chartreuse','biomass and waste'],
         
     "electricity production, natural gas, combined cycle power plant":['slategrey','gas'],
     "electricity production, oil":['black','oil and coal'],
@@ -264,12 +267,13 @@ dict_color={
     
     "electricity production, wave energy converter":['blue','wave'],    
     
-    "electricity production, hydro, pumped storage, FE2050":['rebeccapurple','storage'],
-    "electricity production, from hydrogen, with gas turbine, for grid-balancing, FE2050":['rebeccapurple','storage'],
-    "electricity production, from vehicle-to-grid, FE2050":['rebeccapurple','storage'],
-    "electricity supply, high voltage, from vanadium-redox flow battery system, FE2050":['rebeccapurple','storage'],
+    "electricity production, hydro, pumped storage, FE2050":['royalblue','electricity from storage'], #'rebeccapurple'
+    "electricity production, from hydrogen, with gas turbine, for grid-balancing, FE2050":['royalblue','electricity from storage'],
+    "electricity production, from vehicle-to-grid, FE2050":['royalblue','electricity from storage'],
+    "electricity supply, high voltage, from vanadium-redox flow battery system, FE2050":['royalblue','electricity from storage'],
     
-    "market group for electricity, high voltage":['magenta','imports'],
+    "market group for electricity, high voltage":['midnightblue','imports'], #magenta
+    "market for electricity production, direct production, high voltage, FE2050":['midnightblue','imports'],
      }  
 ```
 
@@ -278,22 +282,22 @@ list_dict_storage=[
     {
     'act_storage_name':'electricity production, hydro, pumped storage, FE2050',
     'act_where_elec_is_stored_name':'electricity production, hydro, pumped storage, FE2050',
-    'act_elec_stored_name':"market for electricity, high voltage, FE2050"
+    #'act_elec_stored_name':"market for electricity, high voltage, FE2050"
      },
     {
     'act_storage_name':'electricity production, from hydrogen, with gas turbine, for grid-balancing, FE2050',
     'act_where_elec_is_stored_name':'hydrogen production, gaseous, 30 bar, from PEM electrolysis, from grid electricity, domestic, FE2050',
-    'act_elec_stored_name':"market for electricity, high voltage, FE2050"
+    #'act_elec_stored_name':"market for electricity, high voltage, FE2050"
     },    
     {
     'act_storage_name':'electricity production, from vehicle-to-grid, FE2050',
     'act_where_elec_is_stored_name':'electricity production, from vehicle-to-grid, FE2050',
-    'act_elec_stored_name':"market for electricity, high voltage, FE2050"
+    #'act_elec_stored_name':"market for electricity, high voltage, FE2050"
      },
     {
     'act_storage_name':'electricity supply, high voltage, from vanadium-redox flow battery system, FE2050',
     'act_where_elec_is_stored_name':'electricity supply, high voltage, from vanadium-redox flow battery system, FE2050',
-    'act_elec_stored_name':"market for electricity, high voltage, FE2050"
+    #'act_elec_stored_name':"market for electricity, high voltage, FE2050"
      }
 ]
 
@@ -315,13 +319,6 @@ list_dict_storage=[
 ## Pertes high medium low 
 
 ```python
-for db in [selected_db_list[0]]:  
-    elec_high=db.search("market for electricity, high voltage, FE2050")[0]
-    elec_med=db.search("market for electricity, medium voltage, FE2050")[0]
-    elec_low=db.search("market for electricity, low voltage, FE2050")[0]
-```
-
-```python
 1.0312427*1.0042*1.0307
 #0.0312427 	0.0042 0.0307 pertes high/medium/low
 #8% RTE
@@ -331,139 +328,34 @@ for db in [selected_db_list[0]]:
 # Database modification : Run only once
 
 
-## Create new activity with french mix as import mix 
+## Create new French electricity activity with European mix as import mix 
 
 ```python
-db=premise_db_list[2]
+selected_db_list
 ```
 
 ```python
-premise_db_list
+#Db list where you want to change the imports
+selected_db_list=premise_db_list
+#if I just want to create a market with imports from european mix generated with the same IAM
+with_EUR_imports_severals="no" 
+#if I want to create french markets with imports from european mix taken from other IAM
+with_EUR_imports_severals="no" 
+#db_import_list is the list from where imports come from with_EUR_imports_severals="yes"
+db_import_list_severals=[premise_db_list[0]]+[premise_db_list[1]]+[premise_db_list[2]] 
 ```
 
-```python
-selected_db_list=[premise_db_list[2]]
-
-```
+Ignore the warnings in the next cell
 
 ```python
 for db in selected_db_list:
-    #Copy the french electricity mix
-    french_mix=db.search("market for electricity, high voltage, FE2050")[0]
-    french_mix_copy = agb.copyActivity(
-        db_name=db.name,                   # Database where the new activity is copied
-        activity = french_mix,             # initial activity
-        code="market for electricity, high voltage, with French market as import mix, FE2050" #
-    )
-    excs_elec=[exc for exc in french_mix_copy.exchanges()]
-
-    #Safety check : check that original and copied activity have the same impacts
-    #lca1 = french_mix.lca(method=impact_cat, amount=1)
-    #score1 = lca1.score
-    #lca2 = french_mix_copy.lca(method=impact_cat, amount=1)
-    #score2 = lca2.score
-    #if (score1-score2)>1e-08:
-    #    print("error original activity and copied activity do not have the same impact")
-    #print("{:.5f}".format(score1))
-    #print("{:.5f}".format(score2))
-
-
-    #Copy elec activities with elec input at level 1
-    for act_storage_name in ["electricity production, from vehicle-to-grid, FE2050",'electricity production, hydro, pumped storage, FE2050',"electricity supply, high voltage, from vanadium-redox flow battery system, FE2050"]:
-        act_storage=db.search(act_storage_name)[0]
-        act_storage_copy = agb.copyActivity(
-            db_name=db.name,                   # Database where the new activity is copied
-            activity = act_storage,             # initial activity
-            code=(act_storage["name"]+", with French market as import mix")
-        )
-    #Replace input elec mix in copied storage activities
-        excs=[exc for exc in act_storage_copy.exchanges()]
-        for exc in excs:
-            if exc.input["name"]=="market for electricity, high voltage, FE2050":
-                exc.input=french_mix_copy
-                exc.save()
-    #Replace by copied storage activities in French mix                
-        for exc in excs_elec:
-            if exc.input["name"]==act_storage_name:
-                exc.input=act_storage_copy
-                exc.save()
-                
-    #Specific case  for hydrogen storage as elec input is not at level 1
-    for act_storage_name in ["electricity production, from hydrogen, with gas turbine, for grid-balancing, FE2050"]:
-
-        #Replace elec input in copied activity at level1
-        act1=db.search("hydrogen production, gaseous, 30 bar, from PEM electrolysis, from grid electricity, domestic, FE2050")[0]
-        act1_copy = agb.copyActivity(
-            db_name=db.name,                   # Database where the new activity is copied
-            activity = act1,             # initial activity
-            code=(act1["name"]+", with French market as import mix")
-        )
-
-        excs=[exc for exc in act1_copy.exchanges()]
-        for exc in excs:
-            if exc.input["name"]==french_mix["name"]:
-                exc.input=french_mix_copy
-                exc.save()
-
-        #Replace by copied activity in intermediate activity at level 2
-        act2=db.search("hydrogen storage, for grid-balancing, FE2050")[0]
-        act2_copy = agb.copyActivity(
-            db_name=db.name,                   # Database where the new activity is copied
-            activity = act2,             # initial activity
-            code=(act2["name"]+", with French market as import mix")
-        )
-
-        excs=[exc for exc in act2_copy.exchanges()]
-        for exc in excs:
-            if exc.input["name"]==act1["name"]:
-                exc.input=act1_copy
-                exc.save()
-
-        #Replace by copied activity from level 2 in storage activity
-        act_storage=db.search(act_storage_name)[0]
-        act_storage_copy = agb.copyActivity(
-            db_name=db.name,                   # Database where the new activity is copied
-            activity = act_storage,             # initial activity
-            code=(act_storage["name"]+", with French market as import mix")
-        )
-
-        excs=[exc for exc in act_storage_copy.exchanges()]
-        for exc in excs:
-            if exc.input["name"]==act2["name"]:
-                exc.input=act2_copy
-                exc.save()
-
-        #Replace by copied storage activity in French mix                
-        for exc in excs_elec:
-            if exc.input["name"]==act_storage_name:
-                exc.input=act_storage_copy
-                exc.save()
-
-            
-        #Replace the import activity by the French production mix from direct elec (without : grid,losses,imports,storage)
-        #Save the import amount as act["import"]
-    
-    french_prod=db.search("market for electricity production, direct production, high voltage, FE2050")[0]
-
-    for exc in excs_elec:
-        if exc.input["name"]=='market group for electricity, high voltage':
-            french_mix_copy["import"]=exc["amount"]
-            french_mix_copy.save()
-            exc.input=french_prod
-            exc.save()
-```
-
-```python
-db_import_list=[premise_db_list[1]]
-
-"market for electricity, high voltage, FE2050"+", with European market "+db_import.model+'-'+db_import.SSP+'-'+db_import.RCP+" as import mix"
-```
-
-```python
-for db in selected_db_list:
+    db_import_list=[db] #if I just want to create a market with imports from european mix generated with the same IAM
+    if with_EUR_imports_severals=="yes": #with imports from european mix taken from other IAM
+        db_import_list=db_import_list_severals 
     for db_import in db_import_list:
         #To add to activity names
         add_to_act_name=", with European market "+db_import.model+'-'+db_import.SSP+'-'+db_import.RCP+" as import mix"
+        
         #Copy the french electricity mix
         french_mix=db.search("market for electricity, high voltage, FE2050")[0]
         french_mix_copy = agb.copyActivity(
@@ -485,7 +377,7 @@ for db in selected_db_list:
         #print("{:.5f}".format(score2))
     
     
-        #Copy elec activities with elec input at level 1
+        #Copy storage elec activities with elec input at level 1
         for act_storage_name in ["electricity production, from vehicle-to-grid, FE2050",'electricity production, hydro, pumped storage, FE2050',"electricity supply, high voltage, from vanadium-redox flow battery system, FE2050"]:
             act_storage=db.search(act_storage_name)[0]
             act_storage_copy = agb.copyActivity(
@@ -496,7 +388,7 @@ for db in selected_db_list:
         #Replace input elec mix in copied storage activities
             excs=[exc for exc in act_storage_copy.exchanges()]
             for exc in excs:
-                if exc.input["name"]=="market for electricity, high voltage, FE2050":
+                if exc.input["name"]==french_mix["name"]:
                     exc.input=french_mix_copy
                     exc.save()
         #Replace by copied storage activities in French mix                
@@ -560,98 +452,124 @@ for db in selected_db_list:
             #Replace the import activity by the French production mix from direct elec (without : grid,losses,imports,storage)
             #Save the import amount as act["import"]
         
-        import_mix=[act for act in db_import if act["name"]=='market group for electricity, high voltage' and act["location"]=="RER"][0]
+        import_prod=[act for act in db_import if act["name"]=='market group for electricity, high voltage' and act["location"]=="RER"][0]
     
         for exc in excs_elec:
-            if exc.input["name"]=='market group for electricity, high voltage':
+            if exc.input["name"]=="market for electricity production, direct production, high voltage, FE2050":
                 #french_mix_copy["import"]=exc["amount"]
                 #french_mix_copy.save()
-                exc.input=import_mix
+                exc.input=import_prod
                 exc.save()
+
+
+                #create import market (with losses and grid)
+        import_mix=db.search("market for electricity, from import, FE2050")[0]
+        import_mix_copy = agb.copyActivity(
+            db_name=db.name,                   # Database where the new activity is copied
+            activity = import_mix,             # initial activity
+            code="market for electricity, from import, FE2050"+add_to_act_name
+        )
+        excs_import=[exc for exc in import_mix_copy.exchanges()]
+        #Change the input elec
+        for exc in excs_import:
+            if exc.input["name"]=="market for electricity production, direct production, high voltage, FE2050":
+                exc.input=import_prod
+                exc.save()
+
 ```
 
 # Impact 1 kWh of electricity
 
 
-## `🔧` activity, impact category
+## `🔧` database, impact category, activities
+
+```python
+premise_db_list
+```
 
 ```python
 #selected_db_list=premise_db_list
-selected_db_list=[premise_db_list[1]]+[premise_db_list[2]]+[premise_db_list[3]]
+selected_db_list=[db for db in premise_db_list if 'N03' in db.name and 'SSP2-RCP45' in db.name]+[db for db in premise_db_list if 'N1' in db.name and 'SSP2-RCP45' in db.name]+[db for db in premise_db_list if 'M0' in db.name and 'SSP2-RCP45' in db.name]
 
-#impact_cat=land
-impact_cat=climate
-#climate, acidification, land, ionising_rad,metals_minerals,non_renew_energy]
-
+impact_cat_list=[climate]#,metals_minerals,land,ionising_rad]
+#impact_cat=climate
 
 act_name_list=[
-    #"market group for electricity, high voltage", ####RER
     "market for electricity, high voltage, FE2050",
-    #"market for electricity, high voltage, with French market as import mix, FE2050",
     #"market for electricity, high voltage, FE2050"+", with European market "+db_import.model+'-'+db_import.SSP+'-'+db_import.RCP+" as import mix",
-    #"market for electricity, from direct French production, FE2050",
+    "market for electricity, from direct French production, FE2050",
     #market for electricity production, direct production, high voltage, FE2050",
     #"market for electricity, from storage, FE2050",
     #"market for electricity, from import, FE2050",
     #"market for electricity production, high voltage, with French market as import mix, FE2050"
 ]
-
-
-
+selected_db_list
 ```
 
 ## Run
 
 ```python
-df=pd.DataFrame([],columns=['db_name','model','SSP','RCP','FR scenario','year','warning','act','impact','unit'])
-#unit_impact = bw2data.Method(impact_cat).metadata["unit"]
-unit_impact = "kg CO2-Eq"
+    #Generate a list of impact and 'unit' and a list of impacts
+    impact_unit_list=[]
+    impact_list=[]
+    for tuple1 in impact_cat_list:
+        impact_unit_list.append(tuple1[1])
+        impact_unit_list.append('unit')
+        impact_list.append(tuple1[1])
 
-unit=unit_impact
+    #initialise the dataframe
+    df=pd.DataFrame([],columns=['db_name','model','SSP','RCP','FR scenario','year','warning','act']+impact_unit_list )
+    #df=pd.DataFrame([],columns=['db_name','model','SSP','RCP','FR scenario','year','warning','act','score','unit'])#+impact_unit_list )
+    
+    for db in selected_db_list:    
+        for act_name in act_name_list:
+            #act=db.search(act_name)[0]
+            act=[act for act in db if act["name"]==act_name and act["location"]=="FR"][0]
+            score_unit_list=[]
+            
+            for impact_cat in impact_cat_list:
+                unit_impact = bw2data.Method(impact_cat).metadata["unit"]
+                unit=unit_impact
+                lca = act.lca(method=impact_cat, amount=1)
+                score = lca.score
+                #print(score,unit)
 
-for db in selected_db_list:    
-    for act_name in act_name_list:
-        #act=db.search(act_name)[0]
-        act=[act for act in db if act["name"]==act_name and act["location"]=="FR"][0]
-        lca = act.lca(method=impact_cat, amount=1)
-        score = lca.score
-        #Rescale in gCO2 instead of kgCO2 for climate change
-        if unit_impact == "kg CO2-Eq":
-            score=1000*score
-            unit="g CO2-Eq"
-        #Store data
-        df.loc[len(df.index)] = [db.name,db.model, db.SSP, db.RCP,db.FR_scenario,db.year,db.warning,act["name"],score,unit]
+            #Rescale in gCO2 instead of kgCO2 for climate change
+                if unit_impact == "kg CO2-Eq":
+                    score=1000*score
+                    unit="g CO2-Eq"
+                #print(score,unit)
+                score_unit_list.append(score)
+                score_unit_list.append(unit)
+            #Store data
+            df.loc[len(df.index)] = [db.name,db.model, db.SSP, db.RCP,db.FR_scenario,db.year,db.warning,act["name"]]+score_unit_list
+            #df.loc[len(df.index)] = [db.name,db.model, db.SSP, db.RCP,db.FR_scenario,db.year,db.warning,act["name"],score,unit]#+score_unit_list
+```
+
+```python
+df
 ```
 
 ```python editable=true slideshow={"slide_type": ""}
-df_elec_1=df.style.background_gradient(cmap='Reds',subset='impact')
+df_elec_1=df.style.background_gradient(cmap='Reds',subset=impact_list)
 df_elec_1
 ```
 
 # Aggregated contribution analysis
 
 
-## `🔧` activity, impact category
+## `🔧` databases, impact category
 
 ```python
-selected_db_list=[premise_db_list[2]]
 impact_cat=climate
 #impact_cat=climate_premise
-calc_with_french_imports="yes" #"no"
-```
 
-```python
-act_name_list=[
-    "market for electricity, high voltage, FE2050",
-    "market for electricity, from direct French production, FE2050",
-    "market for electricity, from storage, FE2050",
-    "market for electricity, from import, FE2050",
-]
-
-    #"market for electricity, from direct production and import, FE2050",
-    #"market for electricity production, direct production, high voltage, FE2050",
-    #"market for electricity production, storage production, FE2050",
-    #"market for electricity production, import, FE2050"
+#if I want to calculate in addition, impacts of markets with imports from european mix generated with the same IAM
+with_EUR_imports="no"
+##if I want to calculate in addition, impacts markets with imports from sev european mix taken from other IAM
+with_EUR_imports_severals="no" 
+#db_import_list is the list from where imports come from with_EUR_imports_severals="yes"
+db_import_list_severals=[premise_db_list[0]]+[premise_db_list[1]]+[premise_db_list[2]] 
 ```
 
 ## Run
@@ -660,6 +578,13 @@ act_name_list=[
 list_df_ca_aggreg=[]
 unit_impact = bw2data.Method(impact_cat).metadata["unit"]
 unit=unit_impact
+
+act_name_list=[
+    "market for electricity, high voltage, FE2050",
+    "market for electricity, from direct French production, FE2050",
+    "market for electricity, from storage, FE2050",
+    "market for electricity, from import, FE2050",
+]
 
 for db in selected_db_list:  
     df=pd.DataFrame([],columns=['db_name','model','SSP','RCP','FR scenario','year','warning','act','amount (kWh)','contribution to impact','unit'])    
@@ -679,9 +604,9 @@ for db in selected_db_list:
             amount_import = exc["amount"]+amount_import
     
     # Safety Check 
-    if exc.input["name"] not in direct_elec_prod_act_names + storage_act_names+import_act_name+[act["name"]]:
-        if "transmission" not in exc.input["name"] and "Ozone" not in exc.input["name"] and "Dinitrogen"not in exc.input["name"]:
-            print("warning: exchange", exc.input["name"], "forgotten")
+        if exc.input["name"] not in direct_elec_prod_act_names + storage_act_names+import_act_name+[act["name"]]:
+            if "transmission" not in exc.input["name"] and "Ozone" not in exc.input["name"] and "Dinitrogen"not in exc.input["name"]:
+                print("warning: exchange", exc.input["name"], "forgotten")
             
     #Impact of each mix (total, from direct production, from storage, from import)
     for act_name in act_name_list:
@@ -708,39 +633,13 @@ for db in selected_db_list:
         #export to dataframe
         df.loc[len(df.index)] = [db.name,db.model, db.SSP,db.RCP,db.FR_scenario,db.year,db.warning,act["name"],amount,score,unit]
 
-    #Redo the calculation when imports=French market
-    if calc_with_french_imports=="yes":
-        #score consumption mix 
-        act=db.search("market for electricity, high voltage, with French market as import mix, FE2050")[0]
-        lca = act.lca(method=impact_cat, amount=1)
-        score_0 = lca.score
-        if unit_impact == "kg CO2-Eq":
-            score_0=1000*score_0
-        #score direct production mix is the same as with European imports
-        score_1=df['contribution to impact'].iloc[1]
-        #score imports = amount imports * consumption mix from direct production
-        act=db.search("market for electricity, from direct electricity production, FE2050")[0]
-        lca = act.lca(method=impact_cat, amount=amount_import)
-        score_3 = lca.score
-        if unit_impact == "kg CO2-Eq":
-            score_3=1000*score_3
-        #score storage is the rest
-        score_2=score_0-score_1-score_3
-
-        df["contribution to impacts with French imports"]=[score_0,score_1,score_2,score_3]
-        
-    #For each db in the selected list add the dataframe to the list of dataframes
-    list_df_ca_aggreg.append(df)
-```
-
-```python
-for df in list_df_ca_aggreg: 
+    #Calculation for mix with French imports
     total = df['contribution to impact'].iloc[1:].sum()            
-#Add columns to calculate the contribution to impacts (percentage)
+    #Add columns to calculate the contribution to impacts (percentage)
     df['percentage contribution']=df['contribution to impact']/total*100
-#Absolute impact/kWh
+    #Absolute impact/kWh
     df["impact/kWh (absolute)"]=df["contribution to impact"]/df["amount (kWh)"]
-#add label and color for plots
+    #add label and color for plots
     df['label']=['consumption mix','from direct electricity production','from storage','from imports']
     df['color']=['orange','deepskyblue','royalblue','midnightblue']
 
@@ -751,7 +650,50 @@ for df in list_df_ca_aggreg:
     if (total-df['contribution to impact'].iloc[0])>1e-4:
         print("error in impact")
         print(total,df['contribution to impact'].iloc[0])
+
+    #Redo the calculation when imports from other EUR market
+    if with_EUR_imports=="yes":
+        db_import_list=[db] #if I just want to create a database with self eur import 
+        if with_EUR_imports_severals=="yes":
+            db_import_list=db_import_list_severals
+        for db_import in db_import_list:
+            add_to_act_name=", with European market "+db_import.model+'-'+db_import.SSP+'-'+db_import.RCP+" as import mix"
             
+            #score consumption mix 
+            act_elec=db.search("market for electricity, high voltage, FE2050"+add_to_act_name)[0]
+            lca = act_elec.lca(method=impact_cat, amount=1)
+            score_0 = lca.score
+            if unit_impact == "kg CO2-Eq":
+                score_0=1000*score_0
+            
+            #score direct production mix is the same as with French imports
+            score_1=df['contribution to impact'].iloc[1]
+            
+            #score imports
+            import_mix=db.search("market for electricity, from import, FE2050"+add_to_act_name)[0]
+            lca = import_mix.lca(method=impact_cat, amount=amount_import)
+            score_3 = lca.score
+            if unit_impact == "kg CO2-Eq":
+                score_3=1000*score_3
+        
+            #score storage is the rest
+            score_2=score_0-score_1-score_3
+    
+            #Add to dataframe
+            add_to_column_name=" with EUR imports "+db_import.model+'-'+db_import.SSP+'-'+db_import.RCP
+            df["contribution to impact"+add_to_column_name]=[score_0,score_1,score_2,score_3]
+
+            total = df['contribution to impact'+add_to_column_name].iloc[1:].sum()            
+            #Add columns to calculate the contribution to impacts (percentage)
+            df['percentage contribution'+add_to_column_name]=df['contribution to impact'+add_to_column_name]/total*100
+            #Absolute impact/kWh
+            df["impact/kWh (absolute)"+add_to_column_name]=df["contribution to impact"+add_to_column_name]/df["amount (kWh)"]        
+    
+    #For each db in the selected list add the dataframe to the list of dataframes
+    list_df_ca_aggreg.append(df)
+```
+
+```python
 #change decimals
     #for column in ['impact', 'contribution to impact']:
     #    df[column] = df[column].apply(lambda x: '{:.1f}'.format(x))
@@ -764,115 +706,179 @@ for df in list_df_ca_aggreg:
 ```
 
 ```python
-list_df_ca_aggreg[0]
+list_df_ca_aggreg[1]
 ```
+
+# Dissagregate contribution storage
+
+
+## `🔧` databases for efficency
+## `🔧` databases, losses
 
 ```python
+#For efficency : choose a database from same year as all databases from same year have same efficencies
+db=selected_db_list[1]
 
+#For disaggregation
+selected_db_list=selected_db_list
+grid_losses=0.03109
 ```
 
-# for db in selected_db_list: 
+## Storage efficencies 
 
-    act_market_elec= act_storage=db.search("market for electricity, high voltage, FE2050")[0]
-    excs_market_elec=[exc for exc in act_market_elec.exchanges()]
+```python
+        df=pd.DataFrame([],columns=['db_name','model','SSP','RCP','FR scenario','year','warning','act','% efficency','storage losses (kWh)'])
+
+        #french electricity mix
+        french_mix=db.search("market for electricity, high voltage, FE2050")[0]        
+        excs_elec=[exc for exc in french_mix.exchanges()]
     
-    for diki in list_dict_storage:
-        act_storage_name=diki['act_storage_name']
-        act_where_elec_is_stored_name=diki['act_where_elec_is_stored_name']
-        act_elec_stored_name=diki['act_elec_stored_name']
-    
-        #Storage amount
-        exc_amount=0
-        for exc in excs_market_elec:
-            if exc.input["name"]==act_storage_name:
-                exc_amount=exc["amount"]
+        #Storage elec activities with elec input at level 1
+        for act_storage_name in ["electricity production, from vehicle-to-grid, FE2050",'electricity production, hydro, pumped storage, FE2050',"electricity supply, high voltage, from vanadium-redox flow battery system, FE2050"]:
+            act_storage=db.search(act_storage_name)[0]
+  
+            #calculate efficency with input elec mix
+            excs=[exc for exc in act_storage.exchanges()]
+            for exc in excs:
+                if exc.input["name"]=="market for electricity, high voltage, FE2050":
+                    #print(act_storage_name)
+                    #print("{:.2f}".format(exc.amount))
+                    #print("{:.1f}".format(1/exc.amount*100))
+                    df.loc[len(df.index)] = [db.name,db.model, db.SSP, db.RCP, db.FR_scenario,db.year,db.warning,act_storage_name,(1/exc.amount*100),(exc.amount-1)]
 
-        #Store amount in a dataframe
-        df.loc[len(df.index)] = [db.name,db.model, db.SSP, db.RCP,db.FR_scenario,db.year,db.warning,act_storage_name,exc_amount]
-    #For each db in the selected list add the dataframe to the list of dataframes
-    list_df_storage_2.append(df)           
+        #Specific case h2 storage
+        for act_storage_name in ["electricity production, from hydrogen, with gas turbine, for grid-balancing, FE2050"]:
+            #calculate efficency by multiplying flows at different levels
+            #level 1
+            act1=db.search("hydrogen production, gaseous, 30 bar, from PEM electrolysis, from grid electricity, domestic, FE2050")[0] 
+            excs=[exc for exc in act1.exchanges()]
+            for exc in excs:
+                if exc.input["name"]==french_mix["name"]:
+                    a=exc.amount
+                    #print("{:.2f}".format(exc.amount))
+            #Level 2
+            act2=db.search("hydrogen storage, for grid-balancing, FE2050")[0]    
+            excs=[exc for exc in act2.exchanges()]
+            for exc in excs:
+                if exc.input["name"]==act1["name"]:
+                    b=exc.amount
+                    #print("{:.2f}".format(exc.amount))
+            #Level 3
+            act_storage=db.search(act_storage_name)[0]    
+            excs=[exc for exc in act_storage.exchanges()]
+            for exc in excs:
+                if exc.input["name"]==act2["name"]:
+                    c=exc.amount
+                    #print("{:.2f}".format(exc.amount))
+                    #print(act_storage_name)
+                    #print("{:.1f}".format(1/(a*b*c)*100))
+                    df.loc[len(df.index)] = [db.name,db.model, db.SSP, db.RCP, db.FR_scenario,db.year,db.warning,act_storage_name,1/(a*b*c)*100,a*b*c-1]
 
+df_storage_efficency=df
+df_storage_efficency
+```
+
+## Disaggregation of storage
 
 ```python
 list_df_storage=[]
+unit_impact = bw2data.Method(impact_cat).metadata["unit"]
 unit=unit_impact
 
+efficency='NA'
+storage_losses='NA'
+
 for db in selected_db_list: 
-    df=pd.DataFrame([],columns=['db_name','model','SSP','RCP','FR scenario','year','warning','act','elec from storage (1kWh)','storage infrastructure','input elec losses','input elec 1kWh','unit','% storage infrastructure','% input elec losses','% input elec 1kWh','% efficency',"amount in elec market"])    
+    df=pd.DataFrame([],columns=['db_name','model','SSP','RCP','FR scenario','year','warning','act','amount in elec market (kWh)','% efficency','storage losses (kWh)','impact 1kWh prod elec from storage','impact storage infra','impact 1 kWh elec consumption mix','impact 1 kWh elec mix from prod and import','impact grid per kWh','unit'])    
 
+    #French electricity market
     act_market_elec= db.search("market for electricity, high voltage, FE2050")[0]
+    act_market_elec_name=act_market_elec["name"]
+    lca = act_market_elec.lca(method=impact_cat, amount=1)
+    score_elec=lca.score #Total : Electricity from storage score
     excs_market_elec=[exc for exc in act_market_elec.exchanges()]
+
+    #French electricity market
+    act_prod_import_elec= db.search('market for electricity, from direct production and import, FE2050')[0]
+    lca = act_prod_import_elec.lca(method=impact_cat, amount=1)
+    score_prod_import_elec=lca.score #Total : Electricity from storage score
+
+    #French electricity market
+    act_prod_import_elec= db.search('market for electricity, from direct production and import, FE2050')[0]
+    lca = act_prod_import_elec.lca(method=impact_cat, amount=1)
+    score_prod_import_elec=lca.score #Total : Electricity from storage score
+    print(score_prod_import_elec*1000)
     
+    #Electricity has 2 times grid (input elec for storage + output elec when released)
+    act_grid= db.search("high voltage grid, per kWh, FE2050")[0]
+    lca = act_grid.lca(method=impact_cat, amount=1)
+    score_grid=lca.score #Total : Electricity from storage score    
+    score_elec_with_grid=score_elec+score_grid
+
+    if unit_impact == "kg CO2-Eq":
+            score_elec=1000*score_elec
+            score_grid=1000*score_grid
+            unit="g CO2-Eq"
+
+    score_elec_with_grid=score_elec+score_grid
+
     for diki in list_dict_storage:
-        act_storage_name=diki['act_storage_name']
-        act_where_elec_is_stored_name=diki['act_where_elec_is_stored_name']
-        act_elec_stored_name=diki['act_elec_stored_name']
-    
+
         #storage activity to study
-        act_storage=db.search(act_storage_name)[0]
-        #activity that countains the electricity flow to be stored
-        act_where_elec_is_stored=db.search(act_where_elec_is_stored_name)[0]
-        #Elec flow stored
-        act_elec_stored=db.search(act_elec_stored_name)[0]
-
-        #Elec stored
-        lca = act_elec_stored.lca(method=impact_cat, amount=1)
-        score_elec=lca.score #Total : Electricity from storage score
-    
-        #Total : Electricity from storage score
+        act_storage_name=diki['act_storage_name']
+        act_storage=[act for act in db if act["name"]==act_storage_name][0]
+        
+        #Calculate impact
         lca = act_storage.lca(method=impact_cat, amount=1)
-        total=lca.score #Total : Electricity from storage score
-
+        total_elec_from_storage=lca.score
+        
+        #activity that countains the electricity flow to be stored
+        act_where_elec_is_stored_name=diki['act_where_elec_is_stored_name']
+        act_where_elec_is_stored=[act for act in db if act["name"]==act_where_elec_is_stored_name][0]
+        
+        #Elec flow stored 
+        #act_elec_stored=db.search(act_elec_stored_name)[0]       
+        #act_elec_stored_name=diki['act_elec_stored_name']
+        #lca = act_elec_stored.lca(method=impact_cat, amount=1)
+        #score_elec=lca.score #Total : Electricity from storage score
+    
         #Modification of the activity that countains the electricity flow to be stored
         #This flow is turned to zero to model only LCI of infrastructure
         excs=[exc for exc in act_where_elec_is_stored.exchanges()]
         for exc in excs:
-            if exc.input["name"]==act_elec_stored_name:
+            amount=0
+            if exc.input["name"]==act_market_elec_name:
                 amount=exc["amount"]
                 exc["amount"]=0
                 exc.save()
-        #act_where_elec_is_stored.updateExchanges({ act_elec_stored: None})
         lca = act_storage.lca(method=impact_cat, amount=1)
         infra=lca.score #Storage infrastructure score
         
         #Delete modification
         for exc in excs:
-            if exc.input["name"]==act_elec_stored_name:
+            if exc.input["name"]==act_market_elec_name:
                 exc["amount"]=amount
                 exc.save()
-        lca = act_storage.lca(method=impact_cat, amount=1)
-        test=lca.score #test
+        #lca = act_storage.lca(method=impact_cat, amount=1)
+        #test=lca.score #test
+        
         #Test that the database was nos modified
-        if total!=test:
-            print('there is an issue')
-
-        #elec_losses
-        losses=total-infra-score_elec
-
-        #Contrib
-        score_elec_contrib=score_elec/total*100
-        infra_contrib=infra/total*100
-        losses_contrib =losses/total*100
-
-        #Efficency
-        efficency=score_elec/(losses+score_elec)*100
+        #if total_elec_from_storage!=test:
+        #    print('warning you modified your database')
 
         #Conversion for climate change impact
         if unit_impact == "kg CO2-Eq":
-            total =1000*total
+            total_elec_from_storage =1000*total_elec_from_storage
             infra=1000*infra
-            score_elec=1000*score_elec
-            losses=1000*losses
-            unit="g CO2-Eq"
 
-        #Storage amount
+        #Storage amount in electricity mix
         exc_amount=0
         for exc in excs_market_elec:
             if exc.input["name"]==act_storage_name:
                 exc_amount=exc["amount"]
-                
+
         #Store scores in a dataframe
-        df.loc[len(df.index)] = [db.name,db.model, db.SSP, db.RCP, db.FR_scenario,db.year,db.warning,act_storage_name,total,infra,losses,score_elec,unit,infra_contrib,losses_contrib,score_elec_contrib,efficency,exc_amount]
+        df.loc[len(df.index)] = [db.name,db.model, db.SSP, db.RCP, db.FR_scenario,db.year,db.warning,act_storage_name,exc_amount,efficency,storage_losses,total_elec_from_storage,infra,score_elec,score_prod_import_elec,score_grid,unit] 
     #For each db in the selected list add the dataframe to the list of dataframes
     list_df_storage.append(df)           
 
@@ -880,41 +886,172 @@ for db in selected_db_list:
 
 ```python
 for df in list_df_storage:
- #Average % of input elec
-    df['Helper'] = df["amount in elec market"] * df['% input elec 1kWh']
-    df.loc[0,'Weighted average % input elec 1kWh'] = df['Helper'].sum() / df["amount in elec market"].sum()
- #Average efficency
-    df['Helper'] = df["amount in elec market"] * df['% efficency']
-    df.loc[0,'Weighted average efficency'] = df['Helper'].sum() / df["amount in elec market"].sum()
- #Average contrib of storage infra
-    df['Helper'] = df["amount in elec market"] * df['storage infrastructure']
-    df.loc[0,'Weighted average storage infrastructure impact'] = df['Helper'].sum() / df["amount in elec market"].sum()
+    for diki in list_dict_storage:
+        act_storage_name=diki['act_storage_name']
+        df.loc[df['act'] == act_storage_name, '% efficency']=df_storage_efficency.loc[df_storage_efficency['act'] == act_storage_name, '% efficency'].values
+        df.loc[df['act'] == act_storage_name, 'storage losses (kWh)']=df_storage_efficency.loc[df_storage_efficency['act'] == act_storage_name, 'storage losses (kWh)'].values
 ```
 
+### with grid infra allocated to electicity production > ok it works but overestimates impacts from original production
+
 ```python
-#for each database
-for n in range (len(list_df_ca_aggreg)):
-    #Reallocation factor taken from list_df_storage
-    #print(list_df_storage[n].loc[0,['Weighted mean % input elec 1kWh']])
-    realloc=(list_df_storage[n].loc[0,['Weighted mean % input elec 1kWh']]).to_list()[0]/100 #to_list()[0] to convert the serie into a float
-    df=list_df_ca_aggreg[n]
-    #df.loc[1,"realloc contribution to impact"]=df.loc[2,"contribution to impact"]*realloc
+grid_losses_factor=1/(1-grid_losses)
+
+#Calculations
+for df in list_df_storage:
+    #Impact
+    df['impact grid final'] =  grid_losses_factor*df['impact grid per kWh'] 
+    # Reallocate grid to electricity proportionnaly to the amount of electricity
+    df['impact storage infra final'] =  grid_losses_factor*df['impact storage infra']/(1-df['amount in elec market (kWh)'])
+    df['impact storage losses final'] = grid_losses_factor*(df['storage losses (kWh)']*df['impact 1 kWh elec consumption mix'])/(1-df['amount in elec market (kWh)']*df['storage losses (kWh)'])    + df['impact grid final']*df['storage losses (kWh)']/(1+df['storage losses (kWh)'])
+    df['impact original elec final'] = grid_losses_factor*df['impact 1kWh prod elec from storage'] - df['impact storage infra final']  - df['impact storage losses final']          + df['impact grid final']*1
+    df['impact 1kWh elec from storage'] = df['impact storage infra final']+df['impact storage losses final']+df['impact original elec final'] #+ df['impact grid final']+
+    df['unit bis']=df['unit']
+
+    #contribution
+    df['contrib grid']=df['impact grid final']/df['impact 1kWh elec from storage']*100    
+    df['contrib storage infra']=df['impact storage infra final']/df['impact 1kWh elec from storage']*100
+    df['contrib storage losses']=df['impact storage losses final']/df['impact 1kWh elec from storage']*100
+    df['contrib original elec']=df['impact original elec final']/df['impact 1kWh elec from storage']*100
+
+    #Repartition of storage technology in electricity mix
+    df['% amount in elec market'] = df['amount in elec market (kWh)'] / df['amount in elec market (kWh)'].sum()
+```
+
+### with grid infra not allocated > ok but it still overestimates impacts from original elec as electricity losses (due to double ) are accounted for original elec
+
+```python
+grid_losses_factor=1/(1-grid_losses)
+
+#Calculations
+for df in list_df_storage:
+    #Impact
+    df['impact storage infra final'] =  grid_losses_factor*df['impact storage infra']/(1-df['amount in elec market (kWh)'])
+    df['impact storage losses final'] = grid_losses_factor*(df['storage losses (kWh)']*df['impact 1 kWh elec consumption mix'])/(1-df['amount in elec market (kWh)']*df['storage losses (kWh)'])
+    df['impact original elec final'] = grid_losses_factor*df['impact 1kWh prod elec from storage'] - df['impact storage infra final']  - df['impact storage losses final']
+    df['impact grid final'] =  grid_losses_factor*df['impact grid per kWh']
+    df['impact 1kWh elec from storage final'] = df['impact grid final']+df['impact storage infra final']+df['impact storage losses final']+df['impact original elec final']
+    df['unit bis']=df['unit']
+
+    #contribution
+    #df['contrib grid']=df['impact grid final']/df['impact 1kWh elec from storage']*100    
+    #df['contrib storage infra']=df['impact storage infra final']/df['impact 1kWh elec from storage']*100
+    #df['contrib storage losses']=df['impact storage losses final']/df['impact 1kWh elec from storage']*100
+    #df['contrib original elec']=df['impact original elec final']/df['impact 1kWh elec from storage']*100
+
+    #Repartition of storage technology in electricity mix
+    df['% amount in elec market'] = df['amount in elec market (kWh)'] / df['amount in elec market (kWh)'].sum()
+```
+
+### Ok : grid contribution is recalculated by forcing impact of original electricity
+
+```python
+#Calculations
+for df in list_df_storage:
+
+    #Repartition of storage technology in electricity mix
+    df['% amount in elec market'] = df['amount in elec market (kWh)'] / df['amount in elec market (kWh)'].sum()
     
-    #df.loc[1,"realloc contribution to impact"]=df.loc[1,"contribution to impact"]+realloc*df.loc[2,"contribution to impact"]
-    #The share of contribution related to direct production is increased
-    #The share of contribution related to storage is decreased
-    df.loc[0,"realloc contribution to impact"]=df.loc[0,"contribution to impact"]
-    df.loc[1,"realloc contribution to impact"]=df.loc[1,"contribution to impact"]+realloc*df.loc[2,"contribution to impact"]
-    df.loc[2,"realloc contribution to impact"]=df.loc[2,"contribution to impact"]*(1-realloc)
-    df.loc[3,"realloc contribution to impact"]=df.loc[3,"contribution to impact"]
+    #Impact    
+    df['impact storage infra final'] =  grid_losses_factor*df['impact storage infra']/(1-df['amount in elec market (kWh)'])
+    df['impact storage losses final'] = grid_losses_factor*(df['storage losses (kWh)']*df['impact 1 kWh elec consumption mix'])/(1-df['amount in elec market (kWh)']*df['storage losses (kWh)'])
+    df['impact original elec inter'] = grid_losses_factor*df['impact 1kWh prod elec from storage'] - df['impact storage infra final']  - df['impact storage losses final']
+    df['impact grid inter'] =  grid_losses_factor*df['impact grid per kWh']
+    df['impact 1kWh elec from storage inter'] = df['impact grid inter']+df['impact storage infra final']+df['impact storage losses final']+df['impact original elec inter']
+
+    #Recalculation of original elec impacts > reallocation of the difference to the grid
+    df['impact original elec final']= 1*df['impact 1 kWh elec mix from prod and import']
+    df['impact grid final']=df['impact grid inter']+df['impact original elec inter']-df['impact original elec final']
+    df['impact 1kWh elec from storage final'] = df['impact grid final']+df['impact storage infra final']+df['impact storage losses final']+df['impact original elec final']
+    
+    #df['impact original elec final']= 1*df['impact 1 kWh elec mix from prod and import'] 
+    #df['impact grid final']=df['impact grid final']+
+
+    #contribution
+    #df['contrib grid']=df['impact grid final']/df['impact 1kWh elec from storage']*100    
+    #df['contrib storage infra']=df['impact storage infra final']/df['impact 1kWh elec from storage']*100
+    #df['contrib storage losses']=df['impact storage losses final']/df['impact 1kWh elec from storage']*100
+    #df['contrib original elec']=df['impact original elec final']/df['impact 1kWh elec from storage']*100
+
+
+```
+
+### Run
+
+```python
+for df in list_df_storage:
+    #weight the imacts based on the repartition in the electricity market
+    df['Helper'] = df["% amount in elec market"] * df['% efficency']    
+    df.loc[0,'efficency storage mix'] = df['Helper'].sum()    
+    df['Helper'] = df["% amount in elec market"] * df['storage losses (kWh)']    
+    df.loc[0,'storage losses in storage mix'] = df['Helper'].sum()    
+    df['Helper'] = df["% amount in elec market"] * df['impact 1kWh elec from storage final']    
+    df.loc[0,'impact elec from storage mix'] = df['Helper'].sum() #to be compared with storage with from aggregated contribution
+    
+    df['Helper'] = df["% amount in elec market"] * df['impact grid final']       
+    df.loc[0,'impact grid in storage mix'] = df['Helper'].sum()
+    df['Helper'] = df["% amount in elec market"] * df['impact storage infra final']   
+    df.loc[0,'impact storage infra in storage mix'] = df['Helper'].sum()
+    df['Helper'] = df["% amount in elec market"] * df['impact storage losses final']   
+    df.loc[0,'impact storage losses in storage mix'] = df['Helper'].sum()
+    df['Helper'] = df["% amount in elec market"] * df['impact original elec final']   
+    df.loc[0,'impact original elec in storage mix'] = df['Helper'].sum()
+    del df["Helper"]
 ```
 
 ```python
-list_df_ca_aggreg[0].head(4)
+list_df_disaggreg_storage=[]
+for df in list_df_storage:
+    df2=pd.concat([df.iloc[0:1, 0:7],df.iloc[0:1, -12::] ], axis=1) #reajuster les :: pour faire apparaitre les colonnes intéressantes. 
+    list_df_disaggreg_storage.append(df2)           
+df_disaggreg_storage=pd.concat(list_df_disaggreg_storage,axis=0)
+df_disaggreg_storage
 ```
 
 ```python
-list_df_storage[2]
+
+```
+
+```python
+list_df_storage==========list_df_clean
+
+#for df in list_df_storage:
+#    del(df['contrib original elec'])
+
+#for df in list_df_storage:
+#    df=df.rename(columns={"impact 1 kWh input elec without grid" : 'impact 1 kWh elec consumption mix'})
+#list_df_storage[2]=list_df_storage[2].rename(columns={"impact 1 kWh input elec without grid" : 'impact 1 kWh elec consumption mix'})
+#list_df_storage=list_df_storage_2
+```
+
+```python
+dict_color_storage={
+    'impact elec from storage mix':['tot','tot'],
+    'impact original elec in storage mix':['green','impact of 1kWh of electricity if there was no storage'],
+    'impact grid in storage mix':['blue','additional transport in the electricity grid'],
+    'impact storage infra in storage mix':['yellow', 'storage infrastructure'],
+    'impact storage losses in storage mix':['red','storage & release electricity losses'],
+    }
+
+        
+```
+
+```python
+list_df_storage_to_print=[]
+for df in list_df_storage:
+    df2=pd.concat([df.iloc[0:1, 0:7] ], axis=1) #+ unit
+    n=0
+    for i in range (len(dict_color_storage)):
+        df2.loc[i]=df2.iloc[0]
+    for contribution,colorlabel in dict_color_storage.items():
+        df2.loc[n,'what contributes'] = contribution
+        df2.loc[n,'impact'] = df.loc[0,contribution]
+        df2.loc[n,'unit'] = df.loc[0,'unit']
+        df2.loc[n,'color'] = colorlabel[0]
+        df2.loc[n,'label'] = colorlabel[1]
+        n=n+1
+    list_df_storage_to_print.append(df2)
+list_df_storage_to_print[0]
 ```
 
 # Graphs
@@ -933,7 +1070,7 @@ list_df
 #Choose what you want to plot in which order on the graphs
 #rows_to_plot=[5,1,4]
 #rows_to_plot=[0,15,1]+[0,8,1]
-plot_order=[3,2,7,6] #
+plot_order=[0,1,2] #
 
 #Generate the list to plot
 list_df_to_plot= []
@@ -977,7 +1114,7 @@ for df in list_df_to_plot:
 
     label_bar_number.append(a)
     #list of bar label
-    label_bar.append(df['model'].iloc[0]+', '+ df['SSP']+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
+    label_bar.append(df['model'].iloc[0]+', '+ df['SSP'].iloc[0]+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
 
 
 # add labels with bar_label
@@ -1035,7 +1172,7 @@ for df in list_df_to_plot:
     #list of bar number
     label_bar_number.append(a)
     #list of bar label
-    label_bar.append(df['model'].iloc[0]+', '+ df['SSP']+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
+    label_bar.append(df['model'].iloc[0]+', '+ df['SSP'].iloc[0]+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
 
 
 # add labels with bar_label
@@ -1088,7 +1225,7 @@ def plot_bar_graph_amount(list_df_to_plot, column, rows=[1,2,3], figsize=(5, 5))
         #list of bar number
         label_bar_number.append(a)
         #list of bar label
-        label_bar.append(df['model'].iloc[0]+', '+ df['SSP']+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
+        label_bar.append(df['model'].iloc[0]+', '+ df['SSP'].iloc[0]+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
         base=0
         for row in rows:
             ax.bar(a, df[column].iloc[row], bottom=base, color=df['color'].iloc[row], label=df['label'].iloc[row])
@@ -1131,14 +1268,14 @@ def plot_bar_graph_contrib(list_df_to_plot, column, rows=[1,2,3], figsize=(10, 6
         #list of bar number
         label_bar_number.append(a)
         #list of bar label
-        label_bar.append(df['model'].iloc[0]+', '+ df['SSP']+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
+        label_bar.append(df['model'].iloc[0]+', '+ df['SSP'].iloc[0]+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
         #Plot contributions
         base=0
         for row in rows:
             ax.bar(a, df[column].iloc[row], bottom=base, color=df['color'].iloc[row], label=df['label'].iloc[row])
             base=base+df[column].iloc[row]
         #Plot production mix
-        ax.plot(a, df['impact/kWh (absolute)'].iloc[1], color='coral', label='1kWh - production mix', marker = 'o')
+        #ax.plot(a, df['impact/kWh (absolute)'].iloc[1], color='coral', label='1kWh - production mix', marker = 'o')
         #Add value
         ax.annotate(
             text = f'{round(df[column].iloc[0])}',
@@ -1166,7 +1303,11 @@ plot_bar_graph_contrib(list_df_to_plot=list_df_to_plot, column='contribution to 
 ```
 
 ```python
-plot_bar_graph_contrib(list_df_to_plot=list_df_to_plot, column='realloc contribution to impact') #title, figsize
+list_df_storage_to_print[2]
+```
+
+```python
+plot_bar_graph_contrib(list_df_to_plot=list_df_storage_to_print, rows=[1,2,3,4],column='impact') #title, figsize
 ```
 
 ```python
@@ -1198,7 +1339,7 @@ for df in list_df_to_plot:
     #list of bar number
     label_bar_number.append(a)
     #list of bar label
-    label_bar.append(df['model'].iloc[0]+', '+ df['SSP']+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
+    label_bar.append(df['model'].iloc[0]+', '+ df['SSP'].iloc[0]+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
 
 
 # add labels with bar_label
@@ -1226,7 +1367,7 @@ plt.savefig('image-mixes comparison.png')
 elec_act_name="market for electricity, high voltage, FE2050"
 elec_act_unit='kilowatt hour'
 impact_cat=climate
-selected_db_list=selected_db_list #premise_db_list
+selected_db_list=premise_db_list #premise_db_list
 ```
 
 ```python
@@ -1345,11 +1486,6 @@ for df in list_df_ca:
 ```
 
 ```python
-list_df_ca[3]
-    
-```
-
-```python
 #Fonction to plot aggregated contribution
 def plot_bar_graph_disagreg_contrib(list_df_to_plot, column, figsize=(10, 6)):
     """Plot contribution"""
@@ -1368,7 +1504,8 @@ def plot_bar_graph_disagreg_contrib(list_df_to_plot, column, figsize=(10, 6)):
         #list of bar number
         label_bar_number.append(a)
         #list of bar label
-        label_bar.append(df['model'].iloc[0]+', '+ df['SSP']+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
+        label_bar.append(df['model'].iloc[0]+', '+ df['SSP'].iloc[0]+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
+        
         #Plot contributions
         base=0
         for row in rows:
@@ -1396,6 +1533,7 @@ def plot_bar_graph_disagreg_contrib(list_df_to_plot, column, figsize=(10, 6)):
     plt.tight_layout()
     #plt.show()    
     plt.savefig('image-contrib to impact disaggreg.png')
+
 ```
 
 ```python
@@ -1453,7 +1591,7 @@ export_data_to_excel(list_df_to_export,xlsx_file_name)
 
 ```
 
-<!-- #region editable=true slideshow={"slide_type": ""} jp-MarkdownHeadingCollapsed=true -->
+<!-- #region editable=true slideshow={"slide_type": ""} -->
 # OLD
 <!-- #endregion -->
 
@@ -1878,12 +2016,12 @@ agb.printAct(french_mix,french_mix_copy)
 # Excel Export
 
 ```python editable=true slideshow={"slide_type": ""}
-xlsx_file_name="export-test-07.xlsx"
+xlsx_file_name="export-elec-several impact cat-2.xlsx"
 
 list_df_to_export=[
-    ["elec 1 kWh", df_elec_1],
-    ["contrib an. aggreg"] + list_df_ca_aggreg,
-    ["contrib an. detail"] + list_df_ca,
+    ["elec 1 kWh", df],
+    #["contrib an. aggreg"] + list_df_ca_aggreg,
+    #["contrib an. detail"] + list_df_ca,
 ]
 
 export_data_to_excel(list_df_to_export,xlsx_file_name)
@@ -1901,10 +2039,10 @@ export_data_to_excel(list_df_to_export,xlsx_file_name)
 ```
 
 ```python
-xlsx_file_name="export-test-05.xlsx"
+xlsx_file_name="export-storage.xlsx"
 
 list_df_to_export=[
-    ["elec 1 kWh", df_elec_1],
+    ["storage",df_disaggreg_storage] #, df_elec_2, df_elec_3, df_elec_4, df_elec_5, df_elec_6],
 ]
 
 export_data_to_excel(list_df_to_export,xlsx_file_name)
