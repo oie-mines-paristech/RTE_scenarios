@@ -797,9 +797,9 @@ markets:
       - fuel_oil
       - coal
       - hydro_pumped_storage
-      - hydrogen
       - vehicle_to_grid
       - battery
+      - hydrogen
       - import
 
     add:
@@ -899,9 +899,10 @@ markets:
     unit: kilowatt hour
     includes:
       - hydro_pumped_storage
-      - hydrogen
       - vehicle_to_grid
       - battery
+      - hydrogen
+
 
     add:
 
@@ -1022,9 +1023,9 @@ markets:
     unit: kilowatt hour
     includes:
       - hydro_pumped_storage
-      - hydrogen
       - vehicle_to_grid
       - battery
+      - hydrogen
 
   - name: market for electricity production, import, FE2050
     reference product: electricity, high voltage
