@@ -81,10 +81,12 @@ Additionally, a pdf document called "supplementary information" presents the met
 How to use this notebook ?
 ------------------
 * 0. Prerequisites: ecoinvent licence for ecoinvent 3.10 database
+     
 * 1. Install the environment as explained [`here`](https://github.com/polca/premise?tab=readme-ov-file#how-to-install-this-package).
-  Use premise version => 2.2.6. 
-  The authors tested the version of premise compatible with brightway2 but not with brightway 2.5. If you test it with bw2.5, let us know how it worked.
-* 2. Create a brightway project and load ecoinvent database in the project. It can be done using [`ecoinvent_interface`](https://github.com/brightway-lca/ecoinvent_interface).
+  Use **premise version => 2.3.1**. 
+  The authors tested the version of premise compatible with brightway2 but not the one compatible with brightway 2.5. If you test it with bw2.5, please let us know how it worked.
+
+* 2. Create a brightway project and load ecoinvent 3.10 database in the project. It can be done using [`ecoinvent_interface`](https://github.com/brightway-lca/ecoinvent_interface).
 
 * 3. Run the following script for some chosen combinations of Year x IAM model x IAM scenario x French scenario. Here is an example for two French scenarios combined with the same IAM scenario, with ecoinvent 3.10
 * 3. (bis) Or run the file **run-premise-rte.md** provided in this repository.
