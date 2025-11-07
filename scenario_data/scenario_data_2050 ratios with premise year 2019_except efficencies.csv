@@ -1,0 +1,1351 @@
+﻿scenario,region,variables,unit,2019,2050
+Extensive reindustrialization - M0,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,0.9975,0.9975
+Extensive reindustrialization - M0,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,64
+Extensive reindustrialization - M0,FR,Production|Electricity|Low to medium,TWh/year,1,1
+Extensive reindustrialization - M0,FR,Production|Electricity|Medium to high,TWh/year,1,1
+Extensive reindustrialization - M0,FR,Production|Electricity|Import,TWh/year,43.43347193,43.43347193
+Extensive reindustrialization - M0,FR,Consumption|Electricity|Export,TWh/year,56.13347193,56.13347193
+Extensive reindustrialization - M0,FR,Production|Electricity|Total without production from flexibility,TWh/year,835.8,835.8
+Extensive reindustrialization - M0,FR,Production|Electricity|Conventional|Coal,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Electricity|Conventional|Fuel oil,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Electricity|Conventional|Natural gas,TWh/year,0.466419316,0.466419316
+Extensive reindustrialization - M0,FR,Production|Electricity|Conventional|Waste,TWh/year,1.679109536,1.679109536
+Extensive reindustrialization - M0,FR,Production|Electricity|Hydro|Reservoir,TWh/year,9.373162568,9.373162568
+Extensive reindustrialization - M0,FR,Production|Electricity|Run-of-river hydro,TWh/year,49.20910348,49.20910348
+Extensive reindustrialization - M0,FR,Production|Electricity|Nuclear|Evolutionary Power Reactor,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Electricity|Nuclear|Pressure water reactor,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Electricity|Nuclear|Small Modular Reactor,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Electricity|Renewable|Biomass,TWh/year,9.141818587,9.141818587
+Extensive reindustrialization - M0,FR,Production|Electricity|Renewable|Photovoltaic,TWh/year,277.7060605,277.7060605
+Extensive reindustrialization - M0,FR,Production|Electricity|Renewable|Sea,TWh/year,8.115696093,8.115696093
+Extensive reindustrialization - M0,FR,Production|Electricity|Renewable|Wind turbines|Offshore,TWh/year,257.65003,257.65003
+Extensive reindustrialization - M0,FR,Production|Electricity|Renewable|Wind turbines|Onshore,TWh/year,166.325128,166.325128
+Extensive reindustrialization - M0,FR,Production|Electricity|Storage|Hydro|Pumped storage,TWh/year,17.4,17.4
+Extensive reindustrialization - M0,FR,Production|Electricity|Storage|Hydrogen,TWh/year,17,17
+Extensive reindustrialization - M0,FR,Production|Gaseous fuel|Biomethane,%,100,100
+Extensive reindustrialization - M0,FR,Production|Gaseous fuel|CNG,%,0,0
+Extensive reindustrialization - M0,FR,Production|Gaseous fuel|LNG,%,0,0
+Extensive reindustrialization - M0,FR,Production|Gaseous fuel|Low to high,%,1,1
+Extensive reindustrialization - M0,FR,Production|Liquid fuel|Diesel|Biodiesel,%,100,100
+Extensive reindustrialization - M0,FR,Production|Liquid fuel|Diesel|Diesel,%,0,0
+Extensive reindustrialization - M0,FR,Production|Liquid fuel|Petrol|Bioethanol,%,100,100
+Extensive reindustrialization - M0,FR,Production|Liquid fuel|Petrol|Petrol,%,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0.9,0.9
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,1.9,1.9
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,4.9,4.9
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.5,0.5
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,1,1
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,5,5
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0.3,0.3
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,0.9975,0.9975
+Extensive reindustrialization - M1,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,64
+Extensive reindustrialization - M1,FR,Production|Electricity|Low to medium,TWh/year,1,1
+Extensive reindustrialization - M1,FR,Production|Electricity|Medium to high,TWh/year,1,1
+Extensive reindustrialization - M1,FR,Production|Electricity|Import,TWh/year,37.36904145,37.36904145
+Extensive reindustrialization - M1,FR,Consumption|Electricity|Export,TWh/year,58.06904145,58.06904145
+Extensive reindustrialization - M1,FR,Production|Electricity|Total without production from flexibility,TWh/year,821.4,821.4
+Extensive reindustrialization - M1,FR,Production|Electricity|Conventional|Coal,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Electricity|Conventional|Fuel oil,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Electricity|Conventional|Natural gas,TWh/year,0.464652397,0.464652397
+Extensive reindustrialization - M1,FR,Production|Electricity|Conventional|Waste,TWh/year,1.672748631,1.672748631
+Extensive reindustrialization - M1,FR,Production|Electricity|Hydro|Reservoir,TWh/year,9.337654579,9.337654579
+Extensive reindustrialization - M1,FR,Production|Electricity|Run-of-river hydro,TWh/year,49.02268654,49.02268654
+Extensive reindustrialization - M1,FR,Production|Electricity|Nuclear|Evolutionary Power Reactor,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Electricity|Nuclear|Pressure water reactor,TWh/year,84.00915346,84.00915346
+Extensive reindustrialization - M1,FR,Production|Electricity|Nuclear|Small Modular Reactor,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Electricity|Renewable|Biomass,TWh/year,9.10718699,9.10718699
+Extensive reindustrialization - M1,FR,Production|Electricity|Renewable|Photovoltaic,TWh/year,284.4601977,284.4601977
+Extensive reindustrialization - M1,FR,Production|Electricity|Renewable|Sea,TWh/year,2.694983905,2.694983905
+Extensive reindustrialization - M1,FR,Production|Electricity|Renewable|Wind turbines|Offshore,TWh/year,193.3883278,193.3883278
+Extensive reindustrialization - M1,FR,Production|Electricity|Renewable|Wind turbines|Onshore,TWh/year,129.1733665,129.1733665
+Extensive reindustrialization - M1,FR,Production|Electricity|Storage|Hydro|Pumped storage,TWh/year,16.8,16.8
+Extensive reindustrialization - M1,FR,Production|Electricity|Storage|Hydrogen,TWh/year,11.4,11.4
+Extensive reindustrialization - M1,FR,Production|Gaseous fuel|Biomethane,%,100,100
+Extensive reindustrialization - M1,FR,Production|Gaseous fuel|CNG,%,0,0
+Extensive reindustrialization - M1,FR,Production|Gaseous fuel|LNG,%,0,0
+Extensive reindustrialization - M1,FR,Production|Gaseous fuel|Low to high,%,1,1
+Extensive reindustrialization - M1,FR,Production|Liquid fuel|Diesel|Biodiesel,%,100,100
+Extensive reindustrialization - M1,FR,Production|Liquid fuel|Diesel|Diesel,%,0,0
+Extensive reindustrialization - M1,FR,Production|Liquid fuel|Petrol|Bioethanol,%,100,100
+Extensive reindustrialization - M1,FR,Production|Liquid fuel|Petrol|Petrol,%,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0.9,0.9
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,1.9,1.9
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,4.9,4.9
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.5,0.5
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,1,1
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,5,5
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0.3,0.3
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,0.9975,0.9975
+Extensive reindustrialization - M23,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,64
+Extensive reindustrialization - M23,FR,Production|Electricity|Low to medium,TWh/year,1,1
+Extensive reindustrialization - M23,FR,Production|Electricity|Medium to high,TWh/year,1,1
+Extensive reindustrialization - M23,FR,Production|Electricity|Import,TWh/year,30.72025932,30.72025932
+Extensive reindustrialization - M23,FR,Consumption|Electricity|Export,TWh/year,47.92025932,47.92025932
+Extensive reindustrialization - M23,FR,Production|Electricity|Total without production from flexibility,TWh/year,804.6,804.6
+Extensive reindustrialization - M23,FR,Production|Electricity|Conventional|Coal,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Electricity|Conventional|Fuel oil,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Electricity|Conventional|Natural gas,TWh/year,0.470221067,0.470221067
+Extensive reindustrialization - M23,FR,Production|Electricity|Conventional|Waste,TWh/year,1.69279584,1.69279584
+Extensive reindustrialization - M23,FR,Production|Electricity|Hydro|Reservoir,TWh/year,9.434515484,9.434515484
+Extensive reindustrialization - M23,FR,Production|Electricity|Run-of-river hydro,TWh/year,49.53120629,49.53120629
+Extensive reindustrialization - M23,FR,Production|Electricity|Nuclear|Evolutionary Power Reactor,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Electricity|Nuclear|Pressure water reactor,TWh/year,85.01596888,85.01596888
+Extensive reindustrialization - M23,FR,Production|Electricity|Nuclear|Small Modular Reactor,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Electricity|Renewable|Biomass,TWh/year,9.216332909,9.216332909
+Extensive reindustrialization - M23,FR,Production|Electricity|Renewable|Photovoltaic,TWh/year,171.3485567,171.3485567
+Extensive reindustrialization - M23,FR,Production|Electricity|Renewable|Sea,TWh/year,8.181846562,8.181846562
+Extensive reindustrialization - M23,FR,Production|Electricity|Renewable|Wind turbines|Offshore,TWh/year,259.8441615,259.8441615
+Extensive reindustrialization - M23,FR,Production|Electricity|Renewable|Wind turbines|Onshore,TWh/year,161.9441354,161.9441354
+Extensive reindustrialization - M23,FR,Production|Electricity|Storage|Hydro|Pumped storage,TWh/year,15.8,15.8
+Extensive reindustrialization - M23,FR,Production|Electricity|Storage|Hydrogen,TWh/year,10,10
+Extensive reindustrialization - M23,FR,Production|Gaseous fuel|Biomethane,%,100,100
+Extensive reindustrialization - M23,FR,Production|Gaseous fuel|CNG,%,0,0
+Extensive reindustrialization - M23,FR,Production|Gaseous fuel|LNG,%,0,0
+Extensive reindustrialization - M23,FR,Production|Gaseous fuel|Low to high,%,1,1
+Extensive reindustrialization - M23,FR,Production|Liquid fuel|Diesel|Biodiesel,%,100,100
+Extensive reindustrialization - M23,FR,Production|Liquid fuel|Diesel|Diesel,%,0,0
+Extensive reindustrialization - M23,FR,Production|Liquid fuel|Petrol|Bioethanol,%,100,100
+Extensive reindustrialization - M23,FR,Production|Liquid fuel|Petrol|Petrol,%,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0.9,0.9
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,1.9,1.9
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,4.9,4.9
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.5,0.5
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,1,1
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,5,5
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0.3,0.3
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,0.9975,0.9975
+Extensive reindustrialization - N03,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,64
+Extensive reindustrialization - N03,FR,Production|Electricity|Low to medium,TWh/year,1,1
+Extensive reindustrialization - N03,FR,Production|Electricity|Medium to high,TWh/year,1,1
+Extensive reindustrialization - N03,FR,Production|Electricity|Import,TWh/year,23.55480363,23.55480363
+Extensive reindustrialization - N03,FR,Consumption|Electricity|Export,TWh/year,38.35480363,38.35480363
+Extensive reindustrialization - N03,FR,Production|Electricity|Total without production from flexibility,TWh/year,775.2,775.2
+Extensive reindustrialization - N03,FR,Production|Electricity|Conventional|Coal,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Electricity|Conventional|Fuel oil,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Electricity|Conventional|Natural gas,TWh/year,0.38020908,0.38020908
+Extensive reindustrialization - N03,FR,Production|Electricity|Conventional|Waste,TWh/year,1.710940858,1.710940858
+Extensive reindustrialization - N03,FR,Production|Electricity|Hydro|Reservoir,TWh/year,9.535643718,9.535643718
+Extensive reindustrialization - N03,FR,Production|Electricity|Run-of-river hydro,TWh/year,50.06212952,50.06212952
+Extensive reindustrialization - N03,FR,Production|Electricity|Nuclear|Evolutionary Power Reactor,TWh/year,153.2242591,153.2242591
+Extensive reindustrialization - N03,FR,Production|Electricity|Nuclear|Pressure water reactor,TWh/year,140.867464,140.867464
+Extensive reindustrialization - N03,FR,Production|Electricity|Nuclear|Small Modular Reactor,TWh/year,25.47400834,25.47400834
+Extensive reindustrialization - N03,FR,Production|Electricity|Renewable|Biomass,TWh/year,9.315122452,9.315122452
+Extensive reindustrialization - N03,FR,Production|Electricity|Renewable|Photovoltaic,TWh/year,110.925999,110.925999
+Extensive reindustrialization - N03,FR,Production|Electricity|Renewable|Sea,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Electricity|Renewable|Wind turbines|Offshore,TWh/year,132.5979165,132.5979165
+Extensive reindustrialization - N03,FR,Production|Electricity|Renewable|Wind turbines|Onshore,TWh/year,102.7515038,102.7515038
+Extensive reindustrialization - N03,FR,Production|Electricity|Storage|Hydro|Pumped storage,TWh/year,13.1,13.1
+Extensive reindustrialization - N03,FR,Production|Electricity|Storage|Hydrogen,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Gaseous fuel|Biomethane,%,100,100
+Extensive reindustrialization - N03,FR,Production|Gaseous fuel|CNG,%,0,0
+Extensive reindustrialization - N03,FR,Production|Gaseous fuel|LNG,%,0,0
+Extensive reindustrialization - N03,FR,Production|Gaseous fuel|Low to high,%,1,1
+Extensive reindustrialization - N03,FR,Production|Liquid fuel|Diesel|Biodiesel,%,100,100
+Extensive reindustrialization - N03,FR,Production|Liquid fuel|Diesel|Diesel,%,0,0
+Extensive reindustrialization - N03,FR,Production|Liquid fuel|Petrol|Bioethanol,%,100,100
+Extensive reindustrialization - N03,FR,Production|Liquid fuel|Petrol|Petrol,%,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0.9,0.9
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,1.9,1.9
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,4.9,4.9
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.5,0.5
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,1,1
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,5,5
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0.3,0.3
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,0.9975,0.9975
+Extensive reindustrialization - N1,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,64
+Extensive reindustrialization - N1,FR,Production|Electricity|Low to medium,TWh/year,1,1
+Extensive reindustrialization - N1,FR,Production|Electricity|Medium to high,TWh/year,1,1
+Extensive reindustrialization - N1,FR,Production|Electricity|Import,TWh/year,31.97050243,31.97050243
+Extensive reindustrialization - N1,FR,Consumption|Electricity|Export,TWh/year,49.87050243,49.87050243
+Extensive reindustrialization - N1,FR,Production|Electricity|Total without production from flexibility,TWh/year,791.2,791.2
+Extensive reindustrialization - N1,FR,Production|Electricity|Conventional|Coal,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Electricity|Conventional|Fuel oil,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Electricity|Conventional|Natural gas,TWh/year,0.37478741,0.37478741
+Extensive reindustrialization - N1,FR,Production|Electricity|Conventional|Waste,TWh/year,1.686543346,1.686543346
+Extensive reindustrialization - N1,FR,Production|Electricity|Hydro|Reservoir,TWh/year,9.39966825,9.39966825
+Extensive reindustrialization - N1,FR,Production|Electricity|Run-of-river hydro,TWh/year,49.34825831,49.34825831
+Extensive reindustrialization - N1,FR,Production|Electricity|Nuclear|Evolutionary Power Reactor,TWh/year,83.48389564,83.48389564
+Extensive reindustrialization - N1,FR,Production|Electricity|Nuclear|Pressure water reactor,TWh/year,86.10740752,86.10740752
+Extensive reindustrialization - N1,FR,Production|Electricity|Nuclear|Small Modular Reactor,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Electricity|Renewable|Biomass,TWh/year,9.182291552,9.182291552
+Extensive reindustrialization - N1,FR,Production|Electricity|Renewable|Photovoltaic,TWh/year,166.2182165,166.2182165
+Extensive reindustrialization - N1,FR,Production|Electricity|Renewable|Sea,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Electricity|Renewable|Wind turbines|Offshore,TWh/year,204.2591386,204.2591386
+Extensive reindustrialization - N1,FR,Production|Electricity|Renewable|Wind turbines|Onshore,TWh/year,131.2692905,131.2692905
+Extensive reindustrialization - N1,FR,Production|Electricity|Storage|Hydro|Pumped storage,TWh/year,15.1,15.1
+Extensive reindustrialization - N1,FR,Production|Electricity|Storage|Hydrogen,TWh/year,5.7,5.7
+Extensive reindustrialization - N1,FR,Production|Gaseous fuel|Biomethane,%,100,100
+Extensive reindustrialization - N1,FR,Production|Gaseous fuel|CNG,%,0,0
+Extensive reindustrialization - N1,FR,Production|Gaseous fuel|LNG,%,0,0
+Extensive reindustrialization - N1,FR,Production|Gaseous fuel|Low to high,%,1,1
+Extensive reindustrialization - N1,FR,Production|Liquid fuel|Diesel|Biodiesel,%,100,100
+Extensive reindustrialization - N1,FR,Production|Liquid fuel|Diesel|Diesel,%,0,0
+Extensive reindustrialization - N1,FR,Production|Liquid fuel|Petrol|Bioethanol,%,100,100
+Extensive reindustrialization - N1,FR,Production|Liquid fuel|Petrol|Petrol,%,0,0
+Extensive reindustrialization - N2,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,0.9975,0.9975
+Extensive reindustrialization - N2,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,64
+Extensive reindustrialization - N2,FR,Production|Electricity|Low to medium,TWh/year,1,1
+Extensive reindustrialization - N2,FR,Production|Electricity|Medium to high,TWh/year,1,1
+Extensive reindustrialization - N2,FR,Production|Electricity|Import,TWh/year,24.31518072,24.31518072
+Extensive reindustrialization - N2,FR,Production|Electricity|Export,TWh/year,42.31518072,42.31518072
+Extensive reindustrialization - N2,FR,Production|Electricity|Total without production from flexibility,TWh/year,781.4,781.4
+Extensive reindustrialization - N2,FR,Production|Electricity|Conventional|Coal,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Electricity|Conventional|Fuel oil,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Electricity|Conventional|Natural gas,TWh/year,0.378338786,0.378338786
+Extensive reindustrialization - N2,FR,Production|Electricity|Conventional|Waste,TWh/year,1.702524539,1.702524539
+Extensive reindustrialization - N2,FR,Production|Electricity|Hydro|Reservoir,TWh/year,9.488736764,9.488736764
+Extensive reindustrialization - N2,FR,Production|Electricity|Run-of-river hydro,TWh/year,49.81586801,49.81586801
+Extensive reindustrialization - N2,FR,Production|Electricity|Nuclear|Evolutionary Power Reactor,TWh/year,150.2950829,150.2950829
+Extensive reindustrialization - N2,FR,Production|Electricity|Nuclear|Pressure water reactor,TWh/year,87.77459845,87.77459845
+Extensive reindustrialization - N2,FR,Production|Electricity|Nuclear|Small Modular Reactor,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Electricity|Renewable|Biomass,TWh/year,9.269300267,9.269300267
+Extensive reindustrialization - N2,FR,Production|Electricity|Renewable|Photovoltaic,TWh/year,134.0265151,134.0265151
+Extensive reindustrialization - N2,FR,Production|Electricity|Renewable|Sea,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Electricity|Renewable|Wind turbines|Offshore,TWh/year,182.9268032,182.9268032
+Extensive reindustrialization - N2,FR,Production|Electricity|Renewable|Wind turbines|Onshore,TWh/year,113.4070512,113.4070512
+Extensive reindustrialization - N2,FR,Production|Electricity|Storage|Hydro|Pumped storage,TWh/year,13.9,13.9
+Extensive reindustrialization - N2,FR,Production|Electricity|Storage|Hydrogen,TWh/year,1.7,1.7
+Extensive reindustrialization - N2,FR,Production|Gaseous fuel|Biomethane,%,100,100
+Extensive reindustrialization - N2,FR,Production|Gaseous fuel|CNG,%,0,0
+Extensive reindustrialization - N2,FR,Production|Gaseous fuel|LNG,%,0,0
+Extensive reindustrialization - N2,FR,Production|Gaseous fuel|Low to high,%,1,1
+Extensive reindustrialization - N2,FR,Production|Liquid fuel|Diesel|Biodiesel,%,100,100
+Extensive reindustrialization - N2,FR,Production|Liquid fuel|Diesel|Diesel,%,0,0
+Extensive reindustrialization - N2,FR,Production|Liquid fuel|Petrol|Bioethanol,%,100,100
+Extensive reindustrialization - N2,FR,Production|Liquid fuel|Petrol|Petrol,%,0,0
+Reference - M0,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,0.9975,0.9975
+Reference - M0,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,64
+Reference - M0,FR,Production|Electricity|Low to medium,TWh/year,1,1
+Reference - M0,FR,Production|Electricity|Medium to high,TWh/year,1,1
+Reference - M0,FR,Production|Electricity|Import,TWh/year,43.43347193,43.43347193
+Reference - M0,FR,Consumption|Electricity|Export,TWh/year,56.13347193,56.13347193
+Reference - M0,FR,Production|Electricity|Total without production from flexibility,TWh/year,710.9,710.9
+Reference - M0,FR,Production|Electricity|Conventional|Coal,TWh/year,0,0
+Reference - M0,FR,Production|Electricity|Conventional|Fuel oil,TWh/year,0,0
+Reference - M0,FR,Production|Electricity|Conventional|Natural gas,TWh/year,0.460519432,0.460519432
+Reference - M0,FR,Production|Electricity|Conventional|Waste,TWh/year,1.657869954,1.657869954
+Reference - M0,FR,Production|Electricity|Hydro|Reservoir,TWh/year,9.254598501,9.254598501
+Reference - M0,FR,Production|Electricity|Run-of-river hydro,TWh/year,48.58664213,48.58664213
+Reference - M0,FR,Production|Electricity|Nuclear|Evolutionary Power Reactor,TWh/year,0,0
+Reference - M0,FR,Production|Electricity|Nuclear|Pressure water reactor,TWh/year,0,0
+Reference - M0,FR,Production|Electricity|Nuclear|Small Modular Reactor,TWh/year,0,0
+Reference - M0,FR,Production|Electricity|Renewable|Biomass,TWh/year,9.026180862,9.026180862
+Reference - M0,FR,Production|Electricity|Renewable|Photovoltaic,TWh/year,234.4043908,234.4043908
+Reference - M0,FR,Production|Electricity|Renewable|Sea,TWh/year,8.013038113,8.013038113
+Reference - M0,FR,Production|Electricity|Renewable|Wind turbines|Offshore,TWh/year,205.852186,205.852186
+Reference - M0,FR,Production|Electricity|Renewable|Wind turbines|Onshore,TWh/year,137.5111023,137.5111023
+Reference - M0,FR,Production|Electricity|Storage|Hydro|Pumped storage,TWh/year,17,17
+Reference - M0,FR,Production|Electricity|Storage|Hydrogen,TWh/year,16,16
+Reference - M0,FR,Production|Gaseous fuel|Biomethane,%,100,100
+Reference - M0,FR,Production|Gaseous fuel|CNG,%,0,0
+Reference - M0,FR,Production|Gaseous fuel|LNG,%,0,0
+Reference - M0,FR,Production|Gaseous fuel|Low to high,%,1,1
+Reference - M0,FR,Production|Liquid fuel|Diesel|Biodiesel,%,100,100
+Reference - M0,FR,Production|Liquid fuel|Diesel|Diesel,%,0,0
+Reference - M0,FR,Production|Liquid fuel|Petrol|Bioethanol,%,100,100
+Reference - M0,FR,Production|Liquid fuel|Petrol|Petrol,%,0,0
+Reference - M1,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,0.9975,0.9975
+Reference - M1,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,64
+Reference - M1,FR,Production|Electricity|Low to medium,TWh/year,1,1
+Reference - M1,FR,Production|Electricity|Medium to high,TWh/year,1,1
+Reference - M1,FR,Production|Electricity|Import,TWh/year,37.36904145,37.36904145
+Reference - M1,FR,Consumption|Electricity|Export,TWh/year,58.06904145,58.06904145
+Reference - M1,FR,Production|Electricity|Total without production from flexibility,TWh/year,704.5,704.5
+Reference - M1,FR,Production|Electricity|Conventional|Coal,TWh/year,0,0
+Reference - M1,FR,Production|Electricity|Conventional|Fuel oil,TWh/year,0,0
+Reference - M1,FR,Production|Electricity|Conventional|Natural gas,TWh/year,0.458787054,0.458787054
+Reference - M1,FR,Production|Electricity|Conventional|Waste,TWh/year,1.651633393,1.651633393
+Reference - M1,FR,Production|Electricity|Hydro|Reservoir,TWh/year,9.21978463,9.21978463
+Reference - M1,FR,Production|Electricity|Run-of-river hydro,TWh/year,48.40386931,48.40386931
+Reference - M1,FR,Production|Electricity|Nuclear|Evolutionary Power Reactor,TWh/year,0,0
+Reference - M1,FR,Production|Electricity|Nuclear|Pressure water reactor,TWh/year,83.22397153,83.22397153
+Reference - M1,FR,Production|Electricity|Nuclear|Small Modular Reactor,TWh/year,0,0
+Reference - M1,FR,Production|Electricity|Renewable|Biomass,TWh/year,8.992226251,8.992226251
+Reference - M1,FR,Production|Electricity|Renewable|Photovoltaic,TWh/year,233.8896399,233.8896399
+Reference - M1,FR,Production|Electricity|Renewable|Sea,TWh/year,2.660964911,2.660964911
+Reference - M1,FR,Production|Electricity|Renewable|Wind turbines|Offshore,TWh/year,149.014035,149.014035
+Reference - M1,FR,Production|Electricity|Renewable|Wind turbines|Onshore,TWh/year,108.9160465,108.9160465
+Reference - M1,FR,Production|Electricity|Storage|Hydro|Pumped storage,TWh/year,16.7,16.7
+Reference - M1,FR,Production|Electricity|Storage|Hydrogen,TWh/year,10.5,10.5
+Reference - M1,FR,Production|Gaseous fuel|Biomethane,%,100,100
+Reference - M1,FR,Production|Gaseous fuel|CNG,%,0,0
+Reference - M1,FR,Production|Gaseous fuel|LNG,%,0,0
+Reference - M1,FR,Production|Gaseous fuel|Low to high,%,1,1
+Reference - M1,FR,Production|Liquid fuel|Diesel|Biodiesel,%,100,100
+Reference - M1,FR,Production|Liquid fuel|Diesel|Diesel,%,0,0
+Reference - M1,FR,Production|Liquid fuel|Petrol|Bioethanol,%,100,100
+Reference - M1,FR,Production|Liquid fuel|Petrol|Petrol,%,0,0
+Reference - M23,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,0.9975,0.9975
+Reference - M23,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,64
+Reference - M23,FR,Production|Electricity|Low to medium,TWh/year,1,1
+Reference - M23,FR,Production|Electricity|Medium to high,TWh/year,1,1
+Reference - M23,FR,Production|Electricity|Import,TWh/year,30.72025932,30.72025932
+Reference - M23,FR,Consumption|Electricity|Export,TWh/year,47.92025932,47.92025932
+Reference - M23,FR,Production|Electricity|Total without production from flexibility,TWh/year,688.2,688.2
+Reference - M23,FR,Production|Electricity|Conventional|Coal,TWh/year,0,0
+Reference - M23,FR,Production|Electricity|Conventional|Fuel oil,TWh/year,0,0
+Reference - M23,FR,Production|Electricity|Conventional|Natural gas,TWh/year,0.465184351,0.465184351
+Reference - M23,FR,Production|Electricity|Conventional|Waste,TWh/year,1.674663664,1.674663664
+Reference - M23,FR,Production|Electricity|Hydro|Reservoir,TWh/year,9.333458818,9.333458818
+Reference - M23,FR,Production|Electricity|Run-of-river hydro,TWh/year,49.00065879,49.00065879
+Reference - M23,FR,Production|Electricity|Nuclear|Evolutionary Power Reactor,TWh/year,0,0
+Reference - M23,FR,Production|Electricity|Nuclear|Pressure water reactor,TWh/year,84.75658875,84.75658875
+Reference - M23,FR,Production|Electricity|Nuclear|Small Modular Reactor,TWh/year,0,0
+Reference - M23,FR,Production|Electricity|Renewable|Biomass,TWh/year,9.117613279,9.117613279
+Reference - M23,FR,Production|Electricity|Renewable|Photovoltaic,TWh/year,142.3464114,142.3464114
+Reference - M23,FR,Production|Electricity|Renewable|Sea,TWh/year,8.094207707,8.094207707
+Reference - M23,FR,Production|Electricity|Renewable|Wind turbines|Offshore,TWh/year,200.3083815,200.3083815
+Reference - M23,FR,Production|Electricity|Renewable|Wind turbines|Onshore,TWh/year,135.1825724,135.1825724
+Reference - M23,FR,Production|Electricity|Storage|Hydro|Pumped storage,TWh/year,15.5,15.5
+Reference - M23,FR,Production|Electricity|Storage|Hydrogen,TWh/year,8.9,8.9
+Reference - M23,FR,Production|Gaseous fuel|Biomethane,%,100,100
+Reference - M23,FR,Production|Gaseous fuel|CNG,%,0,0
+Reference - M23,FR,Production|Gaseous fuel|LNG,%,0,0
+Reference - M23,FR,Production|Gaseous fuel|Low to high,%,1,1
+Reference - M23,FR,Production|Liquid fuel|Diesel|Biodiesel,%,100,100
+Reference - M23,FR,Production|Liquid fuel|Diesel|Diesel,%,0,0
+Reference - M23,FR,Production|Liquid fuel|Petrol|Bioethanol,%,100,100
+Reference - M23,FR,Production|Liquid fuel|Petrol|Petrol,%,0,0
+Reference - N1,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,0.9975,0.9975
+Reference - N1,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,64
+Reference - N1,FR,Production|Electricity|Low to medium,TWh/year,1,1
+Reference - N1,FR,Production|Electricity|Medium to high,TWh/year,1,1
+Reference - N1,FR,Production|Electricity|Import,TWh/year,31.97050243,31.97050243
+Reference - N1,FR,Consumption|Electricity|Export,TWh/year,49.87050243,49.87050243
+Reference - N1,FR,Production|Electricity|Total without production from flexibility,TWh/year,678.8,678.8
+Reference - N1,FR,Production|Electricity|Conventional|Coal,TWh/year,0,0
+Reference - N1,FR,Production|Electricity|Conventional|Fuel oil,TWh/year,0,0
+Reference - N1,FR,Production|Electricity|Conventional|Natural gas,TWh/year,0.463265688,0.463265688
+Reference - N1,FR,Production|Electricity|Conventional|Waste,TWh/year,1.667756476,1.667756476
+Reference - N1,FR,Production|Electricity|Hydro|Reservoir,TWh/year,9.309787259,9.309787259
+Reference - N1,FR,Production|Electricity|Run-of-river hydro,TWh/year,48.87638311,48.87638311
+Reference - N1,FR,Production|Electricity|Nuclear|Evolutionary Power Reactor,TWh/year,83.01721123,83.01721123
+Reference - N1,FR,Production|Electricity|Nuclear|Pressure water reactor,TWh/year,85.61149908,85.61149908
+Reference - N1,FR,Production|Electricity|Nuclear|Small Modular Reactor,TWh/year,0,0
+Reference - N1,FR,Production|Electricity|Renewable|Biomass,TWh/year,9.080007478,9.080007478
+Reference - N1,FR,Production|Electricity|Renewable|Photovoltaic,TWh/year,133.7911306,133.7911306
+Reference - N1,FR,Production|Electricity|Renewable|Sea,TWh/year,0,0
+Reference - N1,FR,Production|Electricity|Renewable|Wind turbines|Offshore,TWh/year,148.4303263,148.4303263
+Reference - N1,FR,Production|Electricity|Renewable|Wind turbines|Onshore,TWh/year,108.6821303,108.6821303
+Reference - N1,FR,Production|Electricity|Storage|Hydro|Pumped storage,TWh/year,15.1,15.1
+Reference - N1,FR,Production|Electricity|Storage|Hydrogen,TWh/year,5.7,5.7
+Reference - N1,FR,Production|Gaseous fuel|Biomethane,%,100,100
+Reference - N1,FR,Production|Gaseous fuel|CNG,%,0,0
+Reference - N1,FR,Production|Gaseous fuel|LNG,%,0,0
+Reference - N1,FR,Production|Gaseous fuel|Low to high,%,1,1
+Reference - N1,FR,Production|Liquid fuel|Diesel|Biodiesel,%,100,100
+Reference - N1,FR,Production|Liquid fuel|Diesel|Diesel,%,0,0
+Reference - N1,FR,Production|Liquid fuel|Petrol|Bioethanol,%,100,100
+Reference - N1,FR,Production|Liquid fuel|Petrol|Petrol,%,0,0
+Reference - N2,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,0.9975,0.9975
+Reference - N2,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,64
+Reference - N2,FR,Production|Electricity|Low to medium,TWh/year,1,1
+Reference - N2,FR,Production|Electricity|Medium to high,TWh/year,1,1
+Reference - N2,FR,Production|Electricity|Import,TWh/year,24.31518072,24.31518072
+Reference - N2,FR,Consumption|Electricity|Export,TWh/year,42.31518072,42.31518072
+Reference - N2,FR,Production|Electricity|Total without production from flexibility,TWh/year,670.1,670.1
+Reference - N2,FR,Production|Electricity|Conventional|Coal,TWh/year,0,0
+Reference - N2,FR,Production|Electricity|Conventional|Fuel oil,TWh/year,0,0
+Reference - N2,FR,Production|Electricity|Conventional|Natural gas,TWh/year,0.374740976,0.374740976
+Reference - N2,FR,Production|Electricity|Conventional|Waste,TWh/year,1.68633439,1.68633439
+Reference - N2,FR,Production|Electricity|Hydro|Reservoir,TWh/year,9.398503667,9.398503667
+Reference - N2,FR,Production|Electricity|Run-of-river hydro,TWh/year,49.34214425,49.34214425
+Reference - N2,FR,Production|Electricity|Nuclear|Evolutionary Power Reactor,TWh/year,149.2405935,149.2405935
+Reference - N2,FR,Production|Electricity|Nuclear|Pressure water reactor,TWh/year,87.22096206,87.22096206
+Reference - N2,FR,Production|Electricity|Nuclear|Small Modular Reactor,TWh/year,0,0
+Reference - N2,FR,Production|Electricity|Renewable|Biomass,TWh/year,9.181153901,9.181153901
+Reference - N2,FR,Production|Electricity|Renewable|Photovoltaic,TWh/year,103.1474535,103.1474535
+Reference - N2,FR,Production|Electricity|Renewable|Sea,TWh/year,0,0
+Reference - N2,FR,Production|Electricity|Renewable|Wind turbines|Offshore,TWh/year,120.9476499,120.9476499
+Reference - N2,FR,Production|Electricity|Renewable|Wind turbines|Onshore,TWh/year,97.24528315,97.24528315
+Reference - N2,FR,Production|Electricity|Storage|Hydro|Pumped storage,TWh/year,14.2,14.2
+Reference - N2,FR,Production|Electricity|Storage|Hydrogen,TWh/year,1.9,1.9
+Reference - N2,FR,Production|Gaseous fuel|Biomethane,%,100,100
+Reference - N2,FR,Production|Gaseous fuel|CNG,%,0,0
+Reference - N2,FR,Production|Gaseous fuel|LNG,%,0,0
+Reference - N2,FR,Production|Gaseous fuel|Low to high,%,1,1
+Reference - N2,FR,Production|Liquid fuel|Diesel|Biodiesel,%,100,100
+Reference - N2,FR,Production|Liquid fuel|Diesel|Diesel,%,0,0
+Reference - N2,FR,Production|Liquid fuel|Petrol|Bioethanol,%,100,100
+Reference - N2,FR,Production|Liquid fuel|Petrol|Petrol,%,0,0
+Reference - N03,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,0.9975,0.9975
+Reference - N03,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,64
+Reference - N03,FR,Production|Electricity|Low to medium,TWh/year,1,1
+Reference - N03,FR,Production|Electricity|Medium to high,TWh/year,1,1
+Reference - N03,FR,Production|Electricity|Import,TWh/year,23.55480363,23.55480363
+Reference - N03,FR,Consumption|Electricity|Export,TWh/year,38.35480363,38.35480363
+Reference - N03,FR,Production|Electricity|Total without production from flexibility,TWh/year,663.1,663.1
+Reference - N03,FR,Production|Electricity|Conventional|Coal,TWh/year,0,0
+Reference - N03,FR,Production|Electricity|Conventional|Fuel oil,TWh/year,0,0
+Reference - N03,FR,Production|Electricity|Conventional|Natural gas,TWh/year,0,0
+Reference - N03,FR,Production|Electricity|Conventional|Waste,TWh/year,1.695885015,1.695885015
+Reference - N03,FR,Production|Electricity|Hydro|Reservoir,TWh/year,9.451732484,9.451732484
+Reference - N03,FR,Production|Electricity|Run-of-river hydro,TWh/year,49.62159554,49.62159554
+Reference - N03,FR,Production|Electricity|Nuclear|Evolutionary Power Reactor,TWh/year,152.9122989,152.9122989
+Reference - N03,FR,Production|Electricity|Nuclear|Pressure water reactor,TWh/year,140.5700246,140.5700246
+Reference - N03,FR,Production|Electricity|Nuclear|Small Modular Reactor,TWh/year,25.43827523,25.43827523
+Reference - N03,FR,Production|Electricity|Renewable|Biomass,TWh/year,9.233151748,9.233151748
+Reference - N03,FR,Production|Electricity|Renewable|Photovoltaic,TWh/year,80.74296988,80.74296988
+Reference - N03,FR,Production|Electricity|Renewable|Sea,TWh/year,0,0
+Reference - N03,FR,Production|Electricity|Renewable|Wind turbines|Offshore,TWh/year,73.39413482,73.39413482
+Reference - N03,FR,Production|Electricity|Renewable|Wind turbines|Onshore,TWh/year,81.68512822,81.68512822
+Reference - N03,FR,Production|Electricity|Storage|Hydro|Pumped storage,TWh/year,14.2,14.2
+Reference - N03,FR,Production|Electricity|Storage|Hydrogen,TWh/year,0,0
+Reference - N03,FR,Production|Gaseous fuel|Biomethane,%,100,100
+Reference - N03,FR,Production|Gaseous fuel|CNG,%,0,0
+Reference - N03,FR,Production|Gaseous fuel|LNG,%,0,0
+Reference - N03,FR,Production|Gaseous fuel|Low to high,%,1,1
+Reference - N03,FR,Production|Liquid fuel|Diesel|Biodiesel,%,100,100
+Reference - N03,FR,Production|Liquid fuel|Diesel|Diesel,%,0,0
+Reference - N03,FR,Production|Liquid fuel|Petrol|Bioethanol,%,100,100
+Reference - N03,FR,Production|Liquid fuel|Petrol|Petrol,%,0,0
+Sobriety - M0,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,0.9975,0.9975
+Sobriety - M0,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,64
+Sobriety - M0,FR,Production|Electricity|Low to medium,TWh/year,1,1
+Sobriety - M0,FR,Production|Electricity|Medium to high,TWh/year,1,1
+Sobriety - M0,FR,Production|Electricity|Import,TWh/year,43.43347193,43.43347193
+Sobriety - M0,FR,Consumption|Electricity|Export,TWh/year,56.13347193,56.13347193
+Sobriety - M0,FR,Production|Electricity|Total without production from flexibility,TWh/year,617.2,617.2
+Sobriety - M0,FR,Production|Electricity|Conventional|Coal,TWh/year,0,0
+Sobriety - M0,FR,Production|Electricity|Conventional|Fuel oil,TWh/year,0,0
+Sobriety - M0,FR,Production|Electricity|Conventional|Natural gas,TWh/year,0.454525703,0.454525703
+Sobriety - M0,FR,Production|Electricity|Conventional|Waste,TWh/year,1.636292532,1.636292532
+Sobriety - M0,FR,Production|Electricity|Hydro|Reservoir,TWh/year,9.134148532,9.134148532
+Sobriety - M0,FR,Production|Electricity|Run-of-river hydro,TWh/year,47.95427979,47.95427979
+Sobriety - M0,FR,Production|Electricity|Nuclear|Evolutionary Power Reactor,TWh/year,0,0
+Sobriety - M0,FR,Production|Electricity|Nuclear|Pressure water reactor,TWh/year,0,0
+Sobriety - M0,FR,Production|Electricity|Nuclear|Small Modular Reactor,TWh/year,0,0
+Sobriety - M0,FR,Production|Electricity|Renewable|Biomass,TWh/year,8.908703783,8.908703783
+Sobriety - M0,FR,Production|Electricity|Renewable|Photovoltaic,TWh/year,192.627993,192.627993
+Sobriety - M0,FR,Production|Electricity|Renewable|Sea,TWh/year,7.908747236,7.908747236
+Sobriety - M0,FR,Production|Electricity|Renewable|Wind turbines|Offshore,TWh/year,169.2653719,169.2653719
+Sobriety - M0,FR,Production|Electricity|Renewable|Wind turbines|Onshore,TWh/year,123.1764656,123.1764656
+Sobriety - M0,FR,Production|Electricity|Storage|Hydro|Pumped storage,TWh/year,16.3,16.3
+Sobriety - M0,FR,Production|Electricity|Storage|Hydrogen,TWh/year,10.4,10.4
+Sobriety - M0,FR,Production|Gaseous fuel|Biomethane,%,100,100
+Sobriety - M0,FR,Production|Gaseous fuel|CNG,%,0,0
+Sobriety - M0,FR,Production|Gaseous fuel|LNG,%,0,0
+Sobriety - M0,FR,Production|Gaseous fuel|Low to high,%,1,1
+Sobriety - M0,FR,Production|Liquid fuel|Diesel|Biodiesel,%,100,100
+Sobriety - M0,FR,Production|Liquid fuel|Diesel|Diesel,%,0,0
+Sobriety - M0,FR,Production|Liquid fuel|Petrol|Bioethanol,%,100,100
+Sobriety - M0,FR,Production|Liquid fuel|Petrol|Petrol,%,0,0
+Sobriety - M1,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,0.9975,0.9975
+Sobriety - M1,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,64
+Sobriety - M1,FR,Production|Electricity|Low to medium,TWh/year,1,1
+Sobriety - M1,FR,Production|Electricity|Medium to high,TWh/year,1,1
+Sobriety - M1,FR,Production|Electricity|Import,TWh/year,37.36904145,37.36904145
+Sobriety - M1,FR,Consumption|Electricity|Export,TWh/year,58.06904145,58.06904145
+Sobriety - M1,FR,Production|Electricity|Total without production from flexibility,TWh/year,604.9,604.9
+Sobriety - M1,FR,Production|Electricity|Conventional|Coal,TWh/year,0,0
+Sobriety - M1,FR,Production|Electricity|Conventional|Fuel oil,TWh/year,0,0
+Sobriety - M1,FR,Production|Electricity|Conventional|Natural gas,TWh/year,0.452001123,0.452001123
+Sobriety - M1,FR,Production|Electricity|Conventional|Waste,TWh/year,1.627204043,1.627204043
+Sobriety - M1,FR,Production|Electricity|Hydro|Reservoir,TWh/year,9.083414567,9.083414567
+Sobriety - M1,FR,Production|Electricity|Run-of-river hydro,TWh/year,47.68792648,47.68792648
+Sobriety - M1,FR,Production|Electricity|Nuclear|Evolutionary Power Reactor,TWh/year,0,0
+Sobriety - M1,FR,Production|Electricity|Nuclear|Pressure water reactor,TWh/year,83.0778064,83.0778064
+Sobriety - M1,FR,Production|Electricity|Nuclear|Small Modular Reactor,TWh/year,0,0
+Sobriety - M1,FR,Production|Electricity|Renewable|Biomass,TWh/year,8.85922201,8.85922201
+Sobriety - M1,FR,Production|Electricity|Renewable|Photovoltaic,TWh/year,185.2300602,185.2300602
+Sobriety - M1,FR,Production|Electricity|Renewable|Sea,TWh/year,2.621606513,2.621606513
+Sobriety - M1,FR,Production|Electricity|Renewable|Wind turbines|Offshore,TWh/year,113.5426821,113.5426821
+Sobriety - M1,FR,Production|Electricity|Renewable|Wind turbines|Onshore,TWh/year,94.64903515,94.64903515
+Sobriety - M1,FR,Production|Electricity|Storage|Hydro|Pumped storage,TWh/year,15.9,15.9
+Sobriety - M1,FR,Production|Electricity|Storage|Hydrogen,TWh/year,5.8,5.8
+Sobriety - M1,FR,Production|Gaseous fuel|Biomethane,%,100,100
+Sobriety - M1,FR,Production|Gaseous fuel|CNG,%,0,0
+Sobriety - M1,FR,Production|Gaseous fuel|LNG,%,0,0
+Sobriety - M1,FR,Production|Gaseous fuel|Low to high,%,1,1
+Sobriety - M1,FR,Production|Liquid fuel|Diesel|Biodiesel,%,100,100
+Sobriety - M1,FR,Production|Liquid fuel|Diesel|Diesel,%,0,0
+Sobriety - M1,FR,Production|Liquid fuel|Petrol|Bioethanol,%,100,100
+Sobriety - M1,FR,Production|Liquid fuel|Petrol|Petrol,%,0,0
+Sobriety - M23,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,0.9975,0.9975
+Sobriety - M23,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,64
+Sobriety - M23,FR,Production|Electricity|Low to medium,TWh/year,1,1
+Sobriety - M23,FR,Production|Electricity|Medium to high,TWh/year,1,1
+Sobriety - M23,FR,Production|Electricity|Import,TWh/year,30.72025932,30.72025932
+Sobriety - M23,FR,Consumption|Electricity|Export,TWh/year,47.92025932,47.92025932
+Sobriety - M23,FR,Production|Electricity|Total without production from flexibility,TWh/year,597.4,597.4
+Sobriety - M23,FR,Production|Electricity|Conventional|Coal,TWh/year,0,0
+Sobriety - M23,FR,Production|Electricity|Conventional|Fuel oil,TWh/year,0,0
+Sobriety - M23,FR,Production|Electricity|Conventional|Natural gas,TWh/year,0.367914122,0.367914122
+Sobriety - M23,FR,Production|Electricity|Conventional|Waste,TWh/year,1.655613547,1.655613547
+Sobriety - M23,FR,Production|Electricity|Hydro|Reservoir,TWh/year,9.227286171,9.227286171
+Sobriety - M23,FR,Production|Electricity|Run-of-river hydro,TWh/year,48.4432524,48.4432524
+Sobriety - M23,FR,Production|Electricity|Nuclear|Evolutionary Power Reactor,TWh/year,0,0
+Sobriety - M23,FR,Production|Electricity|Nuclear|Pressure water reactor,TWh/year,84.62024798,84.62024798
+Sobriety - M23,FR,Production|Electricity|Nuclear|Small Modular Reactor,TWh/year,0,0
+Sobriety - M23,FR,Production|Electricity|Renewable|Biomass,TWh/year,9.01389598,9.01389598
+Sobriety - M23,FR,Production|Electricity|Renewable|Photovoltaic,TWh/year,114.973163,114.973163
+Sobriety - M23,FR,Production|Electricity|Renewable|Sea,TWh/year,8.002132146,8.002132146
+Sobriety - M23,FR,Production|Electricity|Renewable|Wind turbines|Offshore,TWh/year,156.6394373,156.6394373
+Sobriety - M23,FR,Production|Electricity|Renewable|Wind turbines|Onshore,TWh/year,116.536798,116.536798
+Sobriety - M23,FR,Production|Electricity|Storage|Hydro|Pumped storage,TWh/year,14.6,14.6
+Sobriety - M23,FR,Production|Electricity|Storage|Hydrogen,TWh/year,5,5
+Sobriety - M23,FR,Production|Gaseous fuel|Biomethane,%,100,100
+Sobriety - M23,FR,Production|Gaseous fuel|CNG,%,0,0
+Sobriety - M23,FR,Production|Gaseous fuel|LNG,%,0,0
+Sobriety - M23,FR,Production|Gaseous fuel|Low to high,%,1,1
+Sobriety - M23,FR,Production|Liquid fuel|Diesel|Biodiesel,%,100,100
+Sobriety - M23,FR,Production|Liquid fuel|Diesel|Diesel,%,0,0
+Sobriety - M23,FR,Production|Liquid fuel|Petrol|Bioethanol,%,100,100
+Sobriety - M23,FR,Production|Liquid fuel|Petrol|Petrol,%,0,0
+Sobriety - N03,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,0.9975,0.9975
+Sobriety - N03,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,64
+Sobriety - N03,FR,Production|Electricity|Low to medium,TWh/year,1,1
+Sobriety - N03,FR,Production|Electricity|Medium to high,TWh/year,1,1
+Sobriety - N03,FR,Production|Electricity|Import,TWh/year,23.55480363,23.55480363
+Sobriety - N03,FR,Consumption|Electricity|Export,TWh/year,38.35480363,38.35480363
+Sobriety - N03,FR,Production|Electricity|Total without production from flexibility,TWh/year,582.4,582.4
+Sobriety - N03,FR,Production|Electricity|Conventional|Coal,TWh/year,0,0
+Sobriety - N03,FR,Production|Electricity|Conventional|Fuel oil,TWh/year,0,0
+Sobriety - N03,FR,Production|Electricity|Conventional|Natural gas,TWh/year,0,0
+Sobriety - N03,FR,Production|Electricity|Conventional|Waste,TWh/year,1.681458368,1.681458368
+Sobriety - N03,FR,Production|Electricity|Hydro|Reservoir,TWh/year,9.386274267,9.386274267
+Sobriety - N03,FR,Production|Electricity|Run-of-river hydro,TWh/year,49.2779399,49.2779399
+Sobriety - N03,FR,Production|Electricity|Nuclear|Evolutionary Power Reactor,TWh/year,153.2929545,153.2929545
+Sobriety - N03,FR,Production|Electricity|Nuclear|Pressure water reactor,TWh/year,139.934702,139.934702
+Sobriety - N03,FR,Production|Electricity|Nuclear|Small Modular Reactor,TWh/year,25.78236164,25.78236164
+Sobriety - N03,FR,Production|Electricity|Renewable|Biomass,TWh/year,9.15460667,9.15460667
+Sobriety - N03,FR,Production|Electricity|Renewable|Photovoltaic,TWh/year,50.07009362,50.07009362
+Sobriety - N03,FR,Production|Electricity|Renewable|Sea,TWh/year,0,0
+Sobriety - N03,FR,Production|Electricity|Renewable|Wind turbines|Offshore,TWh/year,35.9645262,35.9645262
+Sobriety - N03,FR,Production|Electricity|Renewable|Wind turbines|Onshore,TWh/year,69.50027921,69.50027921
+Sobriety - N03,FR,Production|Electricity|Storage|Hydro|Pumped storage,TWh/year,10.5,10.5
+Sobriety - N03,FR,Production|Electricity|Storage|Hydrogen,TWh/year,0,0
+Sobriety - N03,FR,Production|Gaseous fuel|Biomethane,%,100,100
+Sobriety - N03,FR,Production|Gaseous fuel|CNG,%,0,0
+Sobriety - N03,FR,Production|Gaseous fuel|LNG,%,0,0
+Sobriety - N03,FR,Production|Gaseous fuel|Low to high,%,1,1
+Sobriety - N03,FR,Production|Liquid fuel|Diesel|Biodiesel,%,100,100
+Sobriety - N03,FR,Production|Liquid fuel|Diesel|Diesel,%,0,0
+Sobriety - N03,FR,Production|Liquid fuel|Petrol|Bioethanol,%,100,100
+Sobriety - N03,FR,Production|Liquid fuel|Petrol|Petrol,%,0,0
+Sobriety - N1,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,0.9975,0.9975
+Sobriety - N1,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,64
+Sobriety - N1,FR,Production|Electricity|Low to medium,TWh/year,1,1
+Sobriety - N1,FR,Production|Electricity|Medium to high,TWh/year,1,1
+Sobriety - N1,FR,Production|Electricity|Import,TWh/year,31.97050243,31.97050243
+Sobriety - N1,FR,Consumption|Electricity|Export,TWh/year,49.87050243,49.87050243
+Sobriety - N1,FR,Production|Electricity|Total without production from flexibility,TWh/year,583.9,583.9
+Sobriety - N1,FR,Production|Electricity|Conventional|Coal,TWh/year,0,0
+Sobriety - N1,FR,Production|Electricity|Conventional|Fuel oil,TWh/year,0,0
+Sobriety - N1,FR,Production|Electricity|Conventional|Natural gas,TWh/year,0.365836272,0.365836272
+Sobriety - N1,FR,Production|Electricity|Conventional|Waste,TWh/year,1.646263223,1.646263223
+Sobriety - N1,FR,Production|Electricity|Hydro|Reservoir,TWh/year,9.189807144,9.189807144
+Sobriety - N1,FR,Production|Electricity|Run-of-river hydro,TWh/year,48.24648751,48.24648751
+Sobriety - N1,FR,Production|Electricity|Nuclear|Evolutionary Power Reactor,TWh/year,83.04483367,83.04483367
+Sobriety - N1,FR,Production|Electricity|Nuclear|Pressure water reactor,TWh/year,85.14839223,85.14839223
+Sobriety - N1,FR,Production|Electricity|Nuclear|Small Modular Reactor,TWh/year,0,0
+Sobriety - N1,FR,Production|Electricity|Renewable|Biomass,TWh/year,8.962988656,8.962988656
+Sobriety - N1,FR,Production|Electricity|Renewable|Photovoltaic,TWh/year,98.04412081,98.04412081
+Sobriety - N1,FR,Production|Electricity|Renewable|Sea,TWh/year,0,0
+Sobriety - N1,FR,Production|Electricity|Renewable|Wind turbines|Offshore,TWh/year,107.6473229,107.6473229
+Sobriety - N1,FR,Production|Electricity|Renewable|Wind turbines|Onshore,TWh/year,91.73344512,91.73344512
+Sobriety - N1,FR,Production|Electricity|Storage|Hydro|Pumped storage,TWh/year,14.2,14.2
+Sobriety - N1,FR,Production|Electricity|Storage|Hydrogen,TWh/year,0,0
+Sobriety - N1,FR,Production|Gaseous fuel|Biomethane,%,100,100
+Sobriety - N1,FR,Production|Gaseous fuel|CNG,%,0,0
+Sobriety - N1,FR,Production|Gaseous fuel|LNG,%,0,0
+Sobriety - N1,FR,Production|Gaseous fuel|Low to high,%,1,1
+Sobriety - N1,FR,Production|Liquid fuel|Diesel|Biodiesel,%,100,100
+Sobriety - N1,FR,Production|Liquid fuel|Diesel|Diesel,%,0,0
+Sobriety - N1,FR,Production|Liquid fuel|Petrol|Bioethanol,%,100,100
+Sobriety - N1,FR,Production|Liquid fuel|Petrol|Petrol,%,0,0
+Sobriety - N2,FR,Distribution losses|Gaseous fuel|Low to high,PJ/year,0.9975,0.9975
+Sobriety - N2,FR,Efficiency|Electricity|Hydrogen|Fuel cell,%,50,64
+Sobriety - N2,FR,Production|Electricity|Low to medium,TWh/year,1,1
+Sobriety - N2,FR,Production|Electricity|Medium to high,TWh/year,1,1
+Sobriety - N2,FR,Production|Electricity|Import,TWh/year,24.31518072,24.31518072
+Sobriety - N2,FR,Consumption|Electricity|Export,TWh/year,42.31518072,42.31518072
+Sobriety - N2,FR,Production|Electricity|Total without production from flexibility,TWh/year,583.8,583.8
+Sobriety - N2,FR,Production|Electricity|Conventional|Coal,TWh/year,0,0
+Sobriety - N2,FR,Production|Electricity|Conventional|Fuel oil,TWh/year,0,0
+Sobriety - N2,FR,Production|Electricity|Conventional|Natural gas,TWh/year,0,0
+Sobriety - N2,FR,Production|Electricity|Conventional|Waste,TWh/year,1.669531817,1.669531817
+Sobriety - N2,FR,Production|Electricity|Hydro|Reservoir,TWh/year,9.304857326,9.304857326
+Sobriety - N2,FR,Production|Electricity|Run-of-river hydro,TWh/year,48.85050096,48.85050096
+Sobriety - N2,FR,Production|Electricity|Nuclear|Evolutionary Power Reactor,TWh/year,149.9796082,149.9796082
+Sobriety - N2,FR,Production|Electricity|Nuclear|Pressure water reactor,TWh/year,87.00115801,87.00115801
+Sobriety - N2,FR,Production|Electricity|Nuclear|Small Modular Reactor,TWh/year,0,0
+Sobriety - N2,FR,Production|Electricity|Renewable|Biomass,TWh/year,9.089673225,9.089673225
+Sobriety - N2,FR,Production|Electricity|Renewable|Photovoltaic,TWh/year,74.01591055,74.01591055
+Sobriety - N2,FR,Production|Electricity|Renewable|Sea,TWh/year,0,0
+Sobriety - N2,FR,Production|Electricity|Renewable|Wind turbines|Offshore,TWh/year,77.91148479,77.91148479
+Sobriety - N2,FR,Production|Electricity|Renewable|Wind turbines|Onshore,TWh/year,83.66209438,83.66209438
+Sobriety - N2,FR,Production|Electricity|Storage|Hydro|Pumped storage,TWh/year,12.5,12.5
+Sobriety - N2,FR,Production|Electricity|Storage|Hydrogen,TWh/year,0,0
+Sobriety - N2,FR,Production|Gaseous fuel|Biomethane,%,100,100
+Sobriety - N2,FR,Production|Gaseous fuel|CNG,%,0,0
+Sobriety - N2,FR,Production|Gaseous fuel|LNG,%,0,0
+Sobriety - N2,FR,Production|Gaseous fuel|Low to high,%,1,1
+Sobriety - N2,FR,Production|Liquid fuel|Diesel|Biodiesel,%,100,100
+Sobriety - N2,FR,Production|Liquid fuel|Diesel|Diesel,%,0,0
+Sobriety - N2,FR,Production|Liquid fuel|Petrol|Bioethanol,%,100,100
+Sobriety - N2,FR,Production|Liquid fuel|Petrol|Petrol,%,0,0
+Extensive reindustrialization - M0,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,95
+Extensive reindustrialization - M1,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,95
+Extensive reindustrialization - M23,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,95
+Extensive reindustrialization - N03,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,95
+Extensive reindustrialization - N1,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,95
+Extensive reindustrialization - N2,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,95
+Reference - M0,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,95
+Reference - M1,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,95
+Reference - M23,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,95
+Reference - N1,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,95
+Reference - N2,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,95
+Reference - N03,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,95
+Sobriety - M0,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,95
+Sobriety - M1,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,95
+Sobriety - M23,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,95
+Sobriety - N03,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,95
+Sobriety - N1,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,95
+Sobriety - N2,FR,Efficiency|Storage|Vehicle to grid|Charge,%,87.5,95
+Extensive reindustrialization - M0,FR,Efficiency|Storage|Battery|Charge,%,85,90
+Extensive reindustrialization - M1,FR,Efficiency|Storage|Battery|Charge,%,85,90
+Extensive reindustrialization - M23,FR,Efficiency|Storage|Battery|Charge,%,85,90
+Extensive reindustrialization - N03,FR,Efficiency|Storage|Battery|Charge,%,85,90
+Extensive reindustrialization - N1,FR,Efficiency|Storage|Battery|Charge,%,85,90
+Extensive reindustrialization - N2,FR,Efficiency|Storage|Battery|Charge,%,85,90
+Reference - M0,FR,Efficiency|Storage|Battery|Charge,%,85,90
+Reference - M1,FR,Efficiency|Storage|Battery|Charge,%,85,90
+Reference - M23,FR,Efficiency|Storage|Battery|Charge,%,85,90
+Reference - N1,FR,Efficiency|Storage|Battery|Charge,%,85,90
+Reference - N2,FR,Efficiency|Storage|Battery|Charge,%,85,90
+Reference - N03,FR,Efficiency|Storage|Battery|Charge,%,85,90
+Sobriety - M0,FR,Efficiency|Storage|Battery|Charge,%,85,90
+Sobriety - M1,FR,Efficiency|Storage|Battery|Charge,%,85,90
+Sobriety - M23,FR,Efficiency|Storage|Battery|Charge,%,85,90
+Sobriety - N03,FR,Efficiency|Storage|Battery|Charge,%,85,90
+Sobriety - N1,FR,Efficiency|Storage|Battery|Charge,%,85,90
+Sobriety - N2,FR,Efficiency|Storage|Battery|Charge,%,85,90
+Extensive reindustrialization - M0,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,70
+Extensive reindustrialization - M1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,70
+Extensive reindustrialization - M23,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,70
+Extensive reindustrialization - N03,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,70
+Extensive reindustrialization - N1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,70
+Extensive reindustrialization - N2,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,70
+Reference - M0,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,70
+Reference - M1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,70
+Reference - M23,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,70
+Reference - N1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,70
+Reference - N2,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,70
+Reference - N03,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,70
+Sobriety - M0,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,70
+Sobriety - M1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,70
+Sobriety - M23,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,70
+Sobriety - N03,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,70
+Sobriety - N1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,70
+Sobriety - N2,FR,Efficiency|Electricity|Hydrogen|Electrolyzer,%,61,70
+Extensive reindustrialization - M0,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,70
+Extensive reindustrialization - M1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,70
+Extensive reindustrialization - M23,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,70
+Extensive reindustrialization - N03,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,70
+Extensive reindustrialization - N1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,70
+Extensive reindustrialization - N2,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,70
+Reference - M0,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,70
+Reference - M1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,70
+Reference - M23,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,70
+Reference - N1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,70
+Reference - N2,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,70
+Reference - N03,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,70
+Sobriety - M0,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,70
+Sobriety - M1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,70
+Sobriety - M23,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,70
+Sobriety - N03,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,70
+Sobriety - N1,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,70
+Sobriety - N2,FR,Efficiency|Electricity|Hydrogen|Electrolyzer|Imported,%,61,70
+Extensive reindustrialization - M0,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,1.9,1.9
+Extensive reindustrialization - M1,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,1.9,1.9
+Extensive reindustrialization - M23,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,1.9,1.9
+Extensive reindustrialization - N03,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,1.8,1.8
+Extensive reindustrialization - N1,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,1.9,1.9
+Extensive reindustrialization - N2,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,1.8,1.8
+Reference - M0,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,1.9,1.9
+Reference - M1,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,1.9,1.9
+Reference - M23,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,1.9,1.9
+Reference - N1,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,1.9,1.9
+Reference - N2,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,1.8,1.8
+Reference - N03,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,1.8,1.8
+Sobriety - M0,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,1.3,1.3
+Sobriety - M1,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,1.3,1.3
+Sobriety - M23,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,1.2,1.2
+Sobriety - N03,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,1.2,1.2
+Sobriety - N1,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,1.2,1.2
+Sobriety - N2,FR,Production|Electricity|Storage|Vehicle to grid,TWh/year,1.2,1.2
+Extensive reindustrialization - M0,FR,Production|Electricity|Storage|Battery,TWh/year,28.8,28.8
+Extensive reindustrialization - M1,FR,Production|Electricity|Storage|Battery,TWh/year,30.4,30.4
+Extensive reindustrialization - M23,FR,Production|Electricity|Storage|Battery,TWh/year,14.3,14.3
+Extensive reindustrialization - N03,FR,Production|Electricity|Storage|Battery,TWh/year,3.7,3.7
+Extensive reindustrialization - N1,FR,Production|Electricity|Storage|Battery,TWh/year,13.5,13.5
+Extensive reindustrialization - N2,FR,Production|Electricity|Storage|Battery,TWh/year,9.8,9.8
+Reference - M0,FR,Production|Electricity|Storage|Battery,TWh/year,27.5,27.5
+Reference - M1,FR,Production|Electricity|Storage|Battery,TWh/year,21.7,21.7
+Reference - M23,FR,Production|Electricity|Storage|Battery,TWh/year,11.8,11.8
+Reference - N1,FR,Production|Electricity|Storage|Battery,TWh/year,7.7,7.7
+Reference - N2,FR,Production|Electricity|Storage|Battery,TWh/year,0.2,0.2
+Reference - N03,FR,Production|Electricity|Storage|Battery,TWh/year,0,0
+Sobriety - M0,FR,Production|Electricity|Storage|Battery,TWh/year,22.7,22.7
+Sobriety - M1,FR,Production|Electricity|Storage|Battery,TWh/year,15,15
+Sobriety - M23,FR,Production|Electricity|Storage|Battery,TWh/year,9.3,9.3
+Sobriety - N03,FR,Production|Electricity|Storage|Battery,TWh/year,0,0
+Sobriety - N1,FR,Production|Electricity|Storage|Battery,TWh/year,1.5,1.5
+Sobriety - N2,FR,Production|Electricity|Storage|Battery,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Efficiency|Storage|Hydro|Pumped storage,%,70,80
+Extensive reindustrialization - M1,FR,Efficiency|Storage|Hydro|Pumped storage,%,70,80
+Extensive reindustrialization - M23,FR,Efficiency|Storage|Hydro|Pumped storage,%,70,80
+Extensive reindustrialization - N03,FR,Efficiency|Storage|Hydro|Pumped storage,%,70,80
+Extensive reindustrialization - N1,FR,Efficiency|Storage|Hydro|Pumped storage,%,70,80
+Extensive reindustrialization - N2,FR,Efficiency|Storage|Hydro|Pumped storage,%,70,80
+Reference - M0,FR,Efficiency|Storage|Hydro|Pumped storage,%,70,80
+Reference - M1,FR,Efficiency|Storage|Hydro|Pumped storage,%,70,80
+Reference - M23,FR,Efficiency|Storage|Hydro|Pumped storage,%,70,80
+Reference - N1,FR,Efficiency|Storage|Hydro|Pumped storage,%,70,80
+Reference - N2,FR,Efficiency|Storage|Hydro|Pumped storage,%,70,80
+Reference - N03,FR,Efficiency|Storage|Hydro|Pumped storage,%,70,80
+Sobriety - M0,FR,Efficiency|Storage|Hydro|Pumped storage,%,70,80
+Sobriety - M1,FR,Efficiency|Storage|Hydro|Pumped storage,%,70,80
+Sobriety - M23,FR,Efficiency|Storage|Hydro|Pumped storage,%,70,80
+Sobriety - N03,FR,Efficiency|Storage|Hydro|Pumped storage,%,70,80
+Sobriety - N1,FR,Efficiency|Storage|Hydro|Pumped storage,%,70,80
+Sobriety - N2,FR,Efficiency|Storage|Hydro|Pumped storage,%,70,80
+Extensive reindustrialization - M0,FR,placeholder,placeholder,1,1
+Extensive reindustrialization - M1,FR,placeholder,placeholder,1,1
+Extensive reindustrialization - M23,FR,placeholder,placeholder,1,1
+Extensive reindustrialization - N03,FR,placeholder,placeholder,1,1
+Extensive reindustrialization - N1,FR,placeholder,placeholder,1,1
+Extensive reindustrialization - N2,FR,placeholder,placeholder,1,1
+Reference - M0,FR,placeholder,placeholder,1,1
+Reference - M1,FR,placeholder,placeholder,1,1
+Reference - M23,FR,placeholder,placeholder,1,1
+Reference - N1,FR,placeholder,placeholder,1,1
+Reference - N2,FR,placeholder,placeholder,1,1
+Reference - N03,FR,placeholder,placeholder,1,1
+Sobriety - M0,FR,placeholder,placeholder,1,1
+Sobriety - M1,FR,placeholder,placeholder,1,1
+Sobriety - M23,FR,placeholder,placeholder,1,1
+Sobriety - N03,FR,placeholder,placeholder,1,1
+Sobriety - N1,FR,placeholder,placeholder,1,1
+Sobriety - N2,FR,placeholder,placeholder,1,1
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0.9,0.9
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,1.9,1.9
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,4.9,4.9
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.5,0.5
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,1,1
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,5,5
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0.3,0.3
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0.9,0.9
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,1.9,1.9
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,4.9,4.9
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.5,0.5
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,1,1
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,5,5
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0.3,0.3
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0.9,0.9
+Reference - M0,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,1.9,1.9
+Reference - M0,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,4.9,4.9
+Reference - M0,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.5,0.5
+Reference - M0,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,1,1
+Reference - M0,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6
+Reference - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,5,5
+Reference - M0,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0.3,0.3
+Reference - M0,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0
+Reference - M0,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0.9,0.9
+Reference - M1,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,1.9,1.9
+Reference - M1,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,4.9,4.9
+Reference - M1,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.5,0.5
+Reference - M1,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,1,1
+Reference - M1,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6
+Reference - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,5,5
+Reference - M1,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0.3,0.3
+Reference - M1,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0
+Reference - M1,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0.9,0.9
+Reference - M23,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,1.9,1.9
+Reference - M23,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,4.9,4.9
+Reference - M23,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.5,0.5
+Reference - M23,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,1,1
+Reference - M23,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6
+Reference - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,5,5
+Reference - M23,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0.3,0.3
+Reference - M23,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0
+Reference - M23,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0.9,0.9
+Reference - N1,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,1.9,1.9
+Reference - N1,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,4.9,4.9
+Reference - N1,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.5,0.5
+Reference - N1,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,1,1
+Reference - N1,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6
+Reference - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,5,5
+Reference - N1,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0.3,0.3
+Reference - N1,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0
+Reference - N1,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0.9,0.9
+Reference - N2,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,1.9,1.9
+Reference - N2,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,4.9,4.9
+Reference - N2,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.5,0.5
+Reference - N2,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,1,1
+Reference - N2,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6
+Reference - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,5,5
+Reference - N2,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0.3,0.3
+Reference - N2,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0
+Reference - N2,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0.9,0.9
+Reference - N03,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,1.9,1.9
+Reference - N03,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,4.9,4.9
+Reference - N03,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.5,0.5
+Reference - N03,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,1,1
+Reference - N03,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6
+Reference - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,5,5
+Reference - N03,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0.3,0.3
+Reference - N03,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0
+Reference - N03,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0.9,0.9
+Sobriety - M0,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,1.9,1.9
+Sobriety - M0,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,4.9,4.9
+Sobriety - M0,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.5,0.5
+Sobriety - M0,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,1,1
+Sobriety - M0,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6
+Sobriety - M0,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,5,5
+Sobriety - M0,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0.3,0.3
+Sobriety - M0,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - M0,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0.9,0.9
+Sobriety - M1,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,1.9,1.9
+Sobriety - M1,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,4.9,4.9
+Sobriety - M1,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.5,0.5
+Sobriety - M1,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,1,1
+Sobriety - M1,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6
+Sobriety - M1,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,5,5
+Sobriety - M1,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0.3,0.3
+Sobriety - M1,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - M1,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0.9,0.9
+Sobriety - M23,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,1.9,1.9
+Sobriety - M23,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,4.9,4.9
+Sobriety - M23,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.5,0.5
+Sobriety - M23,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,1,1
+Sobriety - M23,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6
+Sobriety - M23,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,5,5
+Sobriety - M23,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0.3,0.3
+Sobriety - M23,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - M23,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0.9,0.9
+Sobriety - N03,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,1.9,1.9
+Sobriety - N03,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,4.9,4.9
+Sobriety - N03,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.5,0.5
+Sobriety - N03,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,1,1
+Sobriety - N03,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6
+Sobriety - N03,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,5,5
+Sobriety - N03,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0.3,0.3
+Sobriety - N03,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - N03,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0.9,0.9
+Sobriety - N1,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,1.9,1.9
+Sobriety - N1,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,4.9,4.9
+Sobriety - N1,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.5,0.5
+Sobriety - N1,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,1,1
+Sobriety - N1,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6
+Sobriety - N1,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,5,5
+Sobriety - N1,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0.3,0.3
+Sobriety - N1,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - N1,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Refineries|Electrolysis,TWh/year,0.9,0.9
+Sobriety - N2,FR,Production|Hydrogen|Refineries|Steam methane reforming,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Refineries|Co-produced|Coking,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Refineries|Co-produced|Oil refining,TWh/year,1.9,1.9
+Sobriety - N2,FR,Production|Hydrogen|Refineries|Co-produced|Chlore,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Refineries|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Refineries|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Ammonia|Electrolysis,TWh/year,4.9,4.9
+Sobriety - N2,FR,Production|Hydrogen|Ammonia|Steam methane reforming,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Coking,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Chlore,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Ammonia|Co-produced|Ammonia,TWh/year,0.5,0.5
+Sobriety - N2,FR,Production|Hydrogen|Chemicals|Electrolysis,TWh/year,1,1
+Sobriety - N2,FR,Production|Hydrogen|Chemicals|Steam methane reforming,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Coking,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Chlore,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Chemicals,TWh/year,0.6,0.6
+Sobriety - N2,FR,Production|Hydrogen|Chemicals|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Steel|Electrolysis,TWh/year,5,5
+Sobriety - N2,FR,Production|Hydrogen|Steel|Steam methane reforming,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Steel|Co-produced|Coking,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Steel|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Steel|Co-produced|Chlore,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Steel|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Steel|Co-produced|Ammonia,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Others|Electrolysis,TWh/year,0.3,0.3
+Sobriety - N2,FR,Production|Hydrogen|Others|Steam methane reforming,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Others|Co-produced|Coking,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Others|Co-produced|Oil refining,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Others|Co-produced|Chlore,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Others|Co-produced|Chemicals,TWh/year,0,0
+Sobriety - N2,FR,Production|Hydrogen|Others|Co-produced|Ammonia,TWh/year,0,0
+Extensive reindustrialization - M0,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1
+Extensive reindustrialization - M1,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1
+Extensive reindustrialization - M23,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1
+Extensive reindustrialization - N03,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1
+Extensive reindustrialization - N1,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1
+Extensive reindustrialization - N2,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1
+Reference - M0,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1
+Reference - M1,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1
+Reference - M23,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1
+Reference - N1,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1
+Reference - N2,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1
+Reference - N03,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1
+Sobriety - M0,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1
+Sobriety - M1,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1
+Sobriety - M23,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1
+Sobriety - N03,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1
+Sobriety - N1,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1
+Sobriety - N2,FR,Production|Hydrogen|Imported|Electrolysis,TWh/year,1,1

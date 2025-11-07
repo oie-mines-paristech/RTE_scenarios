@@ -62,7 +62,7 @@ production pathways:
     production volume:
       variable: Production|Electricity|Conventional|Waste
     ecoinvent alias:
-      name: treatment of municipal solid waste, municipal incineration
+      name: treatment of municipal solid waste, incineration
       reference product: electricity, for reuse in municipal waste incineration only
       exists in original database: True
 
@@ -143,7 +143,7 @@ production pathways:
       variable: Production|Electricity|Storage|Vehicle to grid
     ecoinvent alias:
       name: electricity production, from vehicle-to-grid, FE2050
-      reference product: electricity, high voltage
+      reference product: electricity, low voltage
       exists in original database: True
 
     efficiency:
@@ -170,10 +170,9 @@ production pathways:
     production volume:
       variable: Production|Electricity|Import
     ecoinvent alias:
-      name: market for electricity production, direct production, high voltage, FE2050
+      name: market group for electricity, high voltage
       reference product: electricity, high voltage
-      exists in original database: False
-      new dataset: True
+      exists in original database: True
 
   medium_to_high:
     production volume:
@@ -254,7 +253,7 @@ production pathways:
       variable: Production|Hydrogen|Refineries|Co-produced|Oil refining
     ecoinvent alias:
       name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, gaseous
       exists in original database: True
       regionalize: True
 
@@ -263,7 +262,7 @@ production pathways:
       variable: Production|Hydrogen|Refineries|Co-produced|Chlore
     ecoinvent alias:
       name: chlor-alkali electrolysis, diaphragm cell
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -271,8 +270,8 @@ production pathways:
     production volume:
       variable: Production|Hydrogen|Refineries|Co-produced|Chemicals
     ecoinvent alias:
-      name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      name: hydrogen cracking, APME
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -321,7 +320,7 @@ production pathways:
       variable: Production|Hydrogen|Ammonia|Co-produced|Oil refining
     ecoinvent alias:
       name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, gaseous
       exists in original database: True
       regionalize: True
 
@@ -330,7 +329,7 @@ production pathways:
       variable: Production|Hydrogen|Ammonia|Co-produced|Chlore
     ecoinvent alias:
       name: chlor-alkali electrolysis, diaphragm cell
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -338,8 +337,8 @@ production pathways:
     production volume:
       variable: Production|Hydrogen|Ammonia|Co-produced|Chemicals
     ecoinvent alias:
-      name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      name: hydrogen cracking, APME
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -388,7 +387,7 @@ production pathways:
       variable: Production|Hydrogen|Chemicals|Co-produced|Oil refining
     ecoinvent alias:
       name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, gaseous
       exists in original database: True
       regionalize: True
 
@@ -397,7 +396,7 @@ production pathways:
       variable: Production|Hydrogen|Chemicals|Co-produced|Chlore
     ecoinvent alias:
       name: chlor-alkali electrolysis, diaphragm cell
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -405,8 +404,8 @@ production pathways:
     production volume:
       variable: Production|Hydrogen|Chemicals|Co-produced|Chemicals
     ecoinvent alias:
-      name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      name: hydrogen cracking, APME
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -455,7 +454,7 @@ production pathways:
       variable: Production|Hydrogen|Steel|Co-produced|Oil refining
     ecoinvent alias:
       name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, gaseous
       exists in original database: True
       regionalize: True
 
@@ -464,7 +463,7 @@ production pathways:
       variable: Production|Hydrogen|Steel|Co-produced|Chlore
     ecoinvent alias:
       name: chlor-alkali electrolysis, diaphragm cell
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -472,8 +471,8 @@ production pathways:
     production volume:
       variable: Production|Hydrogen|Steel|Co-produced|Chemicals
     ecoinvent alias:
-      name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      name: hydrogen cracking, APME
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -522,7 +521,7 @@ production pathways:
       variable: Production|Hydrogen|Others|Co-produced|Oil refining
     ecoinvent alias:
       name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, gaseous
       exists in original database: True
       regionalize: True
 
@@ -531,7 +530,7 @@ production pathways:
       variable: Production|Hydrogen|Others|Co-produced|Chlore
     ecoinvent alias:
       name: chlor-alkali electrolysis, diaphragm cell
-      reference product: hydrogen, gaseous, low pressure
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -539,8 +538,8 @@ production pathways:
     production volume:
       variable: Production|Hydrogen|Others|Co-produced|Chemicals
     ecoinvent alias:
-      name: hydrogen production, gaseous, petroleum refinery operation
-      reference product: hydrogen, gaseous, low pressure
+      name: hydrogen cracking, APME
+      reference product: hydrogen, liquid
       exists in original database: True
       regionalize: True
 
@@ -759,24 +758,6 @@ markets:
     replaces in:
       - location: FR
 
-  - name: market for electricity production, direct production, high voltage, FE2050
-    reference product: electricity, high voltage
-    unit: kilowatt hour
-    includes:
-      - nuclear_pressure_water
-      - nuclear_EPR
-      - nuclear_SMR
-      - hydro_run_of_river
-      - hydro_reservoir
-      - pv
-      - wind_onshore
-      - wind_offshore
-      - biomass
-      - waste
-      - wave
-      - natural_gas
-      - fuel_oil
-      - coal
 
   - name: market for electricity, high voltage, FE2050
     reference product: electricity, high voltage
@@ -797,17 +778,16 @@ markets:
       - fuel_oil
       - coal
       - hydro_pumped_storage
+      - hydrogen
       - vehicle_to_grid
       - battery
-      - hydrogen
       - import
 
     add:
 
       - name: market for electricity, high voltage, FE2050
         reference product: electricity, high voltage
-        amount: 0.03109
-
+        amount: 0.0312426845152551
 
       - name: transmission network construction, electricity, high voltage direct current aerial line
         reference product: transmission network, electricity, high voltage direct current aerial line
@@ -835,12 +815,7 @@ markets:
     replaces:
       - name: market for electricity, high voltage
         product: electricity, high voltage
-       
-      - name: market group for electricity, high voltage
-        product: electricity, high voltage
-
-    replaces in:
-      - location: FR
+        location: FR
     
 
     except regions:
@@ -869,7 +844,7 @@ markets:
 
       - name: market for electricity, from direct French production, FE2050
         reference product: electricity, high voltage
-        amount: 0.03109
+        amount: 0.0312426845152551
 
       - name: transmission network construction, electricity, high voltage direct current aerial line
         reference product: transmission network, electricity, high voltage direct current aerial line
@@ -899,16 +874,15 @@ markets:
     unit: kilowatt hour
     includes:
       - hydro_pumped_storage
+      - hydrogen
       - vehicle_to_grid
       - battery
-      - hydrogen
-
 
     add:
 
       - name: market for electricity, from storage, FE2050
         reference product: electricity, high voltage
-        amount: 0.03109
+        amount: 0.0312426845152551
 
       - name: transmission network construction, electricity, high voltage direct current aerial line
         reference product: transmission network, electricity, high voltage direct current aerial line
@@ -943,7 +917,7 @@ markets:
 
       - name: market for electricity, from import, FE2050
         reference product: electricity, high voltage
-        amount: 0.03109
+        amount: 0.0312426845152551
 
       - name: transmission network construction, electricity, high voltage direct current aerial line
         reference product: transmission network, electricity, high voltage direct current aerial line
@@ -991,7 +965,7 @@ markets:
 
       - name: market for electricity, from direct production and import, FE2050
         reference product: electricity, high voltage
-        amount: 0.03109
+        amount: 0.0312426845152551
 
       - name: transmission network construction, electricity, high voltage direct current aerial line
         reference product: transmission network, electricity, high voltage direct current aerial line
@@ -1017,15 +991,33 @@ markets:
         amount: 4.16e-06
 
 
+  - name: market for electricity production, direct production, high voltage, FE2050
+    reference product: electricity, high voltage
+    unit: kilowatt hour
+    includes:
+      - nuclear_pressure_water
+      - nuclear_EPR
+      - nuclear_SMR
+      - hydro_run_of_river
+      - hydro_reservoir
+      - pv
+      - wind_onshore
+      - wind_offshore
+      - biomass
+      - waste
+      - wave
+      - natural_gas
+      - fuel_oil
+      - coal
 
   - name: market for electricity production, storage production, FE2050
     reference product: electricity, high voltage
     unit: kilowatt hour
     includes:
       - hydro_pumped_storage
+      - hydrogen
       - vehicle_to_grid
       - battery
-      - hydrogen
 
   - name: market for electricity production, import, FE2050
     reference product: electricity, high voltage
@@ -1061,12 +1053,7 @@ markets:
     replaces:
       - name: market for electricity, medium voltage
         product: electricity, medium voltage
-       
-      - name: market group for electricity, medium voltage
-        product: electricity, medium voltage
-
-    replaces in:
-      - location: FR
+        location: FR
 
     except regions:
       - World
@@ -1080,7 +1067,7 @@ markets:
     add:
       - name: market for electricity, low voltage, FE2050
         reference product: electricity, low voltage
-        amount: 0.030412
+        amount: 0.0307
 
       - name: market for sulfur hexafluoride, liquid
         reference product: sulfur hexafluoride, liquid
@@ -1098,12 +1085,7 @@ markets:
     replaces:
       - name: market for electricity, low voltage
         product: electricity, low voltage
-       
-      - name: market group for electricity, low voltage
-        product: electricity, low voltage
-
-    replaces in:
-      - location: FR
+        location: FR
 
     except regions:
       - World

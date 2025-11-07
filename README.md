@@ -84,9 +84,11 @@ How to use this notebook ?
 * 1. Install the environment as explained [`here`](https://github.com/polca/premise?tab=readme-ov-file#how-to-install-this-package).
   Use premise version => 2.2.6
 * 2. Create a brightway project and load ecoinvent database in the project. It can be done using [`ecoinvent_interface`](https://github.com/brightway-lca/ecoinvent_interface).
-* 3. Run the following script for a chosen combination of Year x IAM model x IAM scenario x French scenario. Here is an example for two French scenarios combined with the same IAM scenario, with ecoinvent 3.9.1.
+
+* 3. Run the following script for a chosen combination of Year x IAM model x IAM scenario x French scenario. Here is an example for two French scenarios combined with the same IAM scenario, with ecoinvent 3.10
 * 3. (bis) Or run the file run-premise-rte.md. Example notebook to run premise with and without external scenarios [`here`](https://github.com/polca/premise/tree/master/examples).
-  
+
+
   ```python
 
     import brightway2 as bw
@@ -96,12 +98,12 @@ How to use this notebook ?
     from datapackage import Package
 
     NAME_BW_PROJECT="name_of_my_project"
-    ecoinvent_3_9_db_name='ecoinvent-3.9.1-cutoff'
-    ecoinvent_3_9_bio_db_name="ecoinvent-3.9.1-biosphere"
+    ecoinvent_3_10_db_name='ecoinvent-3.10-cutoff'
+    ecoinvent_3_10_bio_db_name="ecoinvent-3.10-biosphere"
   
     #Open the brightway project
     bw2data.projects.set_current(NAME_BW_PROJECT)
-       
+    
     fp = r"datapackage.json"
     rte = Package(fp)
 
@@ -122,10 +124,10 @@ How to use this notebook ?
   
     ndb = NewDatabase(
         scenarios = scenarios,        
-        source_db=ecoinvent_3_9_db_name,
-        source_version="3.9.1",
-        key= , #ask the key to Romain Sacchi
-        biosphere_name=ecoinvent_3_9_bio_db_name,
+        source_db=ecoinvent_3_10_db_name,
+        source_version="3.10",
+        key="" , #ask the key to Romain Sacchi
+        biosphere_name=ecoinvent_3_10_bio_db_name,
         )
   
     ndb.update()
