@@ -86,8 +86,9 @@ How to use this notebook ?
   The authors tested the version of premise compatible with brightway2 but not with brightway 2.5. If you test it with bw2.5, let us know how it worked.
 * 2. Create a brightway project and load ecoinvent database in the project. It can be done using [`ecoinvent_interface`](https://github.com/brightway-lca/ecoinvent_interface).
 
-* 3. Run the following script for a chosen combination of Year x IAM model x IAM scenario x French scenario. Here is an example for two French scenarios combined with the same IAM scenario, with ecoinvent 3.10
-* 3. (bis) Or run the file run-premise-rte.md. Example notebook to run premise with and without external scenarios [`here`](https://github.com/polca/premise/tree/master/examples).
+* 3. Run the following script for some chosen combinations of Year x IAM model x IAM scenario x French scenario. Here is an example for two French scenarios combined with the same IAM scenario, with ecoinvent 3.10
+* 3. (bis) Or run the file **run-premise-rte.md** provided in this repository.
+     To go further : Example notebook to run premise with and without external scenarios [`here`](https://github.com/polca/premise/tree/master/examples).
 
 
   ```python
@@ -142,6 +143,20 @@ How to use this notebook ?
 A prospective version of ecoinvent is generated for each combination of : Year x IAM model x IAM scenario x French scenario.
 The newly created market datasets are tagged with 'FE2050', for example : `market for electricity, high voltage, FE2050` (FR)
 
+⚠️  **ELECTRICITY IMPORTS MODELING** :
+By default, the electricity imports to French markets are modeled with French electricity production mix.
+If you want to change it and replace it by the prospective European electricity mix povided by premise, you can modify the file **config.yaml** and replace the section dedicated to electricity imports by the section below. 
+If you do this change, be aware that the French electricity impacts with be even more dependant on the IAM scenarios selected, as the European electricity mix impacts vary a lot from one IAM scenario to another. 
+
+ ```
+  import:
+    production volume:
+      variable: Production|Electricity|Import
+    ecoinvent alias:
+      name: market group for electricity, high voltage
+      reference product: electricity, high voltage
+      exists in original database: True
+ ```
 
 Ecoinvent database compatibility
 --------------------------------
