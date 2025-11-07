@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.4
   kernelspec:
-    display_name: premise8
+    display_name: premise10
     language: python
-    name: premise8
+    name: premise10
 ---
 
 # Initialisation
@@ -25,49 +25,36 @@ from datapackage import Package
 
 ```python
 #Put the name of your brightway project
-# ecoinvent + biosphere shall be already loaded as databases of the project
-list(bw2data.projects)
-# It should be ecoinvent 3.9 or more recent version
-#NAME_BW_PROJECT="HySPI_premise_FE2050_17" #with 2.2.7
-#NAME_BW_PROJECT="HySPI_premise_FE2050_18" #with 2.3.0dev1 - 31/07/2025 #═cassé
-NAME_BW_PROJECT="HySPI_premise_FE2050_19" #with 2.3.0dev1  # cassé
-NAME_BW_PROJECT="HySPI_premise_FE2050_20" #with 2.3.0dev1 # cassé 
-NAME_BW_PROJECT="HySPI_premise_FE2050_21" #with 2.3.0dev1 only NO3 with modifications
-NAME_BW_PROJECT="HySPI_premise_FE2050_22" #with 2.3.0dev1 all scenarios (3*3)
+# ecoinvent + biosphere shall be already loaded in the the project
+NAME_BW_PROJECT="HySPI_premise_FE2050_22" 
+```
 
-
-
-
-#NAME_BW_PROJECT="HySPI_premise_FE2050_23" #with 2.3.0dev1 09/08
-# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-#clear_inventory_cache()
+```python
+#HELP To get all brightway projects
+#list(bw2data.projects)
 ```
 
 ```python
 #Open the brightway project
-#NAME_BW_PROJECT="HySPI_premise_FE2050_22" #with 2.3.0dev1 all scenarios (3*3)
 bw2data.projects.set_current(NAME_BW_PROJECT)
-#bw2data.projects.current
 
 #Print the databases that are in your project
 list(bw2data.databases)
 ```
 
 ```python
-ecoinvent_3_9_db_name='ecoinvent-3.9.1-cutoff'
-ecoinvent_3_9_bio_db_name="ecoinvent-3.9.1-biosphere"
-
+#Name ecoinvent databases
 ecoinvent_3_10_db_name='ecoinvent-3.10.1-cutoff'
 ecoinvent_3_10_bio_db_name="ecoinvent-3.10.1-biosphere"
-
 ```
 
 ```python
-#if needed to delete a database
+#HELP if needed to delete a database
 #del bw2data.databases['tiam-SSP2-Base-N1']
 ```
 
 # Generate a new version of ecoinvent according to scenarios
+List of scenarios provided by premise : https://premise.readthedocs.io/en/latest/introduction.html#choosing-the-right-iam
 
 ```python
 fp = r"datapackage.json"
@@ -75,22 +62,19 @@ rte = Package(fp)
 ```
 
 ```python
-# Choose the scenario to generate
+# The list of IAM scenarios below is not exhaustive, see the link above to get all the scenarios:
+
 #IAM model
 model_1="image"
 model_2="tiam-ucl"
 model_3="remind"
 
 #world scenario
-
 world_scenario_1="SSP2-Base"
 world_scenario_2="SSP2-RCP45"
 world_scenario_3="SSP2-RCP26"
 world_scenario_4="SSP2-RCP19"
 world_scenario_5="SSP2-NPi"
-
-#Year
-year=2050
 
 #French scenario référence
 fr_scenario_1="Reference - M0"
@@ -116,20 +100,25 @@ fr_scenario_4_ind="Extensive reindustrialization - N03"
 fr_scenario_5_ind="Extensive reindustrialization - N1"
 fr_scenario_6_ind="Extensive reindustrialization - N2"
 
+#Year
+year=2050
 ```
 
 ```python
-#Run premise without French scenario
+#If you want to run premise without French scenario
 scenarios = [
-        #{"model": model_3, "pathway":"SSP1-NDC", "year": 2050},
+        {"model": model_3, "pathway":"SSP1-NDC", "year": 2050},
         {"model": model_2, "pathway":world_scenario_2, "year": year}      
         ]
 ```
 
 ```python
-#Run premise with French scenario
+#If you want to Run premise with French scenario
+# Choose the year, IAM and FR scenario combinations. 
+
 scenarios = [
-            {"model": model_2, "pathway":world_scenario_2, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+            {"model": model_2, "pathway":world_scenario_2, "year": 2050, "external scenarios": [{"scenario": fr_scenario_1, "data": rte}]},
+            #{"model": model_2, "pathway":world_scenario_2, "year": 2050, "external scenarios": [{"scenario": fr_scenario_1, "data": rte}]},
 ]
 ```
 
@@ -145,7 +134,10 @@ ndb = NewDatabase(
 ```
 
 ```python
+#Update the newdatabase ndb
 ndb.update()
+
+#or update only chosen sectors
 #ndb.update("biomass")
 #ndb.update(["electricity","external"])
 ```
@@ -153,201 +145,19 @@ ndb.update()
 ```python editable=true slideshow={"slide_type": ""}
 #Write the database to brightway
 ndb.write_db_to_brightway()
-#ndb.write_db_to_brightway()
 
 #or write a superstructure database to brightway to compare scenarios in Activity Browser
 #ndb.write_superstructure_db_to_brightway(name="tiam-SSP2-Base-M0")
 ```
 
 ```python editable=true slideshow={"slide_type": ""}
+#List of all databases
 list(bw2data.databases)
 ```
 
 ```python
 #if needed to delete a database
 #del bw2data.databases['ei_cutoff_3.10_remind_SSP1-NDC_2050 2025-07-29']
-```
-
-## Extraction to be done 
-
-```python
-#Run premise with a combination of global and French scenarios
-scenarios = [
-        {"model": model_2, "pathway":world_scenario_1, "year": 2050, "external scenarios": [{"scenario": fr_scenario_6, "data": rte}]},
-        {"model": model_2, "pathway":world_scenario_2, "year": 2050, "external scenarios": [{"scenario": fr_scenario_6, "data": rte}]},
-        {"model": model_2, "pathway":world_scenario_3, "year": 2050, "external scenarios": [{"scenario": fr_scenario_6, "data": rte}]},
-  ]
-
-ndb = NewDatabase(
-        scenarios = scenarios,        
-        source_db=ecoinvent_3_10_db_name,
-        source_version="3.10",
-        key='tUePmX_S5B8ieZkkM7WUU2CnO8SmShwmAeWK9x2rTFo=',
-        biosphere_name=ecoinvent_3_10_bio_db_name,
-        #use_multiprocessing=True
-)
-
-ndb.update()
-
-ndb.write_db_to_brightway()
-
-list(bw2data.databases)
-```
-
-```python
-NAME_BW_PROJECT="HySPI_premise_FE2050_22" #with 2.3.0dev1 all scenarios (3*3)
-bw2data.projects.set_current(NAME_BW_PROJECT)
-```
-
-```python
-#Run premise with a combination of global and French scenarios
-scenarios = [
-        {"model": model_2, "pathway":world_scenario_1, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
-        {"model": model_2, "pathway":world_scenario_2, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
-        {"model": model_2, "pathway":world_scenario_3, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
-  ]
-
-
-ndb = NewDatabase(
-        scenarios = scenarios,        
-        source_db=ecoinvent_3_10_db_name,
-        source_version="3.10",
-        key='tUePmX_S5B8ieZkkM7WUU2CnO8SmShwmAeWK9x2rTFo=',
-        biosphere_name=ecoinvent_3_10_bio_db_name,
-        #use_multiprocessing=True
-)
-
-ndb.update()
-
-ndb.write_db_to_brightway()
-
-list(bw2data.databases)
-```
-
-```python
-#Run premise with a combination of global and French scenarios
-scenarios = [
-        {"model": model_2, "pathway":world_scenario_1, "year": 2050, "external scenarios": [{"scenario": fr_scenario_1, "data": rte}]},
-        {"model": model_2, "pathway":world_scenario_2, "year": 2050, "external scenarios": [{"scenario": fr_scenario_1, "data": rte}]},
-        {"model": model_2, "pathway":world_scenario_3, "year": 2050, "external scenarios": [{"scenario": fr_scenario_1, "data": rte}]},
-  ]
-
-ndb = NewDatabase(
-        scenarios = scenarios,        
-        source_db=ecoinvent_3_10_db_name,
-        source_version="3.10",
-        key='tUePmX_S5B8ieZkkM7WUU2CnO8SmShwmAeWK9x2rTFo=',
-        biosphere_name=ecoinvent_3_10_bio_db_name,
-        #use_multiprocessing=True
-)
-
-ndb.update()
-
-ndb.write_db_to_brightway()
-
-list(bw2data.databases)
-
-```
-
-```python
-#Run premise with a combination of global and French scenarios
-scenarios = [
-        {"model": model_2, "pathway":world_scenario_1, "year": 2050, "external scenarios": [{"scenario": fr_scenario_6, "data": rte}]},
-        {"model": model_2, "pathway":world_scenario_2, "year": 2050, "external scenarios": [{"scenario": fr_scenario_6, "data": rte}]},
-        {"model": model_2, "pathway":world_scenario_3, "year": 2050, "external scenarios": [{"scenario": fr_scenario_6, "data": rte}]},
-  ]
-
-ndb = NewDatabase(
-        scenarios = scenarios,        
-        source_db=ecoinvent_3_10_db_name,
-        source_version="3.10",
-        key='tUePmX_S5B8ieZkkM7WUU2CnO8SmShwmAeWK9x2rTFo=',
-        biosphere_name=ecoinvent_3_10_bio_db_name,
-        #use_multiprocessing=True
-)
-
-ndb.update()
-
-ndb.write_db_to_brightway()
-
-list(bw2data.databases)
-```
-
-```python
-#Stooooooooooooooooooooooooooooooooooop
-```
-
-```python
-#Run premise with a combination of global and French scenarios
-
-#changeeeeer le fichier de scenario data
-#changer le nom des databases ou le faire à J+1 sinon cela va écraser les autres database
-
-scenarios = [
-       {"model": model_2, "pathway":world_scenario_2, "year": 2020, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
-  ]
-
-ndb = NewDatabase(
-        scenarios = scenarios,        
-        source_db=ecoinvent_3_10_db_name,
-        source_version="3.10",
-        key='tUePmX_S5B8ieZkkM7WUU2CnO8SmShwmAeWK9x2rTFo=',
-        biosphere_name=ecoinvent_3_10_bio_db_name,
-        #use_multiprocessing=True
-)
-
-ndb.update()
-
-ndb.write_db_to_brightway()
-
-list(bw2data.databases)
-```
-
-# Incremental
-
-```python
-inc = IncrementalDatabase(
-        scenarios = scenarios,        
-        source_db=ecoinvent_3_9_db_name,
-        source_version="3.9.1",
-        key='tUePmX_S5B8ieZkkM7WUU2CnO8SmShwmAeWK9x2rTFo=',
-        biosphere_name=ecoinvent_3_9_bio_db_name,
-)
-```
-
-```python editable=true slideshow={"slide_type": ""}
-sectors = {
-    "FR":"external",
-    "electricity": "electricity",
-}
-
-```
-
-```python editable=true slideshow={"slide_type": ""}
-inc.update(sectors=sectors)
-```
-
-```python
-inc.write_increment_db_to_brightway(name="test increment 7", file_format="csv")
-```
-
-```python
-sectors = {
-    "FR scenarios":"external",
-    "electricity": "electricity",
-    "others": ["steel","dac","fuels","heat","biomass","cement","emissions","cars","trucks","two_wheelers","buses"]
-   
-}
-
-sectors = {
-    "electricity": "electricity",
-    "steel": "steel",
-    "others": [
-        "cement",
-        "cars",
-        "fuels"
-    ]
-}
 ```
 
 # Explore the new database
@@ -360,7 +170,7 @@ list(bw2data.databases)
 ```
 
 ```python
-#name of the db you want to explore
+#name of the database you want to explore
 db_name='ei_cutoff_3.10_tiam-ucl_SSP2-Base_2050_Reference - M0 2025-02-25'
 db = bw2data.Database(db_name)
 ```
@@ -378,7 +188,7 @@ act
 ```python
 exc = [exc for exc in act.exchanges()]
 exc
-#exc = [exc for exc in act.exchanges() if "wind" in e.input["name"]][0]  # ¡¡¡Nota: e.input et torna l'activitat!!!!
+#exc = [exc for exc in act.exchanges() if "wind" in e.input["name"]][0]  
 ```
 
 ## Compute impacts
@@ -396,51 +206,4 @@ lca = act.lca(method=climate, amount=1)
 score = lca.score
 unit = bw2data.Method(climate).metadata["unit"]
 score
-```
-
-## Compare premise gwp with EF gwp
-
-```python
-#If you want you can import climate change impact method that is updated by premise
-from premise_gwp import add_premise_gwp
-add_premise_gwp()
-climate_premise=('IPCC 2021', 'climate change', 'GWP 100a, incl. H and bio CO2')
-```
-
-```python
-#name of the db you want to explore
-db_name_1='ei_cutoff_3.9_tiam-ucl_SSP2-Base_2050_Reference - M0 2025-02-19'
-db_name_2='ei_cutoff_3.9_tiam-ucl_SSP2-RCP45_2050_Reference - M0 2025-02-19'
-```
-
-```python
-db1 = bw2data.Database(db_name_1)
-db2 = bw2data.Database(db_name_2)
-
-act1=[act for act in db1 if "market for electricity, high voltage, FE2050" in act["name"] and act["location"]=="FR"][0]
-act2=[act for act in db2 if "market for electricity, high voltage, FE2050" in act["name"] and act["location"]=="FR"][0]
-```
-
-```python
-#SSP2base
-lca = act1.lca(method=climate, amount=1)
-score1 = lca.score
-
-lca = act1.lca(method=climate_premise, amount=1)
-score1p = lca.score
-
-print("{:.2f}".format(score1*1000))
-print("{:.2f}".format(score1p*1000))
-```
-
-```python
-#SSP2 RCP45
-lca = act2.lca(method=climate, amount=1)
-score2 = lca.score
-
-lca = act2.lca(method=climate_premise, amount=1)
-score2p = lca.score
-
-print("{:.2f}".format(score2*1000))
-print("{:.2f}".format(score2p*1000))
 ```
