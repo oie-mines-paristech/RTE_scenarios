@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.4
   kernelspec:
-    display_name: premise5
+    display_name: premise8
     language: python
-    name: premise5
+    name: premise8
 ---
 
 # Initialisation
@@ -17,7 +17,7 @@ jupyter:
 ```python
 from premise import *
 import bw2data
-import bw2io
+import bw2io 
 from datapackage import Package
 ```
 
@@ -28,11 +28,24 @@ from datapackage import Package
 # ecoinvent + biosphere shall be already loaded as databases of the project
 list(bw2data.projects)
 # It should be ecoinvent 3.9 or more recent version
-NAME_BW_PROJECT="HySPI_premise_FE2050_15"
+#NAME_BW_PROJECT="HySPI_premise_FE2050_17" #with 2.2.7
+#NAME_BW_PROJECT="HySPI_premise_FE2050_18" #with 2.3.0dev1 - 31/07/2025 #═cassé
+NAME_BW_PROJECT="HySPI_premise_FE2050_19" #with 2.3.0dev1  # cassé
+NAME_BW_PROJECT="HySPI_premise_FE2050_20" #with 2.3.0dev1 # cassé 
+NAME_BW_PROJECT="HySPI_premise_FE2050_21" #with 2.3.0dev1 only NO3 with modifications
+NAME_BW_PROJECT="HySPI_premise_FE2050_22" #with 2.3.0dev1 all scenarios (3*3)
+
+
+
+
+#NAME_BW_PROJECT="HySPI_premise_FE2050_23" #with 2.3.0dev1 09/08
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#clear_inventory_cache()
 ```
 
 ```python
 #Open the brightway project
+#NAME_BW_PROJECT="HySPI_premise_FE2050_22" #with 2.3.0dev1 all scenarios (3*3)
 bw2data.projects.set_current(NAME_BW_PROJECT)
 #bw2data.projects.current
 
@@ -44,8 +57,8 @@ list(bw2data.databases)
 ecoinvent_3_9_db_name='ecoinvent-3.9.1-cutoff'
 ecoinvent_3_9_bio_db_name="ecoinvent-3.9.1-biosphere"
 
-ecoinvent_3_10_db_name='ecoinvent-3.10-cutoff'
-ecoinvent_3_10_bio_db_name="ecoinvent-3.10-biosphere"
+ecoinvent_3_10_db_name='ecoinvent-3.10.1-cutoff'
+ecoinvent_3_10_bio_db_name="ecoinvent-3.10.1-biosphere"
 
 ```
 
@@ -108,31 +121,15 @@ fr_scenario_6_ind="Extensive reindustrialization - N2"
 ```python
 #Run premise without French scenario
 scenarios = [
-        {"model": model_3, "pathway":"SSP1-NDC", "year": 2050},
-        {"model": model_2, "pathway":world_scenario_1, "year": year}      
+        #{"model": model_3, "pathway":"SSP1-NDC", "year": 2050},
+        {"model": model_2, "pathway":world_scenario_2, "year": year}      
         ]
 ```
 
 ```python
-#to delete
+#Run premise with French scenario
 scenarios = [
-        {"model": model_2, "pathway":world_scenario_1, "year": 2050, "external scenarios": [{"scenario": fr_scenario_1, "data": rte}]},
-  ]
-```
-
-```python editable=true slideshow={"slide_type": ""}
-#Run premise with a combination of global and French scenarios
-scenarios = [
-        {"model": model_2, "pathway":world_scenario_2, "year": 2020, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
-        {"model": model_2, "pathway":world_scenario_1, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
-        {"model": model_2, "pathway":world_scenario_2, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
-        {"model": model_2, "pathway":world_scenario_3, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
-  ]
-```
-
-```python
-scenarios = [
-    {"model": model_2, "pathway":world_scenario_2, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+            {"model": model_2, "pathway":world_scenario_2, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
 ]
 ```
 
@@ -176,6 +173,60 @@ list(bw2data.databases)
 ```python
 #Run premise with a combination of global and French scenarios
 scenarios = [
+        {"model": model_2, "pathway":world_scenario_1, "year": 2050, "external scenarios": [{"scenario": fr_scenario_6, "data": rte}]},
+        {"model": model_2, "pathway":world_scenario_2, "year": 2050, "external scenarios": [{"scenario": fr_scenario_6, "data": rte}]},
+        {"model": model_2, "pathway":world_scenario_3, "year": 2050, "external scenarios": [{"scenario": fr_scenario_6, "data": rte}]},
+  ]
+
+ndb = NewDatabase(
+        scenarios = scenarios,        
+        source_db=ecoinvent_3_10_db_name,
+        source_version="3.10",
+        key='tUePmX_S5B8ieZkkM7WUU2CnO8SmShwmAeWK9x2rTFo=',
+        biosphere_name=ecoinvent_3_10_bio_db_name,
+        #use_multiprocessing=True
+)
+
+ndb.update()
+
+ndb.write_db_to_brightway()
+
+list(bw2data.databases)
+```
+
+```python
+NAME_BW_PROJECT="HySPI_premise_FE2050_22" #with 2.3.0dev1 all scenarios (3*3)
+bw2data.projects.set_current(NAME_BW_PROJECT)
+```
+
+```python
+#Run premise with a combination of global and French scenarios
+scenarios = [
+        {"model": model_2, "pathway":world_scenario_1, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+        {"model": model_2, "pathway":world_scenario_2, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+        {"model": model_2, "pathway":world_scenario_3, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+  ]
+
+
+ndb = NewDatabase(
+        scenarios = scenarios,        
+        source_db=ecoinvent_3_10_db_name,
+        source_version="3.10",
+        key='tUePmX_S5B8ieZkkM7WUU2CnO8SmShwmAeWK9x2rTFo=',
+        biosphere_name=ecoinvent_3_10_bio_db_name,
+        #use_multiprocessing=True
+)
+
+ndb.update()
+
+ndb.write_db_to_brightway()
+
+list(bw2data.databases)
+```
+
+```python
+#Run premise with a combination of global and French scenarios
+scenarios = [
         {"model": model_2, "pathway":world_scenario_1, "year": 2050, "external scenarios": [{"scenario": fr_scenario_1, "data": rte}]},
         {"model": model_2, "pathway":world_scenario_2, "year": 2050, "external scenarios": [{"scenario": fr_scenario_1, "data": rte}]},
         {"model": model_2, "pathway":world_scenario_3, "year": 2050, "external scenarios": [{"scenario": fr_scenario_1, "data": rte}]},
@@ -183,10 +234,10 @@ scenarios = [
 
 ndb = NewDatabase(
         scenarios = scenarios,        
-        source_db=ecoinvent_3_9_db_name,
-        source_version="3.9.1",
+        source_db=ecoinvent_3_10_db_name,
+        source_version="3.10",
         key='tUePmX_S5B8ieZkkM7WUU2CnO8SmShwmAeWK9x2rTFo=',
-        biosphere_name=ecoinvent_3_9_bio_db_name,
+        biosphere_name=ecoinvent_3_10_bio_db_name,
         #use_multiprocessing=True
 )
 
@@ -208,10 +259,10 @@ scenarios = [
 
 ndb = NewDatabase(
         scenarios = scenarios,        
-        source_db=ecoinvent_3_9_db_name,
-        source_version="3.9.1",
+        source_db=ecoinvent_3_10_db_name,
+        source_version="3.10",
         key='tUePmX_S5B8ieZkkM7WUU2CnO8SmShwmAeWK9x2rTFo=',
-        biosphere_name=ecoinvent_3_9_bio_db_name,
+        biosphere_name=ecoinvent_3_10_bio_db_name,
         #use_multiprocessing=True
 )
 
@@ -223,17 +274,33 @@ list(bw2data.databases)
 ```
 
 ```python
+#Stooooooooooooooooooooooooooooooooooop
+```
+
+```python
 #Run premise with a combination of global and French scenarios
 
 #changeeeeer le fichier de scenario data
 #changer le nom des databases ou le faire à J+1 sinon cela va écraser les autres database
 
 scenarios = [
-        {"model": model_2, "pathway":world_scenario_2, "year": 2020, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
-       {"model": model_2, "pathway":world_scenario_2, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
-       {"model": model_2, "pathway":world_scenario_1, "year": 2020, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
-       {"model": model_2, "pathway":world_scenario_1, "year": 2050, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
+       {"model": model_2, "pathway":world_scenario_2, "year": 2020, "external scenarios": [{"scenario": fr_scenario_4, "data": rte}]},
   ]
+
+ndb = NewDatabase(
+        scenarios = scenarios,        
+        source_db=ecoinvent_3_10_db_name,
+        source_version="3.10",
+        key='tUePmX_S5B8ieZkkM7WUU2CnO8SmShwmAeWK9x2rTFo=',
+        biosphere_name=ecoinvent_3_10_bio_db_name,
+        #use_multiprocessing=True
+)
+
+ndb.update()
+
+ndb.write_db_to_brightway()
+
+list(bw2data.databases)
 ```
 
 # Incremental
