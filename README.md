@@ -80,9 +80,10 @@ Additionally, a pdf document called "supplementary information" presents the met
 
 How to use this notebook ?
 ------------------
-* 0. Prerequisites: ecoinvent licence
+* 0. Prerequisites: ecoinvent licence for ecoinvent 3.10 database
 * 1. Install the environment as explained [`here`](https://github.com/polca/premise?tab=readme-ov-file#how-to-install-this-package).
-  Use premise version => 2.2.6
+  Use premise version => 2.2.6. 
+  The authors tested the version of premise compatible with brightway2 but not with brightway 2.5. If you test it with bw2.5, let us know how it worked.
 * 2. Create a brightway project and load ecoinvent database in the project. It can be done using [`ecoinvent_interface`](https://github.com/brightway-lca/ecoinvent_interface).
 
 * 3. Run the following script for a chosen combination of Year x IAM model x IAM scenario x French scenario. Here is an example for two French scenarios combined with the same IAM scenario, with ecoinvent 3.10
@@ -144,8 +145,7 @@ The newly created market datasets are tagged with 'FE2050', for example : `marke
 
 Ecoinvent database compatibility
 --------------------------------
-* ecoinvent 3.9.1 cut-off (main branch)
-* ecoinvent 3.10 cut-off (ei310 branch)
+* ecoinvent 3.10 cut-off (main branch)
 
 
 IAM scenario compatibility
@@ -197,13 +197,8 @@ We also would like to thank Guillaume Batot from IFPEN for fruitfull discussions
 Funding
 -------
 This work is supported by the ADEME agency, in the context of
-the [`HYSPI project`](https://www.psi.ch/en/ta/projects/hyspi). 
+the [`HYSPI project`](https://www.psi.ch/en/ta/projects/hyspi) and by French national Research Agency (ANR) in the context of [`LCA-TASE project`](https://anr.fr/ProjetIA-22-PETA-0010) 
 
-
-
-
-
-
-
-
-
+Licence
+-------
+Both the code and the data are distributed under the licence Creative Common - CC-by-SA 4.0
