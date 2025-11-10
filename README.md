@@ -23,10 +23,6 @@ The evolution at the world regional scale are modeled by coupling the
 French scenarios with a global scenario provided by an Integrated 
 Assessment Model (IAM).
 
-**Warning:**
-* The modeled markets for hydrogen do not cover all uses of hydrogen, only material uses of hydrogen for the following industrial sectors : ammonia, steel, chemistry, diverse sectors, refinery). This model does not cover energetic, grid balancing and synthetic fuel uses of hydrogen.
-* The proxy used to generate imports and exports electricity datasets probably artificially overestimates the imports in 2060. The electricity datasets for 2060 shall be used with caution. 
-
 The figure below shows the different electricity and liquid fuel markets created in the ecoinvent database.
 
 ![boundaries map](https://github.com/oie-mines-paristech/RTE_scenarios/blob/main/assets/diagram1.png?raw=true)
@@ -78,20 +74,30 @@ This datapackage contains four files necessary to the scenarios implementation i
 Additionally, a pdf document called "supplementary information" presents the methodological choices that where made to build this model.
 
 
-How to use this notebook ?
+How to use this repository ?
 ------------------
-* 0. Prerequisites: ecoinvent licence for ecoinvent 3.10.1 database
+### 0. Prerequisites: ecoinvent licence for ecoinvent 3.10.1 database
      
-* 1. Install the environment as explained [`here`](https://github.com/polca/premise?tab=readme-ov-file#how-to-install-this-package).
-  Use **premise version => 2.3.1**. 
-  The authors tested the version of premise compatible with brightway2 but not the one compatible with brightway 2.5. If you test it with bw2.5, please let us know how it worked.
+### 1. Install the environment : **premise version => 2.3.1**
+The authors tested the version of premise compatible with brightway2 but not the one compatible with brightway 2.5. If you test it with bw2.5, please let us know how it worked.
 
-* 2. Create a brightway project and load ecoinvent 3.10.1 database in the project. It can be done using [`ecoinvent_interface`](https://github.com/brightway-lca/ecoinvent_interface).
+* Install the environment as explained [`here`](https://github.com/polca/premise?tab=readme-ov-file#how-to-install-this-package).
+* *OR* install the environment with requirements.txt file
+```bash
+conda create -n premise231 python==3.11
+conda activate premise231
+pip install -r requirements.txt
+```
 
-* 3. Run the following script for some chosen combinations of Year x IAM model x IAM scenario x French scenario. Here is an example for two French scenarios combined with the same IAM scenario.
-* 3. (bis) Or run the file **run-premise-rte.md** provided in this repository.
-     To go further : Example notebook to run premise with and without external scenarios [`here`](https://github.com/polca/premise/tree/master/examples).
+### 2. Create a brightway project and load ecoinvent 3.10.1 database in the project. 
+It can be done using [`ecoinvent_interface`](https://github.com/brightway-lca/ecoinvent_interface) or using a local file.
 
+### 3. Generate prospective databases for some chosen combinations of Year x IAM model x IAM scenario x French scenario.
+A prospective version of ecoinvent is generated for each combination of : Year x IAM model x IAM scenario x French scenario.\
+The newly created market datasets are tagged with 'FE2050', for example : `market for electricity, high voltage, FE2050` (FR)
+
+* Run the file **run-premise-rte.md** provided in this repository.
+* *OR* **Run the following script**. It is an example for two French scenarios combined with the same IAM scenario.
 
   ```python
 
@@ -141,12 +147,14 @@ How to use this notebook ?
     list(bw2data.databases)
 
   ```
-  
-A prospective version of ecoinvent is generated for each combination of : Year x IAM model x IAM scenario x French scenario.
-The newly created market datasets are tagged with 'FE2050', for example : `market for electricity, high voltage, FE2050` (FR)
 
-⚠️  **ELECTRICITY IMPORTS MODELING** :
-By default, the electricity imports to French markets are modeled with French electricity production mix.
+To go further : Example notebook to run premise with and without external scenarios [`here`](https://github.com/polca/premise/tree/master/examples).
+
+
+### ⚠️ WARNINGS ⚠️ 
+* ⚠️The modeled markets for hydrogen do not cover all uses of hydrogen, only material uses of hydrogen for the following industrial sectors : ammonia, steel, chemistry, diverse sectors, refinery). This model does not cover energetic, grid balancing and synthetic fuel uses of hydrogen.
+* ⚠️ The proxy used to generate imports and exports electricity datasets probably artificially overestimates the imports in 2060. The electricity datasets for 2060 shall be used with caution.
+* ⚠️ By default, the electricity imports to French markets are modeled with French electricity production mix.
 If you want to change it and replace it by the prospective European electricity mix povided by premise, you can modify the file **config.yaml** and replace the section dedicated to electricity imports by the section below. 
 If you do this change, be aware that the French electricity impacts with be even more dependant on the IAM scenarios selected, as the European electricity mix impacts vary a lot from one IAM scenario to another. 
 
@@ -168,6 +176,7 @@ Ecoinvent database compatibility
 IAM scenario compatibility
 ---------------------------
 The user can couple each French scenario with a global scenario (IAM) provided by premise.\
+See the [`dedicated section on premise documentation`](https://premise.readthedocs.io/en/latest/introduction.html#choosing-the-right-iam) to choose IAM scenarios.\
 The available IAM scenarios provided by premise can be explored [`here`](https://premisedash-6f5a0259c487.herokuapp.com/)\
 The choice of IAM scenario is under the responsability of the user of this repository. However, the authors highlight the fact that the impact results highly depends on the IAM scenario chosen. The authors advice to couple the scenarios with RCP 4.5 scenarios or with scenarios whose temperature increase are similar to RCP 4.5 scenarios, as it is mentioned in RTE study that the scenarios are compatible with RCP4.5 scenarios.
 
