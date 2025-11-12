@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.4
   kernelspec:
-    display_name: lca_alg_12
+    display_name: lca_alg_13
     language: python
-    name: lca_alg_12
+    name: lca_alg_13
 ---
 
 ```python editable=true slideshow={"slide_type": ""}
@@ -29,7 +29,7 @@ import lca_algebraic as agb
 ## `🔧` Project name and ecoinvent names *2
 
 ```python
-NAME_BW_PROJECT="HySPI_premise_FE2050_22"
+NAME_BW_PROJECT="HySPI_premise_FE2050_23"
 ```
 
 ```python
@@ -41,19 +41,19 @@ list(bw2data.databases)
 
 ```python
 ecoinvent_db_name='ecoinvent-3.10.1-cutoff'
-ecoinvent_db=bw2data.Database(ecoinvent_db_name)
 biosphere_db_name='ecoinvent-3.10.1-biosphere'
+ecoinvent_db=bw2data.Database(ecoinvent_db_name)
+```
+
+```python
+#If you need to delete a database
+#del bw2data.databases['ei_cutoff_3.10_remind_SSP1-NDC_2050 2025-07-30']
 ```
 
 ```python
 #If you want you can import climate change impact method that is updated by premise
 from premise_gwp import add_premise_gwp
 add_premise_gwp()
-```
-
-```python
-#If you need to delete a database
-#del bw2data.databases['ei_cutoff_3.10_remind_SSP1-NDC_2050 2025-07-30']
 ```
 
 ## Export excel 
@@ -191,7 +191,7 @@ selected_db_list=premise_db_list
 ```python
 #To generate a list of databases based on filters on the year / SSP / RCP/ FR_Scenario
 #Example
-#selected_db_list=[db for db in premise_db_list if '2025-05-22' in db.name and 'update' not in db.name]+[db for db in premise_db_list if db.name=='ei_cutoff_3.9_tiam-ucl_SSP2-RCP45_2050_Reference - N1 2025-05-15']+[db for db in premise_db_list if db.name=='ei_cutoff_3.9_tiam-ucl_SSP2-Base_2050_Reference - N1 2025-05-15']
+selected_db_list=[db for db in premise_db_list if 'RCP45' in db.name]# and 'update' not in db.name]+[db for db in premise_db_list if db.name=='ei_cutoff_3.9_tiam-ucl_SSP2-RCP45_2050_Reference - N1 2025-05-15']
 selected_db_list
 #selected_db_list=[selected_db_list[2]]
 ```
@@ -257,7 +257,7 @@ dict_act_subcategories = {
 dict_color={
     "electricity production, nuclear, pressure water reactor":['gold','nuclear'],
     "electricity production, Evolutionary Power Reactor (EPR)":['gold','nuclear'],
-    "electricity production, Small Modular Reactor (SMR)":['goldenrod','nuclear'],
+    "electricity production, Small Modular Reactor (SMR)":['gold','nuclear'],
     "electricity production, hydro, run-of-river":['dodgerblue','hydro'],
     "electricity production, hydro, reservoir, alpine region":['dodgerblue','hydro'],
     "electricity production, photovoltaic":['coral','photovoltaic'],
@@ -279,6 +279,13 @@ dict_color={
     
     "market group for electricity, high voltage":['midnightblue','imports'], #magenta
     "market for electricity production, direct production, high voltage, FE2050":['midnightblue','imports'],
+
+    "market for electricity, high voltage, FE2050":['rebeccapurple','losses'],
+    "transmission network construction, electricity, high voltage direct current aerial line":['purple','grid infrastructure'],
+    "transmission network construction, electricity, high voltage direct current land cable":['purple','grid infrastructure'],
+    "transmission network construction, electricity, high voltage direct current subsea cable":['purple','grid infrastructure'],
+    "Dinitrogen monoxide('air',)": 	['violet','grid direct emissions'],
+    "Ozone('air',)":['violet','grid direct emissions'],
      }  
 ```
 
@@ -308,6 +315,13 @@ dict_color_mix={
     
     "market group for electricity, high voltage":['midnightblue','imports'], #magenta
     "market for electricity production, direct production, high voltage, FE2050":['midnightblue','imports'],
+
+    "market for electricity, high voltage, FE2050":['rebeccapurple','losses'],
+    "transmission network construction, electricity, high voltage direct current aerial line":['purple','grid infrastructure'],
+    "transmission network construction, electricity, high voltage direct current land cable":['purple','grid infrastructure'],
+    "transmission network construction, electricity, high voltage direct current subsea cable":['purple','grid infrastructure'],
+    "Dinitrogen monoxide('air',)": 	['violet','grid direct emissions'],
+    "Ozone('air',)":['violet','grid direct emissions'],
      }  
 ```
 
@@ -716,6 +730,7 @@ add_to_act_name=", with solar + wind mix as import mix"
 ```
 
 # Impact 1 kWh of electricity
+Calculate the impact of a chosen activity per several scenarios / years
 
 
 ## `🔧` database, impact category, activities
@@ -725,18 +740,22 @@ premise_db_list
 ```
 
 ```python
-#selected_db_list=premise_db_list    selected_db_list=[db for db in premise_db_list if 'N03' in db.name and 'SSP2-RCP45' in db.name]#+[db for db in premise_db_list if 'N1' in db.name and 'SSP2-RCP45' in db.name] +[db for db in premise_db_list if 'M0' in db.name and 'SSP2-RCP45' in db.name]
-selected_db_list=[premise_db_list[0]]#,premise_db_list[1],premise_db_list[4],]
+#selected_db_list=[premise_db_list[0]]#,premise_db_list[1],premise_db_list[4],]
 selected_db_list
 ```
 
 ```python
-impact_cat_list=[climate]#,climate_premise]#,metals_minerals,land,ionising_rad]
+impact_cat_list=[climate,acidification]#,climate_premise]#,metals_minerals,land,ionising_rad]
 #impact_cat=climate
 
 act_name_list=[    
-    "market group for electricity, high voltage",
-    #"market for electricity, high voltage, FE2050",
+    "market for electricity, high voltage, FE2050",
+]
+```
+
+```python
+#Helper to delete
+    #"market group for electricity, high voltage",
     #"market for electricity, high voltage, FE2050, with European mix Ecoinvent 3.10.1 as import mix",
     #"market for electricity, high voltage, FE2050, with European market tiam-ucl-SSP2-Base as import mix", 
     #'market for electricity, high voltage, FE2050, with European market tiam-ucl-SSP2-RCP45 as import mix',
@@ -760,41 +779,6 @@ act_name_list=[
     #"electricity production, wind, 1-3MW turbine, onshore",
     #"electricity production, wind, 1-3MW turbine, offshore",
 
-]
-
-```
-
-```python
-impact_cat_list=[climate]#,climate_premise]#,metals_minerals,land,ionising_rad]
-#impact_cat=climate
-
-act_name_list=[    
-    "market for electricity, high voltage, FE2050",
-    #"market for electricity, high voltage, FE2050, with European mix Ecoinvent 3.10.1 as import mix",
-    #"market for electricity, high voltage, FE2050, with European market tiam-ucl-SSP2-Base as import mix", 
-    #'market for electricity, high voltage, FE2050, with European market tiam-ucl-SSP2-RCP45 as import mix',
-    #"market for electricity, high voltage, FE2050, with European market tiam-ucl-SSP2-RCP26 as import mix",  
-    #"market for electricity, high voltage, FE2050, with onshore wind mix as import mix"
-    #"market for electricity, high voltage, FE2050, with empty activity as import mix",
-    
-    #"market group for electricity, high voltage",
-    #"market for electricity, from direct French production, FE2050",
-    #market for electricity production, direct production, high voltage, FE2050",
-    #"market for electricity, from storage, FE2050",
-    #"market for electricity, from import, FE2050",
-
-    "electricity production, nuclear, pressure water reactor",
-    "electricity production, Evolutionary Power Reactor (EPR)",
-    #"electricity production, Small Modular Reactor (SMR)",
-    
-    "electricity production, hydro, run-of-river",
-    "electricity production, hydro, reservoir, alpine region",
-    "electricity production, photovoltaic",
-    "electricity production, wind, 1-3MW turbine, onshore",
-    "electricity production, wind, 1-3MW turbine, offshore",
-
-]
-
 ```
 
 ## Run
@@ -810,7 +794,8 @@ act_name_list=[
         impact_unit_list.append('unit')
 
     #initialise the dataframe
-    df=pd.DataFrame([],columns=['db_name','model','SSP','RCP','FR scenario','year','warning','act','impact/kWh (absolute)','unit' ]) #+impact_unit_list )
+    #df=pd.DataFrame([],columns=['db_name','model','SSP','RCP','FR scenario','year','warning','act','impact/kWh (absolute)','unit' ]) #+impact_unit_list )
+    df=pd.DataFrame([],columns=['db_name','model','SSP','RCP','FR scenario','year','warning','act'] + impact_unit_list )
     
     for db in selected_db_list:    
         for act_name in act_name_list:
@@ -841,44 +826,59 @@ act_name_list=[
             #Store data
             df.loc[len(df.index)] = [db.name,db.model, db.SSP, db.RCP,db.FR_scenario,db.year,db.warning,act["name"]]+score_unit_list
             #df.loc[len(df.index)] = [db.name,db.model, db.SSP, db.RCP,db.FR_scenario,db.year,db.warning,act["name"],score,unit]#+score_unit_list
+df
 ```
 
 ```python editable=true slideshow={"slide_type": ""}
-if len(impact_cat_list)==1:
-    df_elec_1=df.style.background_gradient(cmap='Reds',subset=impact_unit_list[0])#impact_unit_list[0])
-else:
-    df_elec_1=df
+#Helper to delete or fixme
+#if len(impact_cat_list)==1:
+#    df_elec_1=df.style.background_gradient(cmap='Reds',subset=[impact_unit_list[0]])#impact_unit_list[0])
+#else:
+#    df_elec_1=df
+```
+
+```python
+df
 ```
 
 # Aggregated contribution analysis
+Contribution analysis between :
+* electricity from direct production
+* electricity from storage
+* electricity from imports
+* optionnaly : electricity from curtailement
 
 
 ## `🔧` databases, impact category
 
 ```python
-selected_db_list=[db for db in premise_db_list if 'N03' in db.name and 'SSP2-RCP45' in db.name]+[db for db in premise_db_list if 'N1' in db.name and 'SSP2-RCP45' in db.name] +[db for db in premise_db_list if 'M0' in db.name and 'SSP2-RCP45' in db.name]
-
-```
-
-```python
+#selected_db_list=[db for db in premise_db_list if 'N03' in db.name and 'SSP2-RCP45' in db.name]+[db for db in premise_db_list if 'N1' in db.name and 'SSP2-RCP45' in db.name] +[db for db in premise_db_list if 'M0' in db.name and 'SSP2-RCP45' in db.name]
 selected_db_list
 ```
+
+## `🔧` optional features : curtailed energy
+
+```python
+#Todo
+```
+
+## `🔧` optional features : imports
 
 ```python
 impact_cat=climate
 #impact_cat=climate_premise
-
-#if I want to calculate in addition, impacts of markets with imports from european mix generated with the same IAM
-with_EUR_imports="no"
-##if I want to calculate in addition, impacts markets with imports from sev european mix taken from other IAM
-with_EUR_imports_severals="no" 
-#db_import_list is the list from where imports come from with_EUR_imports_severals="yes"
-db_import_list_severals=[premise_db_list[0]]+[premise_db_list[1]]+[premise_db_list[2]]
-#If I want to calculate a list from one database
-with_add_to_act_names="no"
 ```
 
 ```python
+#if I want to calculate in addition, impacts of markets with imports from european mix generated with the same IAM
+with_EUR_imports="no" #"yes"
+##if I want to calculate in addition, impacts markets with imports from sev european mix taken from other IAM
+with_EUR_imports_severals="no" #"yes"
+#db_import_list is the list from where imports come from with_EUR_imports_severals="yes"
+db_import_list_severals=[premise_db_list[0]]+[premise_db_list[1]]+[premise_db_list[2]] 
+#If I want to calculate a list from one database
+with_add_to_act_names="no" #"yes"
+
 add_to_act_names_list=[
     ", with European mix Ecoinvent 3.10.1 as import mix",
     ", with European market tiam-ucl-SSP2-Base as import mix", 
@@ -920,7 +920,7 @@ for db in selected_db_list:
         if exc.input["name"] in import_act_name:
             amount_import = exc["amount"]+amount_import
     
-    # Safety Check 
+    # Safety Check that direct_elec_prod_act_names + storage_act_names+import_act_name covers al the activities
         if exc.input["name"] not in direct_elec_prod_act_names + storage_act_names+import_act_name+[act["name"]]:
             if "transmission" not in exc.input["name"] and "Ozone" not in exc.input["name"] and "Dinitrogen"not in exc.input["name"]:
                 print("warning: exchange", exc.input["name"], "forgotten")
@@ -1052,36 +1052,24 @@ for db in selected_db_list:
             list_df_ca_aggreg.append(df2)
 
 
-```
-
-```python
 #Add a column for hatches
 for df in list_df_ca_aggreg:
     df['hatch']=None
-list_df_ca_aggreg[-1]
 ```
 
 ```python
-df
+list_df_ca_aggreg[0]
 ```
 
 ```python
-df_elec_1
-```
+#To be deleted if not useful
+#df_elec_1['color']='grey'
+#df_elec_1['label']='consumption mix'
 
-```python
-df_elec_1['color']='grey'
-df_elec_1['label']='consumption mix'
-```
+#for df in list_df_ca_aggreg:
+#    df['color']=['grey','deepskyblue','royalblue','midnightblue']
 
-```python
-for df in list_df_ca_aggreg:
-    df['color']=['grey','deepskyblue','royalblue','midnightblue']
-
-```
-
-```python
-list_df_ca_aggreg_2=[df_elec_1]+list_df_ca_aggreg
+#list_df_ca_aggreg_2=[df_elec_1]+list_df_ca_aggreg
 ```
 
 ```python
@@ -1204,8 +1192,8 @@ grid_losses=0.03109
                     #print("{:.1f}".format(1/(a*b*c)*100))
                     df.loc[len(df.index)] = [db.name,db.model, db.SSP, db.RCP, db.FR_scenario,db.year,db.warning,act_storage_name,1/(a*b*c)*100,a*b*c-1]
 
-df_storage_efficency=df
-df_storage_efficency
+        df_storage_efficency=df
+        df_storage_efficency
 ```
 
 ## Disaggregation of storage
@@ -1392,10 +1380,6 @@ df_disaggreg_storage
 ```
 
 ```python
-
-```
-
-```python
 list_df_storage_to_print=[]
 for df in list_df_storage:
     df2=pd.concat([df.iloc[0:1, 0:7] ], axis=1) #+ unit
@@ -1417,155 +1401,47 @@ list_df_storage_to_print[0]
 # Graphs
 
 ```python
-#Recap : list of databases
+#Recap : list of databases covered by list_df_ca_aggreg
 list_df = pd.DataFrame(columns=list_df_ca_aggreg[0].columns)
 for df in list_df_ca_aggreg:
     list_df=pd.concat([list_df,df.head(1)],ignore_index=True)
 list_df
 ```
 
-## `🔧` Choose databases to compare and order
+```python
+list_df_to_plot=list_df_ca_aggreg
+```
+
+## `🔧` Optional : choose specific change databases to compare and order
 
 ```python
+change_plot_order="no" #yes"
 #Choose what you want to plot in which order on the graphs
-#rows_to_plot=[5,1,4]
-#rows_to_plot=[0,15,1]+[0,8,1]
-plot_order=[1,3] #
-
-#Generate the list to plot
-list_df_to_plot= []
-for order in plot_order:
-    list_df_to_plot.append(list_df_ca_aggreg[order])
-
-#To plot all graphs
-#list_df_to_plot=list_df_ca_aggreg
-```
-
-## Impact Production mix
-
-```python
-column='impact/kWh (absolute)'
-#list_df_to_plot=list_df_ca_aggreg
-title='Impact per kWh'
-
+plot_order=[1,3]
 ```
 
 ```python
-#Plot consumption mix
-a=0
-label_bar_number=[]
-label_bar=[]
-
-fig,ax = plt.subplots()
-
-for df in list_df_to_plot:
-    a=a+0.2
-    #plot consumption mix (bar)
-    ax.bar(a,df[column].iloc[0],width=0.1,color=df['color'].iloc[0], label=df['label'].iloc[0])
-    #plot production mix (point)
-    #add labels
-    ax.annotate(
-        text = f'{round(df[column].iloc[0],1)}',
-        xy=(a, df[column].iloc[0] + 0.1),
-        ha='center',
-    )
-
-    label_bar_number.append(a)
-    #list of bar label
-    label_bar.append(df['model'].iloc[0]+', '+ df['SSP'].iloc[0]+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
-
-
-# add labels with bar_label
-
-#Add information on the graph
-plt.xlabel('  ')  
-plt.ylabel(impact_cat[1]+ ', '+  list_df_ca_aggreg[0]['unit'].iloc[0])  
-plt.title(title)
-plt.xticks(label_bar_number,label_bar)  
-plt.xticks(rotation=45, ha='right')
-# Add legend without redundant labels
-handles, labels = plt.gca().get_legend_handles_labels()
-by_label = dict(zip(labels, handles))
-fig.legend(by_label.values(), by_label.keys(), loc='lower center',bbox_to_anchor=(0.5, -0.1))
-plt.tight_layout()
-#plt.show()
-plt.savefig('image2-consumption.png')
+if change_plot_order=="yes": 
+    #Generate the list to plot
+    list_df_to_plot= []
+    for order in plot_order:
+        list_df_to_plot.append(list_df_ca_aggreg[order])
 ```
 
-## Impact Consumption mix
+## Origin of electricity
+
+
+### Aggregated origin : pie chart
 
 ```python
-#Plot Production vs consumption mix
-
-a=0
-label_bar_number=[]
-label_bar=[]
-
-fig,ax = plt.subplots()
-
-for df in list_df_to_plot:
-    a=a+0.2
-    #plot consumption mix (bar)
-    ax.bar(a,df[column].iloc[0],width=0.1,color=df['color'].iloc[0], label=df['label'].iloc[0])
-    #plot production mix (point)
-    ax.plot(a,
-            df.loc[df['act']=='market for electricity, from direct French production, FE2050','impact/kWh (absolute)'].values,
-            color='darkorange',
-            label='1 kWh - direct production mix',
-            marker = 'o'
-           )    
-
-
-    #relative difference production mix >> consumption mix 
-    diff=(df[column].iloc[0]-df[column].iloc[1])/df[column].iloc[1]*100 
-    
-
-    #add labels
-    ax.annotate(
-        #text = f'{round(df[column].iloc[0],1)} | +{round(diff)}%',
-        text = f'{round(df[column].iloc[0],1)}',
-        xy=(a, df[column].iloc[0] + 0.1),
-        ha='center',
-    )
-
-    #ax.annotate(
-    #    text = f'+{round(diff)}%',
-    #    xy=(a, df[column].iloc[0]/2),
-    #    ha='center',
-    #)    
-    #Number of the bar
-    #list of bar number
-    label_bar_number.append(a)
-    #list of bar label
-    label_bar.append(df['model'].iloc[0]+', '+ df['SSP'].iloc[0]+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
-
-
-# add labels with bar_label
-
-#Add information on the graph
-plt.xlabel('  ')  
-plt.ylabel(impact_cat[1]+ ', '+  list_df_ca_aggreg[0]['unit'].iloc[0])  
-plt.title(title)
-plt.xticks(label_bar_number,label_bar)  
-plt.xticks(rotation=45, ha='right')
-# Add legend without redundant labels
-handles, labels = plt.gca().get_legend_handles_labels()
-by_label = dict(zip(labels, handles))
-fig.legend(by_label.values(), by_label.keys(), loc='lower center',bbox_to_anchor=(0.5, -0.1))
-plt.tight_layout()
-#plt.show()
-plt.savefig('image2-prod vs consumption.png')
+#to select only one graph
+#index_pie_chart=1
 ```
-
-## Origin of electricity aggregated
-
-
-### Pie chart
 
 ```python
 column="amount (kWh)"
-
-for df in [list_df_to_plot[0]]:
+for df in list_df_to_plot:
+#for df in [list_df_to_plot[index_pie_chart]]: #to select only one graph
     df=df[df["act"]!="market for electricity, high voltage, FE2050"]
     fig, ax = plt.subplots()
     patches, texts, autotexts  = ax.pie(
@@ -1588,11 +1464,11 @@ for df in [list_df_to_plot[0]]:
     plt.savefig('image-origin of electricity.png')
 ```
 
-### bar graph
+### Aggregated origin : Bar graph
 
 ```python
 #Fonction to plot aggregated amount
-def plot_bar_graph_french_scenarios(list_df_to_plot, column, title, starting_row=0, add_percentage='yes', figsize=(3, 6)):
+def plot_bar_graph_french_scenarios(list_df_to_plot, column, title, starting_row=0, add_percentage='yes', figsize=(3, 6),color_percentage='black'):
     """Plot amount"""
     title=title
     
@@ -1620,7 +1496,7 @@ def plot_bar_graph_french_scenarios(list_df_to_plot, column, title, starting_row
             rows.append(i)
 
         for row in rows:
-            ax.bar(a, df[column].iloc[row], bottom=base, color=df['color'].iloc[row], label=df['label'].iloc[row], width=0.1)
+            ax.bar(a, df[column].iloc[row], bottom=base, color=df['color'].iloc[row], label=df['label'].iloc[row], width=0.2)
             base=base+df[column].iloc[row]
         base_list.append(base)
 
@@ -1635,7 +1511,7 @@ def plot_bar_graph_french_scenarios(list_df_to_plot, column, title, starting_row
                 if bar.get_height()!=0:
                     ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() / 2 + bar.get_y(),
                     f'{round(bar.get_height()/base*100)}%', 
-                    ha = 'center', color = 'black', size = 10, weight = 'bold')        
+                    ha = 'center', color = color_percentage, size = 10, weight = 'bold')        
     
     #Add information on the graph
     plt.xlabel(' ')  
@@ -1646,7 +1522,7 @@ def plot_bar_graph_french_scenarios(list_df_to_plot, column, title, starting_row
     # Add legend without redundant labels
     handles, labels = plt.gca().get_legend_handles_labels()
     by_label = dict(zip(labels, handles))
-    plt.legend(by_label.values(), by_label.keys(),bbox_to_anchor=(0.5, 1.6), loc='center')
+    plt.legend(by_label.values(), by_label.keys(),bbox_to_anchor=(0.5, 1.08), loc='center')
 
     plt.tight_layout()
     #plt.show()    
@@ -1654,29 +1530,30 @@ def plot_bar_graph_french_scenarios(list_df_to_plot, column, title, starting_row
 ```
 
 ```python
-plot_bar_graph_french_scenarios(list_df_to_plot=[list_df_to_plot_storage_mix[0],list_df_to_plot_storage_mix[2]], column='amount', title='Electricity from storage', starting_row=0)
+plot_bar_graph_french_scenarios(list_df_to_plot=list_df_to_plot, column='amount (kWh)', title='Origin of electricity per kWh consumed', starting_row=1,figsize=(8, 16),color_percentage='white')
 ```
 
 ```python
-plot_bar_graph_french_scenarios(list_df_to_plot=list_df_to_plot, column='amount (kWh)', title='Origin of electricity', starting_row=1)
+#plot_bar_graph_french_scenarios(list_df_to_plot=[list_df_to_plot_storage_mix[0],list_df_to_plot_storage_mix[2]], column='amount', title='Electricity from storage', starting_row=0)
 ```
 
-## Production mix
+### Production mix : Pie chart
 
 ```python
-
-```
-
-```python
-#Generate the list to plot
-selected_db_list_to_plot= []
-for order in plot_order:
-    selected_db_list_to_plot.append(selected_db_list[order])
-
+selected_db_list_to_plot=selected_db_list
 ```
 
 ```python
-selected_db_list_to_plot=[premise_db_list[7],premise_db_list[4]]
+if change_plot_order=="yes": 
+    #Generate the list of databases to plot
+    selected_db_list_to_plot= []
+    for order in plot_order:
+        selected_db_list_to_plot.append(selected_db_list[order])
+
+```
+
+```python
+#selected_db_list_to_plot=[premise_db_list[7],premise_db_list[4]]
 selected_db_list_to_plot
 ```
 
@@ -1772,10 +1649,11 @@ for df in list_df_mix:
     plt.savefig('image-production mix.png')
 ```
 
-##  Storage mix
+```python
 
+```
 
-### Pie Chart
+### Storage mix : Pie Chart
 
 ```python
 list_df_to_plot_storage_mix=[]
@@ -1792,8 +1670,8 @@ for df in list_df_mix:
 ```python
 column="amount"
 
-for df in [list_df_to_plot_storage_mix[0]]:
-
+for df in list_df_to_plot_storage_mix:
+#for df in [list_df_to_plot_storage_mix[0]]: #if I want to plot only one graph
     fig, ax = plt.subplots()
     ax.pie(
         df[column],
@@ -1812,28 +1690,117 @@ for df in [list_df_to_plot_storage_mix[0]]:
     plt.savefig('image-storage mix.png')
 ```
 
-### Bar chart
+### Storage mix: Bar chart
 
 ```python
-plot_bar_graph_french_scenarios(list_df_to_plot=list_df_to_plot_storage_mix, column='amount', title='Electricity from storage', starting_row=0)
+plot_bar_graph_french_scenarios(list_df_to_plot=list_df_to_plot_storage_mix, column='amount', title='Storage technology mix, per kWh of electricity consumed', starting_row=0,figsize=(8, 12))
+```
+
+## Impact Consumption & production mix : Bar graph
+
+Plot production and consumption mix
+
+```python
+title='Impact per kWh'
+label_consumption='1 kWh, from consumption mix'
+label_prod='1 kWh, from direct production mix'
 ```
 
 ```python
-list_df_to_plot_storage_mix[0]
+#Add production mix on the graph (not only consumption)
+add_prod="yes"
+#Add percentage comparision prod vs consumption mix on the graph
+add_percentage="yes"
 ```
 
 ```python
+act_consumption='market for electricity, high voltage, FE2050'
+act_prod='market for electricity, from direct French production, FE2050'
+column='impact/kWh (absolute)'
 
+a=0
+label_bar_number=[]
+label_bar=[]
+
+fig,ax = plt.subplots()
+
+for df in list_df_to_plot:
+     
+    a=a+0.2
+
+#consumption mix 
+    #Identify row consumption mix 
+    index_consumption=df.loc[df['act']==act_consumption].index[0]
+    #plot consumption mix (bar)
+    ax.bar(a,df[column].iloc[index_consumption],width=0.1,color=df['color'].iloc[index_consumption], label=label_consumption)
+    #plot production mix (point)
+    #add labels
+
+#Production mix
+    if add_prod=="yes":
+        #plot production mix (point)
+        ax.plot(a,
+                df.loc[df['act']==act_prod,column].values,
+                color='darkorange',
+                label=label_prod,
+                marker = 'o'
+               )    
+        if add_percentage=="yes":
+            #relative difference production mix >> consumption mix 
+            diff=(df[column].iloc[index_consumption]-df[column].iloc[1])/df[column].iloc[1]*100     
+            #annotate axe with relative difference 
+            ax.annotate(
+                text = f'{round(df[column].iloc[index_consumption],1)} | +{round(diff)}%',
+                #text = f'{round(df[column].iloc[index_consumption],1)}',
+                xy=(a, df[column].iloc[index_consumption] + 0.1),
+                ha='center',
+            )
+        else:
+            #annotate axe only with consumption mix         
+            ax.annotate(
+                text = f'{round(df[column].iloc[index_consumption],1)}',
+                xy=(a, df[column].iloc[index_consumption] + 0.1),
+                ha='center',
+            )
+
+    else:
+        #annotate axe only with consumption mix         
+        ax.annotate(
+            text = f'{round(df[column].iloc[index_consumption],1)}',
+            xy=(a, df[column].iloc[index_consumption] + 0.1),
+            ha='center',
+        )
+
+    #For axis x labelling
+    #Bar number
+    label_bar_number.append(a)
+    #list of bar label
+    label_bar.append(df['model'].iloc[index_consumption]+', '+ df['SSP'].iloc[index_consumption]+'-'+ df['RCP'].iloc[index_consumption] +', '+ df['FR scenario'].iloc[index_consumption]+','+ str(df['year'].iloc[index_consumption]))
+
+
+#Add information on the graph
+plt.xlabel('  ')  
+plt.ylabel(impact_cat[1]+ ', '+  list_df_ca_aggreg[0]['unit'].iloc[index_consumption])  
+plt.title(title)
+plt.xticks(label_bar_number,label_bar)  
+plt.xticks(rotation=45, ha='right')
+# Add legend without redundant labels
+handles, labels = plt.gca().get_legend_handles_labels()
+by_label = dict(zip(labels, handles))
+fig.legend(by_label.values(), by_label.keys(), loc='lower center',bbox_to_anchor=(0.5, -0.1))
+plt.tight_layout()
+#plt.show()
+plt.savefig('image2-consumption.png')
 ```
 
-## Aggregated contribution analysis
+## Impact: Aggregated contribution analysis
 
 
 ### without electricity from storage disaggregated
 
 ```python
 #Fonction to plot aggregated contribution
-def plot_bar_graph_contrib(list_df_to_plot, column, rows=[1,2,3], add_number_percentage="number", add_prod_mix='no', figsize=(10, 6)):
+def plot_bar_graph_contrib(list_df_to_plot, column, rows=[1,2,3], add_number_percentage="number", add_prod_mix='no'):
     """Plot contribution"""
     # comment
     title=impact_cat[2]#+', ',list_df_to_plot[0]['unit'].iloc[0]+ '/kWh'
@@ -1841,7 +1808,7 @@ def plot_bar_graph_contrib(list_df_to_plot, column, rows=[1,2,3], add_number_per
     a=0
     label_bar_number=[]
     label_bar=[]
-    fig,ax = plt.subplots(figsize)
+    fig,ax = plt.subplots() #
     
     for df in list_df_to_plot:
         #bar graph number
@@ -1872,7 +1839,7 @@ def plot_bar_graph_contrib(list_df_to_plot, column, rows=[1,2,3], add_number_per
                 #text = f'{round(df[column].iloc[0],1)} | + {round(df[col].iloc[1],1)}| +{round(diff)}%',
                 xy=(a, df[column].iloc[0] + 0.1),
                 ha='center',
-                fontsize=18,
+                fontsize=10,
                 weight="bold",
             )
 
@@ -1887,7 +1854,7 @@ def plot_bar_graph_contrib(list_df_to_plot, column, rows=[1,2,3], add_number_per
             )
         if add_prod_mix=='yes':
             #plot production mix (point)
-            ax.plot(a, df.loc[df['act']=='market for electricity, from direct French production, FE2050','impact/kWh (absolute)'].values, color='darkorange', label='1 kWh - from direct production', marker = 'o',markersize=12)    
+            ax.plot(a, df.loc[df['act']=='market for electricity, from direct French production, FE2050','impact/kWh (absolute)'].values, color='darkorange', label='1 kWh - from direct production', marker = 'o',markersize=6)    
 
 
     
@@ -1907,108 +1874,408 @@ def plot_bar_graph_contrib(list_df_to_plot, column, rows=[1,2,3], add_number_per
 ```
 
 ```python
-list_df_to_plot=[ list_df_ca_aggreg[1], list_df_ca_aggreg[3]] 
-```
-
-```python
-plot_bar_graph_contrib(list_df_to_plot=list_df_to_plot, column='contribution to impact', add_prod_mix='yes',add_number_percentage="no") #title, figsize
+plot_bar_graph_contrib(list_df_to_plot=list_df_to_plot, column='contribution to impact', add_prod_mix='yes',add_number_percentage="percentage") #title, figsize
 ```
 
 ### with electricity from storage disaggregated into 2
 
 ```python
-plot_bar_graph_contrib(list_df_to_plot=[list_df_ca_aggreg_bis[0],list_df_ca_aggreg_bis[2]],
+plot_bar_graph_contrib(list_df_to_plot=list_df_ca_aggreg_bis,
                        rows=[1,2,3,4],
                        column='contribution to impact',
                        add_number_percentage="no",
                        add_prod_mix='yes',
-                       figsize=(8, 6)
+                       #figsize=(8, 6)
                       ) #title, figsize
 ```
 
-```python
-plot_bar_graph_contrib(list_df_to_plot=[list_df_ca_aggreg_bis[0],list_df_ca_aggreg_bis[2]], add_number_percentage="no",add_prod_mix='yes',rows=[1,2,3,4], column='contribution to impact', figsize=(8, 6)) #title, figsize
-```
-
-### Dissagregated storage mix
+## Impact : Dissagregated storage mix
 
 ```python
 list_df_storage_to_print[2]
 ```
 
 ```python
-plot_bar_graph_contrib(list_df_to_plot=[list_df_storage_to_print[0],list_df_storage_to_print[2]], rows=[1,2,3,4],add_number_percentage="number",column='impact') #title, figsize
+plot_bar_graph_french_scenarios(list_df_to_plot=list_df_storage_to_print, column='impact', title='title', starting_row=3, add_percentage='no', figsize=(8, 12),color_percentage='black')
 ```
 
-# Consumption / Production / Import / storage mix comparison
-
 ```python
-column='impact/kWh (absolute)'
-title='Impact per kWh'
-rows=[1,2,3]
-
-a=0
-label_bar_number=[]
-label_bar=[]
-
-fig,ax = plt.subplots()
-
-for df in list_df_to_plot:
-    a=a+0.2
-    #plot consumption mix (bar)
-    ax.bar(a,df[column].iloc[0],width=0.1,color=df['color'].iloc[0], label=df['label'].iloc[0])
-    #plot production mix (point)
-    for row in rows:
-        ax.plot(a, df[column].iloc[row], color=df['color'].iloc[row], label=df['label'].iloc[row], marker = 'o')
-    #add labels
-        ax.annotate(
-            text = f'{round(df[column].iloc[0],1)}',
-            xy=(a, df[column].iloc[0] + 0.5),
-            ha='center',
-        )
-    
-    #Number of the bar
-    #list of bar number
-    label_bar_number.append(a)
-    #list of bar label
-    label_bar.append(df['model'].iloc[0]+', '+ df['SSP'].iloc[0]+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
-
-
-# add labels with bar_label
-
-#Add information on the graph
-plt.xlabel('  ')  
-plt.ylabel(impact_cat[2]+ ', '+  list_df_ca_aggreg[0]['unit'].iloc[0])  
-plt.title(title)
-plt.xticks(label_bar_number,label_bar)  
-plt.xticks(rotation=45, ha='right')
-# Add legend without redundant labels
-handles, labels = plt.gca().get_legend_handles_labels()
-by_label = dict(zip(labels, handles))
-fig.legend(by_label.values(), by_label.keys(), loc='lower center')#,bbox_to_anchor=(0.5, -0.1))
-plt.tight_layout()
-#plt.show()
-plt.savefig('image-mixes comparison.png')
+plot_bar_graph_contrib(list_df_to_plot=list_df_storage_to_print, rows=[1,2,3,4],add_number_percentage="number",column='impact') #title, figsize
 ```
 
 <!-- #region editable=true slideshow={"slide_type": ""} -->
-# Detailed contribution analysis
+## Impacts: Detailed contribution analysis
 <!-- #endregion -->
-
-## At mix level
 
 ```python
 elec_act_name="market for electricity, high voltage, FE2050"
 elec_act_unit='kilowatt hour'
 impact_cat=climate
-selected_db_list#=premise_db_list 
+selected_db_list=[selected_db_list[0]] #premise_db_list
 ```
+
+```python
+#unit of the studied impact category
+unit_impact= bw2data.Method(impact_cat).metadata["unit"]
+```
+
+### Run
 
 ```python
 list_df_ca=[]
 
 #For each db in the selected list
 for db in selected_db_list:
+    #initialisation of the dataframe
+    df=pd.DataFrame([],columns=[
+        'db_name',
+        'model',
+        'SSP',
+        'RCP',
+        'FR scenario',
+        'year',
+        'warning',
+        'act',
+        'amount',
+        'unit amount',
+        'impact',
+        'unit impact',
+        '% impact',
+        'absolute impact',
+        'absolute impact/impact elec'
+        ])
+    
+    #Calculate the impact of the chosen activity
+    act=db.search(elec_act_name)[0]
+    #acts=db.search(elec_act_name)
+    #act=[act for act in acts if act["location"]=="WEU"][0]
+    lca = act.lca(method=impact_cat, amount=1)
+    score_ref = lca.score
+    #Select the exchanges that compose the activity
+    excs=[exc for exc in act.exchanges()]
+
+    for exc in excs:
+        if exc["type"]=='technosphere' : #and "transmission" not in exc['name']:
+            lca = exc.input.lca(method=impact_cat, amount=exc.amount)
+            score = lca.score
+            unit_impact= bw2data.Method(impact_cat).metadata["unit"]
+            #change unit if climate change
+            if unit_impact == "kg CO2-Eq":
+                score_ref =1000*score_ref
+                score=1000*score
+                unit_impact="g CO2-Eq"
+            
+            score_abs=score/exc["amount"]
+            df.loc[len(df.index)] = [
+                db.name,
+                db.model,
+                db.SSP,
+                db.RCP,
+                db.FR_scenario,
+                db.year,
+                db.warning,
+                exc["name"],
+                exc["amount"],
+                exc.unit,
+                score,
+                unit_impact,
+                score/score_ref,
+                score_abs,
+                score_abs/score_ref,
+            ]
+       
+        if exc["type"]=='biosphere' :
+                df.loc[len(df.index)] = [
+                db.name,
+                db.model,
+                db.SSP,
+                db.RCP,
+                db.FR_scenario,
+                db.year,
+                db.warning,
+                str(exc["name"])+str(exc["categories"]),
+                exc["amount"],
+                exc["unit"],
+                np.nan,
+                None,            
+                np.nan,
+                np.nan,
+                np.nan,
+                ]
+    list_df_ca.append(df)
+```
+
+```python
+list_df_ca[0]
+```
+
+#### WARNING : if the biosphere flows are modified, we have to modify this section
+
+```python
+ozone=agb.findActivity(db_name=biosphere_db_name,name="Ozone",categories=('air',))
+no2=agb.findActivity(db_name=biosphere_db_name,name="Dinitrogen monoxide",categories=('air',))
+```
+
+```python
+df=list_df_ca[0]
+```
+
+```python
+grid_direct_emissions_no2=agb.newActivity(
+    USER_DB_NAME,
+    "NO2 direct emissions, high voltage grid, FE2050",
+    unit="kWh",
+    exchanges={
+                    no2:df[df["act"]=="Dinitrogen monoxide('air',)"]["amount"].values.tolist()[0]
+        }
+    )
+
+lca = grid_direct_emissions_no2.lca(method=impact_cat, amount=1)
+no2_score = lca.score
+
+unit_impact= bw2data.Method(impact_cat).metadata["unit"]
+if unit_impact == "kg CO2-Eq":
+    no2_score =1000*no2_score
+```
+
+```python
+grid_direct_emissions_ozone=agb.newActivity(
+    USER_DB_NAME,
+    "NO2 direct emissions, high voltage grid, FE2050",
+    unit="kWh",
+    exchanges={
+                    ozone:df[df["act"]=="Ozone('air',)"]["amount"].values.tolist()[0]
+        }
+    )
+
+lca = grid_direct_emissions_ozone.lca(method=impact_cat, amount=1)
+ozone_score = lca.score
+
+unit_impact= bw2data.Method(impact_cat).metadata["unit"]
+if unit_impact == "kg CO2-Eq":
+    ozone_score =1000*ozone_score
+```
+
+```python
+for df in list_df_ca:
+   df.iloc[df.index[df["act"]=="Dinitrogen monoxide('air',)"].tolist()[0],df.columns.get_loc("impact")]=no2_score
+   df.iloc[df.index[df["act"]=="Ozone('air',)"].tolist()[0],df.columns.get_loc("impact")]=ozone_score
+```
+
+```python
+for df in list_df_ca:
+        for prod,colorlabel in dict_color.items():
+            df.loc[(df['act']==prod), 'color']=colorlabel[0]
+            df.loc[(df['act']==prod), 'label']=colorlabel[1]
+list_df_ca[0]    
+```
+
+```python
+for n in range(len(selected_db_list)):
+    if (list_df_ca[n]['impact'].sum()-list_df_ca_aggreg[n]['contribution to impact'].iloc[0])>10-5:
+        print("error database number", n)
+```
+
+```python
+#Fonction to plot aggregated contribution
+def plot_bar_graph_disagreg_contrib(list_df_to_plot, column, figsize=(10, 15)):
+    """Plot contribution"""
+    # comment
+    title=impact_cat[2]
+    
+    a=0
+    label_bar_number=[]
+    label_bar=[]
+    fig,ax = plt.subplots(figsize=figsize)
+    
+    for df in list_df_to_plot:
+        rows=list(range(len(df)-1))
+        #bar graph number
+        a=a+1
+        #list of bar number
+        label_bar_number.append(a)
+        #list of bar label
+        label_bar.append(df['model'].iloc[0]+', '+ df['SSP'].iloc[0]+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
+        
+        #Plot contributions
+        base=0
+        for row in rows:
+            ax.bar(a, df[column].iloc[row], bottom=base, color=df['color'].iloc[row], label=df['label'].iloc[row])
+            base=base+df[column].iloc[row]
+        #Plot production mix
+        #ax.plot(a, df['contribution to impact'].iloc[1], color='black', label='1kWh - production mix', marker = 'o')
+        #Add value
+        #ax.annotate(
+        #    text = f'{round(df[column].iloc[0])}',
+        #    xy=(a, df[column].iloc[0] + 0.1),
+        #    ha='center',
+        #)        
+            
+    #Add information on the graph
+    plt.xlabel(' ')  
+    plt.ylabel(list_df_to_plot[0]['unit impact'].iloc[0]+ '/kWh')  
+    plt.title(title)
+    plt.xticks(label_bar_number,label_bar)  
+    plt.xticks(rotation=45, ha='right')
+    # Add legend without redundant labels
+    handles, labels = plt.gca().get_legend_handles_labels()
+    by_label = dict(zip(labels, handles))
+    plt.legend(by_label.values(), by_label.keys(),bbox_to_anchor=(1.5, 0.8), loc='right')
+    plt.tight_layout()
+    #plt.show()    
+    plt.savefig('image-contrib to impact disaggreg.png')
+
+```
+
+```python
+plot_bar_graph_disagreg_contrib(   
+    list_df_ca, column='impact') #
+```
+
+# Compare standard GWP and premise GWP
+
+```python
+premise_db_list
+selected_db_list=
+
+```
+
+```python
+
+act_name_list=[
+    "market for electricity, high voltage, FE2050",
+    #"market for electricity, from direct French production, FE2050",
+    #"market for electricity, from storage, FE2050",
+    #"market for electricity, from import, FE2050",
+]
+    
+impacts=[climate,climate_premise]
+list_df_premisegwp=[]
+```
+
+```python
+
+for impact_cat in impacts:
+    df=pd.DataFrame([],columns=['db_name','model','SSP','RCP','FR scenario','year','warning','act','impact','unit'])
+    for db in selected_db_list:    
+        for act_name in act_name_list:
+            #act=agb.findActivity(elec_act_name, db_name=db.name)
+            act=db.search(act_name)[0]
+            lca = act.lca(method=impact_cat, amount=1)
+            score = lca.score
+            unit_impact = bw2data.Method(impact_cat).metadata["unit"]
+            df.loc[len(df.index)] = [db.name,db.model, db.SSP,db.RCP,db.FR_scenario,db.year,db.warning,act["name"],score,unit_impact]
+    list_df_premisegwp.append(df)
+```
+
+```python
+xlsx_file_name="export-comparison GWP and presimeGWP-01.xlsx"
+
+list_df_to_export=[
+    ["GWP"] + list_df_premisegwp,
+]
+
+export_data_to_excel(list_df_to_export,xlsx_file_name)
+```
+
+```python
+
+```
+
+<!-- #region editable=true slideshow={"slide_type": ""} -->
+# OLD
+<!-- #endregion -->
+
+## old Detailed contribution analysis with grid reallocation
+
+```python
+selected_db_list_to_plot=[selected_db_list[0]]
+selected_db_list_to_plot
+```
+
+```python
+elec_act_name="market for electricity, high voltage, FE2050"
+elec_act_unit='kilowatt hour'
+impact_cat=climate
+```
+
+```python
+list_df_ca=[]
+
+#For each db in the selected list
+for db in selected_db_list_to_plot:
+    #initialisation of the dataframe
+    df=pd.DataFrame([],columns=[
+        'db_name',
+        'model',
+        'SSP',
+        'RCP',
+        'FR scenario',
+        'year',
+        'warning',
+        'act',
+        'amount',
+        'unit amount',
+        'contribution to impact before reallocation',
+        'unit',
+        #'% impact',
+        #'impact/kWh (absolute)',
+        #'absolute impact/impact elec'
+        ])
+    
+    #Calculate the impact of the chosen activity
+    act=db.search(elec_act_name)[0]
+    #acts=db.search(elec_act_name)
+    #act=[act for act in acts if act["location"]=="WEU"][0]
+    lca = act.lca(method=impact_cat, amount=1)
+    score_ref = lca.score
+    
+    #Select the exchanges that compose the activity
+    excs=[exc for exc in act.exchanges()]
+
+    for exc in excs:
+        if exc["type"]=='technosphere' and "transmission" not in exc['name']:
+            #Score act ref
+            lca = exc.input.lca(method=impact_cat, amount=exc.amount) #exc.amount
+            score = lca.score
+            unit_impact= bw2data.Method(impact_cat).metadata["unit"]
+            #change unit if climate change
+            if unit_impact == "kg CO2-Eq":
+                score_ref =1000*score_ref
+                score=1000*score
+                unit_impact="g CO2-Eq"
+            
+            score_abs=score/exc["amount"]
+            
+            df.loc[len(df.index)] = [
+                db.name,
+                db.model,
+                db.SSP,
+                db.RCP,
+                db.FR_scenario,
+                db.year,
+                db.warning,
+                exc["name"],
+                exc["amount"],
+                exc.unit,
+                score,
+                unit_impact,
+                #score/score_ref,
+                #score_abs,
+                #score_abs/score_ref,
+            ]
+       
+    list_df_ca.append(df)
+
+    lca = act.lca(method=impact_cat, amount=1)
+    score_ref = lca.score
+```
+
+```python
+list_df_ca=[]
+
+#For each db in the selected list
+for db in selected_db_list_to_plot:
     #initialisation of the dataframe
     df=pd.DataFrame([],columns=[
         'db_name',
@@ -2255,157 +2522,6 @@ plot_bar_graph_disagreg_contrib(
     list_df_ca, 'contribution to impact') #
 ```
 
-# Compare standard GWP and premise GWP
-
-```python
-premise_db_list
-selected_db_list=
-
-```
-
-```python
-
-act_name_list=[
-    "market for electricity, high voltage, FE2050",
-    #"market for electricity, from direct French production, FE2050",
-    #"market for electricity, from storage, FE2050",
-    #"market for electricity, from import, FE2050",
-]
-    
-impacts=[climate,climate_premise]
-list_df_premisegwp=[]
-```
-
-```python
-
-for impact_cat in impacts:
-    df=pd.DataFrame([],columns=['db_name','model','SSP','RCP','FR scenario','year','warning','act','impact','unit'])
-    for db in selected_db_list:    
-        for act_name in act_name_list:
-            #act=agb.findActivity(elec_act_name, db_name=db.name)
-            act=db.search(act_name)[0]
-            lca = act.lca(method=impact_cat, amount=1)
-            score = lca.score
-            unit_impact = bw2data.Method(impact_cat).metadata["unit"]
-            df.loc[len(df.index)] = [db.name,db.model, db.SSP,db.RCP,db.FR_scenario,db.year,db.warning,act["name"],score,unit_impact]
-    list_df_premisegwp.append(df)
-```
-
-```python
-xlsx_file_name="export-comparison GWP and presimeGWP-01.xlsx"
-
-list_df_to_export=[
-    ["GWP"] + list_df_premisegwp,
-]
-
-export_data_to_excel(list_df_to_export,xlsx_file_name)
-```
-
-```python
-
-```
-
-<!-- #region editable=true slideshow={"slide_type": ""} -->
-# OLD
-<!-- #endregion -->
-
-## old Detailed contribution analysis
-
-
-### `🔧` activity, impact category, db to explore
-
-```python
-elec_act_name="market for electricity, high voltage, FE2050"
-elec_act_unit='kilowatt hour'
-impact_cat=climate
-selected_db_list=selected_db_list #premise_db_list
-
-```
-
-```python
-#unit of the studied impact category
-unit_impact= bw2data.Method(impact_cat).metadata["unit"]
-```
-
-### Run
-
-```python
-list_df_ca=[]
-
-#For each db in the selected list
-for db in selected_db_list:
-    #initialisation of the dataframe
-    df=pd.DataFrame([],columns=[
-        'db_name',
-        'model',
-        'SSP',
-        'RCP',
-        'FR scenario',
-        'year',
-        'warning',
-        'act',
-        'amount',
-        'unit amount',
-        'impact',
-        'unit impact',
-        '% impact',
-        'absolute impact',
-        'absolute impact/impact elec'
-        ])
-    
-    #Calculate the impact of the chosen activity
-    act=db.search(elec_act_name)[0]
-    #acts=db.search(elec_act_name)
-    #act=[act for act in acts if act["location"]=="WEU"][0]
-    lca = act.lca(method=impact_cat, amount=1)
-    score_ref = lca.score
-    #Select the exchanges that compose the activity
-    excs=[exc for exc in act.exchanges()]
-
-    for exc in excs:
-        if exc["type"]=='technosphere' : #and "transmission" not in exc['name']:
-            lca = exc.input.lca(method=impact_cat, amount=exc.amount)
-            score = lca.score
-            score_abs=score/exc["amount"]
-            df.loc[len(df.index)] = [
-                db.name,
-                db.model,
-                db.SSP,
-                db.RCP,
-                db.FR_scenario,
-                db.year,
-                db.warning,
-                exc["name"],
-                exc["amount"],
-                exc.unit,
-                score,
-                unit_impact,
-                score/score_ref,
-                score_abs,
-                score_abs/score_ref,
-            ]
-       
-        if exc["type"]=='biosphere' :
-                df.loc[len(df.index)] = [
-                db.name,
-                db.model,
-                db.SSP,
-                db.RCP,
-                db.FR_scenario,
-                db.year,
-                db.warning,
-                str(exc["name"])+str(exc["categories"]),
-                exc["amount"],
-                exc["unit"],
-                np.nan,
-                None,
-                np.nan,
-                np.nan,
-                np.nan,
-                ]
-    list_df_ca.append(df)
-```
-
 ## Old Aggregated contribution analysis into 6 subcategories for electricity source
 * 1/ direct production
 * 2/ flexibilités
@@ -2542,6 +2658,57 @@ for df in list_df_ca:
 
 ```python
 list_df_ca_aggregated[0]
+```
+
+## OLD : Consumption / Production / Import / storage mix comparison
+
+```python
+column='impact/kWh (absolute)'
+title='Impact per kWh'
+rows=[1,2,3]
+
+a=0
+label_bar_number=[]
+label_bar=[]
+
+fig,ax = plt.subplots()
+
+for df in list_df_to_plot:
+    a=a+0.2
+    #plot consumption mix (bar)
+    ax.bar(a,df[column].iloc[0],width=0.1,color=df['color'].iloc[0], label=df['label'].iloc[0])
+    #plot production mix (point)
+    for row in rows:
+        ax.plot(a, df[column].iloc[row], color=df['color'].iloc[row], label=df['label'].iloc[row], marker = 'o')
+    #add labels
+        ax.annotate(
+            text = f'{round(df[column].iloc[0],1)}',
+            xy=(a, df[column].iloc[0] + 0.5),
+            ha='center',
+        )
+    
+    #Number of the bar
+    #list of bar number
+    label_bar_number.append(a)
+    #list of bar label
+    label_bar.append(df['model'].iloc[0]+', '+ df['SSP'].iloc[0]+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
+
+
+# add labels with bar_label
+
+#Add information on the graph
+plt.xlabel('  ')  
+plt.ylabel(impact_cat[2]+ ', '+  list_df_ca_aggreg[0]['unit'].iloc[0])  
+plt.title(title)
+plt.xticks(label_bar_number,label_bar)  
+plt.xticks(rotation=45, ha='right')
+# Add legend without redundant labels
+handles, labels = plt.gca().get_legend_handles_labels()
+by_label = dict(zip(labels, handles))
+fig.legend(by_label.values(), by_label.keys(), loc='lower center')#,bbox_to_anchor=(0.5, -0.1))
+plt.tight_layout()
+#plt.show()
+plt.savefig('image-mixes comparison.png')
 ```
 
 ## Old Test contrib analysis storage avec axis 
@@ -2742,11 +2909,11 @@ export_data_to_excel(list_df_to_export,xlsx_file_name)
 ```
 
 ```python
-xlsx_file_name="export-full-250711.xlsx"
+xlsx_file_name="export-full-251110.xlsx"
 
 list_df_to_export=[
     ["contrib an. aggreg"] + list_df_ca_aggreg,
-    ["storage"]+ list_df_storage #, df_elec_2, df_elec_3, df_elec_4, df_elec_5, df_elec_6],
+    #["storage"]+ list_df_storage #, df_elec_2, df_elec_3, df_elec_4, df_elec_5, df_elec_6],
 ]
 
 export_data_to_excel(list_df_to_export,xlsx_file_name)
