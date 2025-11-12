@@ -1,1 +1,0 @@
-=JOINDRE.TEXTE(",";FAUX;A1:F1)
