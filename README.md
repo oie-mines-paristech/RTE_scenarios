@@ -120,7 +120,7 @@ The newly created market datasets are tagged with 'FE2050', for example : `marke
     #Choose the IAM model
     model_1="tiam-ucl"
     #Choose the world scenario
-    world_scenario_1=SSP2-RCP45"
+    world_scenario_1="SSP2-RCP45"
     #Choose the Year
     year=2050
     #Choose the French scenario 
