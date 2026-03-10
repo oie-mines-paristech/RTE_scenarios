@@ -2,6 +2,7 @@
 Implementation of French prospective scenarios from RTE study "Futurs énergétiques 2050" 
 into ecoinvent database with premise
 
+A scientific publication related to this repository is in progress. Expected submission in Semester 1 2026 :)
 
 What does this repository do ?
 -----------
@@ -120,7 +121,7 @@ The newly created market datasets are tagged with 'FE2050', for example : `marke
     #Choose the IAM model
     model_1="tiam-ucl"
     #Choose the world scenario
-    world_scenario_1=SSP2-RCP45"
+    world_scenario_1="SSP2-RCP45"
     #Choose the Year
     year=2050
     #Choose the French scenario 
