@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.16.4
   kernelspec:
-    display_name: lca_alg_13
+    display_name: lca_alg_132
     language: python
-    name: lca_alg_13
+    name: lca_alg_132
 ---
 
 ```python editable=true slideshow={"slide_type": ""}
@@ -130,10 +130,10 @@ for db_name in premise_db_name_list:
 
 ```python editable=true slideshow={"slide_type": ""}
 #Options for model / SSP / IAM / FR scenarios
-model_list=['image','tiam-ucl','remind']
+model_list=['image','tiam-ucl','remind','remind-eu']
 year_list=['2020','2050']
 SSP_list=['SSP1','SSP2','SSP3','SSP4','SSP5']
-RCP_list=['Base','RCP26','RCP45','Npi']
+RCP_list=['Base','RCP26','RCP45','Npi','NDC','M']
 FR_scenario_list=['M0','M1','M23','N1','N2','N03']
 ```
 
