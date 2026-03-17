@@ -170,10 +170,9 @@ production pathways:
     production volume:
       variable: Production|Electricity|Import
     ecoinvent alias:
-      name: market for electricity production, direct production, high voltage, FE2050
+      name: market group for electricity, high voltage
       reference product: electricity, high voltage
-      exists in original database: False
-      new dataset: True
+      exists in original database: True
 
   medium_to_high:
     production volume:
@@ -778,6 +777,10 @@ markets:
       - fuel_oil
       - coal
 
+    replaces:
+      - name: input mix for storage, FE2050
+        product: electricity, high voltage
+
   - name: market for electricity, high voltage, FE2050
     reference product: electricity, high voltage
     unit: kilowatt hour
@@ -801,6 +804,10 @@ markets:
       - battery
       - hydrogen
       - import
+    
+    #replaces:
+    #  - name: input mix for storage, FE2050
+    #   product: electricity, high voltage
 
     add:
 
