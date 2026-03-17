@@ -155,19 +155,8 @@ To go further : Example notebook to run premise with and without external scenar
 ### ⚠️ WARNINGS ⚠️ 
 * ⚠️The modeled markets for hydrogen do not cover all uses of hydrogen, only material uses of hydrogen for the following industrial sectors : ammonia, steel, chemistry, diverse sectors, refinery). This model does not cover energetic, grid balancing and synthetic fuel uses of hydrogen.
 * ⚠️ The proxy used to generate imports and exports electricity datasets probably artificially overestimates the imports in 2060. The electricity datasets for 2060 shall be used with caution.
-* ⚠️ By default, the electricity imports to French markets are modeled with French electricity production mix.
-If you want to change it and replace it by the prospective European electricity mix povided by premise, you can modify the file **config.yaml** and replace the section dedicated to electricity imports by the section below. 
-If you do this change, be aware that the French electricity impacts with be even more dependant on the IAM scenarios selected, as the European electricity mix impacts vary a lot from one IAM scenario to another. 
+* ⚠️ By default, the electricity imports to French markets are modeled with the prospective European electricity production mix. As the European electricity mix impacts vary a lot from one IAM scenario to another. , the French electricity impacts is highly dependent on the IAM scenarios selected.
 
- ```
-  import:
-    production volume:
-      variable: Production|Electricity|Import
-    ecoinvent alias:
-      name: market group for electricity, high voltage
-      reference product: electricity, high voltage
-      exists in original database: True
- ```
 
 Ecoinvent database compatibility
 --------------------------------
