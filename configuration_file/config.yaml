@@ -172,7 +172,7 @@ production pathways:
     ecoinvent alias:
       name: market group for electricity, high voltage
       reference product: electricity, high voltage
-      exists in original database: True     
+      exists in original database: True
 
   medium_to_high:
     production volume:
@@ -776,6 +776,10 @@ markets:
       - natural_gas
       - fuel_oil
       - coal
+
+    #replaces:
+    #  - name: input mix for storage, FE2050
+    #    product: electricity, high voltage
 
   - name: market for electricity, high voltage, FE2050
     reference product: electricity, high voltage
