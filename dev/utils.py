@@ -1,4 +1,6 @@
 import pandas as pd
+import lca_algebraic as agb
+import bw2data
 
 def save_xls(xls_path,list_dfs):
     """Export a list of dataframes in an excel file with multiple excel sheets"""
@@ -32,3 +34,23 @@ def export_data_to_excel(list_df_to_export, xlsx_file_name):
                 for i in range((len(list_name_tables)-1)):
                     list_name_tables[i+1].to_excel(writer,sheet_name=list_name_tables[0],startcol=0,startrow=a,header=True,index=True)
                     a=a+len(list_name_tables[i+1].index)+2
+
+def create_empty_act(selected_db_list):
+    for db in selected_db_list:
+        empty_act=agb.newActivity(
+            db.name,
+            "empty activity",
+            "unit",
+        )
+
+storage_input_mix_name="input electricity mix for storage, FE2050"
+
+def change_input_storage_mix(selected_db_list,new_input_name):
+    for db in selected_db_list:
+        input_storage_mix=db.search(storage_input_mix_name)[0]
+        new_input_storage_mix=db.search(new_input_name)[0]
+        excs=[exc for exc in input_storage_mix.exchanges()]
+        for exc in excs:
+            if exc["type"]=="technosphere":
+                exc.input=new_input_storage_mix
+                exc.save()

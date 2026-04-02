@@ -120,6 +120,9 @@ selected_db_list
 #selected_db_list=[selected_db_list[2]]
 ```
 
+### Change input mix from storage
+
+
 # Database modification : Run only once
 
 

@@ -26,7 +26,7 @@ storage_act_names=[
     "electricity supply, high voltage, from vanadium-redox flow battery system, FE2050",
     ]
 
-import_act_name=["market for electricity production, direct production, high voltage, FE2050"]
+import_act_name=["market group for electricity, high voltage"]
 
 losses_act_names=["market for electricity, high voltage, FE2050"]
 
