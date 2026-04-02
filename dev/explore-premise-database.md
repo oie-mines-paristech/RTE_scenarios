@@ -447,141 +447,6 @@ list_df_ca_aggreg[0]
 save_xls('list_df_ca_aggreg_1.xlsx',list_df_ca_aggreg)
 ```
 
-### old : with different exports
-
-```python
-#if I want to calculate in addition, impacts of markets with imports from european mix generated with the same IAM
-with_EUR_imports="no" #"yes"
-##if I want to calculate in addition, impacts markets with imports from sev european mix taken from other IAM
-with_EUR_imports_severals="no" #"yes"
-#db_import_list is the list from where imports come from with_EUR_imports_severals="yes"
-db_import_list_severals=[premise_db_list[0]]+[premise_db_list[1]]+[premise_db_list[2]] 
-#If I want to calculate a list from one database
-with_add_to_act_names="no" #"yes"
-
-add_to_act_names_list=[
-    ", with European mix Ecoinvent 3.10.1 as import mix",
-    ", with European market tiam-ucl-SSP2-Base as import mix", 
-    ', with European market tiam-ucl-SSP2-RCP45 as import mix',
-    ", with European market tiam-ucl-SSP2-RCP26 as import mix",  
-    #", with onshore wind mix as import mix",
-    ", with empty activity as import mix",
-]
-```
-
-```python
-    #Redo the calculation when imports from other EUR market
-    if with_EUR_imports=="yes":
-        db_import_list=[db] #if I just want to create a database with self eur import 
-        if with_EUR_imports_severals=="yes":
-            db_import_list=db_import_list_severals
-        for db_import in db_import_list:
-            add_to_act_name=", with European market "+db_import.model+'-'+db_import.SSP+'-'+db_import.RCP+" as import mix"
-            
-            #score consumption mix 
-            act_elec=db.search("market for electricity, high voltage, FE2050"+add_to_act_name)[0]
-            lca = act_elec.lca(method=impact_cat, amount=1)
-            score_0 = lca.score
-            if unit_impact == "kg CO2-Eq":
-                score_0=1000*score_0
-            
-            #score direct production mix is the same as with French imports
-            score_1=df['contribution to impact'].iloc[1]
-            
-            #score imports
-            import_mix=db.search("market for electricity, from import, FE2050"+add_to_act_name)[0]
-            lca = import_mix.lca(method=impact_cat, amount=amount_import)
-            score_3 = lca.score
-            if unit_impact == "kg CO2-Eq":
-                score_3=1000*score_3
-        
-            #score storage is the rest
-            score_2=score_0-score_1-score_3
-    
-            #Add to dataframe
-            add_to_column_name=" with EUR imports "+db_import.model+'-'+db_import.SSP+'-'+db_import.RCP
-            df["contribution to impact"+add_to_column_name]=[score_0,score_1,score_2,score_3]
-
-            total = df['contribution to impact'+add_to_column_name].iloc[1:].sum()            
-            #Add columns to calculate the contribution to impacts (percentage)
-            df['percentage contribution'+add_to_column_name]=df['contribution to impact'+add_to_column_name]/total*100
-            #Absolute impact/kWh
-            df["impact/kWh (absolute)"+add_to_column_name]=df["contribution to impact"+add_to_column_name]/df["amount (kWh)"]
-    list_df_ca_aggreg.append(df)
-
-    #Redo the calculation when imports from other EUR market
-           
-    if with_add_to_act_names=="yes":
-        df['config']='with French production mix as import'
-        for add_to_act_name in add_to_act_names_list:
-            #Copy df and delete impact results
-            df2=df.copy()
-            df2['contribution to impact']=None
-            df2['percentage contribution']=None
-            df2["impact/kWh (absolute)"]=None
-
-            #score consumption mix 
-            act_elec=db.search("market for electricity, high voltage, FE2050"+add_to_act_name)[0]
-            lca = act_elec.lca(method=impact_cat, amount=1)
-            score_0 = lca.score
-            if unit_impact == "kg CO2-Eq":
-                score_0=1000*score_0
-            
-            #score direct production mix is the same as with French imports
-            score_1=df['contribution to impact'].iloc[1]
-            
-            #score imports
-            import_mix=db.search("market for electricity, from import, FE2050"+add_to_act_name)[0]
-            lca = import_mix.lca(method=impact_cat, amount=amount_import)
-            score_3 = lca.score
-            if unit_impact == "kg CO2-Eq":
-                score_3=1000*score_3
-        
-            #score storage is the rest
-            score_2=score_0-score_1-score_3
-            
-            #Add to dataframe
-            df2["contribution to impact"]=[score_0,score_1,score_2,score_3]
-
-            total = df2['contribution to impact'].iloc[1:].sum()            
-            #Add columns to calculate the contribution to impacts (percentage)
-            df2['percentage contribution']=df2['contribution to impact']/total*100
-            #Absolute impact/kWh
-            df2["impact/kWh (absolute)"]=df2["contribution to impact"]/df2["amount (kWh)"]
-            df2['config']=add_to_act_name
-
-            #For each add_to_act_names, add the list to the score
-            list_df_ca_aggreg.append(df2)
-
-
-#Add a column for hatches
-#for df in list_df_ca_aggreg:
-#    df['hatch']=None
-```
-
-```python
-#To be deleted if not useful
-#df_elec_1['color']='grey'
-#df_elec_1['label']='consumption mix'
-
-#for df in list_df_ca_aggreg:
-#    df['color']=['grey','deepskyblue','royalblue','midnightblue']
-
-#list_df_ca_aggreg_2=[df_elec_1]+list_df_ca_aggreg
-```
-
-```python
-#change decimals
-    #for column in ['impact', 'contribution to impact']:
-    #    df[column] = df[column].apply(lambda x: '{:.1f}'.format(x))
-    #df['amount (kWh)'] = df['amount (kWh)'].apply(lambda x: '{:.2f}'.format(x))
-    #df['percentage contribution'] = df['percentage contribution'].apply(lambda x: '{:.0f}'.format(x))
-    
-#Color the table
-    #df=df.style.background_gradient(cmap='Reds',subset=["impact", "contribution to impact"])
-
-```
-
 # Disaggregate electricity from storage and imports into 2
 
 ```python
@@ -630,7 +495,6 @@ for df in list_df_ca_aggreg:
     df2.loc[(df2['act']=="electricity from imports replaced by production mix"),'contribution to impact']=impact_mix_prod*b1
     #differential impact is the rest
     df2.loc[(df2['act']=='differential impacts due to imports'),'contribution to impact']=c1-impact_mix_prod*b1
-    df2.loc[5,'label']='differential impacts due to imports'
   
     #recalculate percentage contribution
     df2['percentage contribution']=df2['contribution to impact']/df2.loc[0,'contribution to impact']
@@ -648,7 +512,7 @@ for df in list_df_ca_aggreg:
         write('warning total does not equal consumption mix')
 
     #Put unit on all lines
-    df['unit']=df.loc[0,'unit']
+    df2['unit']=df2.loc[0,'unit']
     
     #Add df2 to the list
     list_df_ca_aggreg_bis.append(df2)
@@ -859,10 +723,6 @@ save_xls('impact_storage_1.xlsx',list_df_storage)
 ```
 
 ```python
-list_df_ca_aggreg_bis[0]
-```
-
-```python
 n=0
 list_df_ca_aggreg_ter=[]
 for df in list_df_ca_aggreg_bis:
@@ -884,9 +744,13 @@ for df in list_df_ca_aggreg_bis:
     #Label and act of new lines
     df2.loc[5,'label']='storage losses'
     df2.loc[5,'act']='storage losses' 
+    df2.loc[5,'color']='royalblue'
+
     df2.loc[6,'label']='storage infrastructure'
     df2.loc[6,'act']='storage infrastructure'
+    df2.loc[6,'color']='royalblue'
 
+    
     #Calculate contribution to difference
     df2.loc[df2['label'] == 'storage losses','contribution to difference']=losses_sto*amount_sto
     df2.loc[df2['label'] == 'storage losses','contribution to impact']=losses_sto*amount_sto
@@ -906,7 +770,7 @@ for df in list_df_ca_aggreg_bis:
     df2['percentage contribution']=df2['contribution to impact']/df2.loc[0,'contribution to impact']
 
     #Put unit on all lines
-    df['unit']=df.loc[0,'unit']
+    df2['unit']=df2.loc[0,'unit']
 
     list_df_ca_aggreg_ter.append(df2)
 
@@ -945,8 +809,11 @@ for df in list_df_ca_aggreg_bis:
 ```python
 for df in list_df_ca_aggreg_ter:
     df['hatch']=None
+    df.loc[(df['label']=="electricity from storage replaced by production mix"),'hatch']="///"
+    df.loc[(df['label']=="electricity from imports replaced by production mix"),'hatch']="///"
     df.loc[df['label'] == 'storage losses','hatch']='---'
     df.loc[df['label'] == 'storage infrastructure','hatch']='||'
+    df.loc[(df['label']=="storage losses and infrastructure"),'hatch']='++'
     df.loc[(df['label']=='differential impacts due to imports'),'hatch']='++'
     df['year']=df['year'].astype('Int64')
 ```
@@ -960,19 +827,18 @@ list_df
 ```
 
 ```python
-list_df_to_plot=list_df_ca_aggreg
+list_df_to_plot=list_df_ca_aggreg_ter
 
 ```
 
 ```python
 change_plot_order="no" #yes"
-
+#change_plot_order="yes"
 ```
 
 ## `🔧` Optional : choose specific change databases to compare and order
 
 ```python
-change_plot_order="yes" #yes"
 #Choose what you want to plot in which order on the graphs
 plot_order=[1,4,7]
 ```
@@ -1372,7 +1238,7 @@ def plot_bar_graph_contrib(list_df_to_plot, column, rows=[1,2,3], add_number_per
         #Plot contributions
         base=0
         for row in rows:
-            ax.bar(a, df[column].iloc[row], width=0.3, bottom=base, color=df['color'].iloc[row], label=df['label'].iloc[row],hatch=df['hatch'].iloc[row], edgecolor="grey")
+            ax.bar(a, df[column].iloc[row], width=0.3, bottom=base, color=df['color'].iloc[row], label=df['label'].iloc[row],hatch=df['hatch'].iloc[row], edgecolor="lightgrey")
             base=base+df[column].iloc[row]
 
         if add_number_percentage=="percentage":
@@ -1428,7 +1294,7 @@ def plot_bar_graph_contrib(list_df_to_plot, column, rows=[1,2,3], add_number_per
 ### without electricity from storage disaggregated
 
 ```python
-list_df_to_plot=list_df_ca_aggreg
+list_df_to_plot=list_df_ca_aggreg_ter
 
 if change_plot_order=="yes": 
     #Generate the list to plot
@@ -1438,32 +1304,20 @@ if change_plot_order=="yes":
 ```
 
 ```python
-plot_bar_graph_contrib(list_df_to_plot=list_df_to_plot, rows=[1,2,3], column='contribution to impact', add_prod_mix='yes',add_number_percentage="percentage") #title, figsize
+plot_bar_graph_contrib(list_df_to_plot=list_df_to_plot,
+                       rows=[1,2,7,10],
+                       column='contribution to impact',
+                       add_number_percentage="percentage",
+                       add_prod_mix='yes',
+                       #figsize=(8, 6)
+                      ) #title, figsize
 ```
 
 ### with electricity from storage disaggregated into 2
 
 ```python
-list_df_ca_aggreg_bis[0]
-```
-
-```python
-list_df_to_plot=list_df_ca_aggreg_bis
-```
-
-```python
-if change_plot_order=="yes": 
-    #Generate the list to plot
-    list_df_to_plot= []
-    for order in plot_order:
-        list_df_to_plot.append(list_df_ca_aggreg_bis[order])
-    else:
-        list_df_to_plot=list_df_ca_aggreg_bis
-```
-
-```python
 plot_bar_graph_contrib(list_df_to_plot=list_df_to_plot,
-                       rows=[1,2,3,4,5],
+                       rows=[1,3,4,8,9,10],
                        column='contribution to impact',
                        add_number_percentage="percentage",
                        add_prod_mix='yes',
@@ -1473,7 +1327,7 @@ plot_bar_graph_contrib(list_df_to_plot=list_df_to_plot,
 
 ```python
 plot_bar_graph_contrib(list_df_to_plot=list_df_to_plot,
-                       rows=[1,2,4,3,5],
+                       rows=[1,3,8,4,9,10],
                        column='contribution to impact',
                        add_number_percentage="percentage",
                        add_prod_mix='yes',
@@ -1482,19 +1336,20 @@ plot_bar_graph_contrib(list_df_to_plot=list_df_to_plot,
 ```
 
 ```python
-list_df_ca_aggreg_bis2=[]
-for df in list_df_ca_aggreg_bis:
+list_df_ca_aggreg_ter2=[]
+for df in list_df_ca_aggreg_ter:
     df2=df.copy()
+    df2.loc[df['act']=='market for electricity, high voltage, FE2050','difference with production mix']=df.loc[df['act']=='market for electricity, high voltage, FE2050','impact/kWh (absolute)'].values.tolist()[0]
     df2.loc[df['act']=='market for electricity, from direct French production, FE2050','difference with production mix']=df.loc[df['act']=='market for electricity, from direct French production, FE2050','impact/kWh (absolute)'].values.tolist()[0]
     df2.loc[df['act']=='market for electricity, from direct French production, FE2050','color']='grey'
-    df2.loc[df['act']=='market for electricity, from direct French production, FE2050','label']='1 kWh   from direct production'
-    df2.loc[df['act']=='market for electricity, from storage, FE2050','difference with production mix']=df.loc[df['act']=='market for electricity, from storage, FE2050','contribution to impact'].values.tolist()[0]
-    df2.loc[df['act']=='market for electricity, from import, FE2050','difference with production mix']=df.loc[df['act']=='market for electricity, from import, FE2050','contribution to impact'].values.tolist()[0]
-    list_df_ca_aggreg_bis2.append(df2)
+    df2.loc[df['act']=='market for electricity, from direct French production, FE2050','label']='1 kWh from direct production'
+    for act in ['storage losses and infrastructure','differential impacts due to imports','curtailment']:
+        df2.loc[df['act']==act,'difference with production mix']=df.loc[df['act']==act,'contribution to impact'].values.tolist()[0]
+    list_df_ca_aggreg_ter2.append(df2)
 ```
 
 ```python
-list_df_to_plot=list_df_ca_aggreg_bis2
+list_df_to_plot=list_df_ca_aggreg_ter2
 ```
 
 ```python
@@ -1509,15 +1364,19 @@ if change_plot_order=="yes":
 
 ```python
 plot_bar_graph_contrib(list_df_to_plot=list_df_to_plot,
-                       rows=[1,3,5],
+                       rows=[1,4,9,10],
                        column='difference with production mix',
-                       add_number_percentage="yes",
+                       add_number_percentage="percentage",
                        add_prod_mix='yes',
                        #figsize=(8, 6)
                       ) #title, figsize
 ```
 
 ### with storage infra and losses disagregated
+
+```python
+list_df_ca_aggreg_ter[0]
+```
 
 ```python
 list_df_to_plot=list_df_ca_aggreg_ter
@@ -1533,18 +1392,8 @@ if change_plot_order=="yes":
 
 ```python
 plot_bar_graph_contrib(list_df_to_plot=list_df_to_plot,
-                       rows=[5,2,3],
+                       rows=[5,6,9,10],
                        column='contribution to difference',
-                       add_number_percentage="NO",
-                       add_prod_mix='no',
-                       #figsize=(8, 6)
-                      ) #title, figsize
-```
-
-```python
-plot_bar_graph_contrib(list_df_to_plot=list_df_to_plot,
-                       rows=[5,2,3],
-                       column='contribution to difference %',
                        add_number_percentage="NO",
                        add_prod_mix='no',
                        #figsize=(8, 6)
