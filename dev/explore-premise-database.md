@@ -324,23 +324,20 @@ Contribution analysis between :
 selected_db_list
 ```
 
-## `🔧` optional features : curtailed energy
-
-```python
-#Todo
-```
-
-## `🔧` optional features : imports
-
 ```python
 impact_cat=climate
 #impact_cat=climate_premise
+```
+
+## `🔧` optional features : curtailed energy
+
+```python
 curtailment_included="yes"
 ```
 
 ```python
 if curtailment_included=="yes":
-    df_curtailment=import_xls_list_df('curtailed_electricity_2050.xlsx')[0]
+    df_curtailment=import_xls_list_df('curtailed_electricity.xlsx')[0]
 ```
 
 ## Run
@@ -408,7 +405,6 @@ for db in selected_db_list:
     if curtailment_included=="yes":
         act=db.search("market for electricity production, direct production, high voltage, FE2050")[0]
         amount=df_curtailment[df_curtailment['FR_scenario']==db.FR_scenario][db.year].squeeze()
-        print (db.FR_scenario, db.year, round(amount,3), round(score,3), round(curtailment_score,3))
         lca = act.lca(method=impact_cat, amount=amount)
         curtailment_score=lca.score
         if unit_impact == "kg CO2-Eq":
@@ -586,100 +582,88 @@ add_to_act_names_list=[
 
 ```
 
-# Disaggregate electricity from storage into 2
-
-```python
-df
-```
-
-```python
-df2=df.copy()
-
-
-for n in [3,4,6]:
-    df2 = pd.DataFrame(np.insert(df2.values, n, values =len(df.columns)*[np.NaN],axis=0))
-df2.columns = df.columns
-```
+# Disaggregate electricity from storage and imports into 2
 
 ```python
 list_df_ca_aggreg_bis=[]
 
 for df in list_df_ca_aggreg:
+
+    #insert empty lines
     df2=df.copy()
-
-    #Reallocate the impact of electricity from storage
-    a=df2.loc[(df['act']=="market for electricity, from direct French production, FE2050"),'impact/kWh (absolute)'].values.tolist()[0]
-    b=df2.loc[(df['act']=="market for electricity, from storage, FE2050"),'amount (kWh)'].values.tolist()[0]
-    c=df2.loc[(df['act']=="market for electricity, from storage, FE2050"),'contribution to impact'].values.tolist()[0]
-
-    b1=df2.loc[(df['act']=="market for electricity, from import, FE2050"),'amount (kWh)'].values.tolist()[0]
-    c1=df2.loc[(df['act']=="market for electricity, from import, FE2050"),'contribution to impact'].values.tolist()[0]
-
-    
-
-    #insert 2 empty lines
-
-    
-    df2.loc[4] = df2.loc[3]
-    df2.loc[3] = df2.loc[2]
-    df2.loc[2] = pd.Series([pd.NA] * len(df2.columns), index=df2.columns)
-
-    df2.loc[5] = df2.loc[4]
-    df2.loc[4] = pd.Series([pd.NA] * len(df2.columns), index=df2.columns)
+    for n in [3,4,6,7]:
+        df2 = pd.DataFrame(np.insert(df2.values, n, values =len(df.columns)*[np.NaN],axis=0))
+    df2.columns = df.columns
 
     #add information on the empty lines
-    df2.loc[2,'act']="electricity from storage replaced by production mix"
-    df2.loc[2,'label']="electricity from storage replaced by production mix"
-    df2.loc[2,'color']="royalblue"
-    #df2.loc[2,'hatch']="///"
+    df2.loc[3,'act']="electricity from storage replaced by production mix"
+    df2.loc[3,'label']="electricity from storage replaced by production mix"
+    df2.loc[3,'color']="royalblue"
 
-    df2.loc[4,'act']="electricity from imports replaced by production mix"
-    df2.loc[4,'label']="electricity from imports replaced by production mix"
-    df2.loc[4,'color']="midnightblue"
+    df2.loc[4,'act']='storage losses and infrastructure'
+    df2.loc[4,'label']='storage losses and infrastructure'
+    df2.loc[4,'color']="royalblue"
+
+    df2.loc[6,'act']="electricity from imports replaced by production mix"
+    df2.loc[6,'label']="electricity from imports replaced by production mix"
+    df2.loc[6,'color']="midnightblue"
+
+    df2.loc[7,'act']='differential impacts due to imports'
+    df2.loc[7,'label']='differential impacts due to imports'
+    df2.loc[7,'color']="midnightblue"
     
+    #Impact of production mix
+    impact_mix_prod=df2.loc[(df2['act']=="market for electricity, from direct French production, FE2050"),'impact/kWh (absolute)'].values.tolist()[0]
+    
+    #divide in 2 the impact of electricity from storage
+    amount_sto=df2.loc[(df2['act']=="market for electricity, from storage, FE2050"),'amount (kWh)'].values.tolist()[0]
+    impact_sto=df2.loc[(df2['act']=="market for electricity, from storage, FE2050"),'contribution to impact'].values.tolist()[0]
     #"electricity from storage replaced by production mix" = amount storage * impact mix direct prod and import (in our case mix prod and import = mix direct prod)
-    df2.loc[2,'contribution to impact']=a*b
-    #storage impact is the rest
-    df2.loc[3,'contribution to impact']=c-a*b
-    df2.loc[3,'label']='storage losses and infrastructure'
+    df2.loc[(df2['act']=="electricity from storage replaced by production mix"),'contribution to impact']=impact_mix_prod*amount_sto
+    #storage infra and losses impact is the rest
+    df2.loc[(df2['act']=='storage losses and infrastructure'),'contribution to impact']=impact_sto-impact_mix_prod*amount_sto
 
+    #divide in 2 the impacts of imports
+    b1=df2.loc[(df2['act']=="market for electricity, from import, FE2050"),'amount (kWh)'].values.tolist()[0]
+    c1=df2.loc[(df2['act']=="market for electricity, from import, FE2050"),'contribution to impact'].values.tolist()[0]
     #imports
-    df2.loc[4,'contribution to impact']=a*b1
-    #storage impact is the rest
-    df2.loc[5,'contribution to impact']=c1-a*b1
+    df2.loc[(df2['act']=="electricity from imports replaced by production mix"),'contribution to impact']=impact_mix_prod*b1
+    #differential impact is the rest
+    df2.loc[(df2['act']=='differential impacts due to imports'),'contribution to impact']=c1-impact_mix_prod*b1
     df2.loc[5,'label']='differential impacts due to imports'
-    
+  
     #recalculate percentage contribution
     df2['percentage contribution']=df2['contribution to impact']/df2.loc[0,'contribution to impact']
-    
-    #Change the hatch for storage
-    #df2.loc[(df2['act']=="market for electricity, from storage, FE2050"),'hatch']='..'
 
+    #Calculate contributuion to difference 
+    df2['contribution to difference']=df2['amount (kWh)']*(df2['impact/kWh (absolute)']-impact_mix_prod)
+    for act in ['storage losses and infrastructure','differential impacts due to imports','curtailment']:
+        df2.loc[(df2['act']==act),'contribution to difference']=df2.loc[(df2['act']==act),'contribution to impact']
+    
+    df2['contribution to difference %']=df2['contribution to difference']/impact_mix_prod*100
+
+    #Safety check
+    test=df2['contribution to difference'].iloc[3]+df2['contribution to difference'].iloc[4]-df2['contribution to difference'].iloc[0]
+    if test > 1e-5:
+        write('warning total does not equal consumption mix')
+
+    #Put unit on all lines
+    df['unit']=df.loc[0,'unit']
+    
     #Add df2 to the list
     list_df_ca_aggreg_bis.append(df2)
 list_df_ca_aggreg_bis[0]
 ```
 
 ```python
-for df in list_df_ca_aggreg_bis:
-    impact_mix_prod=df.loc[(df['act']=="market for electricity, from direct French production, FE2050"),'impact/kWh (absolute)'].values.tolist()[0]
-    df['contribution to difference']=df['amount (kWh)']*(df['impact/kWh (absolute)']-impact_mix_prod)
-    df['contribution to difference %']=df['contribution to difference']/impact_mix_prod*100
-
-    test=df['contribution to difference'].iloc[3]+df['contribution to difference'].iloc[4]-df['contribution to difference'].iloc[0]
-    if test > 1e-5:
-        write('warning total does not equal consumption mix')
-```
-
-```python
 save_xls('list_df_ca_aggreg_bis_1.xlsx',list_df_ca_aggreg_bis)
 ```
 
-# Dissagregate contribution storage into 4
+# Dissagregate contribution storage btw losses and infrastructure
 
 
-## `🔧` databases for efficiency calculation
-## `🔧` databases, losses
+## `🔧` databases for efficiency calculation !!!! same year 
+## `🔧` databases, losses, impact categories
 
 ```python
 #For efficiency : choose a database from same year as all databases from same year have same efficencies
@@ -838,8 +822,6 @@ for db in selected_db_list:
         #For each db in the selected list add the dataframe to the list of dataframes
     list_df_storage.append(df)           
 
-    
-
 ```
 
 ```python
@@ -877,42 +859,57 @@ save_xls('impact_storage_1.xlsx',list_df_storage)
 ```
 
 ```python
-n=0
-list_df_ca_aggreg_ter=[]
-for df in list_df_ca_aggreg_bis:
-    df2=list_df_storage[n]
-    impact_mix_prod=df2.loc[0,'impact 1 kWh elec market from prod']
-    losses_sto=df2.loc[0,'impact storage losses in consumption mix']
-    infra_sto= df2.loc[0,'impact storage infra in consumption mix']
-    amount_sto=df.loc[(df['act']=="market for electricity, from storage, FE2050"),'amount (kWh)'].values.tolist()[0]
-    losses_sto*amount_sto
-    infra_sto*amount_sto
-    
-    #df2 = df.iloc[:, -5:].copy()
-    df2=pd.concat([df.iloc[:, 1:8],df.iloc[:, 11:12],df.iloc[:, -5:]],axis=1)
-
-    df2.loc[df2['label'] == 'electricity from storage replaced by production mix','label']='storage losses'
-    df2.loc[df2['label'] == 'storage losses','contribution to difference']=losses_sto*amount_sto
-
-    df2.loc[df2['label'] == 'storage losses and infrastructure','label']='storage infrastructure'
-    df2.loc[df2['label'] == 'storage infrastructure','contribution to difference']=infra_sto*amount_sto
-
-    test=df2['contribution to difference'].iloc[2]+df2['contribution to difference'].iloc[3]+df2['contribution to difference'].iloc[4]-df2['contribution to difference'].iloc[0]
-    if test > 1e-5:
-        print('warning total does not equal consumption mix')
-        
-    df2.loc[df2['label'] == 'from imports','label']='differential impacts due to imports'
-    df2.loc[df2['label'] == 'differential impacts due to imports','contribution to difference']=impact_mix_prod
-    df2.loc[df2['label'] == 'differential impacts due to imports','label']='production mix'
-
-    
-    df2['contribution to difference %']=df2['contribution to difference']/impact_mix_prod
-
-    list_df_ca_aggreg_ter.append(df2)
-    n=n+1
+list_df_ca_aggreg_bis[0]
 ```
 
 ```python
+n=0
+list_df_ca_aggreg_ter=[]
+for df in list_df_ca_aggreg_bis:
+    #Extract storage related data from df and df_sto
+    df_sto=list_df_storage[n]
+    impact_mix_prod=df_sto.loc[0,'impact 1 kWh elec market from prod']
+    losses_sto=df_sto.loc[0,'impact storage losses in consumption mix']
+    infra_sto= df_sto.loc[0,'impact storage infra in consumption mix']
+    amount_sto=df.loc[(df['act']=="market for electricity, from storage, FE2050"),'amount (kWh)'].values.tolist()[0]
+    #losses_sto*amount_sto
+    #infra_sto*amount_sto
+
+    #insert empty lines
+    df2=df.copy()
+    for n in [5,6]:
+        df2 = pd.DataFrame(np.insert(df2.values, n, values =len(df.columns)*[np.NaN],axis=0))
+    df2.columns = df.columns
+
+    #Label and act of new lines
+    df2.loc[5,'label']='storage losses'
+    df2.loc[5,'act']='storage losses' 
+    df2.loc[6,'label']='storage infrastructure'
+    df2.loc[6,'act']='storage infrastructure'
+
+    #Calculate contribution to difference
+    df2.loc[df2['label'] == 'storage losses','contribution to difference']=losses_sto*amount_sto
+    df2.loc[df2['label'] == 'storage losses','contribution to impact']=losses_sto*amount_sto
+
+    df2.loc[df2['label'] == 'storage infrastructure','contribution to difference']=infra_sto*amount_sto
+    df2.loc[df2['label'] == 'storage infrastructure','contribution to impact']=infra_sto*amount_sto
+
+    impact_mix_prod=df2.loc[(df2['act']=="market for electricity, from direct French production, FE2050"),'impact/kWh (absolute)'].values.tolist()[0]
+    df2['contribution to difference %']=df2['contribution to difference']/impact_mix_prod
+
+    #safety check
+    test=df2['contribution to difference'].iloc[5]+df2['contribution to difference'].iloc[6]-df2['contribution to difference'].iloc[4]
+    if test > 1e-5:
+        print('warning total does not equal consumption mix')
+
+    #recalculate percentage contribution
+    df2['percentage contribution']=df2['contribution to impact']/df2.loc[0,'contribution to impact']
+
+    #Put unit on all lines
+    df['unit']=df.loc[0,'unit']
+
+    list_df_ca_aggreg_ter.append(df2)
+
 list_df_ca_aggreg_ter[0]
 ```
 
