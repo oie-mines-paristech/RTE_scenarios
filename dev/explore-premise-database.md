@@ -162,8 +162,12 @@ selected_db_list=premise_db_list
 #Example
 selected_db_list=[db for db in premise_db_list if 'M0' in db.name and 'Base' not in db.name and 'RCP26' not in db.name]# and 'update' not in db.name]+[db for db in premise_db_list if db.name=='ei_cutoff_3.9_tiam-ucl_SSP2-RCP45_2050_Reference - N1 2025-05-15']
 selected_db_list_1=[db for db in premise_db_list if 'image_SSP2-M_2050' in db.name and 'M0' in db.name]
+selected_db_list_2=[db for db in premise_db_list if 'M0' in db.name and'remind' in db.name and db.SSP=='SSP2' and db.RCP in ['PkBudg1000','NDC','NPi']]
+selected_db_list_3=[db for db in premise_db_list if 'remind' in db.name and db.SSP=='SSP2' and db.RCP=='NDC']
+
 #selected_db_list=[selected_db_list[-3]]
-selected_db_list=selected_db_list_1
+selected_db_list=selected_db_list_3
+selected_db_list
 ```
 
 # Dev en cours
@@ -543,6 +547,10 @@ grid_losses_factor=1/(1-grid_losses)
 impact_cat=climate
 ```
 
+```python
+grid_losses_factor
+```
+
 ## Storage efficencies 
 
 ```python
@@ -732,13 +740,14 @@ for df in list_df_ca_aggreg_bis:
     losses_sto=df_sto.loc[0,'impact storage losses in consumption mix']
     infra_sto= df_sto.loc[0,'impact storage infra in consumption mix']
     amount_sto=df.loc[(df['act']=="market for electricity, from storage, FE2050"),'amount (kWh)'].values.tolist()[0]
+    n=n+1
     #losses_sto*amount_sto
     #infra_sto*amount_sto
 
     #insert empty lines
     df2=df.copy()
-    for n in [5,6]:
-        df2 = pd.DataFrame(np.insert(df2.values, n, values =len(df.columns)*[np.NaN],axis=0))
+    for x in [5,6]:
+        df2 = pd.DataFrame(np.insert(df2.values, x, values =len(df.columns)*[np.NaN],axis=0))
     df2.columns = df.columns
 
     #Label and act of new lines
@@ -781,203 +790,22 @@ list_df_ca_aggreg_ter[0]
 save_xls('list_df_ca_aggreg_ter_1.xlsx',list_df_ca_aggreg_ter)
 ```
 
-# Graphs
-
 ```python
-list_df_ca_aggreg=import_xls_list_df('list_df_ca_aggreg_1.xlsx')
-list_df_ca_aggreg_bis=import_xls_list_df('list_df_ca_aggreg_bis_1.xlsx')
-list_df_ca_aggreg_ter=import_xls_list_df('list_df_ca_aggreg_ter_1.xlsx')
 
 ```
 
 ```python
-for df in list_df_ca_aggreg:
-    df['hatch']=None
-    df['year']=df['year'].astype('Int64')
-```
-
-```python
-for df in list_df_ca_aggreg_bis:
-    df['hatch']=None
-    df.loc[(df['label']=="electricity from storage replaced by production mix"),'hatch']="///"
-    df.loc[(df['label']=="storage losses and infrastructure"),'hatch']='++'
-    df.loc[(df['label']=="electricity from imports replaced by production mix"),'hatch']="///"
-    df.loc[(df['label']=='differential impacts due to imports'),'hatch']='++'
-    df['year']=df['year'].astype('Int64')
-```
-
-```python
-for df in list_df_ca_aggreg_ter:
-    df['hatch']=None
-    df.loc[(df['label']=="electricity from storage replaced by production mix"),'hatch']="///"
-    df.loc[(df['label']=="electricity from imports replaced by production mix"),'hatch']="///"
-    df.loc[df['label'] == 'storage losses','hatch']='---'
-    df.loc[df['label'] == 'storage infrastructure','hatch']='||'
-    df.loc[(df['label']=="storage losses and infrastructure"),'hatch']='++'
-    df.loc[(df['label']=='differential impacts due to imports'),'hatch']='++'
-    df['year']=df['year'].astype('Int64')
-```
-
-```python
-#Recap : list of databases covered by list_df_ca_aggreg
-list_df = pd.DataFrame(columns=list_df_ca_aggreg[0].columns)
-for df in list_df_ca_aggreg:
-    list_df=pd.concat([list_df,df.head(1)],ignore_index=True)
-list_df
-```
-
-```python
-list_df_to_plot=list_df_ca_aggreg_ter
 
 ```
 
 ```python
-change_plot_order="no" #yes"
-#change_plot_order="yes"
-```
-
-## `🔧` Optional : choose specific change databases to compare and order
-
-```python
-#Choose what you want to plot in which order on the graphs
-plot_order=[1,4,7]
-```
-
-```python
-if change_plot_order=="yes": 
-    #Generate the list to plot
-    list_df_to_plot= []
-    for order in plot_order:
-        list_df_to_plot.append(list_df_ca_aggreg[order])
-```
-
-## Origin of electricity
-
-
-### Aggregated origin : pie chart
-
-```python
-#to select only one graph
-#index_pie_chart=1
-```
-
-```python
-column="amount (kWh)"
-for df in list_df_to_plot:
-#for df in [list_df_to_plot[index_pie_chart]]: #to select only one graph
-    df=df[df["act"]!="market for electricity, high voltage, FE2050"]
-    fig, ax = plt.subplots()
-    patches, texts, autotexts  = ax.pie(
-        df[column],
-        autopct='%1.1f%%',
-        colors=df["color"],
-        textprops = {"fontsize":30,"weight":"bold"},
-        pctdistance=1.55,
-        radius=0.9,
-        explode = [0,0,0.15],
-        startangle=5,
-
-    )
-        
-        #explode = [0,0.2,0.2],
-        #labeldistance=.6
-        #labels=df["label"]
-    plt.title(df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
-    [autotext.set_color('black') for autotext in autotexts]
-    plt.savefig('image-origin of electricity.png')
-```
-
-### Aggregated origin : Bar graph
-
-```python
-#Fonction to plot aggregated amount
-def plot_bar_graph_french_scenarios(list_df_to_plot, column, title, starting_row=0, add_percentage='yes', figsize=(3, 6),color_percentage='black'):
-    """Plot amount"""
-    title=title
-    
-    a=0
-    b=0.4
-    
-    label_bar_number=[]
-    label_bar=[]
-    base_list=[]
-
-    fig,ax = plt.subplots(figsize=figsize)
-
-    for df in list_df_to_plot:
-        #bar graph number
-        a=a+b
-        #list of bar number
-        label_bar_number.append(a)
-        #list of bar label
-        label_bar.append(df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
-        base=0
-
-        #which rows you want to print
-        rows=[]
-        for i in range(starting_row, len(df)):
-            rows.append(i)
-
-        for row in rows:
-            ax.bar(a, df[column].iloc[row], bottom=base, color=df['color'].iloc[row], label=df['label'].iloc[row], width=0.2)
-            base=base+df[column].iloc[row]
-        base_list.append(base)
-
-    n=-1
-    if add_percentage == 'yes':
-            for bar in ax.patches:
-                if bar.get_x()!=b:
-                    b=bar.get_x()
-                    n=n+1
-                    base=base_list[n]
-                
-                if bar.get_height()!=0:
-                    ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() / 2 + bar.get_y(),
-                    f'{round(bar.get_height()/base*100)}%', 
-                    ha = 'center', color = color_percentage, size = 10, weight = 'bold')        
-    
-    #Add information on the graph
-    plt.xlabel(' ')  
-    plt.ylabel('kWh')  
-    plt.title(title)
-    plt.xticks(label_bar_number,label_bar)  
-    plt.xticks(rotation=45, ha='right')
-    # Add legend without redundant labels
-    handles, labels = plt.gca().get_legend_handles_labels()
-    by_label = dict(zip(labels, handles))
-    plt.legend(by_label.values(), by_label.keys(),bbox_to_anchor=(0.5, 1.08), loc='center')
-
-    plt.tight_layout()
-    #plt.show()    
-    plt.savefig('image-origin of electricity.png')
-```
-
-```python
-plot_bar_graph_french_scenarios(list_df_to_plot=list_df_to_plot, column='amount (kWh)', title='Origin of electricity per kWh consumed', starting_row=1,figsize=(8, 16),color_percentage='white')
-```
-
-```python
-#plot_bar_graph_french_scenarios(list_df_to_plot=[list_df_to_plot_storage_mix[0],list_df_to_plot_storage_mix[2]], column='amount', title='Electricity from storage', starting_row=0)
-```
-
-### Production mix : Pie chart
-
-```python
-selected_db_list_to_plot=selected_db_list
-```
-
-```python
-if change_plot_order=="yes": 
-    #Generate the list of databases to plot
-    selected_db_list_to_plot= []
-    for order in plot_order:
-        selected_db_list_to_plot.append(selected_db_list[order])
 
 ```
 
+# EXTRACT RTE data
+
 ```python
-#selected_db_list_to_plot=[premise_db_list[7],premise_db_list[4]]
-selected_db_list_to_plot
+selected_db_list_to_plot=[db for db in premise_db_list if 'remind' in db.name and db.SSP=='SSP2' and db.RCP=='NDC']+[db for db in premise_db_list if '2020' in db.name]
 ```
 
 ```python
@@ -1032,51 +860,36 @@ for df in list_df_mix:
     for prod,colorlabel in dict_color_mix.items():
         df.loc[(df['act']==prod), 'color']=colorlabel[0]
         df.loc[(df['act']==prod), 'label']=colorlabel[1]
+
+save_xls('RTE data/list_df_mix.xlsx',list_df_mix)
 ```
 
 ```python
 column="amount"
+list_df_prod=[]
 
 for df in list_df_mix:
 
     #calculate the rate of fluctuating renewable
     a=0
     b=0
-    for act in fluctuating_renew:
-        a=a+df[df["act"]==act]["amount"].values.tolist()[0]
-    for act in direct_elec_prod_act_names:
-        if act in df['act'].tolist():
-            b=b+df[df["act"]==act]["amount"].values.tolist()[0]
     
     #print only production activities
     df=df[df["act"]!="market for electricity, high voltage, FE2050"]
-    df=df[df["act"]!="market for electricity production, direct production, high voltage, FE2050"]
+    df=df[df["act"]!="market group for electricity, high voltage"]
     for act_name in storage_act_names:
         df=df[df["act"]!=act_name]
+    #
+    df["percentage production technology"]=df["amount"]/df["amount"].sum()
 
-    fig, ax = plt.subplots()
-    ax.pie(
-        df[column],
-        labels=df['label'],#autopct='%1.1f%%',
-        colors=df["color"],
-        radius=0.9,
-        labeldistance=None,
-        startangle=90,
-    )
-    plt.title(df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]) + ", ""{:.0f}".format(a/b*100) + "% of PV+Wind")
+    for act in fluctuating_renew:
+        a=a+df[df["act"]==act]["amount"].values.tolist()[0]
+        percentage_fluctuating_renew=a/df["amount"].sum()
+    print(percentage_fluctuating_renew)
+    list_df_prod.append(df)
     
-    # Add legend without redundant labels
-    handles, labels = plt.gca().get_legend_handles_labels()
-    by_label = dict(zip(labels, handles))
-    plt.legend(by_label.values(), by_label.keys(),bbox_to_anchor=(0.5, 1.3), loc='center')
-    plt.savefig('image-production mix.png')
+save_xls('RTE data/list_df_prod.xlsx',list_df_prod)
 ```
-
-```python
-
-```
-
-### Storage mix : Pie Chart
 
 ```python
 list_df_to_plot_storage_mix=[]
@@ -1087,134 +900,368 @@ for df in list_df_mix:
     df=df[df["act"]!="market group for electricity, high voltage"]
     for act_name in direct_elec_prod_act_names :
         df=df[df["act"]!=act_name]
+    df['percentage storage technology']=df['amount']/df['amount'].sum()
     list_df_to_plot_storage_mix.append(df)
+
+save_xls('RTE data/list_df_to_plot_storage_mix.xlsx',list_df_to_plot_storage_mix)
+```
+
+# Graphs
+
+```python
+list_df_ca_aggreg=import_xls_list_df('remind SSP2 NDC/list_df_ca_aggreg_1.xlsx')
+list_df_ca_aggreg_bis=import_xls_list_df('remind SSP2 NDC/list_df_ca_aggreg_bis_1.xlsx')
+list_df_ca_aggreg_ter=import_xls_list_df('remind SSP2 NDC/list_df_ca_aggreg_ter_1.xlsx')
+list_df_mix=import_xls_list_df('RTE data/list_df_mix.xlsx')
+list_df_prod=import_xls_list_df('RTE data/list_df_prod.xlsx')
+list_df_to_plot_storage_mix=import_xls_list_df('RTE data/list_df_to_plot_storage_mix.xlsx')
+```
+
+```python
+for df in list_df_ca_aggreg:
+    df['hatch']=None
+    df['year']=df['year'].astype('Int64')
+```
+
+```python
+for df in list_df_ca_aggreg_bis:
+    df['hatch']=None
+    df.loc[(df['label']=="electricity from storage replaced by production mix"),'hatch']="///"
+    df.loc[(df['label']=="storage losses and infrastructure"),'hatch']='++'
+    df.loc[(df['label']=="electricity from imports replaced by production mix"),'hatch']="///"
+    df.loc[(df['label']=='differential impacts due to imports'),'hatch']='++'
+    df['year']=df['year'].astype('Int64')
+```
+
+```python
+for df in list_df_ca_aggreg_ter:
+    df['hatch']=None
+    df.loc[(df['label']=="electricity from storage replaced by production mix"),'hatch']="///"
+    df.loc[(df['label']=="electricity from imports replaced by production mix"),'hatch']="///"
+    df.loc[df['label'] == 'storage losses','hatch']='---'
+    df.loc[df['label'] == 'storage infrastructure','hatch']='||'
+    df.loc[(df['label']=="storage losses and infrastructure"),'hatch']='++'
+    df.loc[(df['label']=='differential impacts due to imports'),'hatch']='++'
+    df['year']=df['year'].astype('Int64')
+```
+
+```python
+#Recap : list of databases covered by list_df_ca_aggreg
+list_df = pd.DataFrame(columns=list_df_ca_aggreg[0].columns)
+for df in list_df_ca_aggreg:
+    list_df=pd.concat([list_df,df.head(1)],ignore_index=True)
+list_df
+```
+
+## `🔧` Optional : choose specific change databases to compare and order
+
+```python
+#Choose what you want to plot in which order on the graphs
+change_plot_order=1
+plot_order=[0,2,5]
+```
+
+# Definition of functions
+
+```python
+#Fonction to plot aggregated amount
+def plot_bar_graph_french_scenarios(
+    title,
+    list_df_to_plot,
+    column,
+    starting_row=0,
+    figsize=(3, 6),
+    color_percentage='black',
+    add_percentage=1,
+    percentage_column='xxx'
+):
+    """Plot amount"""
+    title=title
+
+    a=0
+    ecart=0.4
+    b=ecart
+    width=0.2
+
+    label_bar_number=[]
+    label_bar=[]
+
+    fig,ax = plt.subplots(figsize=figsize)
+
+    for df in list_df_to_plot:
+        #plt.subplots(100+len(list_df_to_plot)+x)
+        #bar graph number
+        
+        a=a+ecart 
+        base=0
+
+        #list of bar number
+        label_bar_number.append(a)
+        #list of bar label
+        label_bar.append(df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
+
+        #which rows you want to print
+        rows=[]
+        for i in range(starting_row, len(df)):
+            rows.append(i)
+
+        for row in rows:
+                ax.bar(a, df[column].iloc[row], bottom=base, color=df['color'].iloc[row], label=df['label'].iloc[row], width=0.2)
+                percentage=df[percentage_column].iloc[row]
+                #if row==1: 
+                if percentage>0.0001:
+                        if add_percentage == 1:
+                            ax.text(a,
+                                base+df[column].iloc[row]/2,
+                                f'{round(percentage*100)}%',
+                                ha = 'center', color = color_percentage, size = 12, weight = 'bold')
+                base=base+df[column].iloc[row]
+
+    #Add information on the graph
+    plt.xlabel(' ')  
+    plt.ylabel('kWh')  
+    plt.title(title)
+    plt.xticks(label_bar_number,label_bar)  
+    plt.xticks(rotation=45, ha='right')
+    # Add legend without redundant labels
+    handles, labels = plt.gca().get_legend_handles_labels()
+    by_label = dict(zip(labels, handles))
+    plt.legend(by_label.values(), by_label.keys(),bbox_to_anchor=(0.5, -0.2), loc='center')
+
+    plt.tight_layout()
+    plt.savefig('image-origin of electricity.png')
+    plt.show()
     
 ```
 
 ```python
-column="amount"
+#Fonction to plot aggregated amount
+def plot_bar_graph_french_scenarios_double(
+    title,
+    list_df_to_plot,
+    list_df_to_plot2,
+    column,
+    column2,
+    starting_row=0,
+    starting_row2=0,
+    figsize=(3, 6),
+    color_percentage='black',
+    color_percentage2='black',
+    add_percentage=1,
+    percentage_column='xxx',
+    percentage_column2='xxx'
+):
+    """Plot amount"""
+    title=title
 
-for df in list_df_to_plot_storage_mix:
-#for df in [list_df_to_plot_storage_mix[0]]: #if I want to plot only one graph
-    fig, ax = plt.subplots()
-    ax.pie(
-        df[column],
-        labels=df['label'],#autopct='%1.1f%%',
-        colors=df["color"],
-        radius=0.9,
-        labeldistance=None,
-        startangle=90,
-    )
-    plt.title(df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
+    a=0
+    ecart=0.8
+    b=ecart
+    width=0.2
+
+    label_bar_number=[]
+    label_bar=[]
+
+    fig,ax = plt.subplots(figsize=figsize)
+
+    for df in list_df_to_plot:
+        #plt.subplots(100+len(list_df_to_plot)+x)
+        #bar graph number
+        
+        a=a+ecart 
+        base=0
+
+        #list of bar number
+        label_bar_number.append(a)
+        #list of bar label
+        label_bar.append(df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
+
+        #which rows you want to print
+        rows=[]
+        for i in range(starting_row, len(df)):
+            rows.append(i)
+
+        for row in rows:
+            ax.bar(a, df[column].iloc[row], bottom=base, color=df['color'].iloc[row], label=df['label'].iloc[row], width=0.2)
+            percentage=df[percentage_column].iloc[row]
+            if percentage>0.0001:
+                if add_percentage == 1:
+                    ax.text(a,
+                        base+df[column].iloc[row]/2,
+                        f'{round(percentage*100)}%',
+                        ha = 'center', color = color_percentage, size = 12, weight = 'bold')
+            base=base+df[column].iloc[row]
+
+
+
+    a=0.4
+    ecart=0.8
+    b=ecart
+    width=0.2
     
+    for df in list_df_to_plot2:
+        #plt.subplots(100+len(list_df_to_plot)+x)
+        #bar graph number
+        
+        a=a+ecart 
+        base=0
+
+        #list of bar number
+        label_bar_number.append(a)
+        #list of bar label
+        label_bar.append(df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
+
+        #which rows you want to print
+        rows=[]
+        for i in range(starting_row2, len(df)):
+            rows.append(i)
+
+        for row in rows:
+            ax.bar(a, df[column2].iloc[row], bottom=base, color=df['color'].iloc[row], label=df['label'].iloc[row], width=0.2)
+            percentage=df[percentage_column2].iloc[row]
+            if percentage>0.0001:
+                if add_percentage == 1:
+                    ax.text(a,
+                        base+df[column2].iloc[row]/2,
+                        f'{round(percentage*100)}%',
+                        ha = 'center', color = color_percentage2, size = 12, weight = 'bold')
+            base=base+df[column2].iloc[row]
+
+    
+    #Add information on the graph
+    plt.xlabel(' ')  
+    plt.ylabel('kWh')  
+    plt.title(title)
+    plt.xticks(label_bar_number,label_bar)  
+    plt.xticks(rotation=45, ha='right')
     # Add legend without redundant labels
     handles, labels = plt.gca().get_legend_handles_labels()
     by_label = dict(zip(labels, handles))
-    plt.legend(by_label.values(), by_label.keys(),bbox_to_anchor=(0.5, 1.3), loc='center')
-    plt.savefig('image-storage mix.png')
+    plt.legend(by_label.values(), by_label.keys(),bbox_to_anchor=(0.5, -0.16), loc='center')
+
+    plt.tight_layout()
+    plt.savefig('image-origin of electricity.png')
+    plt.show()
+    
+```
+
+## Origin of electricity
+
+
+### Aggregated origin : Bar graph
+
+```python
+list_df_to_plot=list_df_ca_aggreg
+if change_plot_order==1: 
+    #Generate the list to plot
+    list_df_to_plot= []
+    for order in plot_order:
+        list_df_to_plot.append(list_df_ca_aggreg[order])
+```
+
+```python
+plot_bar_graph_french_scenarios(
+    list_df_to_plot=list_df_to_plot, 
+    column='amount (kWh)', 
+    title='Origin of electricity per kWh consumed', 
+    starting_row=1,
+    figsize=(3, 6),
+    #color_percentage='brown',
+    add_percentage=1,
+    percentage_column='amount (kWh)'
+)
+```
+
+```python
+plot_bar_graph_french_scenarios(
+    list_df_to_plot=list_df_to_plot, 
+    column='amount (kWh)', 
+    title='Origin of electricity per kWh consumed', 
+    starting_row=2,
+    figsize=(3, 6),
+    color_percentage='lightgrey',
+    add_percentage=1,
+    percentage_column='amount (kWh)'
+)
+```
+
+### Production mix ; bar chart
+
+```python
+list_df_to_plot=list_df_prod
+if change_plot_order==1: 
+    #Generate the list to plot
+    list_df_to_plot= []
+    for order in plot_order:
+        list_df_to_plot.append(list_df_prod[order])
+```
+
+```python
+plot_bar_graph_french_scenarios(
+    list_df_to_plot=list_df_to_plot, 
+    title='Production technology mix', 
+    column='percentage production technology', 
+    starting_row=0,
+    figsize=(8, 12),
+    add_percentage=0,
+    percentage_column='amount')
 ```
 
 ### Storage mix: Bar chart
 
 ```python
-plot_bar_graph_french_scenarios(list_df_to_plot=list_df_to_plot_storage_mix, column='amount', title='Storage technology mix, per kWh of electricity consumed', starting_row=0,figsize=(8, 12))
-```
-
-## Impact Consumption & production mix : Bar graph
-
-Plot production and consumption mix
-
-```python
-title='Impact per kWh'
-label_consumption='1 kWh, from consumption mix'
-label_prod='1 kWh, from direct production mix'
+list_df_to_plot=list_df_to_plot_storage_mix
+if change_plot_order==1: 
+    #Generate the list to plot
+    list_df_to_plot= []
+    for order in plot_order:
+        list_df_to_plot.append(list_df_to_plot_storage_mix[order])
 ```
 
 ```python
-#Add production mix on the graph (not only consumption)
-add_prod="yes"
-#Add percentage comparision prod vs consumption mix on the graph
-add_percentage="yes"
+plot_bar_graph_french_scenarios(
+    list_df_to_plot=list_df_to_plot, 
+    column='amount', 
+    title='Origin of electricity per kWh consumed, for electricity from storage', 
+    starting_row=0,
+    figsize=(8, 12),
+    add_percentage=1,
+    percentage_column='percentage storage technology')
 ```
 
 ```python
-act_consumption='market for electricity, high voltage, FE2050'
-act_prod='market for electricity, from direct French production, FE2050'
-column='impact/kWh (absolute)'
+list_df_to_plot=list_df_ca_aggreg
+if change_plot_order==1: 
+    #Generate the list to plot
+    list_df_to_plot= []
+    for order in plot_order:
+        list_df_to_plot.append(list_df_ca_aggreg[order])
+```
 
-a=0
-label_bar_number=[]
-label_bar=[]
+```python
+list_df_to_plot2=list_df_to_plot_storage_mix
+if change_plot_order==1: 
+    #Generate the list to plot
+    list_df_to_plot2= []
+    for order in plot_order:
+        list_df_to_plot2.append(list_df_to_plot_storage_mix[order])
+```
 
-fig,ax = plt.subplots()
-
-for df in list_df_to_plot:
-     
-    a=a+0.2
-
-#consumption mix 
-    #Identify row consumption mix 
-    index_consumption=df.loc[df['act']==act_consumption].index[0]
-    #plot consumption mix (bar)
-    ax.bar(a,df[column].iloc[index_consumption],width=0.1,color=df['color'].iloc[index_consumption], label=label_consumption)
-    #plot production mix (point)
-    #add labels
-
-#Production mix
-    if add_prod=="yes":
-        #plot production mix (point)
-        ax.plot(a,
-                df.loc[df['act']==act_prod,column].values,
-                color='darkorange',
-                label=label_prod,
-                marker = 'o'
-               )    
-        if add_percentage=="yes":
-            #relative difference production mix >> consumption mix 
-            diff=(df[column].iloc[index_consumption]-df[column].iloc[1])/df[column].iloc[1]*100     
-            #annotate axe with relative difference 
-            ax.annotate(
-                text = f'{round(df[column].iloc[index_consumption],1)} | +{round(diff)}%',
-                #text = f'{round(df[column].iloc[index_consumption],1)}',
-                xy=(a, df[column].iloc[index_consumption] + 0.1),
-                ha='center',
-            )
-        else:
-            #annotate axe only with consumption mix         
-            ax.annotate(
-                text = f'{round(df[column].iloc[index_consumption],1)}',
-                xy=(a, df[column].iloc[index_consumption] + 0.1),
-                ha='center',
-            )
-
-    else:
-        #annotate axe only with consumption mix         
-        ax.annotate(
-            text = f'{round(df[column].iloc[index_consumption],1)}',
-            xy=(a, df[column].iloc[index_consumption] + 0.1),
-            ha='center',
-        )
-
-    #For axis x labelling
-    #Bar number
-    label_bar_number.append(a)
-    #list of bar label
-    label_bar.append(df['model'].iloc[index_consumption]+', '+ df['SSP'].iloc[index_consumption]+'-'+ df['RCP'].iloc[index_consumption] +', '+ df['FR scenario'].iloc[index_consumption]+','+ str(df['year'].iloc[index_consumption]))
-
-
-#Add information on the graph
-plt.xlabel('  ')  
-plt.ylabel(impact_cat[1]+ ', '+  list_df_ca_aggreg[0]['unit'].iloc[index_consumption])  
-plt.title(title)
-plt.xticks(label_bar_number,label_bar)  
-plt.xticks(rotation=45, ha='right')
-# Add legend without redundant labels
-handles, labels = plt.gca().get_legend_handles_labels()
-by_label = dict(zip(labels, handles))
-fig.legend(by_label.values(), by_label.keys(), loc='lower center',bbox_to_anchor=(0.5, -0.1))
-plt.tight_layout()
-#plt.show()
-plt.savefig('image2-consumption.png')
+```python
+plot_bar_graph_french_scenarios_double(
+    list_df_to_plot=list_df_to_plot, 
+    column='amount (kWh)', 
+    title='Origin of electricity per kWh consumed', 
+    starting_row=2,
+    figsize=(6, 12),
+    color_percentage='lightgrey',
+    add_percentage=1,
+    percentage_column='amount (kWh)',
+    list_df_to_plot2=list_df_to_plot2, 
+    column2='amount', 
+    starting_row2=0,
+    percentage_column2='percentage storage technology'
+)
 ```
 
 ## Impact: Aggregated contribution analysis
@@ -1296,11 +1343,11 @@ def plot_bar_graph_contrib(list_df_to_plot, column, rows=[1,2,3], add_number_per
 ```python
 list_df_to_plot=list_df_ca_aggreg_ter
 
-if change_plot_order=="yes": 
+if change_plot_order==1: 
     #Generate the list to plot
     list_df_to_plot= []
     for order in plot_order:
-        list_df_to_plot.append(list_df_ca_aggreg[order])
+        list_df_to_plot.append(list_df_ca_aggreg_ter[order])
 ```
 
 ```python
@@ -1349,17 +1396,17 @@ for df in list_df_ca_aggreg_ter:
 ```
 
 ```python
-list_df_to_plot=list_df_ca_aggreg_ter2
+list_df_to_plot=[list_df_ca_aggreg_ter2]
 ```
 
 ```python
-if change_plot_order=="yes": 
+if change_plot_order==1: 
     #Generate the list to plot
     list_df_to_plot= []
     for order in plot_order:
-        list_df_to_plot.append(list_df_ca_aggreg_bis2[order])
-    else:
-        list_df_to_plot=list_df_ca_aggreg_bis2
+        list_df_to_plot.append(list_df_ca_aggreg_ter2[order])
+else:
+    list_df_to_plot=list_df_ca_aggreg_ter2
 ```
 
 ```python
@@ -1375,15 +1422,11 @@ plot_bar_graph_contrib(list_df_to_plot=list_df_to_plot,
 ### with storage infra and losses disagregated
 
 ```python
-list_df_ca_aggreg_ter[0]
-```
-
-```python
 list_df_to_plot=list_df_ca_aggreg_ter
 ```
 
 ```python
-if change_plot_order=="yes": 
+if change_plot_order==1: 
     #Generate the list to plot
     list_df_to_plot= []
     for order in plot_order:
@@ -1392,8 +1435,8 @@ if change_plot_order=="yes":
 
 ```python
 plot_bar_graph_contrib(list_df_to_plot=list_df_to_plot,
-                       rows=[5,6,9,10],
-                       column='contribution to difference',
+                       rows=[9,5,6,10],
+                       column='contribution to difference %',
                        add_number_percentage="NO",
                        add_prod_mix='no',
                        #figsize=(8, 6)
@@ -1697,7 +1740,98 @@ export_data_to_excel(list_df_to_export,xlsx_file_name)
 # OLD
 <!-- #endregion -->
 
+```python
+
+```
+
+### Aggregated origin : pie chart
+
+```python
+#to select only one graph
+#index_pie_chart=1
+```
+
+```python
+column="amount (kWh)"
+for df in list_df_to_plot:
+#for df in [list_df_to_plot[index_pie_chart]]: #to select only one graph
+    df=df[df["act"]!="market for electricity, high voltage, FE2050"]
+    fig, ax = plt.subplots()
+    patches, texts, autotexts  = ax.pie(
+        df[column],
+        autopct='%1.1f%%',
+        colors=df["color"],
+        textprops = {"fontsize":30,"weight":"bold"},
+        pctdistance=1.55,
+        radius=0.9,
+        explode = [0,0,0.15],
+        startangle=5,
+
+    )
+        
+        #explode = [0,0.2,0.2],
+        #labeldistance=.6
+        #labels=df["label"]
+    plt.title(df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
+    [autotext.set_color('black') for autotext in autotexts]
+    plt.savefig('image-origin of electricity.png')
+```
+
+```python
+
+```
+
+### Production mix : Pie chart
+
+```python
+column="amount"
+list_df_prod=[]
+
+
+for df in list_df_mix:
+
+    #calculate the rate of fluctuating renewable
+    a=0
+    b=0
+    for act in fluctuating_renew:
+        a=a+df[df["act"]==act]["amount"].values.tolist()[0]
+    for act in direct_elec_prod_act_names:
+        if act in df['act'].tolist():
+            b=b+df[df["act"]==act]["amount"].values.tolist()[0]
+    
+    #print only production activities
+    df=df[df["act"]!="market for electricity, high voltage, FE2050"]
+    df=df[df["act"]!="market group for electricity, high voltage"]
+    for act_name in storage_act_names:
+        df=df[df["act"]!=act_name]
+    df["percentage production technology"]=df["amount"]/df["amount"].sum()
+    list_df_prod.append(df)
+    
+    fig, ax = plt.subplots()
+    ax.pie(
+        df[column],
+        labels=df['label'],#autopct='%1.1f%%',
+        colors=df["color"],
+        radius=0.9,
+        labeldistance=None,
+        startangle=90,
+    )
+    plt.title(df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]) + ", ""{:.0f}".format(a/b*100) + "% of PV+Wind")
+    
+    # Add legend without redundant labels
+    handles, labels = plt.gca().get_legend_handles_labels()
+    by_label = dict(zip(labels, handles))
+    plt.legend(by_label.values(), by_label.keys(),bbox_to_anchor=(0.5, 1.3), loc='center')
+    plt.savefig('image-production mix.png')
+```
+
+```python
+
+```
+
+<!-- #region jp-MarkdownHeadingCollapsed=true -->
 ## old Detailed contribution analysis with grid reallocation
+<!-- #endregion -->
 
 ```python
 selected_db_list_to_plot=[selected_db_list[0]]
