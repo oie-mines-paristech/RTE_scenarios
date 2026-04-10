@@ -896,10 +896,13 @@ plot_order=[6,0,2,5]
 #Fonction to plot aggregated amount
 def plot_bar_graph_french_scenarios(
     title,
+    
     list_df_to_plot,
     column,
+    fig_name='test-fig.png',
+
     starting_row=0,
-    figsize=(3, 6),
+    figsize=(2.2, 3),
     color_percentage='black',
     add_percentage=1,
     percentage_column=0,
@@ -1014,7 +1017,7 @@ def plot_bar_graph_french_scenarios(
         plt.ylim(top=103.5)
     
     plt.tight_layout()
-    plt.savefig('image-origin of electricity.png')
+    plt.savefig(fig_name)
     plt.show()    
 ```
 
@@ -1448,89 +1451,93 @@ plot_bar_graph_french_scenarios_double(
 #Fonction to plot aggregated contribution
 def plot_bar_graph_contrib(
     list_df_to_plot, 
-    column, rows=[1,2,3],
-    add_number_percentage="number",
-    add_prod_mix='no',
-    add_conso_mix='no'):
+    column,
+    rows,
+
+    fig_name='test-fig.png',
+    
+    subplot_size=(2.2, 3),
+    size_subplot_title=10,
+    size_label=8,
+    
+    add_number_percentage="number", #"number" or "percentage"
+    add_prod_mix=0,
+    add_conso_mix=0,
+):
     """Plot contribution"""    
-    a=0
     label_bar_number=[]
     label_bar=[]
-    fig,ax = plt.subplots() #
     
-    for df in list_df_to_plot:
-        #bar graph number
-        a=a+0.5
+    fig,ax = plt.subplots(figsize=subplot_size) #
+
+    for j, df in enumerate(list_df_to_plot): #j = bar graph number
+        
+        #Extract static values
+        col='impact/kWh (absolute)'
+        elec_conso_impact=df.loc[df['act']=='market for electricity, high voltage, FE2050',col].tolist()[0]
+        elec_prod_impact=df.loc[df['act']=='market for electricity, from direct French production, FE2050',col].tolist()[0]
+        
         #list of bar number
-        label_bar_number.append(a)
+        label_bar_number.append(j)
         #list of bar label
         label_bar.append(df['model'].iloc[0]+', '+ df['SSP'].iloc[0]+'-'+ df['RCP'].iloc[0] +', '+ df['FR scenario'].iloc[0]+','+ str(df['year'].iloc[0]))
+        
         #Plot contributions
         base1=0
         base2=0
 
         for row in rows:
             value=df[column].iloc[row]
+
+            #Change base depending if value positive or negative
             if value>=0:
                     base=base1
             if value<0:
                     base=base2
-        
-            ax.bar(a, value, width=0.3, bottom=base, color=df['color'].iloc[row], label=df['label'].iloc[row],hatch=df['hatch'].iloc[row], edgecolor="lightgrey")
+            #plot bar
+            ax.bar(j, value, width=0.8, bottom=base, color=df['color'].iloc[row], label=df['label'].iloc[row],hatch=df['hatch'].iloc[row], edgecolor="lightgrey")
             base=base+value
-            
+
+            #Recalulate base
             if value>=0:
                 base1=base1+value
             if value<0:
                 base2=base2+value
 
-
-        col='impact/kWh (absolute)'
-        elec_conso_impact=df.loc[df['act']=='market for electricity, high voltage, FE2050',col].tolist()[0]
-        elec_prod_impact=df.loc[df['act']=='market for electricity, from direct French production, FE2050',col].tolist()[0]
-
-        if add_number_percentage=="percentage":
-
-            #plot storage mix (point)
-            #ax.plot(a, df.loc[df['act']=='market for electricity, from storage, FE2050','impact/kWh (absolute)'].values, color='magenta', label='1 kWh - from storage', marker = 'o')    
-            
-            #relative difference production mix >> consumption mix
-            diff=(elec_conso_impact-elec_prod_impact)/elec_prod_impact*100 
-            if diff>=0:
-                sign="+"
-            if diff<0:
-                sign=""
-            
-            #add labels
-            ax.annotate(
-                text = f'{round(elec_conso_impact,1)} | {sign} {round(diff)}%',
-                #text = f'{round(df[column].iloc[0],1)} | + {round(df[col].iloc[1],1)}| +{round(diff)}%',
-                xy=(a, max(elec_conso_impact,elec_prod_impact)*1.05),
-                ha='center',
-                fontsize=10,
-                weight="bold",
-            )
-
-        if add_number_percentage=="number": 
-                       #add labels
-            ax.annotate(
-                text = f'{round(df[column].iloc[0],1)}',
-                xy=(a, df[column].iloc[0] + 0.1),
-                ha='center',
-                fontsize=18,
-                weight="bold",
-            )
         if add_prod_mix=='yes':
             #plot production mix (point)
-            ax.plot(a, elec_prod_impact, color='darkorange', label='1 kWh, production mix', marker ="D",markersize=10)    
+            ax.plot(j, elec_prod_impact, color='darkorange', label='1 kWh, production mix', marker ="D",markersize=8)    
         
         if add_conso_mix=='yes':
-            ax.plot(a, elec_conso_impact, color='forestgreen', label='1 kWh, consumption mix', marker ="o",markersize=6)    
+            ax.plot(j, elec_conso_impact, color='forestgreen', label='1 kWh, consumption mix', marker ="o",markersize=6)    
     
+        #Plot production mix, consumption mix, relative difference
+        #relative difference production mix and consumption mix
+        diff=(elec_conso_impact-elec_prod_impact)/elec_prod_impact*100 
+        if diff>=0:
+            sign="+"
+        if diff<0:
+            sign=""
+        if add_number_percentage=="number": 
+            add_text=f'{round(elec_conso_impact,1)}'
+        if add_number_percentage=="percentage":   
+            add_text=f'{round(elec_conso_impact,1)} | {sign} {round(diff)}%'
+        else:
+            add_text=''
+        #Add consumption mix impact and difference in %
+        ax.annotate(
+                text = add_text,
+                xy=(j, max(elec_conso_impact,elec_prod_impact)*1.01),
+                ha='center',
+                fontsize=size_label,
+                weight="bold",
+            )
+
+
     #Add information on the graph
-    plt.xlabel(' ')  
+    plt.xlabel('')  
     plt.ylabel(list_df_to_plot[0]['unit'].iloc[0]+ '/kWh')  
-    plt.title(list_df_to_plot[0]['impact'].iloc[0])
+    plt.title(list_df_to_plot[0]['impact'].iloc[0], size=size_subplot_title)
     plt.xticks(label_bar_number,label_bar)  
     plt.xticks(rotation=45, ha='right')
     # Add legend without redundant labels
@@ -1539,22 +1546,27 @@ def plot_bar_graph_contrib(
     plt.legend(by_label.values(), by_label.keys(),bbox_to_anchor=(0.8, 1.5), loc='best')
     #plt.tight_layout()
     #plt.show()    
-    plt.savefig('image2-contrib to impact.png')
+    plt.savefig(fig_name)
 ```
 
 ```python
-def plot_contributions(list_of_list_df_to_plot, 
-                        columns_list, 
-                        rows_list,
-                        add_number_percentage_list,
-                        add_prod_mix_list,
-                        add_conso_mix_list,
-                        save_fig=False,
-                        fig_name='contrib_to_impact.png'):
+
+```
+
+```python
+def plot_contributions(
+    list_of_list_df_to_plot, 
+    column_list, 
+    rows_list,
+    add_number_percentage_list,
+    add_prod_mix_list,
+    add_conso_mix_list,
+    fig_name='test-fig.png'
+                      ):
     """
     Plot contribution of different datasets
     """
-
+    
     fig, axs = plt.subplots(len(list_of_list_df_to_plot), 1, figsize=(10, 6*len(list_of_list_df_to_plot)))
 
     for i, (list_df_to_plot, columns, rows, add_number_percentage, add_prod_mix, add_conso_mix) in enumerate(zip(list_of_list_df_to_plot, columns_list, rows_list, add_number_percentage_list, add_prod_mix_list, add_conso_mix_list)):
@@ -1585,7 +1597,7 @@ def plot_contributions(list_of_list_df_to_plot,
 ```python
 #Choose what you want to plot in which order on the graphs
 change_plot_order=1
-plot_order=[5]
+plot_order=[0,2,5]
 ```
 
 ```python
