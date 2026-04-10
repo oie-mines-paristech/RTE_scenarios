@@ -90,7 +90,7 @@ dict_color={
     "heat and power co-generation, wood chips, 6667 kW":['chartreuse','biomass and waste'],
     "treatment of municipal solid waste, municipal incineration":['chartreuse','biomass and waste'],
         
-    "electricity production, natural gas, combined cycle power plant":['slategrey','gas'],
+    "electricity production, natural gas, combined cycle power plant":['darkslategrey','gas'],
     "electricity production, oil":['black','oil and coal'],
     "electricity production, hard coal":['black','oil and coal'],
     
@@ -125,7 +125,7 @@ dict_color_mix={
     "heat and power co-generation, wood chips, 6667 kW":['grey','others'],
     "treatment of municipal solid waste, municipal incineration":['grey','others'],
         
-    "electricity production, natural gas, combined cycle power plant":['slategrey','gas'],
+    "electricity production, natural gas, combined cycle power plant":['darkslategrey','gas'],
     "electricity production, oil":['black','oil and coal'],
     "electricity production, hard coal":['black','oil and coal'],
     
