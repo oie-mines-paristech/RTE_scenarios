@@ -2,7 +2,7 @@
 Implementation of French prospective scenarios from RTE study "Futurs énergétiques 2050" 
 into ecoinvent database with premise
 
-A scientific publication related to this repository is in progress. Expected submission in Semester 1 2026 :)
+A scientific publication related to this repository is in preparation. Expected submission in 2026 :)
 
 What does this repository do ?
 -----------
@@ -80,7 +80,7 @@ How to use this repository ?
 ### 0. Prerequisites: ecoinvent licence for ecoinvent 3.10.1 database
      
 ### 1. Install the environment : **premise version => 2.3.1**
-The authors tested the version of premise compatible with brightway2 but not the one compatible with brightway 2.5. If you test it with bw2.5, please let us know how it worked.
+The authors tested the version of premise compatible with brightway2 but not the one compatible with brightway 2.5.
 
 * Install the environment as explained [`here`](https://github.com/polca/premise?tab=readme-ov-file#how-to-install-this-package).
 * *OR* install the environment with requirements.txt file
@@ -97,8 +97,9 @@ It can be done using [`ecoinvent_interface`](https://github.com/brightway-lca/ec
 A prospective version of ecoinvent is generated for each combination of : Year x IAM model x IAM scenario x French scenario.\
 The newly created market datasets are tagged with 'FE2050', for example : `market for electricity, high voltage, FE2050` (FR)
 
-* Run the file **run-premise-rte.md** provided in this repository.
-* *OR* **Run the following script**. It is an example for two French scenarios combined with the same IAM scenario.
+* Run the file **run-premise-rte.md** provided in this repository (add premise key before!)
+* *OR* **Run the following script** (add premise key before!). It is an example for two French scenarios combined with the same IAM scenario.
+premise key can be asked to Romain Sacchi.
 
   ```python
 
@@ -109,6 +110,7 @@ The newly created market datasets are tagged with 'FE2050', for example : `marke
     from datapackage import Package
 
     NAME_BW_PROJECT="name_of_my_project"
+    eco_version="3.10"
     ecoinvent_3_10_db_name='ecoinvent-3.10.1-cutoff'
     ecoinvent_3_10_bio_db_name="ecoinvent-3.10.1-biosphere"
   
@@ -136,7 +138,7 @@ The newly created market datasets are tagged with 'FE2050', for example : `marke
     ndb = NewDatabase(
         scenarios = scenarios,        
         source_db=ecoinvent_3_10_db_name,
-        source_version="3.10",
+        source_version=eco_version,
         key="" , #ask the key to Romain Sacchi
         biosphere_name=ecoinvent_3_10_bio_db_name,
         )
@@ -163,12 +165,21 @@ Ecoinvent database compatibility
 * ecoinvent 3.10.1 cut-off (main branch)
 
 
+
 IAM scenario compatibility
 ---------------------------
-The user can couple each French scenario with a global scenario (IAM) provided by premise.\
-See the [`dedicated section on premise documentation`](https://premise.readthedocs.io/en/latest/introduction.html#choosing-the-right-iam) to choose IAM scenarios.\
-The available IAM scenarios provided by premise can be explored [`here`](https://premisedash-6f5a0259c487.herokuapp.com/)\
-The choice of IAM scenario is under the responsability of the user of this repository. However, the authors highlight the fact that the impact results highly depends on the IAM scenario chosen. The authors advice to couple the scenarios with RCP 4.5 scenarios or with scenarios whose temperature increase are similar to RCP 4.5 scenarios, as it is mentioned in RTE study that the scenarios are compatible with RCP4.5 scenarios.
+
+The user can couple each French scenario with a global scenario (IAM) provided by premise. The available IAM scenarios provided by premise can be explored [`here`](https://premisedash-6f5a0259c487.herokuapp.com/).\
+The choice of IAM scenario is under the responsability of the user of this repository. However, the authors highlight the facts that : 
+* all the French scenarios modeled target French carbon neutrality in 2050 (at territorial scale, not footprint).*
+* RTE mentions in its report that the electricity scenarios have been tested under RCP 4.5 climatic conditions (i.e. production and consumpption patterns take into account climate evolutions following RCP4.5 trajectory) 
+* the absolute impacts of French prospective energy markets highly depends on the IAM scenario chosen. 
+
+The authors also strongly advice :
+* to read [`premise documentation on how to choose IAM scenarios`](https://premise.readthedocs.io/en/latest/introduction.html#choosing-the-right-iam)
+* to read 'Recommendations for an informed and responsible use of Integrated Assessment Models in prospective LCA', ([`Paris et al., 2026`](https://link.springer.com/article/10.1007/s11367-026-02659-4))
+* to keep in mind the key limitations of using IAMs presented in ([`de Bortoli et al., 2025`](https://doi.org/10.1016/j.rser.2025.115924)) and in premise documentation  [`here`](https://github.com/polca/premise#disclaimer-on-the-use-of-iam-based-scenarios-in-premise) 
+
 
 List of French scenarios
 --------------------------------
@@ -200,7 +211,7 @@ Authors of this data package
 * Joanna Schlesinger
 * Romain Sacchi 
 * Juliana Steinbach 
-* Thomas Beaussier 
+* Astrid Beaussier 
 * Paula Perez-Lopez
 
 
@@ -213,7 +224,7 @@ We also would like to thank Guillaume Batot from IFPEN for fruitfull discussions
 Funding
 -------
 This work is supported by the ADEME agency, in the context of
-the [`HYSPI project`](https://www.psi.ch/en/ta/projects/hyspi) and by French national Research Agency (ANR) in the context of [`LCA-TASE project`](https://anr.fr/ProjetIA-22-PETA-0010) 
+the [`HYSPI project`](https://www.psi.ch/en/ta/projects/hyspi) [nr. 2197D0085] and by French national Research Agency (ANR) in the context of [`LCA-TASE project`](https://anr.fr/ProjetIA-22-PETA-0010) [nr. 22-PETA-0010]
 
 Licence
 -------
