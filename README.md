@@ -79,14 +79,18 @@ How to use this repository ?
 ------------------
 ### 0. Prerequisites: ecoinvent licence for ecoinvent 3.10.1 database
      
-### 1. Install the environment : **premise version => 2.3.1**
+### 1. Install the environment : **premise version => 2.4.7**
 The authors tested the version of premise compatible with brightway2 but not the one compatible with brightway 2.5.
 
-* Install the environment as explained [`here`](https://github.com/polca/premise?tab=readme-ov-file#how-to-install-this-package).
+* Install the environmentas explained [`here`](https://github.com/polca/premise?tab=readme-ov-file#how-to-install-this-package).
+```bash
+pip install "premise[bw2]"==2.4.7
+```
+
 * *OR* install the environment with requirements.txt file
 ```bash
-conda create -n premise231 python==3.11
-conda activate premise231
+conda create -n premise247 python==3.11
+conda activate premise247
 pip install -r requirements.txt
 ```
 
@@ -157,7 +161,7 @@ To go further : Example notebook to run premise with and without external scenar
 ### ⚠️ WARNINGS ⚠️ 
 * ⚠️The modeled markets for hydrogen do not cover all uses of hydrogen, only material uses of hydrogen for the following industrial sectors : ammonia, steel, chemistry, diverse sectors, refinery). This model does not cover energetic, grid balancing and synthetic fuel uses of hydrogen.
 * ⚠️ The proxy used to generate imports and exports electricity datasets probably artificially overestimates the imports in 2060. The electricity datasets for 2060 shall be used with caution.
-* ⚠️ By default, the electricity imports to French markets are modeled with the prospective European electricity production mix. As the European electricity mix impacts vary a lot from one IAM scenario to another. , the French electricity impacts is highly dependent on the IAM scenarios selected.
+* ⚠️ By default, the electricity imports to French markets are modeled with the prospective European electricity production mix. As the European electricity mix impacts vary a lot from one IAM scenario to another , the French electricity impacts is highly dependent on the IAM scenarios selected.
 
 
 Ecoinvent database compatibility
