@@ -46,7 +46,7 @@ production pathways:
     production volume:
       variable: Production|Electricity|Nuclear|Evolutionary Power Reactor
     ecoinvent alias:
-      name: electricity production, Evolutionary Power Reactor (EPR)
+      name: electricity production, nuclear, Evolutionary Power Reactor (EPR)
       reference product: electricity, high voltage
       exists in original database: True
 
@@ -54,7 +54,7 @@ production pathways:
     production volume:
       variable: Production|Electricity|Nuclear|Small Modular Reactor
     ecoinvent alias:
-      name: electricity production, Small Modular Reactor (SMR)
+      name: electricity production, nuclear, Small Modular Reactor (SMR)
       reference product: electricity, high voltage
       exists in original database: True
 
