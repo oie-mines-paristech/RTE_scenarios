@@ -2,7 +2,7 @@
 Implementation of French prospective scenarios from RTE study "Futurs énergétiques 2050" 
 into ecoinvent database with premise
 
-A scientific publication related to this repository is in preparation. Expected submission in 2026 :)
+A scientific publication related to this repository is in preparation. Expected submission in 2026. 
 
 What does this repository do ?
 -----------
@@ -77,7 +77,7 @@ Additionally, a pdf document called "supplementary information" presents the met
 
 How to use this repository ?
 ------------------
-### 0. Prerequisites: ecoinvent licence for ecoinvent 3.10.1 database
+### 0. Prerequisites: ecoinvent licence for ecoinvent 3.10.1 or 3.11 or 3.12
      
 ### 1. Install the environment : **premise version => 2.4.7**
 The authors tested the version of premise compatible with brightway2 but not the one compatible with brightway 2.5.
@@ -95,7 +95,7 @@ pip install -r requirements.txt
 ```
 
 ### 2. Create a brightway project and load ecoinvent 3.10.1 database in the project. 
-It can be done using [`ecoinvent_interface`](https://github.com/brightway-lca/ecoinvent_interface) or using a local file.
+It can be done using [`ecoinvent_interface`](https://github.com/brightway-lca/ecoinvent_interface) or running the notebook load_ecoinvent after adding ecoinvent username, password and version. 
 
 ### 3. Generate prospective databases for some chosen combinations of Year x IAM model x IAM scenario x French scenario.
 A prospective version of ecoinvent is generated for each combination of : Year x IAM model x IAM scenario x French scenario.\
@@ -114,9 +114,9 @@ premise key can be asked to Romain Sacchi.
     from datapackage import Package
 
     NAME_BW_PROJECT="name_of_my_project"
-    eco_version="3.10"
-    ecoinvent_3_10_db_name='ecoinvent-3.10.1-cutoff'
-    ecoinvent_3_10_bio_db_name="ecoinvent-3.10.1-biosphere"
+    eco_version="3.12"
+    ecoinvent_db_name='ecoinvent-3.12-cutoff'
+    ecoinvent_bio_db_name="ecoinvent-3.12-biosphere"
   
     #Open the brightway project
     bw2data.projects.set_current(NAME_BW_PROJECT)
@@ -141,10 +141,10 @@ premise key can be asked to Romain Sacchi.
   
     ndb = NewDatabase(
         scenarios = scenarios,        
-        source_db=ecoinvent_3_10_db_name,
+        source_db=ecoinvent_db_name,
         source_version=eco_version,
         key="" , #ask the key to Romain Sacchi
-        biosphere_name=ecoinvent_3_10_bio_db_name,
+        biosphere_name=ecoinvent_db_name,
         )
   
     ndb.update()
@@ -166,7 +166,9 @@ To go further : Example notebook to run premise with and without external scenar
 
 Ecoinvent database compatibility
 --------------------------------
-* ecoinvent 3.10.1 cut-off (main branch)
+* ecoinvent 3.10.1 cut-off
+* ecoinvent 3.11 cut-off
+* ecoinvent 3.12 cut-off
 
 
 
