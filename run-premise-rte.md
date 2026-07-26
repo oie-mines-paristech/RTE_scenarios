@@ -12,22 +12,43 @@ jupyter:
     name: premise247
 ---
 
+# 🔧 To be completed by the user
+
+```python
+# Choose the ecoinvent version.
+eco_version="3.12"
+
+```
+
 # Initialisation
 
 ```python
-from premise import *
 import bw2data
 import bw2io 
+from premise import *
 from datapackage import Package
 ```
 
-# Open brightway project
-
 ```python
-#Put the name of your brightway project
-# ecoinvent + biosphere shall be already loaded in the the project
-NAME_BW_PROJECT="premise_France_RTE" 
+#Name ecoinvent databases
+if eco_version=="3.10": 
+    ecoinvent_db_name='ecoinvent-3.10.1-cutoff'
+    ecoinvent_db_name="ecoinvent-3.10.1-biosphere"
+    NAME_BW_PROJECT="premise_France_RTE" 
+
+if eco_version=="3.11": 
+    ecoinvent_db_name='ecoinvent-3.11-cutoff'
+    ecoinvent_db_name="ecoinvent-3.11-biosphere"
+    NAME_BW_PROJECT="premise_France_RTE_311"
+    NAME_BW_PROJECT="ecoinvent_3_11"
+
+if eco_version=="3.12": 
+    ecoinvent_db_name='ecoinvent-3.12-cutoff'
+    ecoinvent_bio_db_name="ecoinvent-3.12-biosphere"
+    NAME_BW_PROJECT="premise_France_RTE_312"
 ```
+
+# Open brightway project
 
 ```python
 #HELP To get all brightway projects
@@ -40,13 +61,6 @@ bw2data.projects.set_current(NAME_BW_PROJECT)
 
 #Print the databases that are in your project
 list(bw2data.databases)
-```
-
-```python
-#Name ecoinvent databases
-eco_version="3.10"
-ecoinvent_3_10_db_name='ecoinvent-3.10.1-cutoff'
-ecoinvent_3_10_bio_db_name="ecoinvent-3.10.1-biosphere"
 ```
 
 ```python
@@ -78,7 +92,6 @@ SSP2_NDC="SSP2-NDC"
 SSP2_NPi="SSP2-NPi"
 SSP2_rollBack="SSP2-rollBack"
 SSP3_rollBack="SSP3-rollBack"
-
 
 ```
 
@@ -118,13 +131,17 @@ fp = r"datapackage.json"
 rte = Package(fp)
 ```
 
+## 🔧 To be completed by the user
+
 ```python
 #Choose the year 
 year=2050
 ```
 
 ```python
-#If you want to run premise without French scenario
+#Option 1 : If you want to run premise without French scenario
+# Choose the year, IAM and FR scenario combinations. 
+
 scenarios = [
         {"model": image, "pathway":SSP2_L, "year": year},
         {"model": image, "pathway": SSP2_M, "year": year}      
@@ -132,7 +149,7 @@ scenarios = [
 ```
 
 ```python
-#If you want to Run premise with French scenario
+#Option 2: If you want to Run premise with French scenario
 # Choose the year, IAM and FR scenario combinations. 
 
 scenarios = [
@@ -141,13 +158,15 @@ scenarios = [
 ]
 ```
 
+## Run
+
 ```python editable=true slideshow={"slide_type": ""}
 ndb = NewDatabase(
         scenarios = scenarios,        
-        source_db=ecoinvent_3_10_db_name,
+        source_db=ecoinvent_db_name,
         source_version=eco_version,
         key='tUePmX_S5B8ieZkkM7WUU2CnO8SmShwmAeWK9x2rTFo=',
-        biosphere_name=ecoinvent_3_10_bio_db_name,
+        biosphere_name=ecoinvent_bio_db_name,
         #use_multiprocessing=True
 )
 ```
@@ -176,7 +195,7 @@ list(bw2data.databases)
 
 ```python
 #if needed to delete a database
-del bw2data.databases['ei_cutoff_3.10_image_SSP2-M_2050_Reference - M0 2026-07-24']
+#del bw2data.databases['ei_cutoff_3.10_image_SSP2-M_2050_Reference - M0 2026-07-24']
 ```
 
 # Explore the new database
