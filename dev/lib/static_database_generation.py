@@ -33,8 +33,7 @@ M23="Reference - M23"
 N1="Reference - N1"
 N2="Reference - N2"
 N03="Reference - N03"
-FR_scenarios=[M0, M1,M23, N1, N2, N03]
-
+FR_scenarios=[M0,M1,M23,N1,N2, N03]
 
 #Options for model / SSP / IAM / FR scenarios
 model_list=['image','tiam-ucl','remind','remind-eu',"message"]
@@ -43,6 +42,12 @@ SSP_list=['SSP1','SSP2','SSP3','SSP4','SSP5']
 RCP_list=['Base','RCP19','RCP26','RCP45','Npi','NDC','-M_','-L','-H','PkBudg1000','NDC','NPi','ML','VLHO','rollBack','PkBudg650']
 FR_scenario_list=['M0','M1','M23','N1','N2','N03']
 
+# TODO to be completed
 #Scenarios
-list_scenarios=[] # TODO to be completed
+year=2050
 
+list_scenarios=[
+        ] 
+
+old_storage_input_name=""
+new_storage_input_name="market for electricity production, direct production, high voltage, FE2050"

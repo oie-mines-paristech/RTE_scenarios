@@ -5,6 +5,8 @@ import os as os
 import pandas as pd
 from .static_database_generation import *
 from .static_transversal import *
+from .static_impact import dict_color_mix, storage_act_names,fluctuating_renew,direct_elec_prod_act_names
+
 
 #import bw2io
 #import lca_algebraic as agb
@@ -51,10 +53,54 @@ def export_data_to_excel(list_df_to_export, xlsx_file_name):
                     a=a+len(list_name_tables[i+1].index)+2
 
 
+def generate_list_scenarios(rte):
+    """Generate the list of scenarios for database generation"""
+    list_scenarios=[]
+
+    year=2020
+    scenarios = [
+             {"model": image, "pathway":SSP2_M, "year": year, "external scenarios": [{"scenario": N1, "data": rte}]}
+             ]
+    list_scenarios.append(scenarios)
+
+
+    scenarios=[]
+    for FR_scenario in FR_scenarios:
+        scenarios.append(
+            {"model": image, "pathway":SSP2_M, "year": year, "external scenarios": [{"scenario": FR_scenario, "data": rte}]}
+        )
+    list_scenarios.append(scenarios)
+
+    # year=2020
+    # scenarios = [
+    #          {"model": tiam, "pathway":SSP2_RCP45, "year": year, "external scenarios": [{"scenario": N1, "data": rte}]}
+    #          ]
+    # list_scenarios.append(scenarios)
+
+    # year=2050
+    # scenarios=[]
+    # for FR_scenario in FR_scenarios:
+    #     scenarios.append(
+    #         {"model": tiam, "pathway":SSP2_RCP45, "year": year, "external scenarios": [{"scenario": FR_scenario, "data": rte}]}
+    #     )
+
+    # year=2050
+    # scenarios = [
+    #         {"model": remind, "pathway":SSP2_NDC, "year": year, "external scenarios": [{"scenario": M0, "data": rte}]},
+    #         {"model": remind, "pathway":SSP2_NPi, "year": year, "external scenarios": [{"scenario": M0, "data": rte}]},
+    #         {"model": image, "pathway":SSP1_M, "year": year, "external scenarios": [{"scenario": M0, "data": rte}]},
+    #         #{"model": image, "pathway":SSP2_M, "year": year, "external scenarios": [{"scenario": M0, "data": rte}]},
+    #         #{"model": tiam, "pathway":SSP2_RCP45, "year": year, "external scenarios": [{"scenario": M0, "data": rte}]},
+    #         {"model": message, "pathway":SSP2_ML, "year": year, "external scenarios": [{"scenario": M0, "data": rte}]},				
+    #         {"model": message, "pathway":SSP2_M, "year": year, "external scenarios": [{"scenario": M0, "data": rte}]},				
+    # ]
+    # list_scenarios.append(scenarios)
+
+    return list_scenarios
+    
+
 def generate_premise_dbs(list_scenarios):
     """Generate a series of databases with year x IAM scenario x FR scenario """
-    fp = "../datapackage.json"
-    rte = Package(fp)
     for scenarios in list_scenarios:
         ndb = NewDatabase(
                         scenarios = scenarios,        
@@ -126,6 +172,102 @@ def tag_premise_dbs(premise_db_list, folder):
     return(df)
 
 
+
+
+def extract_scenario_data(premise_db_list):
+    selected_db_list_to_plot=[db for db in premise_db_list if 'image' in db.name and db.SSP=='SSP2' and db.RCP=='M']
+    list_df_mix=[]
+
+    for db in selected_db_list_to_plot:
+        #initialisation of the dataframe
+        df=pd.DataFrame([],columns=[
+            'db_name',
+            'model',
+            'SSP',
+            'RCP',
+            'FR scenario',
+            'year',
+            'warning',
+            'act',
+            'amount',
+            'unit amount',
+            #'% impact',
+            #'impact/kWh (absolute)',
+            #'absolute impact/impact elec'
+            ])
+        
+        #Calculate the impact of the chosen activity
+        act=db.search(elec_act_name)[0]
+        
+        #Select the exchanges that compose the activity
+        excs=[exc for exc in act.exchanges()]
+
+        for exc in excs:
+            if exc["type"]=='technosphere' and "transmission" not in exc['name']:            
+                df.loc[len(df.index)] = [
+                    db.name,
+                    db.model,
+                    db.SSP,
+                    db.RCP,
+                    db.FR_scenario,
+                    db.year,
+                    db.warning,
+                    exc.input["name"],
+                    exc.amount,
+                    exc.unit,
+                ]
+        
+        list_df_mix.append(df)
+
+    #Add color, labels
+    for df in list_df_mix:
+        for prod,colorlabel in dict_color_mix.items():
+            df.loc[(df['act']==prod), 'color']=colorlabel[0]
+            df.loc[(df['act']==prod), 'label']=colorlabel[1]
+
+    save_xls(DATA_OUT_FOLDER+'/'+RTE_FOLDER+'/'+'list_df_mix.xlsx',list_df_mix)
+
+    column="amount"
+    list_df_prod_mix=[]
+
+    for df in list_df_mix:
+
+        #calculate the rate of fluctuating renewable
+        a=0
+        b=0
+        
+        #print only production activities
+        df=df[df["act"]!="market for electricity, high voltage, FE2050"]
+        df=df[df["act"]!="market group for electricity, high voltage"]
+        for act_name in storage_act_names:
+            df=df[df["act"]!=act_name]
+        #
+        df["percentage production technology"]=df["amount"]/df["amount"].sum()
+
+        for act in fluctuating_renew:
+            a=a+df[df["act"]==act]["amount"].values.tolist()[0]
+            percentage_fluctuating_renew=a/df["amount"].sum()
+        #print(percentage_fluctuating_renew)
+        list_df_prod_mix.append(df)
+        
+    save_xls(DATA_OUT_FOLDER+'/'+RTE_FOLDER+'/'+'list_df_prod_mix.xlsx',list_df_prod_mix)
+
+    list_df_to_plot_storage_mix=[]
+
+    for df in list_df_mix:
+        df=df[df["act"]!="market for electricity, high voltage, FE2050"]
+        df=df[df["act"]!="market for electricity production, direct production, high voltage, FE2050"]
+        df=df[df["act"]!="market group for electricity, high voltage"]
+        for act_name in direct_elec_prod_act_names :
+            df=df[df["act"]!=act_name]
+        df['percentage storage technology']=df['amount']/df['amount'].sum()
+        list_df_to_plot_storage_mix.append(df)
+
+    save_xls(DATA_OUT_FOLDER+'/'+RTE_FOLDER+'/'+'list_df_to_plot_storage_mix.xlsx',list_df_to_plot_storage_mix)
+
+
+
+#TODO : delete if not used
 def create_empty_act(selected_db_list):
     for db in selected_db_list:
         empty_act=agb.newActivity(
@@ -134,11 +276,10 @@ def create_empty_act(selected_db_list):
             "unit",
         )
 
-storage_input_mix_name="input electricity mix for storage, FE2050"
 
 def change_input_storage_mix(selected_db_list,new_input_name):
     for db in selected_db_list:
-        input_storage_mix=db.search(storage_input_mix_name)[0]
+        input_storage_mix=db.search('input electricity mix for storage, FE2050')[0]
         new_input_storage_mix=db.search(new_input_name)[0]
         excs=[exc for exc in input_storage_mix.exchanges()]
         for exc in excs:
