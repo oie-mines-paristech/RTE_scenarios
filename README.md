@@ -121,7 +121,7 @@ premise key can be asked to Romain Sacchi.
     #Open the brightway project
     bw2data.projects.set_current(NAME_BW_PROJECT)
     
-    fp = r"datapackage.json"
+    fp = r"datapackage-ei-312.json"
     rte = Package(fp)
 
     #Choose the IAM model

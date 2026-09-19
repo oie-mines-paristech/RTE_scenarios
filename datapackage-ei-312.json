@@ -174,7 +174,7 @@
             }
         },
         {
-            "path": "configuration_file/config.yaml",
+            "path": "configuration_file/config-ei-312.yaml",
             "profile": "data-resource",
             "name": "config",
             "format": "yaml",

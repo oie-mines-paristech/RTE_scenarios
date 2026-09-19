@@ -127,7 +127,7 @@ N2_ind="Extensive reindustrialization - N2"
 List of scenarios provided by premise : https://premise.readthedocs.io/en/latest/introduction.html#choosing-the-right-iam
 
 ```python
-fp = r"datapackage.json"
+fp = r"datapackage-ei-312.json"
 rte = Package(fp)
 ```
 
