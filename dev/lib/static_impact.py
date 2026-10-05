@@ -28,7 +28,6 @@ impacts=[climate, climate_premise,
          land, metals_minerals,non_renew_energy, water]
 
 
-
 #list of activities in each subcategory
 
 direct_elec_prod_act_names=[

@@ -3,8 +3,28 @@ import pandas as pd
 import numpy as np
 import matplotlib as matplotlib
 import matplotlib.pyplot as plt
+from pathlib import Path
+import textwrap
+
+
 from .static_transversal import *
 from .static_impact import *
+from .utils import import_xls_list_df
+
+list_df_prod_mix=import_xls_list_df(Path.cwd()/ DATA_OUT_FOLDER / RTE_FOLDER / 'list_df_prod_mix.xlsx')
+
+share_PVwind={}
+for df in list_df_prod_mix[1:]:
+    #calculate the rate of fluctuating renewable
+    amount_PVwind=0
+    amount_tot=0
+    for act in fluctuating_renew:
+        amount_PVwind=amount_PVwind+df[df["act"]==act]["amount"].values.tolist()[0]
+    for act in direct_elec_prod_act_names:
+        if act in df['act'].tolist():
+            amount_tot=amount_tot+df[df["act"]==act]["amount"].values.tolist()[0]
+            PVwind_rate=amount_PVwind/amount_tot*100     
+    share_PVwind[df['FR scenario'].iloc[0]]=PVwind_rate
 
 
 def change_plot_order(list_df_disorded,plot_order):
@@ -65,6 +85,7 @@ def plot_bar_graph_french_scenarios(
             label_bar.append('2019'+'|')
         else:
             label_bar.append(df['FR scenario'].iloc[0]) #+','+ str(df['year'].iloc[0]))
+
 
         #which rows you want to print
         rows=[]
@@ -295,6 +316,7 @@ def plot_bar_graph_contrib(
     add_percentage=0,
     percentage_column='contribution to difference %',
     addlineh=1,
+    add_PVwind=False,
     
     subplot_size=(4, 3),
     width=0.7,
@@ -345,7 +367,11 @@ def plot_bar_graph_contrib(
             if scenarios=='IAM':
                 label_bar.append(df['model'].iloc[0]+' | '+ df['SSP'].iloc[0]+'-'+ df['RCP'].iloc[0])#+','+ str(df['year'].iloc[0]))
             if scenarios=='FR':
-                label_bar.append(df['FR scenario'].iloc[0])
+                if add_PVwind==True: 
+                    label_bar.append(df['FR scenario'].iloc[0]+'\n('+ str(round(share_PVwind[df['FR scenario'].iloc[0]])) +'%)')
+                else: 
+                    label_bar.append(df['FR scenario'].iloc[0])
+
 
             #Plot contributions
             base1=0
@@ -359,8 +385,19 @@ def plot_bar_graph_contrib(
                         base=base1
                 if value<0:
                         base=base2
+
+                #Correction label (to be deleted when new data export is made)
+                if df['label'].iloc[row]=='from direct electricity production':
+                    label='directly supplied from domestic generation'
+                elif df['label'].iloc[row]=='from storage':
+                    label='released from storage'
+                elif df['label'].iloc[row]=='from imports':
+                    label='supplied from imports'
+                else: 
+                    label=df['label'].iloc[row]
+
                 #plot bar
-                ax.bar(j, value, width=width, bottom=base, color=df['color'].iloc[row], label=df['label'].iloc[row],hatch=df['hatch'].iloc[row], edgecolor="lightgrey")
+                ax.bar(j, value, width=width, bottom=base, color=df['color'].iloc[row], label=label,hatch=df['hatch'].iloc[row], edgecolor="lightgrey")
 
                 #Add percentage
                 if 'contribution to difference' in column:
@@ -368,14 +405,15 @@ def plot_bar_graph_contrib(
                         percentage=df[percentage_column].iloc[row]
                         if percentage>=0:
                             sign="+"
+                            position_percentage=base+df[column].iloc[row]*0.3
                         if percentage<0:
                             sign=""
+                            position_percentage=base+df[column].iloc[row]*0.6
                         color_percentage='lightgrey'
                         if df['color'].iloc[row]=='royalblue':
                             color_percentage='black'
                         if abs(percentage)>=0.01:
                             printed_percentage= f'{sign}{round(percentage*100)}%'
-                            position_percentage=base+df[column].iloc[row]*0.3
                             ax.text(
                                 j,
                                 position_percentage,
@@ -399,10 +437,10 @@ def plot_bar_graph_contrib(
                 conso_point=elec_conso_impact-elec_prod_impact
             #if rows!=[9,5,6,10]:
             if add_prod_mix==1:
-                ax.plot(j, prod_point, color='darkorange', label='1 kWh, production mix', marker ="D",markersize=8)    
+                ax.plot(j, prod_point, color='darkorange', label='domestic generation reference mix (1kWh)', marker ="D",markersize=8)    
             
             if add_conso_mix==1:
-                ax.plot(j, conso_point, color='forestgreen', label='1 kWh, consumption mix', marker ="o",markersize=6)    
+                ax.plot(j, conso_point, color='forestgreen', label='supply mix (1 kWh)', marker ="o",markersize=6)    
             
                 
             #Plot production mix, consumption mix, relative difference
@@ -427,10 +465,10 @@ def plot_bar_graph_contrib(
                     add_text=''            
             else:
                     add_text=''
-            if elec_conso_impact>elec_prod_impact:
-                color_text='black'
-            else:
-                color_text='lightgrey'
+            #if elec_conso_impact>elec_prod_impact:
+            color_text='black'
+            #else:
+            #    color_text='lightgrey'
             ax.annotate(
                     text = add_text,
                     xy=(j, elec_conso_impact*1.015),
@@ -445,7 +483,7 @@ def plot_bar_graph_contrib(
         #Add information on the graph and format axis 
         # Add labels and title for each subplot
         #ax.set_title(list_df_to_plot[0]['impact'].iloc[0], size=size_subplot_title)
-        ax.set_title(ax_titles[i], size=size_subplot_title)
+        #ax.set_title(ax_titles[i], size=size_subplot_title)
         #ax.set_xlabel('C')
         if sharey==False:
             if i==0:
@@ -487,7 +525,8 @@ def plot_bar_graph_contrib(
     
     #fig.suptitle(fig_title)
     df=list_df_to_plot[0]
-    fig.suptitle((df['impact'].iloc[0]), size=size_title)
+    titre_formate = textwrap.fill(df['impact'].iloc[0], width=24)
+    fig.suptitle(titre_formate, size=size_title)
     #fig.suptitle((df['model'].iloc[0]+'-'+ df['SSP'].iloc[0]+'-'+ df['RCP'].iloc[0] +' | '+ str(df['year'].iloc[0])), size=size_title)
     #plt.tight_layout()
     #plt.show()    

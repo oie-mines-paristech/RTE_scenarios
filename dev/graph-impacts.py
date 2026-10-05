@@ -13,27 +13,38 @@ from lib.static_impact import *
 from lib.utils import import_xls_list_df
 from lib.utils_graph import change_plot_order,plot_bar_graph_contrib
 
-print ('INFO : ignore the warning')
-plot1=True
 
-#mainfolder='image-SSP2-M'
-mainfolder='tiam-SSP2-RCP45'
-order1=[6,4,1]
-order2=[6,5,4,3,2,1]
+analyses=[
+    {
+    "analysis_type":"contrib",
+    "rows":[1,2,7,10],
+    "column":'contribution to impact'
+    },
+    {
+    "analysis_type":"incremental",
+    "rows":[5,6,10,9],
+    "column":'contribution to difference',
+    }
+]
+
+mainfolder='image-SSP2-M'
+#mainfolder='tiam-SSP2-RCP45'
+
 graph_param=[
-    {'order':order1},
-    {'order':order2}
+    {'order':[6,4,1]},
+    {'order':[3,2,1]},
+    {'order':[6,5,4,3,2,1]}
     ]
 scenarios='FR'
-subplot_size=(2,6)
+subplot_size=(1,4)
 
-mainfolder='scenarios-RCP45-M0'
-order=[4,0,2,3,1,5,6]
-graph_param=[
-    {'order':order},
-    ]
-scenarios='IAM'
-subplot_size=(2,9)
+# mainfolder='scenarios-RCP45-M0'
+# order=[4,0,2,3,1,5,6]
+# graph_param=[
+#     {'order':order},
+#     ]
+# scenarios='IAM'
+# subplot_size=(2,9)
 
 
 #0. initialisation
@@ -41,9 +52,15 @@ datapath=DATA_OUT_FOLDER+'/'+mainfolder
 mainpath=GRAPH_FOLDER+'/'+mainfolder
 
 for g in graph_param:
-    for folder in [GRAPH_FOLDER,mainpath,mainpath+'/'+str(len(g['order']))]:
-        if not os.path.exists(folder):
-            os.makedirs(folder)
+    for analysis in analyses:
+        for folder in [
+                    GRAPH_FOLDER,
+                    mainpath,
+                    mainpath+'/'+analysis["analysis_type"],
+                    mainpath+'/'+analysis["analysis_type"]+'/'+str(str(g['order']))
+                    ]:
+            if not os.path.exists(folder):
+                os.makedirs(folder)
 
 #1. Load data
 for impact in os.listdir(datapath):
@@ -75,37 +92,31 @@ for impact in os.listdir(datapath):
         df.loc[(df['label']=='differential impacts due to imports'),'hatch']='+'
         df['year']=df['year'].astype('Int64')
 
+
     #plot
-    if plot1:
+    for analysis in analyses:
         for g in graph_param:
                 list_df_to_plot=change_plot_order(list_df_ca_aggreg_ter,g['order'])
                 list_dict_to_plot=[]
                 dict_to_plot={
-                    "list_df_to_plot":list_df_to_plot,
-                    "rows":[1,2,7,10],
-                    "column":'contribution to impact'
-                    }
-                list_dict_to_plot.append(dict_to_plot)    
-
-                dict_to_plot={
-                    "list_df_to_plot":list_df_to_plot,
-                    #"rows":[9,5,6,10],
-                    "rows":[5,6,10,9],
-                    "column":'contribution to difference'
+                        "list_df_to_plot":list_df_to_plot,
+                        "rows":analysis["rows"],
+                        "column":analysis["column"]
                     }
                 list_dict_to_plot.append(dict_to_plot)
 
                 plot_bar_graph_contrib(
                     list_dict_to_plot=list_dict_to_plot,
-                    ax_titles=["Contribution analysis","Differential analysis"],
+                    #ax_titles=["Contribution analysis","Differential analysis"],
                     scenarios=scenarios,
-                    fig_path=mainpath+'/'+str(len(g['order']))+'/'+impact+'_'+mainfolder+'.png',
-                    legend_path=mainpath+'/',
+                    fig_path=mainpath+'/'+analysis["analysis_type"]+'/'+str(str(g['order']))+'/'+impact+'_'+mainfolder+'.png',
+                    legend_path=mainpath+'/'+analysis["analysis_type"]+'/',
                     add_number_percentage="number",
                     add_prod_mix=1,
                     add_conso_mix=1,
                     add_percentage=1,
-                    
+                    add_PVwind=True,
+
                     subplot_size=subplot_size,
                     #width=
                     sharey=False,

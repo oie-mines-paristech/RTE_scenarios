@@ -111,10 +111,10 @@ def ca_aggreg(mainfolder,selected_db_list,selected_impacts,curtailment_included,
 
             #add label and color for plots
             if curtailment_included:
-                df['label']=['consumption mix','from direct electricity production','from storage','from imports','curtailment']
+                df['label']=['supply mix','directly supplied from domestic generation','released from storage','from imports','curtailment']
                 df['color']=['grey','deepskyblue','royalblue','midnightblue','black']
             else: 
-                df['label']=['consumption mix','from direct electricity production','from storage','from imports']
+                df['label']=['supply mix','directly supplied from domestic generation','released from storage','supplied from imports','curtailment']
                 df['color']=['grey','deepskyblue','royalblue','midnightblue']                
             #Safety check
             if (df["amount (kWh)"].iloc[1:3].sum()-1)>1e-4:
@@ -186,7 +186,7 @@ def ca_aggreg(mainfolder,selected_db_list,selected_impacts,curtailment_included,
             #Safety check
             test=df2['contribution to difference'].iloc[3]+df2['contribution to difference'].iloc[4]-df2['contribution to difference'].iloc[0]
             if test > 1e-5:
-                write('warning total does not equal consumption mix')
+                write('warning total does not equal supply mix')
         
             #Put unit on all lines
             df2['unit']=df2.loc[0,'unit']
@@ -380,10 +380,10 @@ def ca_disaggreg_storage(mainfolder,selected_db_list,selected_impacts):
         
             #Impact in consumption mix. Correction by grid losses factor
             df['Helper'] = df["% amount in elec market"] * df['impact storage losses']*grid_losses_factor
-            df.loc[0,'impact storage losses in consumption mix'] = df['Helper'].sum()    
+            df.loc[0,'impact storage losses in supply mix'] = df['Helper'].sum()    
             
             df['Helper'] = df["% amount in elec market"] * df['impact storage infra']*grid_losses_factor 
-            df.loc[0,'impact storage infra in consumption mix'] = df['Helper'].sum()    
+            df.loc[0,'impact storage infra in supply mix'] = df['Helper'].sum()    
                 #For each db in the selected list add the dataframe to the list of dataframes
             
             list_df_storage.append(df)        
@@ -412,8 +412,8 @@ def ca_disaggreg_ter(mainfolder,selected_db_list,selected_impacts,ca_aggreg_bis,
             #Extract storage related data from df and df_sto
             df_sto=list_df_storage[n_scenario]
             impact_mix_prod=df_sto.loc[0,'impact 1 kWh elec market from prod']
-            losses_sto=df_sto.loc[0,'impact storage losses in consumption mix']
-            infra_sto= df_sto.loc[0,'impact storage infra in consumption mix']
+            losses_sto=df_sto.loc[0,'impact storage losses in supply mix']
+            infra_sto= df_sto.loc[0,'impact storage infra in supply mix']
             amount_sto=df.loc[(df['act']=="market for electricity, from storage, FE2050"),'amount (kWh)'].values.tolist()[0]
             n_scenario=n_scenario+1
             #losses_sto*amount_sto
@@ -448,7 +448,7 @@ def ca_disaggreg_ter(mainfolder,selected_db_list,selected_impacts,ca_aggreg_bis,
             #safety check
             test=df2['contribution to difference'].iloc[5]+df2['contribution to difference'].iloc[6]-df2['contribution to difference'].iloc[4]
             if test > 1e-5:
-                print('warning total does not equal consumption mix for')
+                print('warning total does not equal supply mix for')
                 print(df2['impact'].tolist()[0])
                 print(df2['FR scenario'].tolist()[0])
                 print(test)
