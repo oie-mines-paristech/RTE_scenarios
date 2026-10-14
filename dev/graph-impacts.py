@@ -37,7 +37,7 @@ analyses=[
         "water use",
         "ionising radiation:human health"
         ],
-    "title_graph":"Domestic generation and supply mix impacts" #title of the overview graph
+    "title_graph":"Domestic generation and supply mix impacts per kWh" #title of the overview graph
     },
     {
     "analysis_type":"incremental",
@@ -79,26 +79,42 @@ if scenarios=='IAM':
 
 
 
+plot_options = {
+    'contrib_anal': False,
+    'add_number_percentage': 'number',
+    'add_prod_mix': 1,
+    'add_conso_mix': 1,
+    'add_percentage': 1,
+    'add_PVwind': True,
+    'subplot_size': subplot_size,
+    'sharey': False,
+    'pos_legend': (0.5, -2),
+    'size_title': 17,
+    'size_subplot_title': 15,
+    'size_xaxis': 15,
+    'size_yaxis': 15,
+    'size_absolute_value': 14,
+    'size_percentage': 13,
+    'size_legend': 15,
+}
+
 for mainfolder in mainfolders:
-    #Initialisation of input data and output graph paths
     datapath=DATA_OUT_FOLDER+'/'+mainfolder
     mainpath=GRAPH_FOLDER+'/'+mainfolder
 
-    #For each combination of scenarios
     for g in graph_param:
-        #for each settled analyses
         for analysis in analyses:
-            #create output folders if they do not exist
             for folder in [
-                        GRAPH_FOLDER,
-                        mainpath,
-                        mainpath+'/'+analysis["analysis_type"],
-                        mainpath+'/'+analysis["analysis_type"]+'/'+str(str(g['order']))
-                        ]:
+                GRAPH_FOLDER,
+                mainpath,
+                mainpath+'/'+analysis["analysis_type"],
+                mainpath+'/'+analysis["analysis_type"]+'/'+str(g['order']),
+            ]:
                 if not os.path.exists(folder):
                     os.makedirs(folder)
 
     #Load data
+    impact_data_by_category = {}
     for impact in os.listdir(datapath):
         #load data
         full_datapath=datapath+'/'+impact
@@ -128,6 +144,7 @@ for mainfolder in mainfolders:
             df.loc[(df['label']=='differential impacts due to imports'),'hatch']='+'
             df['year']=df['year'].astype('Int64')
 
+        impact_data_by_category[impact] = list_df_ca_aggreg_ter
 
         #plot individual graphs per impact categor
         for analysis in analyses:
@@ -147,26 +164,7 @@ for mainfolder in mainfolders:
                         scenarios=scenarios,
                         fig_path=mainpath+'/'+analysis["analysis_type"]+'/'+str(str(g['order']))+'/'+impact+'_'+mainfolder+'.png',
                         legend_path=mainpath+'/'+analysis["analysis_type"]+'/',
-                        
-                        contrib_anal=True, 
-                        add_number_percentage="number",
-                        add_prod_mix=1,
-                        add_conso_mix=1,
-                        add_percentage=1,
-                        add_PVwind=True,
-
-                        subplot_size=subplot_size,
-                        #width=
-                        sharey=False,
-                        pos_legend=(0.5, -2),
-                        
-                        size_title=17,
-                        size_subplot_title=15,
-                        size_xaxis=15,
-                        size_yaxis=15,
-                        size_absolute_value=14,
-                        size_percentage=13,
-                        size_legend=15,
+                        **plot_options,
                     )
 
     #plot overview graph for each analysis type
@@ -175,11 +173,15 @@ for mainfolder in mainfolders:
             order_path = mainpath+'/'+analysis["analysis_type"]+'/'+str(g['order'])
             plot_impact_category_overview(
                 impact_categories=analysis["impact_cat"],
-                image_directory=order_path,
-                legend_file=mainpath+'/'+analysis["analysis_type"]+'/1_legend.png',
+                impact_data=impact_data_by_category,
+                order=g['order'],
+                rows=analysis["rows"],
+                column=analysis["column"],
                 output_path=order_path+'/impact_overview_'+mainfolder+'.png',
-                mainfolder=mainfolder,
                 title=analysis["title_graph"],
+                scenarios=scenarios,
+                subplot_size=subplot_size,
+                plot_options=plot_options,
             )
 
 

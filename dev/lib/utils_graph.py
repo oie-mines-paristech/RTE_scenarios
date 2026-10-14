@@ -38,71 +38,115 @@ def change_plot_order(list_df_disorded,plot_order):
 
 def plot_impact_category_overview(
     impact_categories,
-    image_directory,
-    legend_file,
+    impact_data,
+    order,
+    rows,
+    column,
     output_path,
-    mainfolder,
+    scenarios,
     title='',
+    subplot_size=(1, 4),
     ncols=3,
+    plot_options=None,
 ):
-    """Combine saved impact plots and their shared legend into one figure."""
+    """Plot selected impact categories as equal-sized live subplots."""
     if not impact_categories:
         raise ValueError('impact_categories must contain at least one category')
 
     def normalize_impact_name(name):
         return ' '.join(name.lower().replace(':', ' ').replace('/', ' ').split())
 
-    suffix = f'_{mainfolder}.png'
-    available_images = {
-        normalize_impact_name(path.name[:-len(suffix)]): path
-        for path in Path(image_directory).glob(f'*{suffix}')
+    available_impacts = {
+        normalize_impact_name(name): name
+        for name in impact_data
     }
     aliases = {'climate change adapted': 'climate change premise'}
 
-    selected_images = []
+    selected_impacts = []
     for category in impact_categories:
         normalized_category = normalize_impact_name(category)
-        image_path = available_images.get(normalized_category)
-        if image_path is None and normalized_category in aliases:
-            image_path = available_images.get(aliases[normalized_category])
-        if image_path is None:
+        impact_name = available_impacts.get(normalized_category)
+        if impact_name is None and normalized_category in aliases:
+            impact_name = available_impacts.get(aliases[normalized_category])
+        if impact_name is None:
             raise FileNotFoundError(
                 f'No generated plot found for impact category {category!r} '
-                f'in {image_directory}'
+                f'in the supplied impact data'
             )
-        selected_images.append((category, image_path))
+        selected_impacts.append((category, impact_name))
 
-    legend_file = Path(legend_file)
-    if not legend_file.is_file():
-        raise FileNotFoundError(f'Legend image not found: {legend_file}')
-
-    nrows = (len(selected_images) + ncols - 1) // ncols
-    fig = plt.figure(figsize=(3.6 * ncols, 4.8 * nrows + 2.2))
+    nrows = (len(selected_impacts) + ncols - 1) // ncols
+    n_scenarios = len(change_plot_order(next(iter(impact_data.values())), order))
+    panel_width = n_scenarios * subplot_size[0]
+    legend_height = 1.4
+    fig = plt.figure(
+        figsize=(panel_width * ncols, subplot_size[1] * nrows + legend_height + 0.35)
+    )
     grid = fig.add_gridspec(
         nrows + 1,
         ncols,
-        height_ratios=[1] * nrows + [0.2],
-        wspace=0.03,
-        hspace=0.02,
+        height_ratios=[subplot_size[1]] * nrows + [legend_height],
+        wspace=0.4,
+        hspace=0.3,
     )
 
-    for index, (_, image_path) in enumerate(selected_images):
+    axes = []
+    plot_options = dict(plot_options or {})
+    for index, (_, impact_name) in enumerate(selected_impacts):
         ax = fig.add_subplot(grid[index // ncols, index % ncols])
-        ax.imshow(plt.imread(image_path))
-        ax.axis('off')
+        axes.append(ax)
+        dict_to_plot = {
+            'list_df_to_plot': change_plot_order(impact_data[impact_name], order),
+            'rows': rows,
+            'column': column,
+        }
+        plot_bar_graph_contrib(
+            [dict_to_plot],
+            ax=ax,
+            scenarios=scenarios,
+            show_xlabels=index // ncols == nrows - 1,
+            save_legend=False,
+            **plot_options,
+        )
 
-    for index in range(len(selected_images), nrows * ncols):
-        ax = fig.add_subplot(grid[index // ncols, index % ncols])
-        ax.axis('off')
+    for index in range(len(selected_impacts), nrows * ncols):
+        empty_ax = fig.add_subplot(grid[index // ncols, index % ncols])
+        empty_ax.axis('off')
+
+    legend_items = {}
+    # Merge legend entries from every subplot, keeping one handle per label.
+    for ax in axes:
+        handles, labels = ax.get_legend_handles_labels()
+        for handle, label in zip(handles, labels):
+            legend_items.setdefault(label, handle)
+
+    reordered_handles=list(legend_items.values())[::2]+list(legend_items.values())[1::2]
+    reordered_labels=list(legend_items.keys())[::2]+list(legend_items.keys())[1::2]
 
     legend_ax = fig.add_subplot(grid[-1, :])
-    legend_ax.imshow(plt.imread(legend_file))
-    #legend_ax.set_title('Legend', fontsize=15)
     legend_ax.axis('off')
+    if legend_items:
+        # Anchor the legend to the full-width bottom row and distribute it across three columns.
+        legend_ax.legend(
+            reordered_handles,
+            reordered_labels,
+            loc='center',
+            bbox_to_anchor=(0, 0, 1, 1),
+            mode='expand',
+            ncols=2,
+            fontsize=plot_options.get('size_legend', 10),
+            frameon=False,
+            borderaxespad=0,
+        )
 
     if title:
-        fig.suptitle(title, fontsize=16, y=0.99)
-    fig.subplots_adjust(top=0.97 if title else 0.99)
+        fig.suptitle(title, fontsize=18, y=0.99, weight='bold')
+    fig.subplots_adjust(
+        left=0.08,
+        right=0.99,
+        top=0.91 if title else 0.99,
+        bottom=0.03,
+    )
     fig.savefig(output_path, dpi=300, bbox_inches='tight', pad_inches=0.1)
     plt.close(fig)
 
@@ -403,22 +447,30 @@ def plot_bar_graph_contrib(
     size_absolute_value=14,
     size_percentage=12,
     size_legend=10,
+    ax=None,
+    show_xlabels=True,
+    save_legend=True,
     
-):
+    ):
     """Plot contribution"""    
     nb_subplot=len(list_dict_to_plot)
     nb_scenarios=len(list_dict_to_plot[0]["list_df_to_plot"])
+    draw_on_supplied_axis = ax is not None
 
-    #create fig
-    #fig,ax = plt.subplots(figsize=subplot_size)
-    fig, axs = plt.subplots(
-        1, nb_subplot,
-        figsize=(nb_scenarios * subplot_size[0], subplot_size[1]),
-        sharey=sharey,
-        constrained_layout=False,
-    )
-    if nb_subplot==1:
-        axs=[axs]
+    if not draw_on_supplied_axis:
+        fig, axs = plt.subplots(
+            1, nb_subplot,
+            figsize=(nb_scenarios * subplot_size[0], subplot_size[1]),
+            sharey=sharey,
+            constrained_layout=False,
+        )
+        if nb_subplot==1:
+            axs=[axs]
+    else:
+        if nb_subplot != 1:
+            raise ValueError('An externally supplied axis requires exactly one plot')
+        fig = ax.figure
+        axs = [ax]
 
     axis_value_annotations = {}
     axis_units = {}
@@ -436,7 +488,7 @@ def plot_bar_graph_contrib(
 
         #add a horizontal line = 0
         if addlineh==1:
-            plt.axhline(0,color='black',linestyle='dashed', linewidth=1)
+            ax.axhline(0,color='black',linestyle='dashed', linewidth=1)
         #For each bar 
         for j, df in enumerate(list_df_to_plot): #j = bar graph number  
             #Extract static values
@@ -523,10 +575,10 @@ def plot_bar_graph_contrib(
                 conso_point=elec_conso_impact-elec_prod_impact
             #if rows!=[9,5,6,10]:
             if add_prod_mix==1:
-                ax.plot(j, prod_point, color='darkorange', label='domestic generation reference mix (1kWh)', marker ="D",markersize=8)    
+                ax.plot(j, prod_point, color='darkorange', label='domestic generation reference mix', marker ="D",markersize=8)    
             
             if add_conso_mix==1:
-                ax.plot(j, conso_point, color='forestgreen', label='supply mix (1 kWh)', marker ="o",markersize=8)    
+                ax.plot(j, conso_point, color='forestgreen', label='supply mix', marker ="o",markersize=8)    
             
                 
             #Plot production mix, consumption mix, relative difference
@@ -578,10 +630,10 @@ def plot_bar_graph_contrib(
         #ax.set_xlabel('C')
         if sharey==False:
             if i==0:
-                ax.set_ylabel(list_df_to_plot[0]['unit'].iloc[0]+ '/kWh', size=size_yaxis)
+                ax.set_ylabel(list_df_to_plot[0]['unit'].iloc[0], size=size_yaxis)
         if sharey==True:
             if i==0:
-                ax.set_ylabel(list_df_to_plot[0]['unit'].iloc[0]+ '/kWh', size=size_yaxis)
+                ax.set_ylabel(list_df_to_plot[0]['unit'].iloc[0], size=size_yaxis)
 
         #Bar label
         if scenarios=='IAM':
@@ -590,6 +642,8 @@ def plot_bar_graph_contrib(
             ax.set_xticks(label_bar_number,label_bar, size=size_xaxis) #rotation=45, ha='right')  
         #ax.set_xticks(rotation=45, ha='right')
         ax.margins(y=0.15)
+        if not show_xlabels:
+            ax.tick_params(axis='x', labelbottom=False)
 
 
     
@@ -603,18 +657,18 @@ def plot_bar_graph_contrib(
         #ax.legend(bbox_to_anchor=pos_legend, loc='center', fontsize=int(size_label*0.9))
 
             # 3. Create a separate figure just for the legend
-        fig_leg = plt.figure(figsize=(12, 3))
-        # Add the legend to the empty figure
-        legend = fig_leg.legend(
-            by_label.values(),
-            by_label.keys(),
-            loc='center',
-            fontsize=size_legend,
-            ncol=3,
-        )
-        # 4. Save the legend file, cropping out extra whitespace
-        fig_leg.savefig(legend_path+str(i+1)+'_'+'legend.png', dpi=300, bbox_inches='tight')
-        plt.close(fig_leg)
+        # Standalone plots save their legend separately; overview panels use one shared legend.
+        if save_legend:
+            fig_leg = plt.figure(figsize=(12, 3))
+            fig_leg.legend(
+                by_label.values(),
+                by_label.keys(),
+                loc='center',
+                fontsize=size_legend,
+                ncol=3,
+            )
+            fig_leg.savefig(legend_path+str(i+1)+'_'+'legend.png', dpi=300, bbox_inches='tight')
+            plt.close(fig_leg)
 
 
     if add_number_percentage=="number":
@@ -637,15 +691,15 @@ def plot_bar_graph_contrib(
     #plt.legend(by_label.values(), by_label.keys(),bbox_to_anchor=pos_legend, loc='center', fontsize=int(size_legend))
     
     #fig.suptitle(fig_title)
-    df=list_df_to_plot[0]
-    titre_formate = textwrap.fill(df['impact'].iloc[0], width=30)
-    fig.suptitle(titre_formate, size=size_title, y=0.98)
-    fig.subplots_adjust(top=0.82)
-    fig.subplots_adjust(bottom=0.22)
-    #fig.suptitle((df['model'].iloc[0]+'-'+ df['SSP'].iloc[0]+'-'+ df['RCP'].iloc[0] +' | '+ str(df['year'].iloc[0])), size=size_title)
-    #plt.tight_layout()
-    #plt.show()    
-    fig.savefig(fig_path, bbox_inches="tight", pad_inches=0.1)    # Close the legend figure to free memory
-    plt.close('all')
+    df=list_dict_to_plot[0]['list_df_to_plot'][0]
+    titre_formate = textwrap.fill(df['impact'].iloc[0], width=25)
+    if draw_on_supplied_axis:
+        ax.set_title(titre_formate, size=size_subplot_title, pad=2, y=1.13, va='top')
+    else:
+        fig.suptitle(titre_formate, size=size_title, y=0.98)
+        fig.subplots_adjust(top=0.82)
+        fig.subplots_adjust(bottom=0.22)
+        fig.savefig(fig_path, bbox_inches="tight", pad_inches=0.1)
+        plt.close(fig)
 
 
