@@ -317,7 +317,7 @@ def plot_bar_graph_contrib(
     add_percentage=0,
     percentage_column='contribution to difference %',
     addlineh=1,
-    add_PVwind=False,
+    add_PVwind=True,
     
     subplot_size=(4, 3),
     width=0.7,
@@ -339,15 +339,25 @@ def plot_bar_graph_contrib(
 
     #create fig
     #fig,ax = plt.subplots(figsize=subplot_size)
-    fig, axs = plt.subplots(1,nb_subplot, figsize=(nb_scenarios*subplot_size[0],subplot_size[1]),sharey=sharey, constrained_layout=True)
+    fig, axs = plt.subplots(
+        1, nb_subplot,
+        figsize=(nb_scenarios * subplot_size[0], subplot_size[1]),
+        sharey=sharey,
+        constrained_layout=False,
+    )
     if nb_subplot==1:
         axs=[axs]
+
+    axis_value_annotations = {}
+    axis_units = {}
 
     #For each subplot
     for i, (ax, dict_to_plot) in enumerate(zip(axs,list_dict_to_plot)):
         list_df_to_plot=dict_to_plot["list_df_to_plot"]
         rows=dict_to_plot["rows"]
         column=dict_to_plot["column"]
+        axis_value_annotations[ax] = []
+        axis_units[ax] = list_df_to_plot[0]['unit'].iloc[0]
 
         label_bar_number=[]
         label_bar=[]
@@ -473,7 +483,7 @@ def plot_bar_graph_contrib(
             color_text='black'
             #else:
             #    color_text='lightgrey'
-            ax.annotate(
+            value_annotation = ax.annotate(
                     text = add_text,
                     xy=(j, elec_conso_impact*1.015),
                     ha='center',
@@ -481,6 +491,8 @@ def plot_bar_graph_contrib(
                     fontsize=size_absolute_value,
                     weight="bold",
                 )
+            if column=='contribution to impact' and add_number_percentage=="number":
+                axis_value_annotations[ax].append((value_annotation, elec_conso_impact))
             if 'climate' not in df['impact'].iloc[0]:
                 ax.ticklabel_format(style='sci', scilimits=(0,0))
         
@@ -523,6 +535,21 @@ def plot_bar_graph_contrib(
         plt.close(fig_leg)
 
 
+    if add_number_percentage=="number":
+        fig.canvas.draw()
+        for ax in axs:
+            formatter = ax.yaxis.get_major_formatter()
+            exponent = getattr(formatter, 'orderOfMagnitude', 0)
+            if exponent:
+                scale = 10 ** exponent
+                for annotation, value in axis_value_annotations[ax]:
+                    annotation.set_text(f'{value / scale:.1f}')
+                ax.yaxis.get_offset_text().set_visible(False)
+                ax.set_ylabel(
+                    f'{axis_units[ax]} ($\\times 10^{{{exponent}}}$)',
+                    size=size_yaxis,
+                )
+
     #handles, labels = plt.gca().get_legend_handles_labels()
     #by_label = dict(zip(labels, handles))
     #plt.legend(by_label.values(), by_label.keys(),bbox_to_anchor=pos_legend, loc='center', fontsize=int(size_legend))
@@ -530,13 +557,13 @@ def plot_bar_graph_contrib(
     #fig.suptitle(fig_title)
     df=list_df_to_plot[0]
     titre_formate = textwrap.fill(df['impact'].iloc[0], width=24)
-    fig.suptitle(titre_formate, size=size_title)
+    fig.suptitle(titre_formate, size=size_title, y=0.98)
+    fig.subplots_adjust(top=0.82)
+    fig.subplots_adjust(bottom=0.22)
     #fig.suptitle((df['model'].iloc[0]+'-'+ df['SSP'].iloc[0]+'-'+ df['RCP'].iloc[0] +' | '+ str(df['year'].iloc[0])), size=size_title)
     #plt.tight_layout()
     #plt.show()    
-    fig.savefig(fig_path)
-    # Close the legend figure to free memory
+    fig.savefig(fig_path, bbox_inches="tight", pad_inches=0.1)    # Close the legend figure to free memory
     plt.close('all')
 
 
-    

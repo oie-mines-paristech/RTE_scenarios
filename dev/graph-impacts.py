@@ -18,12 +18,14 @@ analyses=[
     {
     "analysis_type":"contrib",
     "rows":[1,2,7,10],
-    "column":'contribution to impact'
+    "column":'contriution to impact',
+    "impact_cat:["acidification","climate change adapted","material resources:metals minerals","particulate matter formation","water use", "ionising radiation:human health"]
     },
     {
     "analysis_type":"incremental",
     "rows":[5,6,10,9],
     "column":'contribution to difference',
+    "impact_cat:["acidification","climate change adapted","material resources:metals minerals","water use"]
     }
 ]
 
@@ -32,8 +34,8 @@ mainfolder='image-SSP2-M'
 
 graph_param=[
     {'order':[6,4,1]},
-    {'order':[3,2,1]},
-    {'order':[6,5,4,3,2,1]}
+    #{'order':[3,2,1]},
+    #{'order':[6,5,4,3,2,1]}
     ]
 scenarios='FR'
 subplot_size=(1,4)
