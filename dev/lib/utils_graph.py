@@ -11,9 +11,10 @@ from .static_transversal import *
 from .static_impact import *
 from .utils import import_xls_list_df
 
-list_df_prod_mix=import_xls_list_df(Path.cwd()/ DATA_OUT_FOLDER / RTE_FOLDER / 'list_df_prod_mix.xlsx')
 
+#Calculate the share of PV+wind in the mix in 2019 and 2050 and store them in a dictionnary
 share_PVwind={}
+list_df_prod_mix=import_xls_list_df(Path.cwd()/ DATA_OUT_FOLDER / RTE_FOLDER / 'list_df_prod_mix.xlsx')
 for df in list_df_prod_mix[1:]:
     #calculate the rate of fluctuating renewable
     amount_PVwind=0
@@ -28,11 +29,82 @@ for df in list_df_prod_mix[1:]:
 
 
 def change_plot_order(list_df_disorded,plot_order):
-    #Generate the list to plot
+    """Generate the list to plot in the order you want"""
     list_df_to_plot= []
     for order in plot_order:
         list_df_to_plot.append(list_df_disorded[order])
     return(list_df_to_plot)
+
+
+def plot_impact_category_overview(
+    impact_categories,
+    image_directory,
+    legend_file,
+    output_path,
+    mainfolder,
+    title='',
+    ncols=3,
+):
+    """Combine saved impact plots and their shared legend into one figure."""
+    if not impact_categories:
+        raise ValueError('impact_categories must contain at least one category')
+
+    def normalize_impact_name(name):
+        return ' '.join(name.lower().replace(':', ' ').replace('/', ' ').split())
+
+    suffix = f'_{mainfolder}.png'
+    available_images = {
+        normalize_impact_name(path.name[:-len(suffix)]): path
+        for path in Path(image_directory).glob(f'*{suffix}')
+    }
+    aliases = {'climate change adapted': 'climate change premise'}
+
+    selected_images = []
+    for category in impact_categories:
+        normalized_category = normalize_impact_name(category)
+        image_path = available_images.get(normalized_category)
+        if image_path is None and normalized_category in aliases:
+            image_path = available_images.get(aliases[normalized_category])
+        if image_path is None:
+            raise FileNotFoundError(
+                f'No generated plot found for impact category {category!r} '
+                f'in {image_directory}'
+            )
+        selected_images.append((category, image_path))
+
+    legend_file = Path(legend_file)
+    if not legend_file.is_file():
+        raise FileNotFoundError(f'Legend image not found: {legend_file}')
+
+    nrows = (len(selected_images) + ncols - 1) // ncols
+    fig = plt.figure(figsize=(3.6 * ncols, 4.8 * nrows + 2.2))
+    grid = fig.add_gridspec(
+        nrows + 1,
+        ncols,
+        height_ratios=[1] * nrows + [0.2],
+        wspace=0.03,
+        hspace=0.02,
+    )
+
+    for index, (_, image_path) in enumerate(selected_images):
+        ax = fig.add_subplot(grid[index // ncols, index % ncols])
+        ax.imshow(plt.imread(image_path))
+        ax.axis('off')
+
+    for index in range(len(selected_images), nrows * ncols):
+        ax = fig.add_subplot(grid[index // ncols, index % ncols])
+        ax.axis('off')
+
+    legend_ax = fig.add_subplot(grid[-1, :])
+    legend_ax.imshow(plt.imread(legend_file))
+    #legend_ax.set_title('Legend', fontsize=15)
+    legend_ax.axis('off')
+
+    if title:
+        fig.suptitle(title, fontsize=16, y=0.99)
+    fig.subplots_adjust(top=0.97 if title else 0.99)
+    fig.savefig(output_path, dpi=300, bbox_inches='tight', pad_inches=0.1)
+    plt.close(fig)
 
 def plot_bar_graph_french_scenarios(
     title,
@@ -454,7 +526,7 @@ def plot_bar_graph_contrib(
                 ax.plot(j, prod_point, color='darkorange', label='domestic generation reference mix (1kWh)', marker ="D",markersize=8)    
             
             if add_conso_mix==1:
-                ax.plot(j, conso_point, color='forestgreen', label='supply mix (1 kWh)', marker ="o",markersize=6)    
+                ax.plot(j, conso_point, color='forestgreen', label='supply mix (1 kWh)', marker ="o",markersize=8)    
             
                 
             #Plot production mix, consumption mix, relative difference
@@ -485,11 +557,14 @@ def plot_bar_graph_contrib(
             #    color_text='lightgrey'
             value_annotation = ax.annotate(
                     text = add_text,
-                    xy=(j, elec_conso_impact*1.015),
+                    xy=(j, elec_conso_impact),
+                    xytext=(0, 6),
+                    textcoords='offset points',
                     ha='center',
                     color=color_text,
                     fontsize=size_absolute_value,
                     weight="bold",
+                    annotation_clip=False,
                 )
             if column=='contribution to impact' and add_number_percentage=="number":
                 axis_value_annotations[ax].append((value_annotation, elec_conso_impact))
@@ -514,6 +589,7 @@ def plot_bar_graph_contrib(
         if scenarios=='FR':
             ax.set_xticks(label_bar_number,label_bar, size=size_xaxis) #rotation=45, ha='right')  
         #ax.set_xticks(rotation=45, ha='right')
+        ax.margins(y=0.15)
 
 
     
@@ -527,11 +603,17 @@ def plot_bar_graph_contrib(
         #ax.legend(bbox_to_anchor=pos_legend, loc='center', fontsize=int(size_label*0.9))
 
             # 3. Create a separate figure just for the legend
-        fig_leg = plt.figure(figsize=(3, 2))
+        fig_leg = plt.figure(figsize=(12, 3))
         # Add the legend to the empty figure
-        legend = fig_leg.legend(by_label.values(), by_label.keys(), loc='center')
+        legend = fig_leg.legend(
+            by_label.values(),
+            by_label.keys(),
+            loc='center',
+            fontsize=size_legend,
+            ncol=3,
+        )
         # 4. Save the legend file, cropping out extra whitespace
-        fig_leg.savefig(legend_path+str(i+1)+'_'+'legend.png', bbox_inches='tight')
+        fig_leg.savefig(legend_path+str(i+1)+'_'+'legend.png', dpi=300, bbox_inches='tight')
         plt.close(fig_leg)
 
 
@@ -556,7 +638,7 @@ def plot_bar_graph_contrib(
     
     #fig.suptitle(fig_title)
     df=list_df_to_plot[0]
-    titre_formate = textwrap.fill(df['impact'].iloc[0], width=24)
+    titre_formate = textwrap.fill(df['impact'].iloc[0], width=30)
     fig.suptitle(titre_formate, size=size_title, y=0.98)
     fig.subplots_adjust(top=0.82)
     fig.subplots_adjust(bottom=0.22)
