@@ -310,6 +310,7 @@ def plot_bar_graph_contrib(
     ax_titles=["",""],
     scenarios='FR',
 
+    contrib_anal=True,
     add_number_percentage="number", #"number" or "percentage"
     add_prod_mix=0,
     add_conso_mix=0,
@@ -397,7 +398,10 @@ def plot_bar_graph_contrib(
                     label=df['label'].iloc[row]
 
                 #plot bar
-                ax.bar(j, value, width=width, bottom=base, color=df['color'].iloc[row], label=label,hatch=df['hatch'].iloc[row], edgecolor="lightgrey")
+                if contrib_anal==True:
+                    ax.bar(j, value, width=width, bottom=base, color=df['color'].iloc[row], label=label,hatch=df['hatch'].iloc[row], edgecolor="lightgrey")
+                else:
+                    ax.bar(j, value, width=width, bottom=base, color="white", label=label,hatch=df['hatch'].iloc[row], edgecolor="white")
 
                 #Add percentage
                 if 'contribution to difference' in column:

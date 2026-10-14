@@ -111,6 +111,8 @@ for impact in os.listdir(datapath):
                     scenarios=scenarios,
                     fig_path=mainpath+'/'+analysis["analysis_type"]+'/'+str(str(g['order']))+'/'+impact+'_'+mainfolder+'.png',
                     legend_path=mainpath+'/'+analysis["analysis_type"]+'/',
+                    
+                    contrib_anal=False, 
                     add_number_percentage="number",
                     add_prod_mix=1,
                     add_conso_mix=1,
