@@ -20,7 +20,7 @@ def ca_aggreg(mainfolder,selected_db_list,selected_impacts,curtailment_included,
     for impact_cat in selected_impacts:
         #change climate change premise name not to confuse with standard climate change
         if 'incl. H and bio CO2' in impact_cat[2]:
-            impact_cat_name='climate change premise'
+            impact_cat_name='global warming potential'
         else:
             impact_cat_name=impact_cat[1]
 
@@ -219,7 +219,7 @@ def ca_disaggreg_storage(mainfolder,selected_db_list,selected_impacts):
     for impact_cat in selected_impacts:  
         #change climate change premise name not to confuse with standard climate change
         if 'incl. H and bio CO2' in impact_cat[2]:
-            impact_cat_name='climate change premise'
+            impact_cat_name='global warming potential'
         else:
             impact_cat_name=impact_cat[1]
 
@@ -467,4 +467,3 @@ def ca_disaggreg_ter(mainfolder,selected_db_list,selected_impacts,ca_aggreg_bis,
         save_xls(newpath+'/'+'list_df_ca_aggregg_ter.xlsx',list_df_ca_aggreg_ter)
 
     return(ca_aggreg_ter)
-    
