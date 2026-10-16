@@ -758,7 +758,7 @@ markets:
     replaces in:
       - location: FR
 
-  - name: market for electricity production, direct production, high voltage, FE2050
+  - name: domestic generation mix, FE2050
     reference product: electricity, high voltage
     unit: kilowatt hour
     includes:
@@ -781,6 +781,27 @@ markets:
       - name: input electricity mix for storage, FE2050
         product: electricity, high voltage
 
+
+  - name: supply mix, FE2050
+    reference product: electricity
+    unit: kilowatt hour
+    includes:
+      - nuclear_pressure_water
+      - nuclear_EPR
+      - nuclear_SMR
+      - hydro_run_of_river
+      - hydro_reservoir
+      - pv
+      - wind_onshore
+      - wind_offshore
+      - biomass
+      - waste
+      - wave
+      - natural_gas
+      - fuel_oil
+      - coal
+    
+    
   - name: market for electricity, high voltage, FE2050
     reference product: electricity, high voltage
     unit: kilowatt hour
@@ -848,6 +869,9 @@ markets:
 
     except regions:
       - World
+
+
+
 
   - name: market for electricity, from direct French production, FE2050
     reference product: electricity, high voltage
