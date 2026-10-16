@@ -44,6 +44,7 @@ def plot_impact_category_overview(
     column,
     output_path,
     scenarios,
+    contrib_anal,
     title='',
     subplot_size=(1, 4),
     ncols=3,
@@ -78,7 +79,10 @@ def plot_impact_category_overview(
     nrows = (len(selected_impacts) + ncols - 1) // ncols
     n_scenarios = len(change_plot_order(next(iter(impact_data.values())), order))
     panel_width = n_scenarios * subplot_size[0]
-    legend_height = 1.4
+    if ncols>=3:
+        legend_height = 1.4
+    else:
+        legend_height = 2.0
     fig = plt.figure(
         figsize=(panel_width * ncols, subplot_size[1] * nrows + legend_height + 0.35)
     )
@@ -106,6 +110,7 @@ def plot_impact_category_overview(
             scenarios=scenarios,
             show_xlabels=index // ncols == nrows - 1,
             save_legend=False,
+            contrib_anal=contrib_anal,
             **plot_options,
         )
 
@@ -120,8 +125,13 @@ def plot_impact_category_overview(
         for handle, label in zip(handles, labels):
             legend_items.setdefault(label, handle)
 
-    reordered_handles=list(legend_items.values())[::2]+list(legend_items.values())[1::2]
-    reordered_labels=list(legend_items.keys())[::2]+list(legend_items.keys())[1::2]
+    #Reorganize legend order if the legend has two columns
+    if ncols>=3:
+        reordered_handles=list(legend_items.values())[::2]+list(legend_items.values())[1::2]
+        reordered_labels=list(legend_items.keys())[::2]+list(legend_items.keys())[1::2]
+    else:
+        reordered_handles=list(legend_items.values())
+        reordered_labels=list(legend_items.keys())
 
     legend_ax = fig.add_subplot(grid[-1, :])
     legend_ax.axis('off')
@@ -133,14 +143,15 @@ def plot_impact_category_overview(
             loc='center',
             bbox_to_anchor=(0, 0, 1, 1),
             mode='expand',
-            ncols=2,
+            ncols=ncols-1,
             fontsize=plot_options.get('size_legend', 10),
             frameon=False,
             borderaxespad=0,
         )
 
     if title:
-        fig.suptitle(title, fontsize=18, y=0.99, weight='bold')
+        titre_formate = textwrap.fill(title, width=20*ncols)
+        fig.suptitle(titre_formate, fontsize=18, y=0.99, weight='bold')
     fig.subplots_adjust(
         left=0.08,
         right=0.99,
@@ -701,5 +712,4 @@ def plot_bar_graph_contrib(
         fig.subplots_adjust(bottom=0.22)
         fig.savefig(fig_path, bbox_inches="tight", pad_inches=0.1)
         plt.close(fig)
-
 

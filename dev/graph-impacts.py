@@ -26,7 +26,7 @@ scenarios='FR'
 #Define the analyses to be performed
 analyses=[
     {
-    "analysis_type":"contrib", 
+    "analysis_type":"aggregated", 
     "column":'contribution to impact', #column name in list_df_ca_aggreg_ter to be used for plotting
     "rows":[1,2,7,10], #rows number in list_df_ca_aggreg_ter to be used for plotting
     "impact_cat":[ #selected impact categories to be plotted in the overview graph
@@ -37,7 +37,9 @@ analyses=[
         "water use",
         "ionising radiation:human health"
         ],
-    "title_graph":"Domestic generation and supply mix impacts per kWh" #title of the overview graph
+    "title_graph":"Domestic generation and supply mix impacts per kWh",#title of the overview graph
+    "contrib_anal":False,
+    "ncols":3,
     },
     {
     "analysis_type":"incremental",
@@ -49,7 +51,9 @@ analyses=[
         "material resources:metals minerals",
         "water use"
         ],
-    "title_graph":"Incremental effect analysis related to domestic generation mix"
+    "title_graph":"Incremental effect analysis",
+    "contrib_anal":True,
+    "ncols":2,
     }
 ]
 
@@ -80,7 +84,6 @@ if scenarios=='IAM':
 
 
 plot_options = {
-    'contrib_anal': False,
     'add_number_percentage': 'number',
     'add_prod_mix': 1,
     'add_conso_mix': 1,
@@ -164,6 +167,7 @@ for mainfolder in mainfolders:
                         scenarios=scenarios,
                         fig_path=mainpath+'/'+analysis["analysis_type"]+'/'+str(str(g['order']))+'/'+impact+'_'+mainfolder+'.png',
                         legend_path=mainpath+'/'+analysis["analysis_type"]+'/',
+                        contrib_anal=analysis['contrib_anal'],
                         **plot_options,
                     )
 
@@ -177,10 +181,12 @@ for mainfolder in mainfolders:
                 order=g['order'],
                 rows=analysis["rows"],
                 column=analysis["column"],
-                output_path=order_path+'/impact_overview_'+mainfolder+'.png',
+                output_path=order_path+'/0_'+analysis["analysis_type"]+'_'+mainfolder+'.png',
                 title=analysis["title_graph"],
                 scenarios=scenarios,
                 subplot_size=subplot_size,
+                contrib_anal=analysis['contrib_anal'],
+                ncols=analysis['ncols'],
                 plot_options=plot_options,
             )
 
