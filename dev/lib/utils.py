@@ -115,13 +115,14 @@ def generate_premise_dbs(list_scenarios):
 
 
 
-def generate_premise_db_list():
+def generate_premise_db_list(filter=""):
     """ Generate a list of databases generated with premise"""
     #generate a list of names of generated databases by premise
     premise_db_name_list=[]
     for db_name in list(bw2data.databases): #bw2data.databases.keys():
         if "ei_cutoff" in db_name:
-            premise_db_name_list.append(db_name)
+            if filter in db_name:
+                premise_db_name_list.append(db_name)
     #generate a list of generated databases by premise
     premise_db_list=[]
     for db_name in premise_db_name_list:
@@ -256,7 +257,7 @@ def extract_scenario_data(premise_db_list):
 
     for df in list_df_mix:
         df=df[df["act"]!="market for electricity, high voltage, FE2050"]
-        df=df[df["act"]!="market for electricity production, direct production, high voltage, FE2050"]
+        df=df[df["act"]!="domestic generation mix, FE2050"]
         df=df[df["act"]!="market group for electricity, high voltage"]
         for act_name in direct_elec_prod_act_names :
             df=df[df["act"]!=act_name]

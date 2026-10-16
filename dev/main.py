@@ -1,3 +1,5 @@
+#Check the calculation set up in lib.static_transversal
+
 # INITIALISATION
 
 #Import usefull packages
@@ -32,7 +34,7 @@ from lib.static_impact import *
 init()
 print ('INFO : ignore the warning')
 
-#1. Generate and modify databases
+#1. Generate databases
 
 if generate_db:
         #Generate the list of scenarios
@@ -52,9 +54,9 @@ premise_db_list=generate_premise_db_list()
 df_premise_db_list=tag_premise_dbs(premise_db_list, DATA_OUT_FOLDER)
 print('INFO: ',len(df_premise_db_list),'premise databases were generated and tagged')
 
-#Extract RTE Data
+#Extract RTE Data only for database generated with image_SSP2-M
 if extract_RTE_data:
-       extract_scenario_data(premise_db_list)
+       extract_scenario_data(generate_premise_db_list(filter='image_SSP2-M'))
 
 #2. Impacts
 #Check that impacts are bw2 methods
@@ -63,37 +65,53 @@ for impact_cat in impacts:
 
 
 # Choose configuration
-selected_db_list=[db for db in premise_db_list if db.model=='image' and db.SSP=='SSP2' and db.RCP=='M']
-mainfolder='image-SSP2-M'
-selected_impacts=impacts
 
-#selected_db_list=[db for db in premise_db_list if db.model=='tiam-ucl' and db.SSP=='SSP2' and db.RCP=='RCP45']
-#mainfolder='tiam-SSP2-RCP45'
-#selected_impacts=impacts
+configurations=[
+        {
+        "selected_db_list":[db for db in premise_db_list if db.model=='image' and db.SSP=='SSP2' and db.RCP=='M' and '2026-10-16' not in db.name],
+        "mainfolder":'test',
+        "selected_impacts": [climate],
+        "curtailment_included":True,
+        },
 
-#selected_db_list=[db for db in premise_db_list if db.FR_scenario=='M0']
-#mainfolder='scenarios-RCP45-M0'
-#selected_impacts=impacts
+        # {
+        # "selected_db_list":[db for db in premise_db_list if db.model=='image' and db.SSP=='SSP2' and db.RCP=='M'],
+        # "mainfolder":'image-SSP2-M',
+        # "selected_impacts": impacts,
+        # "curtailment_included":True,
+        # },
+        # {
+        # "selected_db_list":[db for db in premise_db_list if db.model=='tiam-ucl' and db.SSP=='SSP2' and db.RCP=='RCP45'],
+        # "mainfolder":'tiam-SSP2-RCP45',
+        # "selected_impacts":impacts,
+        # "curtailment_included":True,
+        # },
+        # {
+        # "selected_db_list":[db for db in premise_db_list if db.FR_scenario=='M0'],
+        # "mainfolder":'scenarios-RCP45-M0',
+        # "selected_impacts":impacts,
+        # "curtailment_included":True,
+        # }
+]
 
-
-curtailment_included=True
 
 if run_calc:
-        for db in selected_db_list:
-                print(db.name)
-        for impact_cat in selected_impacts:
-                print(impact_cat[1])
+        for config in configurations:
+                for db in config["selected_db_list"]:
+                        print(db.name)
+                for impact_cat in config["selected_impacts"]:
+                        print(impact_cat[1])
 
-        #aggregated contribution analysis
-        df_curtailment=import_xls_list_df('lib/curtailed_electricity.xlsx')[0]
-        results=ca_aggreg(mainfolder,selected_db_list,selected_impacts,curtailment_included,df_curtailment)
-        ca_aggreg=results[0]
-        ca_aggreg_bis=results[1]
+                #aggregated contribution analysis
+                df_curtailment=import_xls_list_df('lib/curtailed_electricity.xlsx')[0]
+                results=ca_aggreg(config["mainfolder"],config["selected_db_list"],config["selected_impacts"],config["curtailment_included"],df_curtailment)
+                ca_aggreg=results[0]
+                ca_aggreg_bis=results[1]
 
-        #disaggregation of storage
-        results=ca_disaggreg_storage(mainfolder,selected_db_list,selected_impacts)
-        ca_storage=results[0]
-        list_df_storage_efficiency=results[1]
+                #disaggregation of storage
+                results=ca_disaggreg_storage(config["mainfolder"],config["selected_db_list"],config["selected_impacts"])
+                ca_storage=results[0]
+                list_df_storage_efficiency=results[1]
 
-        #ca_disaggreg_ter
-        ca_aggreg_ter=ca_disaggreg_ter(mainfolder,selected_db_list,selected_impacts,ca_aggreg_bis,ca_storage)
+                #ca_disaggreg_ter
+                ca_aggreg_ter=ca_disaggreg_ter(config["mainfolder"],config["selected_db_list"],config["selected_impacts"],ca_aggreg_bis,ca_storage)
